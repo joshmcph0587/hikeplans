@@ -1,0 +1,180 @@
+{
+  "slug": "pecos-2026-08",
+  "researched": "2026-07-28",
+  "place": "Pecos Baldy Lake",
+  "eyebrow": "Pecos Wilderness · Sangre de Cristo · New Mexico",
+  "title": ["Pecos", "Baldy"],
+  "dates": "August 25 to 28, 2026",
+  "party": ["Josh", "Jon", "Pat"],
+  "thesis": "Two nights under East Pecos Baldy by way of Hamilton Mesa — the quiet back door, while the front door is closed for construction. Josh, Jon and Pat — August 25 to 28, 2026.",
+
+  "facts": [
+    { "label": "Distance", "value": "~28 mi" },
+    { "label": "Gain, in", "value": "~3,000′" },
+    { "label": "Nights out", "value": "2" },
+    { "label": "Permit", "value": "Free" },
+    { "label": "Per person", "value": "~$565" }
+  ],
+
+  "profile": {
+    "note": "Trailhead and camp elevations sourced; the mesa crest (~mile 4) is derived from a hiking group's gross-gain log and is approximate — the real profile bumps a little higher there than drawn.",
+    "y_min": 9000,
+    "y_max": 12000,
+    "x_max": 14,
+    "points": [
+      { "mile": 0, "elev": 9480, "label": "Iron Gate · 9,480 ft" },
+      { "mile": 1, "elev": 9580 },
+      { "mile": 4.2, "elev": 10250, "label": "Mesa crest · ~10,250 ft" },
+      { "mile": 5.8, "elev": 9600, "label": "Camp 1 · Beatty's · ~9,600 ft", "emphasis": true },
+      { "mile": 9.3, "elev": 9911 },
+      { "mile": 14, "elev": 11420, "label": "Camp 2 · Pecos Baldy Lake · 11,420 ft", "emphasis": true }
+    ]
+  },
+
+  "why": [
+    "The Pecos is the closest real alpine wilderness to Austin — one 50-minute nonstop to Albuquerque, two hours of driving, and you're walking at 9,500 feet under 12,000-foot granite with no permit, no quota, no lottery, and no grizzlies. Late August is the tail of the monsoon: the high country is as green as it gets, the aspens are a couple of weeks from turning, and the crowds thin once school starts.",
+    "The route is the back door, and this year that's not a style choice. The front-door trailhead at Jacks Creek — the busy way in — is closed through September 30, 2026 for construction, along with Panchuela and Field Tract. Iron Gate, at the end of five rough miles of forest road, stays open and puts us on Hamilton Mesa: a long open meadow crest with the whole Truchas skyline stood up in front of you. It's a longer walk to the same lake, and a much quieter one."
+  ],
+
+  "days": [
+    {
+      "n": "01", "dow": "Tue", "date": "Aug 25", "title": "Fly in, walk onto the mesa",
+      "log": [
+        ["08:40", "Depart Austin — Southwest WN 2654, nonstop"],
+        ["09:30", "Land Albuquerque, collect the SUV"],
+        ["10:15", "North on I-25. Stop in Santa Fe — fuel canisters and any last food"],
+        ["12:45", "Pecos village, then NM-63 north 23 miles"],
+        ["13:30", "Forest Road 223 — five miles, rough and slow, expect a livestock gate. Close it behind you"],
+        ["14:15", "Iron Gate trailhead, ~9,480 ft. Fee board ($5/vehicle/day), boots on. Carry the afternoon's water — the mesa is dry"],
+        ["~17:30", "<strong>Camp 1</strong> near Beatty's Cabin, ~9,600 ft — dispersed, outside the no-camping zone at the flats themselves"]
+      ],
+      "notes": ["Flight numbers were read from the airline schedule on July 28 and repeat daily, but Southwest reshuffles schedules — reconfirm times when booking. If the 8:40 is missed there's a 7:10 PM nonstop, which turns day one into a motel night in Santa Fe and a dawn start."]
+    },
+    {
+      "n": "02", "dow": "Wed", "date": "Aug 26", "title": "Down to the Pecos, up to the lake",
+      "notes": [
+        "About 8 miles: southwest on Beatty's Trail #25 over the shoulder of Round Mountain, then hard right and north onto Jacks Creek Trail #257 for the real climb — 9,900 to 11,400 in the last five miles. Be at the lake before the afternoon storms; the last stretch is open.",
+        "Afternoon is unstructured. East Pecos Baldy (12,529 ft) is a short, steep marked spur from the junction by the lake — an hour and change up if the sky allows it, done by lunch or not at all. Or walk the start of Trailriders Wall for the view down both sides of the range. <strong>Camp 2</strong> in the trees near the lake — no camping in the lake basin itself, 200 feet back from the water."
+      ]
+    },
+    {
+      "n": "03", "dow": "Thu", "date": "Aug 27", "title": "The long walk out, then Santa Fe",
+      "notes": [
+        "Fourteen miles back the way we came, and it isn't all downhill: after the descent to the Pecos there's a ~700-foot climb from Beatty's back up Larkspur to the mesa, late in the day, with the car still four miles off. Start at first light, storms notwithstanding — this day is why the trip works with two nights instead of three.",
+        "Out by mid-afternoon, then ninety minutes to Santa Fe. Room on Cerrillos Road, showers, and dinner somewhere that isn't rehydrated — the Plaza is a ten-minute drive and stays open late enough."
+      ]
+    },
+    {
+      "n": "04", "dow": "Fri", "date": "Aug 28", "title": "Home",
+      "log": [
+        ["08:45", "Leave Santa Fe — an hour to the Albuquerque airport, drop the SUV"],
+        ["11:35", "Depart Albuquerque — Southwest WN 3269, nonstop"],
+        ["14:20", "Land Austin, afternoon intact"]
+      ],
+      "notes": ["If nobody's in a hurry there's also WN 3162 at 8:10 PM, landing 11:00 PM — a full day in Santa Fe for the same fare."]
+    }
+  ],
+
+  "map": {
+    "intro": "Three turns decide this route, and two of them are in the first four miles. Get the mesa forks right, take the signed left onto Larkspur, and find the one fork below Round Mountain where right means the lake and left means a closed trailhead.",
+    "tiles": "opentopomap",
+    "waypoints": [
+      { "name": "Albuquerque airport (ABQ)", "lat": 35.0402, "lon": -106.6091, "kind": "transport", "popup": "Land 9:30 AM, Tue Aug 25. About 2.5 hours to the trailhead, the last 5 miles slow.", "in_hike_bounds": false },
+      { "name": "Iron Gate trailhead", "lat": 35.8400, "lon": -105.6206, "kind": "verified", "mile": 0, "diagram_label": ["Iron Gate", "mile 0 · ~9,480 ft"], "popup": "Mile 0 · ~9,480 ft<br>$5/vehicle/day. Hamilton Mesa Trail #249 leaves the top of the campground loop. <b>Bear left at both forks in the first mile.</b>" },
+      { "name": "Beatty's Cabin bridge — Camp 1 nearby", "lat": 35.9036, "lon": -105.6033, "kind": "verified", "mile": 5.8, "diagram_label": ["Beatty's Cabin · Camp 1", "mile 5.8 · ~9,600 ft"], "popup": "Mile 5.8 · ~9,600 ft<br>Pecos River water. Camping is <b>prohibited at Beatty's Flats itself</b> — camp along the trail outside it, 50 ft off trail and water." },
+      { "name": "Pecos Baldy Lake — Camp 2", "lat": 35.9126, "lon": -105.6474, "kind": "verified", "mile": 14, "diagram_label": ["Pecos Baldy Lake · Camp 2", "mile ~14 · 11,420 ft"], "popup": "Mile ~14 · 11,420 ft<br>No camping in the lake basin; sites in the trees north and southwest, 200 ft back." },
+      { "name": "Truchas Lakes (not on this itinerary)", "lat": 35.9704, "lon": -105.6354, "kind": "verified", "in_hike_bounds": false, "popup": "11,867 ft · 5.2 mi beyond Pecos Baldy Lake on Skyline #251 over Trailriders Wall. The extension a third night would buy." }
+    ],
+    "drive_note": "I-25 north past Santa Fe to exit 299, NM-50 into Pecos, NM-63 north 23 miles, then Forest Road 223 for 5 rough miles — high clearance recommended by the Forest Service, and budget about 2.5 hours from the airport.",
+    "caveat": "The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. The dashed line is straight-line spacing between surveyed waypoints, <strong>not the trail.</strong> Between Beatty's Cabin and the lake it is badly misleading: the map gap is 2.5 miles but the trail walks <strong>about 8</strong>, dog-legging southwest before turning north. Carry the paper sheet — there is no signal past Pecos."
+  },
+
+  "route": [
+    { "meta": "Mile 0 · ~9,480 ft", "title": "Iron Gate trailhead", "body": "End of five rough miles of FR 223 — the Forest Service says high clearance, and means it. $5 a day per vehicle at the board, no wilderness permit needed. No water here, so day one's supply rides up from town. Hamilton Mesa Trail #249 leaves from the top of the campground loop." },
+    { "meta": "Miles 0.5–1.0 · two forks", "title": "Bear left, twice", "body": "Two forks come quickly on the climb to the mesa — <strong>stay left both times on #249.</strong> Right at the second fork is Rociada Trail #250, which drops three miles off the east side to Mora Flats — wrong drainage, and every foot has to be re-climbed. Sources disagree on whether the first fork sits at a half mile or a full mile; expect it early and read the signs." },
+    { "meta": "Miles 1–4 · the mesa", "title": "Hamilton Mesa", "body": "A long open meadow crest around 10,000 feet with the Truchas group stood up across the valley — the best sustained view of the trip, and the reason to be glad the short way in was closed. It is also <strong>dry</strong>: the only water reported up here is stock tanks. Walk it early if storms are building.",
+      "photo": { "commons": "Truchas Peaks from Hamilton Mesa (4773206697).jpg", "caption": "The Truchas Peaks from Hamilton Mesa", "credit": "JustTooLazy, CC BY 2.0" } },
+    { "meta": "Mile 4.2 · signed junction", "title": "Left onto Larkspur #260", "body": "The signed junction is the trip's key turn: <strong>left and downhill, west,</strong> onto Larkspur Trail #260. Continuing north on #249 heads for Pecos Falls, miles the wrong way. On the descent, Bob Grounds Trail #270 comes in — keep straight downhill." },
+    { "meta": "Mile 5.8 · ~9,600 ft", "title": "Beatty's Cabin — Camp 1", "body": "Bridge over the Pecos River under limestone cliffs. Camping and fires are <strong>prohibited at Beatty's Flats itself</strong> — take a site along the trail outside the flats, 50 feet off trail and water. First reliable water since the car; tank up for the morning." },
+    { "meta": "Miles 5.8–9.3 · the dogleg", "title": "Southwest on Beatty's #25", "body": "Cross the bridge and follow Beatty's Trail #25 <strong>southwest</strong> over the shoulder of Round Mountain — away from the lake on the map, which is correct and the price of the open trailhead. This segment's length (~3.5 mi) is derived from descriptions, not measured; trust the junctions over the mileage. At the fork below Round Mountain, <strong>right and north onto Jacks Creek Trail #257.</strong> Left goes 2.5 miles down to the closed Jacks Creek trailhead." },
+    { "meta": "Miles 9.3–14 · the climb", "title": "Up Jacks Creek to the lake", "body": "The real work: about 1,500 feet over the last few miles, timber giving way as East Pecos Baldy fills the sky. Dockweiler #259 branches east partway up — stay on #257. Just below the lake the trail splits: <strong>left and northwest to the water;</strong> right is #257 climbing Trailriders Ridge.",
+      "photo": { "commons": "Looking NW from the Jack Creek Trail to Pecos Baldy Lake on 9 August 2021.jpg", "caption": "First look at Pecos Baldy Lake from the Jacks Creek Trail, August", "credit": "Matthew.kowal, CC BY-SA 4.0" } },
+    { "meta": "Mile ~14 · 11,420 ft", "title": "Pecos Baldy Lake — Camp 2", "body": "The lake sits in a bowl under East Pecos Baldy at 11,420 ft. No camping in the basin itself — established sites are in the trees north and southwest, 200 feet back from the water. The resident bighorn sheep are habituated and will work an unattended camp; keep the tent zipped and food hung.",
+      "photo": { "commons": "Pecos Baldy Lake with Truchas in Background (15586831676).jpg", "caption": "Pecos Baldy Lake, the Truchas Peaks behind", "credit": "U.S. Forest Service" } },
+    { "meta": "The extension we're not doing", "title": "Truchas Lakes, 5.2 miles on", "body": "Skyline Trail #251 runs north from the lake over Trailriders Wall — a long exposed ridge marked by chest-high cairns — to the Truchas Lakes at 11,867 ft. On a two-night schedule from Iron Gate it doesn't fit; with a third night it's the obvious move. Water between the lakes is scarce, and the Wall is nowhere to be at 2 PM in August.",
+      "photo": { "commons": "East Pecos Baldy above Pecos Baldy Lake (4773849244).jpg", "caption": "East Pecos Baldy above the lake — the summit spur climbs the far ridge", "credit": "JustTooLazy, CC BY 2.0" } },
+    { "meta": "Miles 14–28 · back over the top", "title": "The return, and its one trap", "body": "Reverse the whole line. The trap is right at the start: from the lake take <strong>#257 south, downhill</strong> — not up Trailriders Ridge, not Skyline. At the Round Mountain fork bear <strong>left</strong> for Beatty's, refill at the bridge, then climb Larkspur's ~700 feet back to the mesa with tired legs before the last easy four miles to the car. Budget the whole day." }
+  ],
+
+  "costs": {
+    "party_size": 3,
+    "rows": [
+      { "item": "Flight, Austin–Albuquerque round trip", "pp": 217, "status": "confirmed", "note": "Southwest nonstop, Tue Aug 25 out / Fri Aug 28 back. Google Flights, checked 2026-07-28, rated typical. Mon–Thu costs $237." },
+      { "item": "Checked pack, both ways", "pp": 90, "status": "estimated", "note": "Southwest charges $45/bag each way on basic fares since April 2026. Stoves and poles can't carry on." },
+      { "item": "SUV rental, three days", "pp": 99, "status": "estimated", "note": "$297 total, live Kayak quote for these dates. FR 223 wants clearance — book the SUV, not the compact ($231)." },
+      { "item": "Gas", "pp": 12, "status": "estimated", "note": "~250 miles at NM average $3.98 (AAA, 2026-07-28)." },
+      { "item": "Trailhead fee", "pp": 5, "status": "confirmed", "note": "$5/vehicle/day at Iron Gate; interagency passes accepted." },
+      { "item": "Hotel, Thursday the 27th", "pp": 35, "status": "estimated", "note": "Cerrillos Road corridor ran $84–130 for comparable late-August nights when checked. One room, three ways." },
+      { "item": "Trail food, three days", "pp": 40, "status": "estimated" },
+      { "item": "Two meals in town", "pp": 45, "status": "estimated" },
+      { "item": "Fuel canisters and odds and ends", "pp": 15, "status": "estimated", "note": "Bought in Santa Fe — canisters can't fly." },
+      { "item": "Bear hang kit", "pp": 7, "status": "estimated", "note": "Rope and a dry bag. No canister requirement in the Pecos — hang or Ursack." },
+      { "item": "Wilderness permit", "pp": 0, "status": "confirmed" }
+    ]
+  },
+
+  "hazard": {
+    "title": "Lightning, and a dry mesa",
+    "intro": "No grizzlies here — the thing that kills people in the Pecos in August is weather. It's monsoon season: storms build over the divide most afternoons, and half this route is open mesa or exposed climb with nowhere to be small.",
+    "points": [
+      "<strong>Off open ground by early afternoon.</strong> Hamilton Mesa, the upper #257 climb, East Pecos Baldy, and Trailriders Wall are all exposed. Summits happen by lunch or not at all.",
+      "<strong>Carry the mesa dry.</strong> No water at the trailhead or for the first 5.8 miles — start with 2–3 liters each from town. Refill at the Pecos River bridge and the lake. Filter everything.",
+      "<strong>Hang everything scented.</strong> Black-bear country with a drought pushing bears toward camps. No canister rule — a proper hang or Ursack, 200 ft from the tent.",
+      "<strong>The bighorns are bold.</strong> Habituated sheep patrol the lake camps — zip the tent, don't leave packs open, and never feed them.",
+      "<strong>The road is part of the route.</strong> Five miles of rough FR 223, one livestock gate, no signal from Pecos village onward. Drive it in daylight."
+    ],
+    "outro": "None of this is exotic. It's a noon turnaround discipline and a water plan — they just both have to actually happen."
+  },
+
+  "weather": {
+    "intro": "Mid-August is the back half of the monsoon. Mornings are usually clear; storms build over the divide by early afternoon most days and fade with the sun. 2026's monsoon arrived late but strong, over a severe-drought base — expect the pattern, not gentle exceptions. These are station normals, not a forecast.",
+    "rows": [
+      { "label": "Day high, Terrero (7,714 ft)", "value": "~76°F" },
+      { "label": "Overnight low, Terrero", "value": "~42°F" },
+      { "label": "Derived at the lake (11,420 ft)", "value": "~63° / low 30s" },
+      { "label": "Afternoon thunderstorms", "value": "most days" }
+    ],
+    "source": "Terrero co-op station normals (7,714 ft, WRCC, 1946–61 record); lake figures lapse-rate derived, hence the ~, and canyon-bottom lows exaggerate the spread — plan for low-to-mid 30s and possible frost. Monsoon pattern per NWS Albuquerque. Checked 2026-07-28."
+  },
+
+  "before": [
+    { "h": "Fires", "p": "Stage II restrictions (no wood fires anywhere, stoves only in a cleared area) were ordered forest-wide June 26 through September 30, 2026 — though the forest's alert page had stopped listing the order when checked July 28, with no rescission announced. Plan stove-only regardless and check the Santa Fe NF alerts page the week we leave." },
+    { "h": "Water", "p": "The Pecos River at Beatty's and the lake are reliable; everything between is not, in a drought year. The mesa is dry and the side streams are suspect — carry accordingly and filter." },
+    { "h": "Altitude", "p": "Austin is at 500 feet; camp two is at 11,420. Camp one at ~9,600 is deliberately the acclimatization night. Drink more than feels necessary and expect the #257 climb to feel unfair." },
+    { "h": "The road in", "p": "NM-63 is paved to the Iron Gate turnoff; FR 223's five miles are rough dirt the Forest Service flags for high-clearance vehicles. There may be a closed livestock gate — pass through and re-close it. Tight, slow, fine in the SUV when dry." },
+    { "h": "No signal", "p": "Nothing past Pecos village. Someone at home gets the full itinerary, and a satellite messenger comes if any of us has one." },
+    { "h": "Why not Jacks Creek", "p": "The normal trailhead for this lake is closed May 4 – September 30, 2026 for construction (Panchuela and Field Tract too), and the closure order covers being on the road at all. If it's rescinded early the trip gets 7 miles shorter each way — call the district before assuming." }
+  ],
+
+  "booking": [
+    { "meta": "Do this first", "title": "Flights — $217, Aug 25 out, Aug 28 back", "body": "Four weeks out is where the fare starts moving. Times were confirmed July 28 but Southwest reshuffles schedules — recheck at booking." },
+    { "meta": "Same day", "title": "The SUV — the real one", "body": "About $297 for three days. FR 223 is the reason to resist the $231 compact; book something with clearance and normal tires won't embarrass you." },
+    { "meta": "Less urgent", "title": "One room in Santa Fe, Thursday the 27th", "body": "Cerrillos Road runs $84–130 midweek in late August. Slack here, but tourist-season Santa Fe fills — don't leave it to the last week." },
+    { "meta": "The week before", "title": "Call the Pecos ranger district — (505) 757-6121", "body": "Three questions: current fire restrictions, whether the Jacks Creek closure still holds, and trail conditions on Beatty's #25 and upper #257. Five minutes that can redraw the trip." }
+  ],
+
+  "footer": {
+    "lines": [
+      "Trailhead: 35.8400, −105.6206 · Iron Gate, FR 223 off NM-63, north of Pecos, NM",
+      "Pecos–Las Vegas Ranger District, Santa Fe National Forest · (505) 757-6121",
+      "Recommended map: Outdoor Trail Maps, Santa Fe & Pecos Wilderness (2023) — or the PLIA reprint of the USFS Pecos Wilderness sheet"
+    ],
+    "open_questions": [
+      "The Beatty's Cabin → Jacks Creek #257 segment (~3.5 mi) is derived from trail descriptions, not measured — total mileage could move a mile either way. No published source states an Iron Gate → Pecos Baldy Lake distance.",
+      "A shortcut exists on paper (Sebadilloses #245, would cut ~4 miles) but its endpoints conflict between sources and its condition is reported poor — ask the district; don't take it on spec.",
+      "Stage II fire restrictions were ordered through Sept 30 but had dropped off the forest's alert page by July 28 with no rescission found — status ambiguous, verify by phone.",
+      "The mesa-crest elevation on the profile is derived, and the first two junction distances (0.5 vs 1.0 mi) conflict between sources — read the signs, not the odometer.",
+      "No freely licensed photo of Truchas Lakes exists on Commons — the photos show the peaks and Pecos Baldy Lake only."
+    ]
+  }
+}
