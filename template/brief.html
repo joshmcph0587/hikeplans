@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="{{meta_description}}">
+<title>{{title_tag}}</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+  #map{height:460px;width:100%;border:1px solid var(--rule);background:var(--paper-2);margin:22px 0 0}
+  .leaflet-container{font-family:system-ui,-apple-system,sans-serif;font-size:13px}
+  .mapbtns{display:flex;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+  .mapbtns button{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;background:transparent;color:#2E5339;border:1px solid #2E5339;
+    padding:7px 13px;cursor:pointer}
+  .mapbtns button:hover{background:#2E5339;color:#F6F7F3}
+</style>
+<style>
+  :root{
+    --paper:#EDF0E8;
+    --paper-2:#F6F7F3;
+    --contour:#7A5B38;
+    --forest:#2E5339;
+    --water:#1D6F8E;
+    --route:#B5651D;
+    --rule:#C9CEC0;
+    --ink:#23281F;
+    --ink-2:#5A6152;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:400 17px/1.65 var(--sans);
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:0 24px 96px}
+
+  header{padding:56px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--contour);margin:0 0 18px
+  }
+  h1{
+    font:700 clamp(42px,9vw,76px)/0.95 var(--serif);
+    margin:0;letter-spacing:-.02em;color:var(--forest)
+  }
+  .sub{font-size:19px;color:var(--ink-2);margin:14px 0 0;max-width:52ch}
+
+  .hero{margin:34px 0 0;border:1px solid var(--rule);background:var(--paper-2);padding:20px 8px 8px}
+  .hero svg{display:block;width:100%;height:auto}
+  .hero .vizsource{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    color:var(--ink-2);margin:8px 8px 4px}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1px 0 0
+  }
+  .fact{background:var(--paper-2);padding:14px 16px}
+  .fact dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 4px}
+  .fact dd{margin:0;font:600 21px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+
+  h2{
+    font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--contour);margin:72px 0 0;padding-bottom:10px;border-bottom:2px solid var(--forest)
+  }
+  h3{font:600 27px/1.2 var(--serif);margin:34px 0 2px;color:var(--forest)}
+  p{margin:14px 0}
+  a{color:var(--water);text-underline-offset:2px}
+
+  .day{display:grid;grid-template-columns:64px 1fr;gap:0 22px;margin:40px 0 0;
+    padding-top:26px;border-top:1px solid var(--rule)}
+  .day:first-of-type{border-top:0}
+  .daymark{font:700 34px/1 var(--mono);color:var(--route);margin:0}
+  .daydate{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0}
+  .day h3{margin-top:0}
+
+  .log{margin:16px 0 0;border-top:1px solid var(--rule)}
+  .log div{display:grid;grid-template-columns:82px 1fr;gap:16px;
+    padding:9px 0;border-bottom:1px solid var(--rule);font-size:16px}
+  .log span{font-family:var(--mono);font-size:13px;color:var(--contour);padding-top:2px;
+    font-variant-numeric:tabular-nums}
+  .log p{margin:0}
+
+  ol.route{list-style:none;counter-reset:leg;padding:0;margin:22px 0 0}
+  ol.route li{counter-increment:leg;position:relative;padding:0 0 22px 62px;
+    border-left:2px solid var(--rule);margin-left:14px}
+  ol.route li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.route li::before{
+    content:counter(leg,decimal-leading-zero);position:absolute;left:-15px;top:0;
+    width:28px;height:28px;border-radius:50%;background:var(--forest);color:var(--paper-2);
+    font:600 11px/28px var(--mono);text-align:center
+  }
+  ol.route strong{display:block;font:600 17px/1.4 var(--sans)}
+  ol.route em{font-style:normal;font-family:var(--mono);font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--contour);display:block;margin:0 0 3px}
+
+  table{width:100%;border-collapse:collapse;margin:22px 0 0;font-size:16px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.total td{border-bottom:0;border-top:2px solid var(--forest);font-weight:600;
+    color:var(--forest);padding-top:13px}
+  td small{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.4}
+
+  .alert{border:2px solid var(--route);background:#FBF3E9;padding:22px 26px;margin:24px 0 0}
+  .alert h3{margin-top:0;color:#8A4A12}
+  .alert ul{margin:12px 0 0;padding-left:20px}
+  .alert li{margin:8px 0}
+
+  .mapwrap{display:grid;grid-template-columns:340px 1fr;gap:0 34px;margin:24px 0 0;align-items:start}
+  .mappanel{border:1px solid var(--rule);background:var(--paper-2);padding:12px}
+  .mappanel svg{display:block;width:100%;height:auto}
+  .mapkey h3{margin-top:0;font-size:20px}
+  table.wp{margin:10px 0 0;font-size:14px}
+  table.wp td{padding:7px 0;border-bottom:1px solid var(--rule)}
+  table.wp td.n{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2)}
+  ol.route figure{margin:16px 0 0}
+  ol.route img{display:block;width:100%;max-width:430px;height:auto;border:1px solid var(--rule)}
+  ol.route figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0;max-width:430px;line-height:1.5}
+  ol.route figcaption a{color:var(--ink-2)}
+  .caveat{font-size:14.5px;color:var(--ink-2);border-left:3px solid var(--route);
+    border-radius:0;padding-left:14px;margin-top:20px}
+  @media (max-width:660px){.mapwrap{grid-template-columns:1fr}}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+  .cols h3{font-size:20px}
+  .cols p{font-size:16px;margin:8px 0 0}
+
+  footer{margin:80px 0 0;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+
+  @media (max-width:560px){
+    .sheet{padding:0 18px 64px}
+    .day{grid-template-columns:1fr;gap:0}
+    .daymark{font-size:26px}
+    .log div{grid-template-columns:72px 1fr;gap:12px}
+    ol.route li{padding-left:44px}
+  }
+  @media print{body{background:#fff}.hero,.day,.alert,figure{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">{{eyebrow}}</p>
+  <h1>{{title_h1}}</h1>
+  <p class="sub">{{thesis}}</p>
+</header>
+
+<div class="hero">
+{{profile_svg}}
+{{profile_note}}
+</div>
+
+<dl class="facts">
+{{facts}}
+</dl>
+
+<h2>Why here</h2>
+
+{{why_paras}}
+
+<h2>The itinerary</h2>
+
+{{days}}
+
+<h2>The route, junction by junction</h2>
+
+<p>{{route_intro}}</p>
+
+<div id="map"></div>
+<div class="mapbtns">
+  <button type="button" id="btn-hike">Fit the hike</button>
+  <button type="button" id="btn-drive">Fit the drive</button>
+</div>
+<p class="caveat" id="mapstatus">Loading the map…</p>
+
+<div class="mapwrap">
+  <div class="mappanel">
+{{plan_svg}}
+  </div>
+
+  <div class="mapkey">
+    <h3>Waypoints</h3>
+    <table class="wp">
+{{waypoint_rows}}
+    </table>
+    <p style="margin-top:16px;font-size:15px">{{drive_para}}</p>
+    <p class="caveat">{{diagram_caveat}}</p>
+  </div>
+</div>
+
+<ol class="route">
+{{route_legs}}
+</ol>
+{{photo_license_note}}
+
+<h2>What it costs</h2>
+
+<table>
+  <thead><tr><th>Item</th><th class="n">Per person</th></tr></thead>
+  <tbody>
+{{cost_rows}}
+  </tbody>
+</table>
+
+<div class="alert">
+  <h3>{{hazard_title}}</h3>
+  <p style="margin-top:6px">{{hazard_intro}}</p>
+  <ul>
+{{hazard_items}}
+  </ul>
+  <p style="margin-bottom:0">{{hazard_outro}}</p>
+</div>
+
+<h2>Before we go</h2>
+
+<div class="cols">
+{{before_cols}}
+</div>
+
+<h2>To book, in this order</h2>
+
+<ol class="route">
+{{booking_legs}}
+</ol>
+
+<footer>
+{{footer_html}}
+</footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('map');
+  var status = document.getElementById('mapstatus');
+  var btns = document.querySelector('.mapbtns');
+
+  function degrade(msg) {
+    el.style.display = 'none';
+    btns.style.display = 'none';
+    status.innerHTML = msg;
+  }
+
+  if (typeof L === 'undefined') {
+    degrade('Live map unavailable — the Leaflet library did not load. Use the diagram below, which needs no network.');
+    return;
+  }
+
+  var WAYPOINTS = {{map_waypoints_js}};
+  var DEFAULT_TILES = {{default_tiles_js}};
+
+  if (!WAYPOINTS.length) {
+    degrade('No mapped waypoints for this trip — use the diagram below.');
+    return;
+  }
+
+  var osmAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17, subdomains: 'abc',
+    attribution: osmAttr + ', SRTM &middot; Style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+  });
+  var street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19, attribution: osmAttr
+  });
+
+  var map = L.map('map', { layers: [DEFAULT_TILES === 'street' ? street : topo], scrollWheelZoom: false });
+  L.control.layers({ 'Topographic': topo, 'Street': street }).addTo(map);
+  L.control.scale({ imperial: true, metric: false }).addTo(map);
+
+  WAYPOINTS.forEach(function (w) {
+    L.marker(w.ll).addTo(map).bindPopup('<b>' + w.name + '</b>' + (w.popup ? '<br>' + w.popup : ''));
+  });
+
+  var hikePts = [];
+  var drivePts = [];
+  WAYPOINTS.forEach(function (w) {
+    drivePts.push(w.ll);
+    if (w.hike) hikePts.push(w.ll);
+  });
+  var hike = L.latLngBounds(hikePts.length ? hikePts : drivePts);
+  var drive = L.latLngBounds(drivePts);
+
+  function fitHike() { map.fitBounds(hike, { padding: [36, 36] }); }
+  fitHike();
+  document.getElementById('btn-hike').addEventListener('click', fitHike);
+  document.getElementById('btn-drive').addEventListener('click', function () {
+    map.fitBounds(drive, { padding: [36, 36] });
+  });
+
+  var gotTiles = false;
+  topo.on('tileload', function () { gotTiles = true; });
+  street.on('tileload', function () { gotTiles = true; });
+
+  setTimeout(function () {
+    if (!gotTiles) {
+      degrade('Map tiles were blocked — some viewers do not allow external map servers. <strong>Download this file and open it in a browser</strong> and the map will work. The diagram below needs no network.');
+    } else {
+      status.innerHTML = 'Contours and trail lines are OpenStreetMap data, drawn by volunteers &mdash; <strong>a guide, not a survey.</strong> Zoom in to see the trail network, and check it against the recommended paper sheet before relying on it. Scroll-zoom is off &mdash; use the +/&minus; buttons.';
+    }
+  }, 7000);
+})();
+</script>
+</body>
+</html>

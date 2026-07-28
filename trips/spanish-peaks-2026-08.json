@@ -1,0 +1,159 @@
+{
+  "slug": "spanish-peaks-2026-08",
+  "researched": "2026-07-28",
+  "place": "Spanish Peaks",
+  "eyebrow": "Lee Metcalf Wilderness · Madison Range · Montana",
+  "title": ["Spanish", "Peaks"],
+  "dates": "August 24 to 27, 2026",
+  "party": ["Josh", "Jon", "Pat"],
+  "thesis": "Three days into the granite core of the Spanish Peaks, forty-five minutes from the Bozeman airport. Josh, Jon and Pat — August 24 to 27, 2026.",
+
+  "facts": [
+    { "label": "Distance", "value": "~16 mi" },
+    { "label": "Elev. gain", "value": "~2,900′" },
+    { "label": "Nights out", "value": "2" },
+    { "label": "Permit", "value": "Free" },
+    { "label": "Per person", "value": "~$690" }
+  ],
+
+  "profile": {
+    "note": "Elevations approximate above the falls. Gain to Pioneer Falls sourced from a trip report.",
+    "y_min": 6000,
+    "y_max": 9000,
+    "x_max": 8,
+    "points": [
+      { "mile": 0,   "elev": 6120, "label": "Trailhead · 6,120 ft" },
+      { "mile": 2,   "elev": 6300 },
+      { "mile": 3,   "elev": 6450 },
+      { "mile": 3.4, "elev": 6870, "label": "Pioneer Falls · mile 3.4 · 6,870 ft" },
+      { "mile": 5,   "elev": 7700, "label": "Camp 1 · ~7,700 ft", "emphasis": true },
+      { "mile": 8,   "elev": 9000, "label": "Camp 2 · Spanish Lakes · ~9,000 ft", "emphasis": true }
+    ]
+  },
+
+  "why": [
+    "The Spanish Peaks are the granite heart of the Lee Metcalf Wilderness, and the Spanish Creek trailhead sits about fifty minutes from the terminal at Bozeman — a combination that basically doesn't exist anywhere else. Almost all the traffic in this range comes in from the Big Sky side, where day hikers pile into Beehive Basin. We're going in the back door.",
+    "Late August is the window: mosquitoes are finished, the summer crowds have gone home, and the weather settles. No permit lottery, no quota, no reservation — you sign a board at the trailhead and walk."
+  ],
+
+  "days": [
+    {
+      "n": "01", "dow": "Mon", "date": "Aug 24", "title": "Fly in, hike in",
+      "log": [
+        ["06:55", "Depart Austin — Southwest, one stop, 55 minutes in Denver"],
+        ["10:45", "Land Bozeman. 4h 50m door to door, the fastest routing available"],
+        ["11:15", "Collect the SUV"],
+        ["11:45", "Stop in town — bear spray, fuel canisters, anything still missing"],
+        ["12:30", "Drive to the Spanish Creek trailhead"],
+        ["13:15", "Sign the permit board, boots on"],
+        ["~17:00", "<strong>Camp 1</strong> — roughly five miles in, around 7,700 ft"]
+      ],
+      "notes": ["If a 6:55 departure is brutal, Southwest also flies at 9:00 with a comfortable two-hour Denver layover for the same fare, landing 13:55. You'd start walking mid-afternoon, which is still plenty for a short first day."]
+    },
+    {
+      "n": "02", "dow": "Tue", "date": "Aug 25", "title": "Into the granite",
+      "notes": [
+        "Six miles up the Falls Creek drainage to the Spanish Lakes at about 9,000 ft. The grade steepens in the back half as you break out of timber and the peaks come up around you — Gallatin Peak, the high point of the range at just over 11,000 ft, is the skyline.",
+        "Afternoon is unstructured. Fish the lakes, wander the upper basin, or push toward the divide. Optional legs from camp: Jerome Rock Lakes further up Falls Creek, or Mirror Lake back down the South Fork, which would take the trip to the full twenty miles. <strong>Camp 2</strong> at the lakes."
+      ]
+    },
+    {
+      "n": "03", "dow": "Wed", "date": "Aug 26", "title": "Out, and into town",
+      "notes": ["Eight miles back down the drainage, almost entirely downhill — four to five hours at a pace that doesn't hurt. Drive to Bozeman, get a room, and eat something that isn't rehydrated. Main Street has more breweries per block than a town this size has any business having, and they're all walkable from wherever we stay."]
+    },
+    {
+      "n": "04", "dow": "Thu", "date": "Aug 27", "title": "Home",
+      "log": [
+        ["Morning", "Breakfast in town, drop the SUV"],
+        ["13:35", "Depart Bozeman — Southwest, one stop in Denver"],
+        ["19:40", "Land Austin"]
+      ],
+      "notes": ["There's also an 08:35 that lands at 14:10 if anyone wants their afternoon back."]
+    }
+  ],
+
+  "map": {
+    "intro": "This is the part worth reading twice. Three trails leave the same trailhead and the first decision comes within a hundred yards of the bridge, so it's easy to end up in the wrong drainage.",
+    "tiles": "opentopomap",
+    "waypoints": [
+      { "name": "Bozeman airport (BZN)", "lat": 45.7784043, "lon": -111.1612273, "kind": "transport", "popup": "Land 10:45 AM, Mon Aug 24. About 50 minutes to the trailhead.", "in_hike_bounds": false },
+      { "name": "Spanish Creek trailhead", "lat": 45.4477028, "lon": -111.3770751, "kind": "verified", "mile": 0, "diagram_label": ["Trailhead", "mile 0 · 6,120 ft"], "popup": "Mile 0 · 6,120 ft<br>Cross the bridge, then <b>left</b> onto South Fork Spanish Creek #407." },
+      { "name": "Pioneer Falls", "lat": 45.4149285, "lon": -111.4052387, "kind": "verified", "mile": 3.4, "diagram_label": ["Pioneer Falls", "mile 3.4 · 6,870 ft"], "popup": "Mile 3.4 · 6,870 ft<br>Junction at mile 3 — go <b>right</b> onto Falls Creek Trail." },
+      { "name": "Camp 1", "lat": null, "kind": "approximate", "mile": 5, "diagram_label": ["Camp 1", "mile 5 · ~7,700 ft"], "note": "Dispersed camping about 1.5 mi above the falls. No fixed site, so no coordinate — plotted by interpolation on the static diagram only, and marked as approximate there." },
+      { "name": "Spanish Lakes — Camp 2", "lat": 45.3600225, "lon": -111.4204280, "kind": "verified", "mile": 8, "diagram_label": ["Spanish Lakes · Camp 2", "mile 8 · ~9,000 ft"], "popup": "Mile 8 · ~9,000 ft" }
+    ],
+    "drive_note": "The drive is a straightforward 50 minutes. South on US-191 through Gallatin Gateway, then Spanish Creek Road for about eleven miles.",
+    "caveat": "The diagram is the <strong>offline and print fallback</strong> — it needs no network and survives a dead phone. The dashed line is straight-line spacing between real, surveyed waypoints, <strong>not the trail alignment.</strong> Carry the Beartooth Publishing Bozeman / Big Sky sheet or a downloaded CalTopo or Gaia track — there is no cell signal past the trailhead."
+  },
+
+  "route": [
+    { "meta": "Mile 0 · 6,120 ft", "title": "Spanish Creek trailhead", "body": "A large developed trailhead at Spanish Creek Campground — seven designated sites with tables and fire rings, plus a Forest Service rental cabin. Free self-issue wilderness permit at the board." },
+    { "meta": "The first decision", "title": "Cross the bridge, then go left", "body": "Over Spanish Creek on a small wooden bridge, then <strong>left</strong> onto South Fork Spanish Creek Trail #407. Right puts you on Cherry Creek #401 — wrong drainage. Little Hellroaring #400 also starts here." },
+    { "meta": "Miles 0–2", "title": "Flat along the water", "body": "The trail meanders beside the creek with almost no elevation gain. Easy warm-up, and a good place to sort out how the packs are riding.",
+      "photo": { "commons": "Hikers on South Fork Spanish Creek Trail Custer Gallatin National ForestPXL 9460-01 (53282617263).jpg", "caption": "Hikers on the South Fork Spanish Creek Trail", "credit": "U.S. Forest Service" } },
+    { "meta": "Mile 3 · the second decision", "title": "Right onto Falls Creek Trail", "body": "At the posted junction go <strong>right</strong>. Staying straight on the South Fork leads to Mirror Lake at 7.5 miles, with most of its climb in the final two — a good day trip from camp, but not our line." },
+    { "meta": "Mile 3.4 · 6,870 ft", "title": "Pioneer Falls", "body": "About 750 feet of gain from the trailhead, most of it packed into the final half mile, ending at a forty-foot cascade. Be ready for company here — this is the most popular destination on the whole South Fork. Above the falls it empties out fast, which is the trade you make for such easy access." },
+    { "meta": "Mile 5 · ~7,700 ft", "title": "Camp 1", "body": "Keep climbing on Falls Creek past the falls and pick a site. Two hundred feet back from water, per wilderness rules.",
+      "photo": { "commons": "Campers in Lee Metcalf Wilderness Custer Gallatin National Forest PXL 1263-01 (53282695129).jpg", "caption": "Camping in the Lee Metcalf Wilderness", "credit": "U.S. Forest Service" } },
+    { "meta": "Mile 8 · ~9,000 ft", "title": "Spanish Lakes — Camp 2", "body": "Alpine lakes under the Spanish Peaks divide. This is the trip.",
+      "photo": { "commons": "Hiker near Spanish Lakes Custer Gallatin National Forest PXL 6722-01 (53282617513).jpg", "caption": "A hiker near Spanish Lakes", "credit": "U.S. Forest Service" } },
+    { "meta": "Mile 16 · back to 6,120 ft", "title": "Spanish Creek trailhead", "body": "Wednesday morning, reverse the whole thing — about eight miles, four to five hours, almost entirely downhill. Right at the Falls Creek junction becomes left, and the last two miles along the creek are flat enough to walk them talking. Sign out at the board if there's a register, then fifty minutes back to Bozeman." }
+  ],
+
+  "costs": {
+    "party_size": 3,
+    "rows": [
+      { "item": "Flight, Austin–Bozeman round trip", "pp": 329, "status": "confirmed", "note": "Google Flights, checked 2026-07-28. Rated typical pricing, not inflated." },
+      { "item": "SUV rental, three days", "pp": 110, "status": "estimated", "note": "About $330 total. SUVs at Bozeman average $89–101 a day." },
+      { "item": "Gas", "pp": 9, "status": "estimated", "note": "Roughly 150 miles all in." },
+      { "item": "Hotel, Wednesday the 26th", "pp": 75, "status": "estimated", "note": "One room with two queens, about $225 with tax. Add ~$75 each for two rooms." },
+      { "item": "Bear spray", "pp": 50, "status": "estimated", "note": "One canister each. Must be bought in Bozeman — it can't fly." },
+      { "item": "Bear canister rental", "pp": 17, "status": "estimated", "note": "Two canisters for three people." },
+      { "item": "Trail food, three days", "pp": 40, "status": "estimated" },
+      { "item": "Two meals in town", "pp": 45, "status": "estimated" },
+      { "item": "Fuel canisters and odds and ends", "pp": 15, "status": "estimated" },
+      { "item": "Wilderness permit", "pp": 0, "status": "confirmed" }
+    ]
+  },
+
+  "hazard": {
+    "title": "This is grizzly country",
+    "intro": "Different from most places we've hiked, and the one section of this brief that isn't optional. The Custer Gallatin has a food and attractant storage order in force on the Bozeman district, and late August is berry season — bears are feeding hard and covering ground.",
+    "points": [
+      "<strong>Spray on your hip belt</strong>, where your hand actually reaches it. Not in the pack.",
+      "<strong>Approved canister or a proper hang.</strong> Everything scented goes in — toothpaste, sunscreen, trash, all of it.",
+      "<strong>Three separate places</strong> for cooking, sleeping, and food storage.",
+      "<strong>Make noise</strong> on blind corners and anywhere the brush is thick."
+    ],
+    "outro": "None of this is exotic. It's standard practice in the Northern Rockies — it just has to actually get done."
+  },
+
+  "before": [
+    { "h": "Fires", "p": "Plan on stove-only. 2026 has been a heavy fire year across the West and restrictions are likely. Check the Custer Gallatin alerts page the week we leave." },
+    { "h": "Water", "p": "Spanish Creek and the lakes are reliable all season. Bring a filter." },
+    { "h": "Weather", "p": "Afternoon thunderstorms build most days — be off high ground by early afternoon. Nights at 9,000 ft in late August drop into the 30s. Real sleeping bag, not a summer quilt." },
+    { "h": "Altitude", "p": "We're going from about 500 ft to 9,000. Camp 1 is deliberately lower to take the edge off. Drink more than feels necessary on day one." },
+    { "h": "The road in", "p": "US-191 south through Gallatin Gateway, then Spanish Creek Road for roughly eleven miles — part gravel, part paved. Fine in a normal car when dry; the SUV is for comfort and margin. Parking gets tight midday, but a Monday should be fine." },
+    { "h": "No signal", "p": "Nothing in the wilderness. Someone at home gets the itinerary, and a satellite messenger comes if any of us has one." }
+  ],
+
+  "booking": [
+    { "meta": "Do this first", "title": "Flights — $329, Aug 24 out, Aug 27 back", "body": "About four weeks out, which is where fares start climbing. This is the piece that moves." },
+    { "meta": "Same day", "title": "The SUV", "body": "Bozeman rentals get tight in summer. Book it alongside the flight." },
+    { "meta": "Less urgent", "title": "One room, Wednesday the 26th", "body": "Wednesday is a cheap night in Bozeman, so there's slack — but don't leave it to the final week." },
+    { "meta": "On the ground", "title": "Bear spray and canisters", "body": "Sorted in Bozeman the morning we land, on the way to the trailhead." }
+  ],
+
+  "footer": {
+    "lines": [
+      "Trailhead: 45.4477, −111.3771 · Spanish Creek Campground, Gallatin Gateway, MT",
+      "Bozeman Ranger District, Custer Gallatin National Forest · (406) 522-2520",
+      "Recommended map: Beartooth Publishing, Bozeman / Big Sky — or the Gallatin Peak quad"
+    ],
+    "open_questions": [
+      "The route above is the reliable out-and-back. A loop variant exists through Jerome Rock Lakes, but the connector should be checked against a real map or with the ranger district before committing three people to it.",
+      "OpenStreetMap trail coverage for this drainage was not verified — Overpass queries were refused during research. Check the live map against the paper sheet.",
+      "Photo licenses were not read individually; they are Commons-hosted federal works. Confirm on the file pages before republishing."
+    ]
+  }
+}

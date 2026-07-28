@@ -1,18 +1,25 @@
-# Spanish Peaks trip brief
+# hikeplans
 
-Backpacking brief for the Spanish Peaks, Lee Metcalf Wilderness, Montana — 24–27 August 2026.
+Single-file HTML backpacking trip briefs, generated from JSON.
 
-`index.html` is fully self-contained. Enable GitHub Pages on this repo
-(Settings → Pages → Deploy from a branch → `main` / `root`) and it serves as-is.
+- `trips/<slug>.json` — one data file per trip (the only thing you author)
+- `template/brief.html` — the page template
+- `build.js` — zero-dependency renderer, Node 18+
+- `docs/` — build output; GitHub Pages serves from here (Settings → Pages → `main` / `/docs`)
+- `reference/spanish-peaks.html` — the original hand-built brief the generator was extracted from
 
-External resources it pulls at runtime, all optional and all degrading gracefully:
+Build:
 
-- Leaflet 1.9.4 (cdnjs) — interactive map
-- OpenTopoMap / OpenStreetMap tiles — contours and trail lines
-- Wikimedia Commons — three Custer Gallatin National Forest photographs
+```
+node build.js
+```
 
-If any of those fail to load, the page falls back to a static SVG route diagram
-and elevation profile that need no network at all.
+writes `docs/<slug>/index.html` for every trip plus `docs/index.html`, an index
+of all trips. Commit `docs/` — Pages serves it as-is.
 
-`index.html` carries a `noindex, nofollow` robots tag. Remove it if you want the
-page to be searchable.
+Each brief is fully self-contained. External resources (Leaflet from cdnjs,
+OpenTopoMap/OSM tiles, Wikimedia Commons photos) are optional enhancements that
+degrade gracefully to inline SVG fallbacks. Briefs carry a `noindex, nofollow`
+robots tag.
+
+See `CLAUDE.md` for the authoring workflow, research protocol, and design system.
