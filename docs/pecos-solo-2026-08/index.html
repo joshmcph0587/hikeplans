@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Backpacking trip brief: Pecos Baldy Lake, solo, Pecos Wilderness, Sangre de Cristo, Solo, by road, August 17 to 21, 2026.">
+<title>Pecos Baldy Lake, solo — Aug 17–21, 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+  #map{height:460px;width:100%;border:1px solid var(--rule);background:var(--paper-2);margin:22px 0 0}
+  .leaflet-container{font-family:system-ui,-apple-system,sans-serif;font-size:13px}
+  .mapbtns{display:flex;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+  .mapbtns button{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;background:transparent;color:#2E5339;border:1px solid #2E5339;
+    padding:7px 13px;cursor:pointer}
+  .mapbtns button:hover{background:#2E5339;color:#F6F7F3}
+</style>
+<style>
+  :root{
+    --paper:#EDF0E8;
+    --paper-2:#F6F7F3;
+    --contour:#7A5B38;
+    --forest:#2E5339;
+    --water:#1D6F8E;
+    --route:#B5651D;
+    --rule:#C9CEC0;
+    --ink:#23281F;
+    --ink-2:#5A6152;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:400 17px/1.65 var(--sans);
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:0 24px 96px}
+
+  header{padding:56px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--contour);margin:0 0 18px
+  }
+  h1{
+    font:700 clamp(42px,9vw,76px)/0.95 var(--serif);
+    margin:0;letter-spacing:-.02em;color:var(--forest)
+  }
+  .sub{font-size:19px;color:var(--ink-2);margin:14px 0 0;max-width:52ch}
+
+  .hero{margin:34px 0 0;border:1px solid var(--rule);background:var(--paper-2);padding:20px 8px 8px}
+  .hero svg{display:block;width:100%;height:auto}
+  .hero .vizsource{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    color:var(--ink-2);margin:8px 8px 4px}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1px 0 0
+  }
+  .fact{background:var(--paper-2);padding:14px 16px}
+  .fact dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 4px}
+  .fact dd{margin:0;font:600 21px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+
+  h2{
+    font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--contour);margin:72px 0 0;padding-bottom:10px;border-bottom:2px solid var(--forest)
+  }
+  h3{font:600 27px/1.2 var(--serif);margin:34px 0 2px;color:var(--forest)}
+  p{margin:14px 0}
+  a{color:var(--water);text-underline-offset:2px}
+
+  .day{display:grid;grid-template-columns:64px 1fr;gap:0 22px;margin:40px 0 0;
+    padding-top:26px;border-top:1px solid var(--rule)}
+  .day:first-of-type{border-top:0}
+  .daymark{font:700 34px/1 var(--mono);color:var(--route);margin:0}
+  .daydate{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0}
+  .day h3{margin-top:0}
+
+  .log{margin:16px 0 0;border-top:1px solid var(--rule)}
+  .log div{display:grid;grid-template-columns:82px 1fr;gap:16px;
+    padding:9px 0;border-bottom:1px solid var(--rule);font-size:16px}
+  .log span{font-family:var(--mono);font-size:13px;color:var(--contour);padding-top:2px;
+    font-variant-numeric:tabular-nums}
+  .log p{margin:0}
+
+  ol.route{list-style:none;counter-reset:leg;padding:0;margin:22px 0 0}
+  ol.route li{counter-increment:leg;position:relative;padding:0 0 22px 62px;
+    border-left:2px solid var(--rule);margin-left:14px}
+  ol.route li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.route li::before{
+    content:counter(leg,decimal-leading-zero);position:absolute;left:-15px;top:0;
+    width:28px;height:28px;border-radius:50%;background:var(--forest);color:var(--paper-2);
+    font:600 11px/28px var(--mono);text-align:center
+  }
+  ol.route strong{display:block;font:600 17px/1.4 var(--sans)}
+  ol.route em{font-style:normal;font-family:var(--mono);font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--contour);display:block;margin:0 0 3px}
+
+  table{width:100%;border-collapse:collapse;margin:22px 0 0;font-size:16px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.total td{border-bottom:0;border-top:2px solid var(--forest);font-weight:600;
+    color:var(--forest);padding-top:13px}
+  td small{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.4}
+
+  .alert{border:2px solid var(--route);background:#FBF3E9;padding:22px 26px;margin:24px 0 0}
+  .alert h3{margin-top:0;color:#8A4A12}
+  .alert ul{margin:12px 0 0;padding-left:20px}
+  .alert li{margin:8px 0}
+
+  .mapwrap{display:grid;grid-template-columns:340px 1fr;gap:0 34px;margin:24px 0 0;align-items:start}
+  .mappanel{border:1px solid var(--rule);background:var(--paper-2);padding:12px}
+  .mappanel svg{display:block;width:100%;height:auto}
+  .mapkey h3{margin-top:0;font-size:20px}
+  table.wp{margin:10px 0 0;font-size:14px}
+  table.wp td{padding:7px 0;border-bottom:1px solid var(--rule)}
+  table.wp td.n{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2)}
+  ol.route figure{margin:16px 0 0}
+  ol.route img{display:block;width:100%;max-width:430px;height:auto;border:1px solid var(--rule)}
+  ol.route figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0;max-width:430px;line-height:1.5}
+  ol.route figcaption a{color:var(--ink-2)}
+  .caveat{font-size:14.5px;color:var(--ink-2);border-left:3px solid var(--route);
+    border-radius:0;padding-left:14px;margin-top:20px}
+  @media (max-width:660px){.mapwrap{grid-template-columns:1fr}}
+
+  #wx-live{display:none;margin-top:28px}
+  #wx-live h3{font-size:20px}
+  table.wx td small{font-weight:400}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+  .cols h3{font-size:20px}
+  .cols p{font-size:16px;margin:8px 0 0}
+
+  footer{margin:80px 0 0;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+
+  @media (max-width:560px){
+    .sheet{padding:0 18px 64px}
+    .day{grid-template-columns:1fr;gap:0}
+    .daymark{font-size:26px}
+    .log div{grid-template-columns:72px 1fr;gap:12px}
+    ol.route li{padding-left:44px}
+  }
+  @media print{body{background:#fff}.hero,.day,.alert,figure,#wx-live{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">Pecos Wilderness · Sangre de Cristo · Solo, by road</p>
+  <h1>Pecos Baldy,<br>solo</h1>
+  <p class="sub">The same lake as the group trip, alone and by road — two nights under East Pecos Baldy, with a calendar loose enough to pick the weather window. Josh, solo — August 17 to 21, 2026.</p>
+</header>
+
+<div class="hero">
+<svg viewBox="0 0 780 300" role="img" aria-label="Elevation profile: 9,480 feet at mile 0 to 11,420 feet at mile 14">
+  <title>Elevation profile</title>
+  <line x1="96" y1="248" x2="740" y2="248" stroke="#C9CEC0"/>
+  <line x1="96" y1="192" x2="740" y2="192" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="136" x2="740" y2="136" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="80" x2="740" y2="80" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="#5A6152">
+    <text x="86" y="252" text-anchor="end">9,000</text>
+    <text x="86" y="196" text-anchor="end">10,000</text>
+    <text x="86" y="140" text-anchor="end">11,000</text>
+    <text x="86" y="84" text-anchor="end">12,000</text>
+    <text x="96" y="270" text-anchor="middle">0</text>
+    <text x="326" y="270" text-anchor="middle">5</text>
+    <text x="556" y="270" text-anchor="middle">10</text>
+    <text x="418" y="291" text-anchor="middle" letter-spacing="1.4" fill="#7A5B38">MILES FROM TRAILHEAD</text>
+  </g>
+  <path d="M96 221 L142 216 L289 178 L363 214 L524 197 L740 112 L740 248 L96 248 Z" fill="#2E5339" opacity="0.1"/>
+  <path d="M96 221 L142 216 L289 178 L363 214 L524 197 L740 112" fill="none" stroke="#B5651D" stroke-width="2.5" stroke-linejoin="round"/>
+  <g fill="#B5651D" stroke="#F6F7F3" stroke-width="2">
+    <circle cx="96" cy="221" r="4.5"/>
+    <circle cx="289" cy="178" r="4.5"/>
+    <circle cx="363" cy="214" r="5.5"/>
+    <circle cx="740" cy="112" r="6"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#23281F">
+    <text x="96" y="208" font-size="12" fill="#5A6152">Iron Gate · 9,480 ft</text>
+    <text x="305" y="219" font-size="12" fill="#5A6152">Mesa crest · ~10,250 ft</text>
+    <text x="305" y="197" font-weight="600">Camp 1 · Beatty's · ~9,600 ft</text>
+    <text x="740" y="92" text-anchor="end" font-weight="600">Camp 2 · Pecos Baldy Lake · 11,420 ft</text>
+  </g>
+</svg>
+<p class="vizsource">Trailhead and camp elevations sourced; the mesa crest (~mile 4) is derived from a hiking group's gross-gain log and is approximate — the real profile bumps a little higher there than drawn.</p>
+</div>
+
+<dl class="facts">
+  <div class="fact"><dt>Distance</dt><dd>~28 mi</dd></div>
+  <div class="fact"><dt>Gain, in</dt><dd>~3,000′</dd></div>
+  <div class="fact"><dt>Nights out</dt><dd>2</dd></div>
+  <div class="fact"><dt>Permit</dt><dd>Free</dd></div>
+  <div class="fact"><dt>All in</dt><dd>~$540</dd></div>
+</dl>
+
+<h2>Why here</h2>
+
+<p>Same reasoning as the group brief — the closest real alpine country to Austin, free and quota-free, green at the tail of the monsoon — but solo the math flips to the car. Flying alone means eating the whole SUV rental: about $660 before food. Driving is around $540 all in, and the 700 miles each way buy the thing a solo trip actually wants: a movable calendar. No fare lock-in means the trip slides to whichever week the forecast looks kindest, decided five days out.</p>
+
+<p>The route is the Iron Gate back door (the Jacks Creek front door is closed through September 30, 2026), which suits going alone better than it first looks. The approach is the quiet part, but the destination isn't: Pecos Baldy Lake is the busiest camp in this corner of the wilderness, so the nights — the part of a solo trip where company matters — are spent within shouting distance of other tents.</p>
+
+<h2>The itinerary</h2>
+
+<div class="day">
+  <div><p class="daymark">01</p><p class="daydate">Mon<br>Aug 17</p></div>
+  <div>
+    <h3>The drive west</h3>
+    <div class="log">
+      <div><span>06:00</span><p>Leave Austin. US-84 the whole way up: Abilene, Lubbock, Clovis, Fort Sumner, then I-25 — about 700 miles</p></div>
+      <div><span>~12:30</span><p>Lunch and fuel around Lubbock. The afternoon gains an hour crossing into New Mexico</p></div>
+      <div><span>~16:45</span><p>Santa Fe. Groceries and a fuel canister</p></div>
+      <div><span>Evening</span><p>Motel on Cerrillos Road. Real dinner, early night — tomorrow starts at 9,500 ft</p></div>
+    </div>
+    <p>Eleven and three-quarter hours of driving per the mapping estimate. It's one long push but it lands in daylight; the rule is boring and non-negotiable — stop when driving gets stupid, even if that means a La Quinta in Clovis and a later start Tuesday.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">02</p><p class="daydate">Tue<br>Aug 18</p></div>
+  <div>
+    <h3>Short day in, on purpose</h3>
+    <div class="log">
+      <div><span>08:00</span><p>Leave Santa Fe with the day's water — the mesa is dry</p></div>
+      <div><span>09:30</span><p>Through Pecos, NM-63 north, then FR 223: five rough miles, one livestock gate, drive it slow</p></div>
+      <div><span>10:15</span><p>Iron Gate, ~9,480 ft. Fee board, sign the register if there is one, boots on</p></div>
+      <div><span>~14:30</span><p><strong>Camp 1</strong> near Beatty's Cabin, ~9,600 ft — outside the no-camping zone at the flats, 50 ft off trail and water</p></div>
+    </div>
+    <p>5.8 miles over Hamilton Mesa and down Larkspur. Deliberately short: it's the acclimatization day, coming from 500 ft, and it puts the exposed mesa behind before the afternoon storms. The Pecos River at the bridge is the first water since the car.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">03</p><p class="daydate">Wed<br>Aug 19</p></div>
+  <div>
+    <h3>Up to the lake</h3>
+    <p>About 8 miles: southwest on Beatty's #25 over the Round Mountain shoulder, then right and north up Jacks Creek #257 — 9,900 to 11,400 in the back half. Be at the lake before the sky turns.</p>
+    <p>East Pecos Baldy (12,529 ft) is a short steep spur from the junction by the lake. Solo rule: it happens before noon under a clean sky, or it doesn't happen. <strong>Camp 2</strong> in the trees near the lake, 200 ft back — the basin itself is closed to camping. Expect neighbors; that's a feature tonight.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">04</p><p class="daydate">Thu<br>Aug 20</p></div>
+  <div>
+    <h3>The long walk out, back to town</h3>
+    <p>Fourteen miles reversed, started at first light. The sting is the ~700-foot climb from Beatty's back up Larkspur to the mesa in the afternoon, four miles from the car and with no one to set the pace but you. Water at the bridge, then carry the mesa dry again.</p>
+    <p>Out by mid-afternoon, ninety minutes to Santa Fe, motel, shower, and the biggest plate on Cerrillos Road.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">05</p><p class="daydate">Fri<br>Aug 21</p></div>
+  <div>
+    <h3>The drive home</h3>
+    <div class="log">
+      <div><span>07:00</span><p>Roll out of Santa Fe — the hour comes back at the Texas line</p></div>
+      <div><span>~19:45</span><p>Austin</p></div>
+    </div>
+    <p>Same rule as Monday. If Thursday's exit ran long or sleep was thin, the second night in Santa Fe costs $95 and the drive home becomes a Saturday problem — the calendar was built with that slack in mind.</p>
+  </div>
+</div>
+
+<h2>The route, junction by junction</h2>
+
+<p>Three turns decide this route, and two are in the first four miles. Get the mesa forks right, take the signed left onto Larkspur, and find the one fork below Round Mountain where right means the lake and left means a closed trailhead. Alone, there's nobody to catch the wrong turn — read every sign.</p>
+
+<div id="map"></div>
+<div class="mapbtns">
+  <button type="button" id="btn-hike">Fit the hike</button>
+  <button type="button" id="btn-drive">Fit the drive</button>
+</div>
+<p class="caveat" id="mapstatus">Loading the map…</p>
+
+<div class="mapwrap">
+  <div class="mappanel">
+    <svg viewBox="0 0 340 440" role="img" aria-label="Plan-view diagram, drawn to scale: Iron Gate to Pecos Baldy Lake · Camp 2, connected by straight corridor lines, not the trail alignment">
+      <title>Route waypoints</title>
+      <g stroke="#2E5339" stroke-width="1.4" fill="none">
+        <line x1="40" y1="86" x2="40" y2="60"/>
+      </g>
+      <polygon points="40,54 36,64 44,64" fill="#2E5339"/>
+      <text x="40" y="100" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#2E5339">N</text>
+
+      <polyline points="142,358 198,104 55,68" fill="none" stroke="#B5651D"
+        stroke-width="2" stroke-dasharray="6 5" stroke-linejoin="round"/>
+
+      <circle cx="142" cy="358" r="6" fill="#2E5339" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="198" cy="104" r="5" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="55" cy="68" r="7" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+
+      <g font-family="system-ui, sans-serif" fill="#23281F">
+        <text x="154" y="355" font-size="12.5" font-weight="600">Iron Gate</text>
+        <text x="154" y="369" font-size="11" fill="#5A6152">mile 0 · ~9,480 ft</text>
+
+        <text x="209" y="101" font-size="12.5" font-weight="600">Beatty's Cabin · Camp 1</text>
+        <text x="209" y="115" font-size="11" fill="#5A6152">mile 5.8 · ~9,600 ft</text>
+
+        <text x="68" y="65" font-size="12.5" font-weight="600">Pecos Baldy Lake · Camp 2</text>
+        <text x="68" y="79" font-size="11" fill="#5A6152">mile ~14 · 11,420 ft</text>
+      </g>
+
+      <g stroke="#5A6152" stroke-width="1.2">
+        <line x1="30" y1="405" x2="146" y2="405"/>
+        <line x1="30" y1="400" x2="30" y2="410"/>
+        <line x1="88" y1="402" x2="88" y2="408"/>
+        <line x1="146" y1="400" x2="146" y2="410"/>
+      </g>
+      <text x="88" y="424" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+        font-size="10.5" letter-spacing="0.8" fill="#5A6152">2 MILES</text>
+    </svg>
+  </div>
+
+  <div class="mapkey">
+    <h3>Waypoints</h3>
+    <table class="wp">
+      <tr><td>Santa Fe (overnight base)</td><td class="n">35.6870, −105.9378</td></tr>
+      <tr><td>Iron Gate trailhead</td><td class="n">35.8400, −105.6206</td></tr>
+      <tr><td>Beatty's Cabin bridge — Camp 1 nearby</td><td class="n">35.9036, −105.6033</td></tr>
+      <tr><td>Pecos Baldy Lake — Camp 2</td><td class="n">35.9126, −105.6474</td></tr>
+      <tr><td>Truchas Lakes (not on this itinerary)</td><td class="n">35.9704, −105.6354</td></tr>
+    </table>
+    <p style="margin-top:16px;font-size:15px">From Santa Fe: I-25 to exit 299, NM-50 into Pecos, NM-63 north 23 miles, then Forest Road 223 for 5 rough miles — high clearance recommended by the Forest Service. About 1.5 hours, estimated. <a href="https://www.google.com/maps/dir/?api=1&amp;origin=35.687,-105.9378&amp;destination=35.84,-105.6206">Airport to trailhead on Google Maps.</a></p>
+    <p class="caveat">The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. The dashed line is straight-line spacing between surveyed waypoints, <strong>not the trail.</strong> Between Beatty's Cabin and the lake it is badly misleading: the map gap is 2.5 miles but the trail walks <strong>about 8</strong>, dog-legging southwest before turning north. Carry the paper sheet — there is no signal past Pecos.</p>
+  </div>
+</div>
+
+<ol class="route">
+  <li>
+    <em>Mile 0 · ~9,480 ft</em>
+    <strong>Iron Gate trailhead</strong>
+    End of five rough miles of FR 223 — the Forest Service says high clearance, and means it. $5 a day at the board, no wilderness permit needed. No water here; the day's supply rides up from Santa Fe. Hamilton Mesa Trail #249 leaves from the top of the campground loop.
+  </li>
+  <li>
+    <em>Miles 0.5–1.0 · two forks</em>
+    <strong>Bear left, twice</strong>
+    Two forks come quickly on the climb to the mesa — <strong>stay left both times on #249.</strong> Right at the second fork is Rociada #250, dropping three miles off the east side to Mora Flats. Sources disagree on whether the first fork sits at a half mile or a full mile; expect it early and read the signs.
+  </li>
+  <li>
+    <em>Miles 1–4 · the mesa</em>
+    <strong>Hamilton Mesa</strong>
+    A long open meadow crest around 10,000 feet, the Truchas group stood up across the valley the whole way. It is also <strong>dry</strong>, and it is the most exposed ground of the day — cross it in the morning, every time.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Truchas_Peaks_from_Hamilton_Mesa_%284773206697%29.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Truchas_Peaks_from_Hamilton_Mesa_%284773206697%29.jpg?width=900" alt="The Truchas Peaks from Hamilton Mesa" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>The Truchas Peaks from Hamilton Mesa · JustTooLazy, CC BY 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Truchas_Peaks_from_Hamilton_Mesa_%284773206697%29.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Mile 4.2 · signed junction</em>
+    <strong>Left onto Larkspur #260</strong>
+    The key turn: <strong>left and downhill, west,</strong> at the signed junction. Continuing north on #249 heads for Pecos Falls, miles the wrong way. On the descent, Bob Grounds #270 comes in — keep straight downhill.
+  </li>
+  <li>
+    <em>Mile 5.8 · ~9,600 ft</em>
+    <strong>Beatty's Cabin — Camp 1</strong>
+    Bridge over the Pecos under limestone cliffs. Camping and fires are <strong>prohibited at Beatty's Flats itself</strong> — take a site along the trail outside the flats, 50 feet off trail and water. First water since the car; tank up for the morning.
+  </li>
+  <li>
+    <em>Miles 5.8–9.3 · the dogleg</em>
+    <strong>Southwest on Beatty's #25</strong>
+    Cross the bridge and follow #25 <strong>southwest</strong> over the Round Mountain shoulder — away from the lake on the map, which is correct. This segment's length (~3.5 mi) is derived from descriptions, not measured; trust the junctions over the mileage. At the fork below Round Mountain, <strong>right and north onto Jacks Creek #257.</strong> Left goes down to the closed Jacks Creek trailhead.
+  </li>
+  <li>
+    <em>Miles 9.3–14 · the climb</em>
+    <strong>Up Jacks Creek to the lake</strong>
+    About 1,500 feet over the last few miles, timber opening as East Pecos Baldy fills the sky. Dockweiler #259 branches east partway up — stay on #257. Just below the lake the trail splits: <strong>left and northwest to the water;</strong> right is #257 climbing Trailriders Ridge.
+  </li>
+  <li>
+    <em>Mile ~14 · 11,420 ft</em>
+    <strong>Pecos Baldy Lake — Camp 2</strong>
+    The lake sits in a bowl under East Pecos Baldy at 11,420 ft. No camping in the basin — established sites in the trees north and southwest, 200 feet back. The resident bighorns are habituated and will work an unattended camp; zip the tent, hang the food, enjoy the neighbors.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Pecos_Baldy_Lake_with_Truchas_in_Background_%2815586831676%29.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pecos_Baldy_Lake_with_Truchas_in_Background_%2815586831676%29.jpg?width=900" alt="Pecos Baldy Lake, the Truchas Peaks behind" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Pecos Baldy Lake, the Truchas Peaks behind · U.S. Forest Service, via <a href="https://commons.wikimedia.org/wiki/File:Pecos_Baldy_Lake_with_Truchas_in_Background_%2815586831676%29.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Miles 14–28 · back over the top</em>
+    <strong>The return, and its one trap</strong>
+    Reverse the whole line, started at first light. The trap is at the start: from the lake take <strong>#257 south, downhill</strong> — not up Trailriders Ridge, not Skyline. At the Round Mountain fork bear <strong>left</strong> for Beatty's, refill at the bridge, then climb Larkspur's ~700 feet back to the mesa before the last easy four miles.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Dropping_Back_into_the_Jacks_Creek_Valley_%284773855276%29.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dropping_Back_into_the_Jacks_Creek_Valley_%284773855276%29.jpg?width=900" alt="Dropping back into the Jacks Creek valley" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Dropping back into the Jacks Creek valley · JustTooLazy, CC BY 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Dropping_Back_into_the_Jacks_Creek_Valley_%284773855276%29.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+</ol>
+<p style="font-size:14.5px;color:var(--ink-2);margin-top:20px">Photographs are from Wikimedia Commons, which hosts only freely licensed or public-domain media. Each caption links to its file page — worth a look at the license there before reusing any of them anywhere public.</p>
+
+<h2>What it costs</h2>
+
+<table>
+  <thead><tr><th>Item</th><th class="n">Per person</th></tr></thead>
+  <tbody>
+    <tr data-status="estimated"><td>Gas, Austin–Iron Gate round trip<small>~1,400 miles at 28 mpg, TX/NM blend ~$3.80/gal (AAA, checked 2026-07-28). In your own car the true cost with wear is closer to $980 at the IRS rate — worth knowing, not worth pretending it's cash out of pocket this week.</small></td><td class="n">$190</td></tr>
+    <tr data-status="estimated"><td>Motel, Santa Fe, Monday and Thursday<small>Cerrillos Road corridor ran $84–130 for comparable late-August nights when checked. Two nights, no split.</small></td><td class="n">$190</td></tr>
+    <tr data-status="confirmed"><td>Trailhead fee, three days<small>$5/vehicle/day at Iron Gate; interagency passes accepted.</small></td><td class="n">$15</td></tr>
+    <tr data-status="estimated"><td>Trail food, three days</td><td class="n">$40</td></tr>
+    <tr data-status="estimated"><td>Road and town meals<small>Two road days plus two Santa Fe dinners.</small></td><td class="n">$70</td></tr>
+    <tr data-status="estimated"><td>Fuel canister and odds and ends</td><td class="n">$15</td></tr>
+    <tr data-status="estimated"><td>Bear hang kit<small>Rope and a dry bag, no split. No canister requirement in the Pecos — hang or Ursack.</small></td><td class="n">$20</td></tr>
+    <tr data-status="confirmed"><td>Wilderness permit</td><td class="n">$0</td></tr>
+    <tr class="total"><td>Total<small style="font-weight:400">Traveling solo — nothing splits.</small></td><td class="n">~$540</td></tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <h3>Alone, up high, in storm season</h3>
+  <p style="margin-top:6px">Everything on the group brief's hazard list applies here with the margin removed: nobody to send for help, nobody to second-guess a bad call. The controls are cheap and specific — they just all have to happen.</p>
+  <ul>
+    <li><strong>The satellite messenger is not optional.</strong> Carried on the body, not in the pack, with a check-in schedule someone at home is actually watching. They get the full itinerary before you leave: route, camps, plate number, trailhead, walk-out deadline.</li>
+    <li><strong>Solo storm rules.</strong> Off the mesa and all open ground by noon; the East Pecos Baldy spur happens before noon under a clean sky or not at all. Turning around alone with no audience is the skill this trip runs on.</li>
+    <li><strong>Carry the mesa dry.</strong> No water for the first 5.8 miles, none reliable between the Pecos bridge and the lake in a drought year. 2–3 liters from town, filter everything.</li>
+    <li><strong>Black bears and bold bighorns.</strong> Proper hang or Ursack 200 ft from the tent, everything scented in it. The lake's habituated sheep will work an open pack.</li>
+    <li><strong>The drive is half the risk budget.</strong> Two ~12-hour road days bracket the hike. Stop when driving gets stupid — the itinerary has a built-in slack night. FR 223 gets driven in daylight, both directions.</li>
+  </ul>
+  <p style="margin-bottom:0">A solo trip on a popular trail is the sane version of this. The approach is quiet, but the camps have neighbors — pick the busy lake over a lonelier basin on purpose.</p>
+</div>
+
+<h2>Weather</h2>
+
+<p>Mid-August is the back half of the monsoon. Mornings are usually clear; storms build over the divide by early afternoon most days and fade with the sun. 2026's monsoon arrived late but strong, over a severe-drought base. These are station normals, not a forecast — and the whole point of driving is the freedom to slide this week toward a clean window, decided about five days out.</p>
+
+<table class="wx">
+  <thead><tr><th>Typical for these dates</th><th class="n"></th></tr></thead>
+  <tbody>
+    <tr><td>Day high, Terrero (7,714 ft)</td><td class="n">~76°F</td></tr>
+    <tr><td>Overnight low, Terrero</td><td class="n">~42°F</td></tr>
+    <tr><td>Derived at the lake (11,420 ft)</td><td class="n">~63° / low 30s</td></tr>
+    <tr><td>Afternoon thunderstorms</td><td class="n">most days</td></tr>
+  </tbody>
+</table>
+<p class="caveat">Terrero co-op station normals (7,714 ft, WRCC, 1946–61 record); lake figures lapse-rate derived, hence the ~, and canyon-bottom lows exaggerate the spread — plan for low-to-mid 30s and possible frost. Monsoon pattern per NWS Albuquerque. Checked 2026-07-28.</p>
+
+<div id="wx-live">
+  <h3>This week's forecast at the trailhead</h3>
+  <table>
+    <tbody id="wx-rows"></tbody>
+  </table>
+  <p class="caveat">Fetched live from the National Weather Service for the trailhead coordinate. Higher on the route runs colder and more exposed.</p>
+</div>
+
+<p style="font-size:15px">A real forecast only exists inside about a week, so the box above fills in when this page is opened with signal and hides itself when it can't. Before leaving, check the <a href="https://forecast.weather.gov/MapClick.php?lat=35.8400&amp;lon=-105.6206">NWS point forecast for the trailhead</a> — same feed, same coordinate.</p>
+
+<h2>Before we go</h2>
+
+<div class="cols">
+  <div>
+    <h3>Fires</h3>
+    <p>Stage II restrictions (no wood fires, stoves only in a cleared area) were ordered forest-wide June 26 through September 30, 2026 — though the order had dropped off the forest's alert page by July 28 with no rescission found. Plan stove-only and check the alerts page the week of.</p>
+    <h3>Water</h3>
+    <p>The Pecos River at Beatty's and the lake are reliable; everything between is not, in a drought year. The mesa is dry. Carry accordingly and filter.</p>
+    <h3>Altitude</h3>
+    <p>Austin is at 500 feet; camp two is at 11,420. The short first day to ~9,600 is the acclimatization plan. Solo means nobody notices you getting dumb — hydrate ahead of thirst and take the headache seriously.</p>
+  </div>
+  <div>
+    <h3>The road in</h3>
+    <p>FR 223's five miles are rough dirt the Forest Service flags for high clearance. There may be a closed livestock gate — pass through, re-close it. If your own car isn't up to it, this is the trip's veto point: check tires and clearance honestly before leaving Texas.</p>
+    <h3>No signal</h3>
+    <p>Nothing past Pecos village, and long dead stretches on US-84 too. The messenger and the written itinerary cover the trail; tell the same person the driving plan.</p>
+    <h3>Why not Jacks Creek</h3>
+    <p>The normal trailhead for this lake is closed May 4 – September 30, 2026 for construction, and the closure covers being on the road at all. If it's rescinded early the walk gets 7 miles shorter each way — call the district before assuming.</p>
+  </div>
+</div>
+
+<h2>To book, in this order</h2>
+
+<ol class="route">
+  <li>
+    <em>Nothing to book yet</em>
+    <strong>That's the design</strong>
+    No fares, no rental. The trip slides to whichever week the forecast favors — check the NWS point forecast for the trailhead about five days out and commit then. The dates above are the default week, not a lock.
+  </li>
+  <li>
+    <em>A few days out</em>
+    <strong>Monday's motel in Santa Fe</strong>
+    Cerrillos Road, $84–130 midweek. Thursday's room can wait until the walk-out day — there's always something on Cerrillos.
+  </li>
+  <li>
+    <em>The same week</em>
+    <strong>Call the Pecos ranger district — (505) 757-6121</strong>
+    Fire restriction status, whether the Jacks Creek closure still holds, and conditions on Beatty's #25 and upper #257. Five minutes, and solo you want current information more than a group does.
+  </li>
+  <li>
+    <em>Before leaving Texas</em>
+    <strong>The car, honestly</strong>
+    Five miles of rough FR 223 with no signal and no partner vehicle. Tires with real tread, a full-size spare if possible, and the drive done in daylight. If the car's marginal, rent the trip instead: $237 nonstop plus a $297 SUV turns this into the fly version for about $120 more.
+  </li>
+</ol>
+
+<footer>
+  Trailhead: 35.8400, −105.6206 · Iron Gate, FR 223 off NM-63, north of Pecos, NM<br>
+  Pecos–Las Vegas Ranger District, Santa Fe National Forest · (505) 757-6121<br>
+  Recommended map: Outdoor Trail Maps, Santa Fe &amp; Pecos Wilderness (2023) — or the PLIA reprint of the USFS Pecos Wilderness sheet<br>
+  Researched 2026-07-28<br>
+  <br>
+  Open items:<br>
+  01 — The Beatty's Cabin → Jacks Creek #257 segment (~3.5 mi) is derived from trail descriptions, not measured — total mileage could move a mile either way.<br>
+  02 — A shortcut exists on paper (Sebadilloses #245, would cut ~4 miles) but its endpoints conflict between sources and its condition is reported poor — not for a solo hiker on spec.<br>
+  03 — Stage II fire restrictions were ordered through Sept 30 but had dropped off the forest's alert page by July 28 — status ambiguous, verify by phone.<br>
+  04 — The mesa-crest elevation on the profile is derived, and the first two junction distances (0.5 vs 1.0 mi) conflict between sources — read the signs, not the odometer.<br>
+  05 — Santa Fe transport coordinate is the plaza, for the drive link only — the motel will be on Cerrillos Road.
+</footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('map');
+  var status = document.getElementById('mapstatus');
+  var btns = document.querySelector('.mapbtns');
+
+  function degrade(msg) {
+    el.style.display = 'none';
+    btns.style.display = 'none';
+    status.innerHTML = msg;
+  }
+
+  if (typeof L === 'undefined') {
+    degrade('Live map unavailable — the Leaflet library did not load. Use the diagram below, which needs no network.');
+    return;
+  }
+
+  var WAYPOINTS = [{"ll":[35.687,-105.9378],"name":"Santa Fe (overnight base)","popup":"Motel nights Monday and Thursday. About 1.5 hours to the trailhead, the last 5 miles slow.","hike":false},{"ll":[35.84,-105.6206],"name":"Iron Gate trailhead","popup":"Mile 0 · ~9,480 ft\u003cbr>$5/vehicle/day. Hamilton Mesa Trail #249 leaves the top of the campground loop. \u003cb>Bear left at both forks in the first mile.\u003c/b>","hike":true},{"ll":[35.9036,-105.6033],"name":"Beatty's Cabin bridge — Camp 1 nearby","popup":"Mile 5.8 · ~9,600 ft\u003cbr>Pecos River water. Camping is \u003cb>prohibited at Beatty's Flats itself\u003c/b> — camp along the trail outside it, 50 ft off trail and water.","hike":true},{"ll":[35.9126,-105.6474],"name":"Pecos Baldy Lake — Camp 2","popup":"Mile ~14 · 11,420 ft\u003cbr>No camping in the lake basin; sites in the trees north and southwest, 200 ft back.","hike":true},{"ll":[35.9704,-105.6354],"name":"Truchas Lakes (not on this itinerary)","popup":"11,867 ft · 5.2 mi beyond Pecos Baldy Lake on Skyline #251 over Trailriders Wall. Not a solo add-on in storm season.","hike":false}];
+  var DEFAULT_TILES = "opentopomap";
+
+  if (!WAYPOINTS.length) {
+    degrade('No mapped waypoints for this trip — use the diagram below.');
+    return;
+  }
+
+  var osmAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17, subdomains: 'abc',
+    attribution: osmAttr + ', SRTM &middot; Style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+  });
+  var street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19, attribution: osmAttr
+  });
+
+  var map = L.map('map', { layers: [DEFAULT_TILES === 'street' ? street : topo], scrollWheelZoom: false });
+  L.control.layers({ 'Topographic': topo, 'Street': street }).addTo(map);
+  L.control.scale({ imperial: true, metric: false }).addTo(map);
+
+  WAYPOINTS.forEach(function (w) {
+    L.marker(w.ll).addTo(map).bindPopup('<b>' + w.name + '</b>' + (w.popup ? '<br>' + w.popup : ''));
+  });
+
+  var hikePts = [];
+  var drivePts = [];
+  WAYPOINTS.forEach(function (w) {
+    drivePts.push(w.ll);
+    if (w.hike) hikePts.push(w.ll);
+  });
+  var hike = L.latLngBounds(hikePts.length ? hikePts : drivePts);
+  var drive = L.latLngBounds(drivePts);
+
+  function fitHike() { map.fitBounds(hike, { padding: [36, 36] }); }
+  fitHike();
+  document.getElementById('btn-hike').addEventListener('click', fitHike);
+  document.getElementById('btn-drive').addEventListener('click', function () {
+    map.fitBounds(drive, { padding: [36, 36] });
+  });
+
+  var gotTiles = false;
+  topo.on('tileload', function () { gotTiles = true; });
+  street.on('tileload', function () { gotTiles = true; });
+
+  setTimeout(function () {
+    if (!gotTiles) {
+      degrade('Map tiles were blocked — some viewers do not allow external map servers. <strong>Download this file and open it in a browser</strong> and the map will work. The diagram below needs no network.');
+    } else {
+      status.innerHTML = 'Contours and trail lines are OpenStreetMap data, drawn by volunteers &mdash; <strong>a guide, not a survey.</strong> Zoom in to see the trail network, and check it against the recommended paper sheet before relying on it. Scroll-zoom is off &mdash; use the +/&minus; buttons.';
+    }
+  }, 7000);
+})();
+</script>
+<script>
+(function () {
+  var box = document.getElementById('wx-live');
+  if (!box || !window.fetch) return;
+  var PT = [35.84,-105.6206];
+  var dead = false;
+  var timer = setTimeout(function () { dead = true; }, 8000);
+
+  fetch('https://api.weather.gov/points/' + PT[0] + ',' + PT[1])
+    .then(function (r) { return r.json(); })
+    .then(function (j) { return fetch(j.properties.forecast); })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      if (dead) return;
+      clearTimeout(timer);
+      var rows = document.getElementById('wx-rows');
+      j.properties.periods.slice(0, 8).forEach(function (p) {
+        var tr = document.createElement('tr');
+        var name = document.createElement('strong');
+        name.textContent = p.name;
+        var detail = document.createElement('small');
+        var pop = p.probabilityOfPrecipitation && p.probabilityOfPrecipitation.value;
+        detail.textContent = p.shortForecast + (pop ? ' · ' + pop + '% precip' : '');
+        var td1 = document.createElement('td');
+        td1.appendChild(name);
+        td1.appendChild(detail);
+        var td2 = document.createElement('td');
+        td2.className = 'n';
+        td2.textContent = p.temperature + '°' + p.temperatureUnit;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        rows.appendChild(tr);
+      });
+      box.style.display = 'block';
+    })
+    .catch(function () { /* no network or no coverage — the box stays hidden */ });
+})();
+</script>
+</body>
+</html>
