@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Backpacking trip brief: Spanish Peaks, Lee Metcalf Wilderness, Montana, August 24-27 2026.">
+<title>Spanish Peaks — Aug 24–27, 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+  #map{height:460px;width:100%;border:1px solid var(--rule);background:var(--paper-2);margin:22px 0 0}
+  .leaflet-container{font-family:system-ui,-apple-system,sans-serif;font-size:13px}
+  .mapbtns{display:flex;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+  .mapbtns button{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;background:transparent;color:#2E5339;border:1px solid #2E5339;
+    padding:7px 13px;cursor:pointer}
+  .mapbtns button:hover{background:#2E5339;color:#F6F7F3}
+</style>
+<style>
+  :root{
+    --paper:#EDF0E8;
+    --paper-2:#F6F7F3;
+    --contour:#7A5B38;
+    --forest:#2E5339;
+    --water:#1D6F8E;
+    --route:#B5651D;
+    --rule:#C9CEC0;
+    --ink:#23281F;
+    --ink-2:#5A6152;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:400 17px/1.65 var(--sans);
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:0 24px 96px}
+
+  header{padding:56px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--contour);margin:0 0 18px
+  }
+  h1{
+    font:700 clamp(42px,9vw,76px)/0.95 var(--serif);
+    margin:0;letter-spacing:-.02em;color:var(--forest)
+  }
+  .sub{font-size:19px;color:var(--ink-2);margin:14px 0 0;max-width:52ch}
+
+  .hero{margin:34px 0 0;border:1px solid var(--rule);background:var(--paper-2);padding:20px 8px 8px}
+  .hero svg{display:block;width:100%;height:auto}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1px 0 0
+  }
+  .fact{background:var(--paper-2);padding:14px 16px}
+  .fact dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 4px}
+  .fact dd{margin:0;font:600 21px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+
+  h2{
+    font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--contour);margin:72px 0 0;padding-bottom:10px;border-bottom:2px solid var(--forest)
+  }
+  h3{font:600 27px/1.2 var(--serif);margin:34px 0 2px;color:var(--forest)}
+  p{margin:14px 0}
+  a{color:var(--water);text-underline-offset:2px}
+
+  .day{display:grid;grid-template-columns:64px 1fr;gap:0 22px;margin:40px 0 0;
+    padding-top:26px;border-top:1px solid var(--rule)}
+  .day:first-of-type{border-top:0}
+  .daymark{font:700 34px/1 var(--mono);color:var(--route);margin:0}
+  .daydate{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0}
+  .day h3{margin-top:0}
+
+  .log{margin:16px 0 0;border-top:1px solid var(--rule)}
+  .log div{display:grid;grid-template-columns:82px 1fr;gap:16px;
+    padding:9px 0;border-bottom:1px solid var(--rule);font-size:16px}
+  .log span{font-family:var(--mono);font-size:13px;color:var(--contour);padding-top:2px;
+    font-variant-numeric:tabular-nums}
+  .log p{margin:0}
+
+  ol.route{list-style:none;counter-reset:leg;padding:0;margin:22px 0 0}
+  ol.route li{counter-increment:leg;position:relative;padding:0 0 22px 62px;
+    border-left:2px solid var(--rule);margin-left:14px}
+  ol.route li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.route li::before{
+    content:counter(leg,decimal-leading-zero);position:absolute;left:-15px;top:0;
+    width:28px;height:28px;border-radius:50%;background:var(--forest);color:var(--paper-2);
+    font:600 11px/28px var(--mono);text-align:center
+  }
+  ol.route strong{display:block;font:600 17px/1.4 var(--sans)}
+  ol.route em{font-style:normal;font-family:var(--mono);font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--contour);display:block;margin:0 0 3px}
+
+  table{width:100%;border-collapse:collapse;margin:22px 0 0;font-size:16px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.total td{border-bottom:0;border-top:2px solid var(--forest);font-weight:600;
+    color:var(--forest);padding-top:13px}
+  td small{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.4}
+
+  .alert{border:2px solid var(--route);background:#FBF3E9;padding:22px 26px;margin:24px 0 0}
+  .alert h3{margin-top:0;color:#8A4A12}
+  .alert ul{margin:12px 0 0;padding-left:20px}
+  .alert li{margin:8px 0}
+
+  .mapwrap{display:grid;grid-template-columns:340px 1fr;gap:0 34px;margin:24px 0 0;align-items:start}
+  .mappanel{border:1px solid var(--rule);background:var(--paper-2);padding:12px}
+  .mappanel svg{display:block;width:100%;height:auto}
+  .mapkey h3{margin-top:0;font-size:20px}
+  table.wp{margin:10px 0 0;font-size:14px}
+  table.wp td{padding:7px 0;border-bottom:1px solid var(--rule)}
+  table.wp td.n{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2)}
+  ol.route figure{margin:16px 0 0}
+  ol.route img{display:block;width:100%;max-width:430px;height:auto;border:1px solid var(--rule)}
+  ol.route figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0;max-width:430px;line-height:1.5}
+  ol.route figcaption a{color:var(--ink-2)}
+  .caveat{font-size:14.5px;color:var(--ink-2);border-left:3px solid var(--route);
+    border-radius:0;padding-left:14px;margin-top:20px}
+  @media (max-width:660px){.mapwrap{grid-template-columns:1fr}}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+  .cols h3{font-size:20px}
+  .cols p{font-size:16px;margin:8px 0 0}
+
+  footer{margin:80px 0 0;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+
+  @media (max-width:560px){
+    .sheet{padding:0 18px 64px}
+    .day{grid-template-columns:1fr;gap:0}
+    .daymark{font-size:26px}
+    .log div{grid-template-columns:72px 1fr;gap:12px}
+    ol.route li{padding-left:44px}
+  }
+  @media print{body{background:#fff}.hero,.day,.alert{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">Lee Metcalf Wilderness · Madison Range · Montana</p>
+  <h1>Spanish<br>Peaks</h1>
+  <p class="sub">Three days into the granite core of the Spanish Peaks, forty-five minutes from the Bozeman airport. Josh, Jon and Pat — August 24 to 27, 2026.</p>
+</header>
+
+<div class="hero">
+<svg viewBox="0 0 780 300" role="img" aria-label="Elevation profile rising from 6,120 feet at the trailhead to about 9,000 feet at Spanish Lakes over eight miles, nearly flat for the first two miles">
+  <title>Elevation profile, trailhead to Spanish Lakes</title>
+  <line x1="96" y1="248" x2="740" y2="248" stroke="#C9CEC0"/>
+  <line x1="96" y1="192" x2="740" y2="192" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="136" x2="740" y2="136" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="80" x2="740" y2="80" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="#5A6152">
+    <text x="86" y="252" text-anchor="end">6,000</text>
+    <text x="86" y="196" text-anchor="end">7,000</text>
+    <text x="86" y="140" text-anchor="end">8,000</text>
+    <text x="86" y="84" text-anchor="end">9,000</text>
+    <text x="96" y="270" text-anchor="middle">0</text>
+    <text x="257" y="270" text-anchor="middle">2</text>
+    <text x="418" y="270" text-anchor="middle">4</text>
+    <text x="579" y="270" text-anchor="middle">6</text>
+    <text x="740" y="270" text-anchor="middle">8</text>
+    <text x="418" y="291" text-anchor="middle" letter-spacing="1.4" fill="#7A5B38">MILES FROM TRAILHEAD</text>
+  </g>
+  <path d="M96 241 L257 231 L338 223 L370 199 L499 153 L740 80 L740 248 L96 248 Z" fill="#2E5339" opacity="0.1"/>
+  <path d="M96 241 L257 231 L338 223 L370 199 L499 153 L740 80" fill="none" stroke="#B5651D" stroke-width="2.5" stroke-linejoin="round"/>
+  <g fill="#B5651D" stroke="#F6F7F3" stroke-width="2">
+    <circle cx="96" cy="241" r="4.5"/><circle cx="338" cy="223" r="4.5"/>
+    <circle cx="370" cy="199" r="4.5"/><circle cx="499" cy="153" r="5.5"/><circle cx="740" cy="80" r="6"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#23281F">
+    <text x="96" y="228" font-size="12" fill="#5A6152">Trailhead · 6,120 ft</text>
+    <text x="386" y="240" font-size="12" fill="#5A6152">Pioneer Falls · mile 3.4 · 6,870 ft</text>
+    <text x="386" y="218" font-weight="600">Camp 1 · ~7,700 ft</text>
+    <text x="740" y="60" text-anchor="end" font-weight="600">Camp 2 · Spanish Lakes · ~9,000 ft</text>
+  </g>
+</svg>
+</div>
+
+<dl class="facts">
+  <div class="fact"><dt>Distance</dt><dd>~16 mi</dd></div>
+  <div class="fact"><dt>Elev. gain</dt><dd>~2,900′</dd></div>
+  <div class="fact"><dt>Nights out</dt><dd>2</dd></div>
+  <div class="fact"><dt>Permit</dt><dd>Free</dd></div>
+  <div class="fact"><dt>Per person</dt><dd>~$690</dd></div>
+</dl>
+
+<h2>Why here</h2>
+
+<p>The Spanish Peaks are the granite heart of the Lee Metcalf Wilderness, and the Spanish Creek trailhead sits about fifty minutes from the terminal at Bozeman — a combination that basically doesn't exist anywhere else. Almost all the traffic in this range comes in from the Big Sky side, where day hikers pile into Beehive Basin. We're going in the back door.</p>
+
+<p>Late August is the window: mosquitoes are finished, the summer crowds have gone home, and the weather settles. No permit lottery, no quota, no reservation — you sign a board at the trailhead and walk.</p>
+
+<h2>The itinerary</h2>
+
+<div class="day">
+  <div><p class="daymark">01</p><p class="daydate">Mon<br>Aug 24</p></div>
+  <div>
+    <h3>Fly in, hike in</h3>
+    <div class="log">
+      <div><span>06:55</span><p>Depart Austin — Southwest, one stop, 55 minutes in Denver</p></div>
+      <div><span>10:45</span><p>Land Bozeman. 4h 50m door to door, the fastest routing available</p></div>
+      <div><span>11:15</span><p>Collect the SUV</p></div>
+      <div><span>11:45</span><p>Stop in town — bear spray, fuel canisters, anything still missing</p></div>
+      <div><span>12:30</span><p>Drive to the Spanish Creek trailhead</p></div>
+      <div><span>13:15</span><p>Sign the permit board, boots on</p></div>
+      <div><span>~17:00</span><p><strong>Camp 1</strong> — roughly five miles in, around 7,700 ft</p></div>
+    </div>
+    <p>If a 6:55 departure is brutal, Southwest also flies at 9:00 with a comfortable two-hour Denver layover for the same fare, landing 13:55. You'd start walking mid-afternoon, which is still plenty for a short first day.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">02</p><p class="daydate">Tue<br>Aug 25</p></div>
+  <div>
+    <h3>Into the granite</h3>
+    <p>Six miles up the Falls Creek drainage to the Spanish Lakes at about 9,000 ft. The grade steepens in the back half as you break out of timber and the peaks come up around you — Gallatin Peak, the high point of the range at just over 11,000 ft, is the skyline.</p>
+    <p>Afternoon is unstructured. Fish the lakes, wander the upper basin, or push toward the divide. Optional legs from camp: Jerome Rock Lakes further up Falls Creek, or Mirror Lake back down the South Fork, which would take the trip to the full twenty miles. <strong>Camp 2</strong> at the lakes.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">03</p><p class="daydate">Wed<br>Aug 26</p></div>
+  <div>
+    <h3>Out, and into town</h3>
+    <p>Eight miles back down the drainage, almost entirely downhill — four to five hours at a pace that doesn't hurt. Drive to Bozeman, get a room, and eat something that isn't rehydrated. Main Street has more breweries per block than a town this size has any business having, and they're all walkable from wherever we stay.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">04</p><p class="daydate">Thu<br>Aug 27</p></div>
+  <div>
+    <h3>Home</h3>
+    <div class="log">
+      <div><span>Morning</span><p>Breakfast in town, drop the SUV</p></div>
+      <div><span>13:35</span><p>Depart Bozeman — Southwest, one stop in Denver</p></div>
+      <div><span>19:40</span><p>Land Austin</p></div>
+    </div>
+    <p>There's also an 08:35 that lands at 14:10 if anyone wants their afternoon back.</p>
+  </div>
+</div>
+
+<h2>The route, junction by junction</h2>
+
+<p>This is the part worth reading twice. Three trails leave the same trailhead and the first decision comes within a hundred yards of the bridge, so it's easy to end up in the wrong drainage.</p>
+
+<div id="map"></div>
+<div class="mapbtns">
+  <button type="button" id="btn-hike">Fit the hike</button>
+  <button type="button" id="btn-drive">Fit the drive</button>
+</div>
+<p class="caveat" id="mapstatus">Loading the map…</p>
+
+<div class="mapwrap">
+  <div class="mappanel">
+    <svg viewBox="0 0 340 440" role="img" aria-label="Plan view showing the trailhead in the northeast, Pioneer Falls 2.6 miles southwest, and Spanish Lakes a further 3.9 miles south-southwest, with Camp 1 between them">
+      <title>Route waypoints, Spanish Creek to Spanish Lakes</title>
+      <g stroke="#2E5339" stroke-width="1.4" fill="none">
+        <line x1="40" y1="86" x2="40" y2="60"/>
+      </g>
+      <polygon points="40,54 36,64 44,64" fill="#2E5339"/>
+      <text x="40" y="100" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#2E5339">N</text>
+
+      <polyline points="198,68 133,176 121,240 98,358" fill="none" stroke="#B5651D"
+        stroke-width="2" stroke-dasharray="6 5" stroke-linejoin="round"/>
+
+      <circle cx="198" cy="68" r="6" fill="#2E5339" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="133" cy="176" r="5" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="121" cy="240" r="5" fill="#F6F7F3" stroke="#B5651D" stroke-width="2"/>
+      <circle cx="98" cy="358" r="7" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+
+      <g font-family="system-ui, sans-serif" fill="#23281F">
+        <text x="209" y="65" font-size="12.5" font-weight="600">Trailhead</text>
+        <text x="209" y="79" font-size="11" fill="#5A6152">mile 0 · 6,120 ft</text>
+
+        <text x="144" y="173" font-size="12.5" font-weight="600">Pioneer Falls</text>
+        <text x="144" y="187" font-size="11" fill="#5A6152">mile 3.4 · 6,870 ft</text>
+
+        <text x="134" y="237" font-size="12.5" font-weight="600">Camp 1</text>
+        <text x="134" y="251" font-size="11" fill="#5A6152">mile 5 · ~7,700 ft · approx.</text>
+
+        <text x="110" y="355" font-size="12.5" font-weight="600">Spanish Lakes · Camp 2</text>
+        <text x="110" y="369" font-size="11" fill="#5A6152">mile 8 · ~9,000 ft</text>
+      </g>
+
+      <g stroke="#5A6152" stroke-width="1.2">
+        <line x1="30" y1="405" x2="126" y2="405"/>
+        <line x1="30" y1="400" x2="30" y2="410"/>
+        <line x1="78" y1="402" x2="78" y2="408"/>
+        <line x1="126" y1="400" x2="126" y2="410"/>
+      </g>
+      <text x="78" y="424" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+        font-size="10.5" letter-spacing="0.8" fill="#5A6152">2 MILES</text>
+    </svg>
+  </div>
+
+  <div class="mapkey">
+    <h3>Waypoints</h3>
+    <table class="wp">
+      <tr><td>Airport (BZN)</td><td class="n">45.7784, −111.1612</td></tr>
+      <tr><td>Spanish Creek trailhead</td><td class="n">45.4477, −111.3771</td></tr>
+      <tr><td>Pioneer Falls</td><td class="n">45.4149, −111.4052</td></tr>
+      <tr><td>Spanish Lakes</td><td class="n">45.3600, −111.4204</td></tr>
+    </table>
+    <p style="margin-top:16px;font-size:15px">The drive is a straightforward 50 minutes: <a href="https://www.google.com/maps/dir/?api=1&amp;origin=45.7784043,-111.1612273&amp;destination=45.4477028,-111.3770751">airport to trailhead on Google Maps</a>. South on US-191 through Gallatin Gateway, then Spanish Creek Road for about eleven miles.</p>
+    <p class="caveat">The diagram at left is the <strong>offline and print fallback</strong> — it needs no network and survives a dead phone. The dashed line is straight-line spacing between real, surveyed waypoints, <strong>not the trail alignment.</strong> The actual tread follows the creek and switchbacks above the falls. Carry the Beartooth Publishing Bozeman / Big Sky sheet or a downloaded CalTopo or Gaia track — there is no cell signal past the trailhead.</p>
+  </div>
+</div>
+
+<ol class="route">
+  <li>
+    <em>Mile 0 · 6,120 ft</em>
+    <strong>Spanish Creek trailhead</strong>
+    A large developed trailhead at Spanish Creek Campground — seven designated sites with tables and fire rings, plus a Forest Service rental cabin. From the parking area a short path leads to the trailhead sign. Free self-issue wilderness permit at the board.
+  </li>
+  <li>
+    <em>The first decision</em>
+    <strong>Cross the bridge, then go left</strong>
+    Over Spanish Creek on a small wooden bridge, then <strong>left</strong> onto South Fork Spanish Creek Trail #407. Right puts you on Cherry Creek #401 — wrong drainage. Little Hellroaring #400 also starts here.
+  </li>
+  <li>
+    <em>Miles 0–2</em>
+    <strong>Flat along the water</strong>
+    The trail meanders beside the creek with almost no elevation gain. Easy warm-up, and a good place to sort out how the packs are riding.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Hikers_on_South_Fork_Spanish_Creek_Trail_Custer_Gallatin_National_ForestPXL_9460-01_%2853282617263%29.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hikers_on_South_Fork_Spanish_Creek_Trail_Custer_Gallatin_National_ForestPXL_9460-01_%2853282617263%29.jpg?width=900" alt="Hikers on the South Fork Spanish Creek Trail" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Hikers on the South Fork Spanish Creek Trail · U.S. Forest Service, via <a href="https://commons.wikimedia.org/wiki/File:Hikers_on_South_Fork_Spanish_Creek_Trail_Custer_Gallatin_National_ForestPXL_9460-01_%2853282617263%29.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Mile 3 · the second decision</em>
+    <strong>Right onto Falls Creek Trail</strong>
+    At the posted junction go <strong>right</strong>. Staying straight on the South Fork leads to Mirror Lake at 7.5 miles, with most of its climb in the final two — a good day trip from camp, but not our line.
+  </li>
+  <li>
+    <em>Mile 3.4 · 6,870 ft</em>
+    <strong>Pioneer Falls</strong>
+    About 750 feet of gain from the trailhead, most of it packed into the final half mile, ending at a forty-foot cascade. Be ready for company here — this is the most popular destination on the whole South Fork. Above the falls it empties out fast, which is the trade you make for such easy access.
+  </li>
+  <li>
+    <em>Mile 5 · ~7,700 ft</em>
+    <strong>Camp 1</strong>
+    Keep climbing on Falls Creek past the falls and pick a site. Two hundred feet back from water, per wilderness rules.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Campers_in_Lee_Metcalf_Wilderness_Custer_Gallatin_National_Forest_PXL_1263-01_%2853282695129%29.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Campers_in_Lee_Metcalf_Wilderness_Custer_Gallatin_National_Forest_PXL_1263-01_%2853282695129%29.jpg?width=900" alt="Campers in the Lee Metcalf Wilderness" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Camping in the Lee Metcalf Wilderness · U.S. Forest Service, via <a href="https://commons.wikimedia.org/wiki/File:Campers_in_Lee_Metcalf_Wilderness_Custer_Gallatin_National_Forest_PXL_1263-01_%2853282695129%29.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Mile 8 · ~9,000 ft</em>
+    <strong>Spanish Lakes — Camp 2</strong>
+    Alpine lakes under the Spanish Peaks divide. This is the trip.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Hiker_near_Spanish_Lakes_Custer_Gallatin_National_Forest_PXL_6722-01_%2853282617513%29.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hiker_near_Spanish_Lakes_Custer_Gallatin_National_Forest_PXL_6722-01_%2853282617513%29.jpg?width=900" alt="A hiker near Spanish Lakes" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>A hiker near Spanish Lakes · U.S. Forest Service, via <a href="https://commons.wikimedia.org/wiki/File:Hiker_near_Spanish_Lakes_Custer_Gallatin_National_Forest_PXL_6722-01_%2853282617513%29.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Mile 16 · back to 6,120 ft</em>
+    <strong>Spanish Creek trailhead</strong>
+    Wednesday morning, reverse the whole thing — about eight miles, four to five hours, almost entirely downhill. Right at the Falls Creek junction becomes left, and the last two miles along the creek are flat enough to walk them talking. Sign out at the board if there's a register, then fifty minutes back to Bozeman.
+  </li>
+</ol>
+<p style="font-size:14.5px;color:var(--ink-2);margin-top:20px">Photographs are Custer Gallatin National Forest images from Wikimedia Commons, which hosts only freely licensed or public-domain media. Each caption links to its file page — worth a look at the license there before reusing any of them anywhere public.</p>
+
+<h2>What it costs</h2>
+
+<table>
+  <thead><tr><th>Item</th><th class="n">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>Flight, Austin–Bozeman round trip<small>Confirmed. Google Flights rates it typical pricing, not inflated.</small></td><td class="n">$329</td></tr>
+    <tr><td>SUV rental, three days<small>About $330 total. SUVs at Bozeman average $89–101 a day.</small></td><td class="n">$110</td></tr>
+    <tr><td>Gas<small>Roughly 150 miles all in.</small></td><td class="n">$9</td></tr>
+    <tr><td>Hotel, Wednesday the 26th<small>One room with two queens, about $225 with tax. Add ~$75 each if we'd rather have two rooms.</small></td><td class="n">$75</td></tr>
+    <tr><td>Bear spray<small>One canister each. Has to be bought in Bozeman — it can't fly.</small></td><td class="n">$50</td></tr>
+    <tr><td>Bear canister rental<small>Two canisters for the three of us.</small></td><td class="n">$17</td></tr>
+    <tr><td>Trail food, three days</td><td class="n">$40</td></tr>
+    <tr><td>Two meals in town</td><td class="n">$45</td></tr>
+    <tr><td>Fuel canisters and odds and ends</td><td class="n">$15</td></tr>
+    <tr><td>Wilderness permit</td><td class="n">$0</td></tr>
+    <tr class="total"><td>Total, each<small style="font-weight:400">About $2,070 for the three of us.</small></td><td class="n">~$690</td></tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <h3>This is grizzly country</h3>
+  <p style="margin-top:6px">Different from most places we've hiked, and the one section of this brief that isn't optional. The Custer Gallatin has a food and attractant storage order in force on the Bozeman district, and late August is berry season — bears are feeding hard and covering ground.</p>
+  <ul>
+    <li><strong>Spray on your hip belt</strong>, where your hand actually reaches it. Not in the pack.</li>
+    <li><strong>Approved canister or a proper hang.</strong> Everything scented goes in — toothpaste, sunscreen, trash, all of it.</li>
+    <li><strong>Three separate places</strong> for cooking, sleeping, and food storage.</li>
+    <li><strong>Make noise</strong> on blind corners and anywhere the brush is thick.</li>
+  </ul>
+  <p style="margin-bottom:0">None of this is exotic. It's standard practice in the Northern Rockies — it just has to actually get done.</p>
+</div>
+
+<h2>Before we go</h2>
+
+<div class="cols">
+  <div>
+    <h3>Fires</h3>
+    <p>Plan on stove-only. 2026 has been a heavy fire year across the West and restrictions are likely. Worth checking the Custer Gallatin alerts page the week we leave.</p>
+    <h3>Water</h3>
+    <p>Spanish Creek and the lakes are reliable all season. Bring a filter.</p>
+    <h3>Weather</h3>
+    <p>Afternoon thunderstorms build most days — be off high ground by early afternoon. Nights at 9,000 ft in late August drop into the 30s. Real sleeping bag, not a summer quilt.</p>
+  </div>
+  <div>
+    <h3>Altitude</h3>
+    <p>We're going from about 500 ft to 9,000. Camp 1 is deliberately lower to take the edge off. Drink more than feels necessary on day one.</p>
+    <h3>The road in</h3>
+    <p>US-191 south through Gallatin Gateway, then Spanish Creek Road for roughly eleven miles — part gravel, part paved. Fine in a normal car when dry; the SUV is for comfort and margin. Parking gets tight midday, but a Monday should be fine.</p>
+    <h3>No signal</h3>
+    <p>Nothing in the wilderness. Someone at home gets the itinerary, and a satellite messenger comes if any of us has one.</p>
+  </div>
+</div>
+
+<h2>To book, in this order</h2>
+
+<ol class="route">
+  <li>
+    <em>Do this first</em>
+    <strong>Flights — $329, Aug 24 out, Aug 27 back</strong>
+    We're about four weeks out, which is where fares start climbing. This is the piece that moves.
+  </li>
+  <li>
+    <em>Same day</em>
+    <strong>The SUV</strong>
+    Bozeman rentals get tight in summer. Book it alongside the flight.
+  </li>
+  <li>
+    <em>Less urgent</em>
+    <strong>One room, Wednesday the 26th</strong>
+    Wednesday is a cheap night in Bozeman, so there's slack — but don't leave it to the final week.
+  </li>
+  <li>
+    <em>On the ground</em>
+    <strong>Bear spray and canisters</strong>
+    Sorted in Bozeman the morning we land, on the way to the trailhead.
+  </li>
+</ol>
+
+<footer>
+  Trailhead: 45.4477, −111.3771 · Spanish Creek Campground, Gallatin Gateway, MT<br>
+  Bozeman Ranger District, Custer Gallatin National Forest · (406) 522-2520<br>
+  Recommended map: Beartooth Publishing, Bozeman / Big Sky — or the Gallatin Peak quad<br>
+  <br>
+  One open item: the route above is the reliable out-and-back. A loop variant exists
+  through Jerome Rock Lakes, but the connector should be checked against a real map
+  or with the ranger district before we commit three people to it.
+</footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('map');
+  var status = document.getElementById('mapstatus');
+  var btns = document.querySelector('.mapbtns');
+
+  function degrade(msg) {
+    el.style.display = 'none';
+    btns.style.display = 'none';
+    status.innerHTML = msg;
+  }
+
+  if (typeof L === 'undefined') {
+    degrade('Live map unavailable — the Leaflet library did not load. Use the diagram below, which needs no network.');
+    return;
+  }
+
+  var AIRPORT = [45.7784043, -111.1612273];
+  var TH      = [45.4477028, -111.3770751];
+  var FALLS   = [45.4149285, -111.4052387];
+  var LAKES   = [45.3600225, -111.4204280];
+
+  var osmAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17, subdomains: 'abc',
+    attribution: osmAttr + ', SRTM &middot; Style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+  });
+  var street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19, attribution: osmAttr
+  });
+
+  var map = L.map('map', { layers: [topo], scrollWheelZoom: false });
+  L.control.layers({ 'Topographic': topo, 'Street': street }).addTo(map);
+  L.control.scale({ imperial: true, metric: false }).addTo(map);
+
+  [[TH, 'Spanish Creek trailhead', 'Mile 0 &middot; 6,120 ft<br>Cross the bridge, then <b>left</b> onto South Fork Spanish Creek #407.'],
+   [FALLS, 'Pioneer Falls', 'Mile 3.4 &middot; 6,870 ft<br>Junction at mile 3 &mdash; go <b>right</b> onto Falls Creek Trail. Camp 1 is dispersed, about 1.5 mi above here.'],
+   [LAKES, 'Spanish Lakes &mdash; Camp 2', 'Mile 8 &middot; ~9,000 ft'],
+   [AIRPORT, 'Bozeman airport (BZN)', 'Land 10:45 AM, Mon Aug 24. About 50 minutes to the trailhead.']
+  ].forEach(function (w) {
+    L.marker(w[0]).addTo(map).bindPopup('<b>' + w[1] + '</b><br>' + w[2]);
+  });
+
+  var hike = L.latLngBounds([TH, FALLS, LAKES]);
+  var drive = L.latLngBounds([AIRPORT, TH, LAKES]);
+  function fitHike() { map.fitBounds(hike, { padding: [36, 36] }); }
+  fitHike();
+  document.getElementById('btn-hike').addEventListener('click', fitHike);
+  document.getElementById('btn-drive').addEventListener('click', function () {
+    map.fitBounds(drive, { padding: [36, 36] });
+  });
+
+  var gotTiles = false;
+  topo.on('tileload', function () { gotTiles = true; });
+  street.on('tileload', function () { gotTiles = true; });
+
+  setTimeout(function () {
+    if (!gotTiles) {
+      degrade('Map tiles were blocked — some viewers do not allow external map servers. <strong>Download this file and open it in a browser</strong> and the map will work. The diagram below needs no network.');
+    } else {
+      status.innerHTML = 'Contours and trail lines are OpenStreetMap data, drawn by volunteers &mdash; <strong>a guide, not a survey.</strong> Zoom in to see the trail network. I was not able to verify how completely this drainage is mapped, so check it against the Beartooth Publishing sheet before relying on it. Scroll-zoom is off &mdash; use the +/&minus; buttons.';
+    }
+  }, 7000);
+})();
+</script>
+</body>
+</html>
