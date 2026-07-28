@@ -7,7 +7,6 @@ Single-file HTML backpacking trip briefs, generated from JSON.
 - `template/brief.html` — the page template
 - `build.js` — zero-dependency renderer, Node 18+
 - `docs/` — build output; GitHub Pages serves from here (Settings → Pages → `main` / `/docs`)
-- `reference/spanish-peaks.html` — the original hand-built brief the generator was extracted from
 
 Build:
 
