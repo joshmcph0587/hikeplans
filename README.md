@@ -2,7 +2,8 @@
 
 Single-file HTML backpacking trip briefs, generated from JSON.
 
-- `trips/<slug>.json` — one data file per trip (the only thing you author)
+- `trips/<slug>/` — one folder per trip; `trip.json` is the data file the build
+  reads, and any other per-trip material (notes, GPX, sources) lives alongside it
 - `template/brief.html` — the page template
 - `build.js` — zero-dependency renderer, Node 18+
 - `docs/` — build output; GitHub Pages serves from here (Settings → Pages → `main` / `/docs`)

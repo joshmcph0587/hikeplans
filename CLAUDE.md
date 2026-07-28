@@ -13,7 +13,7 @@ design target. When in doubt about layout, tone, or structure, match it.
 CLAUDE.md                     this file
 build.js                      zero-dependency renderer, Node 18+
 template/brief.html           the HTML template
-trips/<slug>.json             one data file per trip — the only thing you author
+trips/<slug>/trip.json        one folder per trip; trip.json is the only thing the build reads
 docs/                         build output; GitHub Pages serves from here
 docs/index.html               generated index of all trips
 docs/<slug>/index.html        generated brief
@@ -28,7 +28,9 @@ The user gives a destination and dates, or a set of constraints. Do not skip
 straight to writing the file.
 
 1. **Research.** See the protocol below. This is most of the work.
-2. **Author** `trips/<slug>.json`. Slug format: `place-YYYY-MM`.
+2. **Author** `trips/<slug>/trip.json`. Slug format: `place-YYYY-MM`. Anything
+   else that belongs to the trip — research notes, GPX tracks, source
+   snapshots — lives in the same folder; the build ignores it.
 3. **Build** with `node build.js` and read the output. Actually read it.
 4. **Report** what you verified, what you estimated, and what you could not
    confirm. Every uncertainty goes in the brief itself, not just the chat.
@@ -187,8 +189,8 @@ or two. Each trip gets its own URL: `<user>.github.io/hikeplans/<slug>/`.
 
 ## Schema notes
 
-The trip JSON is self-documenting — `trips/spanish-peaks-2026-08.json` is the
-canonical example. Two fields exist specifically for the static plan-view
+The trip JSON is self-documenting — `trips/spanish-peaks-2026-08/trip.json` is
+the canonical example. Two fields exist specifically for the static plan-view
 diagram, on entries in `map.waypoints`:
 
 - `mile` (number) — trail mileage. Positions the marker along the corridor and

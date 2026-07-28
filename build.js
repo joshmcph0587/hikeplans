@@ -482,18 +482,26 @@ function main() {
     fail('template/brief.html not found');
   }
 
-  const files = fs.existsSync(TRIPS_DIR)
-    ? fs.readdirSync(TRIPS_DIR).filter((f) => f.endsWith('.json')).sort()
-    : [];
-  if (!files.length) fail('no trip files found in trips/');
+  // One folder per trip: trips/<slug>/trip.json. Bare trips/<slug>.json files
+  // are still honoured so nothing breaks mid-migration.
+  const found = [];
+  const entries = fs.existsSync(TRIPS_DIR) ? fs.readdirSync(TRIPS_DIR, { withFileTypes: true }) : [];
+  for (const e of entries) {
+    if (e.isDirectory()) {
+      const p = path.join(TRIPS_DIR, e.name, 'trip.json');
+      if (fs.existsSync(p)) found.push({ slug: e.name, file: p, ctx: `trips/${e.name}/trip.json` });
+    } else if (e.name.endsWith('.json')) {
+      found.push({ slug: path.basename(e.name, '.json'), file: path.join(TRIPS_DIR, e.name), ctx: `trips/${e.name}` });
+    }
+  }
+  found.sort((a, b) => a.slug.localeCompare(b.slug));
+  if (!found.length) fail('no trips found — expected trips/<slug>/trip.json');
 
   const trips = [];
-  for (const file of files) {
-    const ctx = 'trips/' + file;
-    const slug = path.basename(file, '.json');
+  for (const { slug, file, ctx } of found) {
     let trip;
     try {
-      trip = JSON.parse(fs.readFileSync(path.join(TRIPS_DIR, file), 'utf8'));
+      trip = JSON.parse(fs.readFileSync(file, 'utf8'));
     } catch (e) {
       fail(`${ctx}: invalid JSON — ${e.message}`);
     }
