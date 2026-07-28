@@ -328,10 +328,18 @@ function costRowsHtml(costs, ctx) {
     const note = r.note ? `<small>${r.note}</small>` : '';
     return `    <tr data-status="${escAttr(r.status || 'estimated')}"><td>${esc(r.item)}${note}</td><td class="n">$${comma(r.pp)}</td></tr>`;
   });
+  const totalLabel = party === 1 ? 'Total' : 'Total, each';
+  const totalNote = party === 1 ? 'Traveling solo — nothing splits.' : `About $${comma(total * party)} for the ${numWord(party)} of us.`;
   out.push(
-    `    <tr class="total"><td>Total, each<small style="font-weight:400">About $${comma(total * party)} for the ${numWord(party)} of us.</small></td><td class="n">~$${comma(total)}</td></tr>`
+    `    <tr class="total"><td>${totalLabel}<small style="font-weight:400">${totalNote}</small></td><td class="n">~$${comma(total)}</td></tr>`
   );
   return out.join('\n');
+}
+
+function weatherRowsHtml(rows) {
+  return rows
+    .map((r) => `    <tr><td>${esc(r.label)}</td><td class="n">${esc(r.value)}</td></tr>`)
+    .join('\n');
 }
 
 function beforeColsHtml(items) {
@@ -363,7 +371,7 @@ function footerHtml(f, researched) {
 // ---------------------------------------------------------------------------
 
 function render(template, trip, ctx) {
-  for (const key of ['place', 'eyebrow', 'title', 'dates', 'thesis', 'facts', 'profile', 'why', 'days', 'map', 'route', 'costs', 'hazard', 'before', 'booking', 'footer']) {
+  for (const key of ['place', 'eyebrow', 'title', 'dates', 'thesis', 'facts', 'profile', 'why', 'days', 'map', 'route', 'costs', 'hazard', 'weather', 'before', 'booking', 'footer']) {
     need(trip, key, ctx);
   }
 
@@ -378,6 +386,12 @@ function render(template, trip, ctx) {
     }));
 
   const anyPhotos = trip.route.some((l) => l.photo);
+
+  // The weather section's forecast link and live-fetch coordinate both come
+  // from the first located trail waypoint (the trailhead), never authored.
+  const trailWp = wps.find((w) => w.kind !== 'transport' && w.lat != null);
+  if (!trailWp) fail(`${ctx}: no located trail waypoint to anchor the weather forecast to`);
+  const wx = trip.weather;
 
   const values = {
     meta_description: escAttr(metaDescription(trip)),
@@ -404,6 +418,11 @@ function render(template, trip, ctx) {
     hazard_intro: need(trip.hazard, 'intro', ctx + ' hazard'),
     hazard_items: need(trip.hazard, 'points', ctx + ' hazard').map((pt) => `    <li>${pt}</li>`).join('\n'),
     hazard_outro: need(trip.hazard, 'outro', ctx + ' hazard'),
+    weather_intro: need(wx, 'intro', ctx + ' weather'),
+    weather_rows: weatherRowsHtml(need(wx, 'rows', ctx + ' weather')),
+    weather_source: esc(need(wx, 'source', ctx + ' weather')),
+    nws_link: escAttr(`https://forecast.weather.gov/MapClick.php?lat=${trailWp.lat.toFixed(4)}&lon=${trailWp.lon.toFixed(4)}`),
+    wx_point_js: jsLit([Number(trailWp.lat.toFixed(4)), Number(trailWp.lon.toFixed(4))]),
     before_cols: beforeColsHtml(trip.before),
     booking_legs: legsHtml(trip.booking),
     footer_html: footerHtml(trip.footer, trip.researched),

@@ -131,6 +131,10 @@
     border-radius:0;padding-left:14px;margin-top:20px}
   @media (max-width:660px){.mapwrap{grid-template-columns:1fr}}
 
+  #wx-live{display:none;margin-top:28px}
+  #wx-live h3{font-size:20px}
+  table.wx td small{font-weight:400}
+
   .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
   .cols h3{font-size:20px}
   .cols p{font-size:16px;margin:8px 0 0}
@@ -145,7 +149,7 @@
     .log div{grid-template-columns:72px 1fr;gap:12px}
     ol.route li{padding-left:44px}
   }
-  @media print{body{background:#fff}.hero,.day,.alert,figure{break-inside:avoid}}
+  @media print{body{background:#fff}.hero,.day,.alert,figure,#wx-live{break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -415,6 +419,31 @@
   <p style="margin-bottom:0">None of this is exotic. It's standard practice in the Northern Rockies — it just has to actually get done.</p>
 </div>
 
+<h2>Weather</h2>
+
+<p>Late August in the Madison Range is the settled end of summer: clear mornings, roughly a one-in-five chance of rain on any given day, and thunderstorms that build over the peaks most afternoons and die with the sun. These are climate normals, not a forecast.</p>
+
+<table class="wx">
+  <thead><tr><th>Typical for these dates</th><th class="n"></th></tr></thead>
+  <tbody>
+    <tr><td>Day high, Big Sky (7,218 ft)</td><td class="n">~67°F</td></tr>
+    <tr><td>Overnight low, Big Sky</td><td class="n">~36°F</td></tr>
+    <tr><td>Derived at Spanish Lakes (~9,000 ft)</td><td class="n">~61° / ~30°F</td></tr>
+    <tr><td>Chance of a wet day</td><td class="n">~19%</td></tr>
+  </tbody>
+</table>
+<p class="caveat">Normals modeled for Big Sky, MT at 7,218 ft (Weather Spark); Spanish Lakes figures derived with a standard lapse rate, hence the ~. Checked 2026-07-28.</p>
+
+<div id="wx-live">
+  <h3>This week's forecast at the trailhead</h3>
+  <table>
+    <tbody id="wx-rows"></tbody>
+  </table>
+  <p class="caveat">Fetched live from the National Weather Service for the trailhead coordinate. Higher on the route runs colder and more exposed.</p>
+</div>
+
+<p style="font-size:15px">A real forecast only exists inside about a week, so the box above fills in when this page is opened with signal and hides itself when it can't. Before leaving, check the <a href="https://forecast.weather.gov/MapClick.php?lat=45.4477&amp;lon=-111.3771">NWS point forecast for the trailhead</a> — same feed, same coordinate.</p>
+
 <h2>Before we go</h2>
 
 <div class="cols">
@@ -545,6 +574,44 @@
       status.innerHTML = 'Contours and trail lines are OpenStreetMap data, drawn by volunteers &mdash; <strong>a guide, not a survey.</strong> Zoom in to see the trail network, and check it against the recommended paper sheet before relying on it. Scroll-zoom is off &mdash; use the +/&minus; buttons.';
     }
   }, 7000);
+})();
+</script>
+<script>
+(function () {
+  var box = document.getElementById('wx-live');
+  if (!box || !window.fetch) return;
+  var PT = [45.4477,-111.3771];
+  var dead = false;
+  var timer = setTimeout(function () { dead = true; }, 8000);
+
+  fetch('https://api.weather.gov/points/' + PT[0] + ',' + PT[1])
+    .then(function (r) { return r.json(); })
+    .then(function (j) { return fetch(j.properties.forecast); })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      if (dead) return;
+      clearTimeout(timer);
+      var rows = document.getElementById('wx-rows');
+      j.properties.periods.slice(0, 8).forEach(function (p) {
+        var tr = document.createElement('tr');
+        var name = document.createElement('strong');
+        name.textContent = p.name;
+        var detail = document.createElement('small');
+        var pop = p.probabilityOfPrecipitation && p.probabilityOfPrecipitation.value;
+        detail.textContent = p.shortForecast + (pop ? ' · ' + pop + '% precip' : '');
+        var td1 = document.createElement('td');
+        td1.appendChild(name);
+        td1.appendChild(detail);
+        var td2 = document.createElement('td');
+        td2.className = 'n';
+        td2.textContent = p.temperature + '°' + p.temperatureUnit;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        rows.appendChild(tr);
+      });
+      box.style.display = 'block';
+    })
+    .catch(function () { /* no network or no coverage — the box stays hidden */ });
 })();
 </script>
 </body>

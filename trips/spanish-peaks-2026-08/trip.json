@@ -128,6 +128,17 @@
     "outro": "None of this is exotic. It's standard practice in the Northern Rockies — it just has to actually get done."
   },
 
+  "weather": {
+    "intro": "Late August in the Madison Range is the settled end of summer: clear mornings, roughly a one-in-five chance of rain on any given day, and thunderstorms that build over the peaks most afternoons and die with the sun. These are climate normals, not a forecast.",
+    "rows": [
+      { "label": "Day high, Big Sky (7,218 ft)", "value": "~67°F" },
+      { "label": "Overnight low, Big Sky", "value": "~36°F" },
+      { "label": "Derived at Spanish Lakes (~9,000 ft)", "value": "~61° / ~30°F" },
+      { "label": "Chance of a wet day", "value": "~19%" }
+    ],
+    "source": "Normals modeled for Big Sky, MT at 7,218 ft (Weather Spark); Spanish Lakes figures derived with a standard lapse rate, hence the ~. Checked 2026-07-28."
+  },
+
   "before": [
     { "h": "Fires", "p": "Plan on stove-only. 2026 has been a heavy fire year across the West and restrictions are likely. Check the Custer Gallatin alerts page the week we leave." },
     { "h": "Water", "p": "Spanish Creek and the lakes are reliable all season. Bring a filter." },

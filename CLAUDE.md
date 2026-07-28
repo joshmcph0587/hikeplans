@@ -109,9 +109,12 @@ Every brief has all of these. Omitting one is a bug.
 9. **Hazard panel** — the one thing that isn't optional. Bear regulations, water,
    river crossings, whatever the real risk is. Accent-bordered, impossible to skim
    past.
-10. **Before we go** — fires, water, weather, altitude, road access, signal.
-11. **To book, in order** — what to reserve, in what order, with urgency noted.
-12. **Footer** — coordinates, land manager phone, recommended paper map, and any
+10. **Weather** — sourced climate normals for the actual dates and elevations
+    (never a forecast recalled from memory; derived figures get `~`), plus the
+    computed NWS point-forecast link and live-forecast box (see degradation).
+11. **Before we go** — fires, water, weather, altitude, road access, signal.
+12. **To book, in order** — what to reserve, in what order, with urgency noted.
+13. **Footer** — coordinates, land manager phone, recommended paper map, and any
     open questions.
 
 ## Graceful degradation
@@ -120,8 +123,10 @@ Assume the reader is at a trailhead with no signal and a dying phone.
 
 - Everything essential must render with zero network: elevation profile, route
   legs, junctions, coordinates, costs, hazards. These are inline SVG and HTML.
-- Live map and photos are enhancements. Wrap every one in an `onerror` handler
-  that hides the element rather than leaving a broken box.
+- Live map, photos, and the live weather-forecast box are enhancements. Wrap
+  every one in an `onerror`/catch handler that hides the element rather than
+  leaving a broken box. The weather box is hidden by default and only appears
+  when the NWS API answers; the static normals table is the zero-network layer.
 - Tile layers get a `tileload` listener and a timeout. If no tile arrives, hide
   the map and tell the reader to download the file, pointing them at the static
   fallback.
@@ -203,9 +208,15 @@ diagram, on entries in `map.waypoints`:
   `"kind": "approximate"` waypoints the template renders a hollow marker and
   appends `· approx.` to the second line itself.
 
+The `weather` object is required: `intro` (prose, normals not forecast),
+`rows` (label/value pairs, `~` on anything derived from a lapse rate or a
+nearby station), `source` (station, elevation, and the date checked).
+
 Computed by `build.js`, never authored: the `<title>` tag (place + first/last
 day dates), meta description, both SVGs' geometry, the scale bar length, the
 Google Maps drive link (from the `transport` waypoint to the first trail
-waypoint), coordinate formatting in the waypoints table, and the cost totals
-(per-person sum and group total from `party_size`). If the template needs
+waypoint), coordinate formatting in the waypoints table, the cost totals
+(per-person sum and group total from `party_size`), and the weather section's
+NWS point-forecast link and live-fetch coordinate (from the first located
+trail waypoint). If the template needs
 something the JSON doesn't carry, propose a field — don't hardcode.
