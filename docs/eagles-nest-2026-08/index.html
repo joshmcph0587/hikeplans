@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Backpacking trip brief: Cataract and Eaglesmere Lakes, Eagles Nest Wilderness, Denver, Colorado, August 24 to 27, 2026.">
+<title>Cataract and Eaglesmere Lakes — Aug 24–27, 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+  #map{height:460px;width:100%;border:1px solid var(--rule);background:var(--paper-2);margin:22px 0 0}
+  .leaflet-container{font-family:system-ui,-apple-system,sans-serif;font-size:13px}
+  .mapbtns{display:flex;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+  .mapbtns button{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;background:transparent;color:#2E5339;border:1px solid #2E5339;
+    padding:7px 13px;cursor:pointer}
+  .mapbtns button:hover{background:#2E5339;color:#F6F7F3}
+</style>
+<style>
+  :root{
+    --paper:#EDF0E8;
+    --paper-2:#F6F7F3;
+    --contour:#7A5B38;
+    --forest:#2E5339;
+    --water:#1D6F8E;
+    --route:#B5651D;
+    --rule:#C9CEC0;
+    --ink:#23281F;
+    --ink-2:#5A6152;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:400 17px/1.65 var(--sans);
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:0 24px 96px}
+
+  header{padding:56px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--contour);margin:0 0 18px
+  }
+  h1{
+    font:700 clamp(42px,9vw,76px)/0.95 var(--serif);
+    margin:0;letter-spacing:-.02em;color:var(--forest)
+  }
+  .sub{font-size:19px;color:var(--ink-2);margin:14px 0 0;max-width:52ch}
+
+  .hero{margin:34px 0 0;border:1px solid var(--rule);background:var(--paper-2);padding:20px 8px 8px}
+  .hero svg{display:block;width:100%;height:auto}
+  .hero .vizsource{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    color:var(--ink-2);margin:8px 8px 4px}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1px 0 0
+  }
+  .fact{background:var(--paper-2);padding:14px 16px}
+  .fact dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 4px}
+  .fact dd{margin:0;font:600 21px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+
+  h2{
+    font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--contour);margin:72px 0 0;padding-bottom:10px;border-bottom:2px solid var(--forest)
+  }
+  h3{font:600 27px/1.2 var(--serif);margin:34px 0 2px;color:var(--forest)}
+  p{margin:14px 0}
+  a{color:var(--water);text-underline-offset:2px}
+
+  .day{display:grid;grid-template-columns:64px 1fr;gap:0 22px;margin:40px 0 0;
+    padding-top:26px;border-top:1px solid var(--rule)}
+  .day:first-of-type{border-top:0}
+  .daymark{font:700 34px/1 var(--mono);color:var(--route);margin:0}
+  .daydate{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0}
+  .day h3{margin-top:0}
+
+  .log{margin:16px 0 0;border-top:1px solid var(--rule)}
+  .log div{display:grid;grid-template-columns:82px 1fr;gap:16px;
+    padding:9px 0;border-bottom:1px solid var(--rule);font-size:16px}
+  .log span{font-family:var(--mono);font-size:13px;color:var(--contour);padding-top:2px;
+    font-variant-numeric:tabular-nums}
+  .log p{margin:0}
+
+  ol.route{list-style:none;counter-reset:leg;padding:0;margin:22px 0 0}
+  ol.route li{counter-increment:leg;position:relative;padding:0 0 22px 62px;
+    border-left:2px solid var(--rule);margin-left:14px}
+  ol.route li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.route li::before{
+    content:counter(leg,decimal-leading-zero);position:absolute;left:-15px;top:0;
+    width:28px;height:28px;border-radius:50%;background:var(--forest);color:var(--paper-2);
+    font:600 11px/28px var(--mono);text-align:center
+  }
+  ol.route strong{display:block;font:600 17px/1.4 var(--sans)}
+  ol.route em{font-style:normal;font-family:var(--mono);font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--contour);display:block;margin:0 0 3px}
+
+  table{width:100%;border-collapse:collapse;margin:22px 0 0;font-size:16px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.total td{border-bottom:0;border-top:2px solid var(--forest);font-weight:600;
+    color:var(--forest);padding-top:13px}
+  td small{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.4}
+
+  .alert{border:2px solid var(--route);background:#FBF3E9;padding:22px 26px;margin:24px 0 0}
+  .alert h3{margin-top:0;color:#8A4A12}
+  .alert ul{margin:12px 0 0;padding-left:20px}
+  .alert li{margin:8px 0}
+
+  .mapwrap{display:grid;grid-template-columns:340px 1fr;gap:0 34px;margin:24px 0 0;align-items:start}
+  .mappanel{border:1px solid var(--rule);background:var(--paper-2);padding:12px}
+  .mappanel svg{display:block;width:100%;height:auto}
+  .mapkey h3{margin-top:0;font-size:20px}
+  table.wp{margin:10px 0 0;font-size:14px}
+  table.wp td{padding:7px 0;border-bottom:1px solid var(--rule)}
+  table.wp td.n{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2)}
+  ol.route figure{margin:16px 0 0}
+  ol.route img{display:block;width:100%;max-width:430px;height:auto;border:1px solid var(--rule)}
+  ol.route figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0;max-width:430px;line-height:1.5}
+  ol.route figcaption a{color:var(--ink-2)}
+  .caveat{font-size:14.5px;color:var(--ink-2);border-left:3px solid var(--route);
+    border-radius:0;padding-left:14px;margin-top:20px}
+  @media (max-width:660px){.mapwrap{grid-template-columns:1fr}}
+
+  #wx-live{display:none;margin-top:28px}
+  #wx-live h3{font-size:20px}
+  table.wx td small{font-weight:400}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+  .cols h3{font-size:20px}
+  .cols p{font-size:16px;margin:8px 0 0}
+
+  footer{margin:80px 0 0;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+
+  @media (max-width:560px){
+    .sheet{padding:0 18px 64px}
+    .day{grid-template-columns:1fr;gap:0}
+    .daymark{font-size:26px}
+    .log div{grid-template-columns:72px 1fr;gap:12px}
+    ol.route li{padding-left:44px}
+  }
+  @media print{body{background:#fff}.hero,.day,.alert,figure,#wx-live{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">Eagles Nest Wilderness · Denver · Colorado</p>
+  <h1>Five lakes,<br>no exposure</h1>
+  <p class="sub">Seventeen miles through the Gore Range on a loop whose high point is a lake, not a pass — five alpine lakes, water the whole way, and every camp in the trees. Josh and Jon — August 24 to 27, 2026.</p>
+</header>
+
+<div class="hero">
+<svg viewBox="0 0 780 300" role="img" aria-label="Elevation profile: 8,585 feet at mile 0 to 8,585 feet at mile 17.1">
+  <title>Elevation profile</title>
+  <line x1="96" y1="248" x2="740" y2="248" stroke="#C9CEC0"/>
+  <line x1="96" y1="192" x2="740" y2="192" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="136" x2="740" y2="136" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="80" x2="740" y2="80" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="#5A6152">
+    <text x="86" y="252" text-anchor="end">8,000</text>
+    <text x="86" y="196" text-anchor="end">9,000</text>
+    <text x="86" y="140" text-anchor="end">10,000</text>
+    <text x="86" y="84" text-anchor="end">11,000</text>
+    <text x="96" y="270" text-anchor="middle">0</text>
+    <text x="275" y="270" text-anchor="middle">5</text>
+    <text x="454" y="270" text-anchor="middle">10</text>
+    <text x="633" y="270" text-anchor="middle">15</text>
+    <text x="418" y="291" text-anchor="middle" letter-spacing="1.4" fill="#7A5B38">MILES FROM TRAILHEAD</text>
+  </g>
+  <path d="M96 215 L214 137 L221 133 L243 114 L314 94 L386 114 L436 149 L486 120 L507 114 L686 192 L708 215 L708 248 L96 248 Z" fill="#2E5339" opacity="0.1"/>
+  <path d="M96 215 L214 137 L221 133 L243 114 L314 94 L386 114 L436 149 L486 120 L507 114 L686 192 L708 215" fill="none" stroke="#B5651D" stroke-width="2.5" stroke-linejoin="round"/>
+  <g fill="#B5651D" stroke="#F6F7F3" stroke-width="2">
+    <circle cx="96" cy="215" r="4.5"/>
+    <circle cx="314" cy="94" r="4.5"/>
+    <circle cx="436" cy="149" r="4.5"/>
+    <circle cx="507" cy="114" r="4.5"/>
+    <circle cx="708" cy="215" r="6"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#23281F">
+    <text x="96" y="202" font-size="12" fill="#5A6152">Trailhead · 8,585 ft</text>
+    <text x="330" y="135" font-size="12" fill="#5A6152">Camp 1 · Upper Cataract Lake · 10,752 ft</text>
+    <text x="452" y="190" font-size="12" fill="#5A6152">Tipperary Lake · 9,761 ft</text>
+    <text x="523" y="155" font-size="12" fill="#5A6152">Camp 2 · Eaglesmere Lakes · 10,391 ft</text>
+    <text x="708" y="195" text-anchor="end" font-size="12" fill="#5A6152">Back at the trailhead</text>
+  </g>
+</svg>
+<p class="vizsource">Every elevation here is a USGS 3DEP reading at a surveyed coordinate — the lakes and trailheads from OpenStreetMap, the junctions computed where the trail geometries actually meet. The two independent sources agree to within 7 feet at every point I could check both. The high point of this route is Upper Cataract Lake at 10,752 ft, which is roughly 600 feet below Gore Range treeline: there is no point on this loop you cannot shelter.</p>
+</div>
+
+<dl class="facts">
+  <div class="fact"><dt>Distance</dt><dd>~17.1 mi</dd></div>
+  <div class="fact"><dt>Elev. gain</dt><dd>~2,800′</dd></div>
+  <div class="fact"><dt>Nights out</dt><dd>2 + hotel</dd></div>
+  <div class="fact"><dt>Permit</dt><dd>Free · $5 lot</dd></div>
+  <div class="fact"><dt>Per person</dt><dd>~$552</dd></div>
+</dl>
+
+<h2>Why here</h2>
+
+<p>This is the trip the other candidates kept failing at. Alpine lakes and big views normally mean going above treeline, which means a dawn start, a dry traverse and nowhere to shelter when the sky turns over — that is what ruled out the Lost Creek loop and the Rollins Pass loop before it. The Gore Range breaks the pattern, because its lakes sit in timbered basins at 10,000 to 10,750 feet with thirteen-thousand-foot peaks standing directly over them. You get the drama by looking up instead of by standing on top of it. Five lakes you can legally camp at, water within reach nearly the whole way, and 2,800 feet of climbing across three days.</p>
+
+<p>Late August is the right window. The creek crossings on the Surprise Trail run high with snowmelt in June and are low by now, and 2026's record drought — the thing that makes the Lost Creek plan a gamble — matters far less on a route whose water is a chain of lakes rather than one headwater stream. The cost is that this is the highest first night of any plan we have looked at: 10,752 feet, straight from Austin. That is the one thing to plan around.</p>
+
+<h2>The itinerary</h2>
+
+<div class="day">
+  <div><p class="daymark">01</p><p class="daydate">Mon<br>Aug 24</p></div>
+  <div>
+    <h3>Fly in, up to Upper Cataract Lake</h3>
+    <div class="log">
+      <div><span>06:55</span><p>Depart Austin — Southwest WN 559, nonstop</p></div>
+      <div><span>08:10</span><p>Land Denver. The cheap rental brands are off-airport — budget 30–45 minutes for the shuttle</p></div>
+      <div><span>09:00</span><p>I-70 west, then Highway 9 north from Silverthorne, Heeney Road, and Cataract Creek Road</p></div>
+      <div><span>11:15</span><p>Surprise trailhead, 8,585 ft. <strong>Pay the $5 at the station and self-register the wilderness permit</strong> — the permit is free, the parking is not</p></div>
+      <div><span>11:30</span><p>Walking. Cataract Creek bridge, then a steady climb</p></div>
+      <div><span>~16:30</span><p><strong>Camp 1</strong> at Upper Cataract Lake, 10,752 ft — under Mount Powell, and the high point of the whole loop</p></div>
+    </div>
+    <p>6.1 miles and about 2,170 feet of net climb, most of it in the first 3.3 to the Gore Range Trail junction. That stretch is switchbacked and was rerouted a couple of summers ago; a June 2024 report logged significant deadfall through here, so expect to step over trees and to lose the line once or twice. Everything today is in timber, which is exactly where you want to be from two o'clock on.</p>
+    <p><strong>The altitude is the real load today.</strong> You wake up near sea level in Austin and sleep at 10,752 feet — higher than any first night we have planned. Drink more than you want to on the drive, eat at the trailhead, and walk the climb slower than feels necessary.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">02</p><p class="daydate">Tue<br>Aug 25</p></div>
+  <div>
+    <h3>Mirror Lake, then west to Eaglesmere</h3>
+    <p>The short day, and the one to spend. Mirror Lake is 1.5 miles further down the Upper Cataract–Mirror Lake trail from camp, with Cat Lake a little off to the north — go and look with day packs before you break camp, and you have seen four of the five lakes by lunch.</p>
+    <p>Then the move: back 2.0 miles up the spur to the <strong>Upper Cataract junction, and right onto the Gore Range Trail #60 heading west</strong>. The trail drops to Tipperary Lake at 9,761 feet — the low point of the middle of this loop — then climbs back to the Eaglesmere junction at 10,281. <strong>Camp 2</strong> at Eaglesmere Lakes, 10,391 feet, about 0.6 miles past the junction. 5.4 miles with the packs on, or 8.4 with the Mirror Lake look-around included.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">03</p><p class="daydate">Wed<br>Aug 26</p></div>
+  <div>
+    <h3>Down the Eaglesmere trail, and a bed</h3>
+    <div class="log">
+      <div><span>07:30</span><p>Break camp. Back 0.6 to the junction, then <strong>right and north onto Eaglesmere Trail #61</strong></p></div>
+      <div><span>~11:30</span><p>Eaglesmere trailhead, 9,005 ft. Turn left down Cataract Creek Road</p></div>
+      <div><span>~11:45</span><p>Surprise trailhead and the car. 5.6 miles, 1,806 feet down</p></div>
+      <div><span>~14:15</span><p>Denver. Shower, and a dinner someone else cooked</p></div>
+    </div>
+    <p>The loop does not quite close on foot: Eaglesmere trailhead sits 0.6 miles up the road from where you parked, and 420 feet higher, so the last stretch is a road walk downhill. Nothing is attached to the far end of this descent — the flight is tomorrow, so a slow morning costs you nothing but a later dinner.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">04</p><p class="daydate">Thu<br>Aug 27</p></div>
+  <div>
+    <h3>Fly home</h3>
+    <div class="log">
+      <div><span>07:30</span><p>Hotel breakfast — included at every hotel listed below</p></div>
+      <div><span>08:15</span><p>Twenty minutes to the rental lot, then the shuttle to the terminal</p></div>
+      <div><span>11:00</span><p>Depart Denver — Southwest WN 1438, nonstop</p></div>
+      <div><span>14:10</span><p>Land Austin</p></div>
+    </div>
+    <p>Seven Southwest nonstops leave Denver for Austin on this Thursday and every one prices the same, so the hour is a free choice. The 11:00 is the pick: unhurried breakfast, no alarm before seven, home mid-afternoon.</p>
+  </div>
+</div>
+
+<h2>The route, junction by junction</h2>
+
+<p>Four trails and three junctions, none of them ambiguous once you know the numbers: Surprise Trail #62 up, Gore Range Trail #60 across, the Upper Cataract–Mirror Lake Trail #63 out to Camp 1 and back, then Eaglesmere Trail #61 down. The one thing to get right is that the spur to Upper Cataract Lake is a there-and-back — you return to the same junction.</p>
+
+<div id="map"></div>
+<div class="mapbtns">
+  <button type="button" id="btn-hike">Fit the hike</button>
+  <button type="button" id="btn-drive">Fit the drive</button>
+</div>
+<p class="caveat" id="mapstatus">Loading the map…</p>
+
+<div class="mapwrap">
+  <div class="mappanel">
+    <svg viewBox="0 0 340 440" role="img" aria-label="Plan-view diagram, drawn to scale: Trailhead to Back at the car, connected by straight corridor lines, not the trail alignment">
+      <title>Route waypoints</title>
+      <g stroke="#2E5339" stroke-width="1.4" fill="none">
+        <line x1="40" y1="86" x2="40" y2="60"/>
+      </g>
+      <polygon points="40,54 36,64 44,64" fill="#2E5339"/>
+      <text x="40" y="100" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#2E5339">N</text>
+
+      <polyline points="198,109 194,245 107,331 120,211 18,220 157,95 198,109" fill="none" stroke="#B5651D"
+        stroke-width="2" stroke-dasharray="6 5" stroke-linejoin="round"/>
+
+      <circle cx="198" cy="109" r="6" fill="#2E5339" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="194" cy="245" r="5" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="107" cy="331" r="5" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="120" cy="211" r="5" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="18" cy="220" r="5" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="157" cy="95" r="5" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+
+      <g font-family="system-ui, sans-serif" fill="#23281F">
+        <text x="210" y="106" font-size="12.5" font-weight="600">Trailhead</text>
+        <text x="210" y="120" font-size="11" fill="#5A6152">mile 0 · 8,585 ft</text>
+
+        <text x="205" y="242" font-size="12.5" font-weight="600">Right onto #63</text>
+        <text x="205" y="256" font-size="11" fill="#5A6152">mile 4.1 · 10,391 ft</text>
+
+        <text x="118" y="328" font-size="12.5" font-weight="600">Upper Cataract · Camp 1</text>
+        <text x="118" y="342" font-size="11" fill="#5A6152">mile 6.1 · 10,752 ft</text>
+
+        <text x="131" y="208" font-size="12.5" font-weight="600">Tipperary Lake</text>
+        <text x="131" y="222" font-size="11" fill="#5A6152">mile 9.5 · 9,761 ft</text>
+
+        <text x="29" y="217" font-size="12.5" font-weight="600">Eaglesmere · Camp 2</text>
+        <text x="29" y="231" font-size="11" fill="#5A6152">mile 11.5 · 10,391 ft</text>
+
+        <text x="168" y="92" font-size="12.5" font-weight="600">Eaglesmere TH</text>
+        <text x="168" y="106" font-size="11" fill="#5A6152">mile 16.5 · 9,005 ft</text>
+      </g>
+
+      <g stroke="#5A6152" stroke-width="1.2">
+        <line x1="30" y1="405" x2="101" y2="405"/>
+        <line x1="30" y1="400" x2="30" y2="410"/>
+        <line x1="66" y1="402" x2="66" y2="408"/>
+        <line x1="101" y1="400" x2="101" y2="410"/>
+      </g>
+      <text x="66" y="424" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+        font-size="10.5" letter-spacing="0.8" fill="#5A6152">1 MILE</text>
+    </svg>
+  </div>
+
+  <div class="mapkey">
+    <h3>Waypoints</h3>
+    <table class="wp">
+      <tr><td>Denver airport (DEN)</td><td class="n">39.8561, −104.6737</td></tr>
+      <tr><td>Surprise trailhead</td><td class="n">39.8369, −106.3110</td></tr>
+      <tr><td>Surprise Lake / Gore Range Trail junction</td><td class="n">39.8096, −106.2999</td></tr>
+      <tr><td>Surprise Lake</td><td class="n">39.8078, −106.3029</td></tr>
+      <tr><td>Upper Cataract junction</td><td class="n">39.8091, −106.3119</td></tr>
+      <tr><td>Upper Cataract Lake — Camp 1</td><td class="n">39.7915, −106.3354</td></tr>
+      <tr><td>Cat Lake</td><td class="n">39.7976, −106.3354</td></tr>
+      <tr><td>Mirror Lake</td><td class="n">39.7894, −106.3555</td></tr>
+      <tr><td>Tipperary Lake</td><td class="n">39.8162, −106.3319</td></tr>
+      <tr><td>Eaglesmere junction</td><td class="n">39.8175, −106.3480</td></tr>
+      <tr><td>Eaglesmere Lakes — Camp 2</td><td class="n">39.8143, −106.3590</td></tr>
+      <tr><td>Eaglesmere trailhead</td><td class="n">39.8398, −106.3219</td></tr>
+    </table>
+    <p style="margin-top:16px;font-size:15px">I-70 west from Denver to exit 205 at Silverthorne, Highway 9 north about 16 miles past mile marker 118, left on Heeney Road (County Road 30) for 5.3 miles, then left on Cataract Creek Road (FDR 1725) for 2.4 miles past the campground and the Eaglesmere trailhead. <strong>2 hr 15 min and 115 miles</strong> — Google's route from the terminal, checked 2026-07-29. Only the last 2.4 miles are unpaved, and they are described as improved dirt suitable for most 2WD cars in good condition, which is a better bet for a cheap rental than either of the alternatives we looked at. <a href="https://www.google.com/maps/dir/?api=1&amp;origin=39.8561,-104.6737&amp;destination=39.83689,-106.31097">Airport to trailhead on Google Maps.</a></p>
+    <p class="caveat">The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. It plots surveyed coordinates in walking order and <strong>closes the loop, but the dashed lines are straight-line spacing, not the trail alignment.</strong> Note that the corridor doubles back on itself between miles 6.1 and 8.1, because the leg to Camp 1 is a spur you walk twice. Carry the paper sheet — the USGS Mount Powell quad covers the route.</p>
+  </div>
+</div>
+
+<ol class="route">
+  <li>
+    <em>Mile 0 · 8,585 ft</em>
+    <strong>Surprise trailhead</strong>
+    End of 2.4 miles of improved dirt past Cataract Creek Campground. <strong>Two things happen here: $5 into the pay station, and your name in the wilderness register.</strong> The fee covers trails and recreation use for five consecutive days; the permit is free but mandatory. No potable water and no toilet at the lot — the nearest vault is a mile back at Lower Cataract Lake. The trail crosses Cataract Creek on a bridge and starts climbing.
+  </li>
+  <li>
+    <em>Miles 0–3.3</em>
+    <strong>Up the Surprise Trail #62</strong>
+    Fourteen hundred feet of switchbacked climb through timber, with several creek crossings early. They run high with snowmelt in June and should be straightforward in late August. The trail was rerouted around mile 2.8 and a 2024 report through here logged significant deadfall, so expect obstacles. This is the stretch that does most of the day's work.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Gore_Range_from_south.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gore_Range_from_south.jpg?width=900" alt="The Gore Range from the south — the skyline this loop walks beneath. Not a photograph from the route: Wikimedia Commons holds no picture of any lake on this itinerary." loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>The Gore Range from the south — the skyline this loop walks beneath. Not a photograph from the route: Wikimedia Commons holds no picture of any lake on this itinerary. · Zach Dischner, CC BY 3.0, via <a href="https://commons.wikimedia.org/wiki/File:Gore_Range_from_south.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Mile 3.3 · 9,981 ft</em>
+    <strong>Left onto the Gore Range Trail #60</strong>
+    The Surprise Trail ends at the Gore Range Trail. <strong>Turn left.</strong> Surprise Lake opens up 0.2 miles along at 10,057 feet, and this is where the day hikers stop — the trip reports that describe seeing three people all day are describing what happens past this point.
+  </li>
+  <li>
+    <em>Mile 4.1 · 10,391 ft</em>
+    <strong>Right onto the Upper Cataract–Mirror Lake Trail #63</strong>
+    Eight tenths of a mile west of the Surprise junction, trail #63 leaves south. <strong>Turn right.</strong> Fix this junction in your head: you walk back to it tomorrow at mile 8.1 and carry on west, and it is the only place on the loop where you retrace ground. Staying on #60 here skips Camp 1 entirely and turns the trip into the standard twelve-mile loop.
+  </li>
+  <li>
+    <em>Mile 6.1 · 10,752 ft</em>
+    <strong>Upper Cataract Lake — Camp 1</strong>
+    Two miles of climbing on #63, measured along the mapped trail, to the highest point of the loop — which is a lake with Mount Powell, 13,586 feet, standing over it. Camp 100 feet from water and trail. <strong>No campfire here under any circumstances:</strong> the wilderness order prohibits them within a quarter mile of any lake, and this is a lake basin. Stove only, and that is before the forest-wide fire restrictions.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Mount_Powell_from_Beaver_Creek_Ski_Resort.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Powell_from_Beaver_Creek_Ski_Resort.jpg?width=900" alt="Mount Powell, 13,586 ft, the high point of the Gore Range, seen from Beaver Creek about twenty miles southwest. It stands roughly two and a half miles south of Camp 1." loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Mount Powell, 13,586 ft, the high point of the Gore Range, seen from Beaver Creek about twenty miles southwest. It stands roughly two and a half miles south of Camp 1. · Joe Lin, CC BY 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Mount_Powell_from_Beaver_Creek_Ski_Resort.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Day two, morning</em>
+    <strong>Mirror Lake and Cat Lake</strong>
+    Mirror Lake is 1.5 miles further along #63 at 10,573 feet, with Cat Lake at 10,619 a little north of the corridor. Both are worth an hour with day packs before you strike camp, and doing them light rather than loaded is the whole reason day two is short. Adds about three miles round trip.
+  </li>
+  <li>
+    <em>Mile 8.1 · 10,391 ft</em>
+    <strong>Back at the junction, then west</strong>
+    Return up the spur to the Upper Cataract junction and <strong>go west on #60.</strong> From here the trail descends toward Tipperary Lake — the only sustained downhill in the middle of this loop, and it is 630 feet you climb back.
+  </li>
+  <li>
+    <em>Mile 9.5 · 9,761 ft</em>
+    <strong>Tipperary Lake</strong>
+    A tenth of a mile off #60 on a spur, and the low point between the camps. Water, and a reasonable place to stop and eat. Then 520 feet back up to the Eaglesmere junction — the last real climb of the trip.
+  </li>
+  <li>
+    <em>Mile 10.9 · 10,281 ft</em>
+    <strong>The Eaglesmere junction</strong>
+    <strong>Eaglesmere Trail #61 leaves north here — that is tomorrow's line.</strong> Today, continue southwest another 0.6 miles to the lakes. Getting this backwards costs you the camp, not the trip.
+  </li>
+  <li>
+    <em>Mile 11.5 · 10,391 ft</em>
+    <strong>Eaglesmere Lakes — Camp 2</strong>
+    Three tarns in timber at 10,391 feet. Same rules: 100 feet from water and trail, no fires. The Gore Range Trail beyond here runs on toward Elliott Ridge and eventually forty more miles of the range — a different trip.
+  </li>
+  <li>
+    <em>Miles 12.1–16.5 · down to 9,005 ft</em>
+    <strong>Eaglesmere Trail #61</strong>
+    Back to the junction, <strong>right and north</strong>, and 4.4 miles of descent losing 1,276 feet. The trail leaves the wilderness boundary at about mile 8.35 of the standard loop numbering, and finishes at the Eaglesmere trailhead — which is not where you left the car.
+  </li>
+  <li>
+    <em>Miles 16.5–17.1 · back to 8,585 ft</em>
+    <strong>The road walk</strong>
+    Turn left out of the Eaglesmere lot and walk 0.6 miles down Cataract Creek Road, dropping 420 feet, to the Surprise trailhead. It is the one piece of this loop that is not trail, and it is the reason the route is a genuine loop rather than an out-and-back. Sign out if there is a register.
+  </li>
+</ol>
+<p style="font-size:14.5px;color:var(--ink-2);margin-top:20px">Photographs are from Wikimedia Commons, which hosts only freely licensed or public-domain media. Each caption links to its file page — worth a look at the license there before reusing any of them anywhere public.</p>
+
+<h2>What it costs</h2>
+
+<table>
+  <thead><tr><th>Item</th><th class="n">Per person</th></tr></thead>
+  <tbody>
+    <tr data-status="confirmed"><td>Flight, Austin–Denver round trip<small>Southwest nonstop, out WN 559 6:55 AM Aug 24, home WN 1438 11:00 AM Aug 27. Checked live 2026-07-29 — the cheapest fare to any airport with mountain access, and all seven Thursday nonstops price the same.</small></td><td class="n">$217</td></tr>
+    <tr data-status="confirmed"><td>Checked pack, both ways<small>$45 per bag each way, from Southwest's own fee page for tickets booked after April 2026. Price the Choice Extra fare against basic-plus-bags — it includes two checked bags.</small></td><td class="n">$90</td></tr>
+    <tr data-status="confirmed"><td>Rental car, midsize SUV<small>$69 total including taxes and fees, live Expedia quote for Mon 9:00 AM to Thu 8:30 AM — 71½ hours, so it still bills as three days. Off-airport brand, non-refundable; the cheapest in-terminal option at DEN was $281.</small></td><td class="n">$35</td></tr>
+    <tr data-status="estimated"><td>Hotel near the airport, Wed night<small>$117 for the room, two queen beds, breakfast included, free cancellation — live on Booking.com 2026-07-29. Denver's combined lodging tax is 14.75% and Booking did not disclose whether it is included, so this budgets as though it is not.</small></td><td class="n">$68</td></tr>
+    <tr data-status="estimated"><td>Gas<small>~240 miles at Colorado's $4.067 average (AAA, 2026-07-29), assuming 26 mpg. The trailhead is 115 miles each way — 24 further than the Lost Creek option, which is most of the difference between the two plans.</small></td><td class="n">$19</td></tr>
+    <tr data-status="estimated"><td>Trail food, three days</td><td class="n">$40</td></tr>
+    <tr data-status="estimated"><td>Road meals<small>Breakfast on the drive out Monday, a real dinner in Denver Wednesday, something at the gate Thursday. Thursday breakfast is free at the hotel.</small></td><td class="n">$55</td></tr>
+    <tr data-status="estimated"><td>Fuel canister and odds and ends<small>Bought near Denver or in Silverthorne — canisters can't fly.</small></td><td class="n">$15</td></tr>
+    <tr data-status="estimated"><td>Bear hang kit<small>Rope and a dry bag, shared. No posted food-storage order was found for Eagles Nest, unlike Lost Creek — but 2026 is a bad bear year in Colorado and a hang costs nothing to carry.</small></td><td class="n">$10</td></tr>
+    <tr data-status="confirmed"><td>Trailhead fee<small>$5 at the Surprise trailhead pay station, good for five consecutive days. Split two ways. Bring cash.</small></td><td class="n">$3</td></tr>
+    <tr data-status="confirmed"><td>Wilderness permit<small>Free, self-issued at the trailhead. No quota, no reservation — unlike Desolation, where Lake Aloha was already sold out for these dates.</small></td><td class="n">$0</td></tr>
+    <tr class="total"><td>Total, each<small style="font-weight:400">About $1,104 for the two of us.</small></td><td class="n">~$552</td></tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <h3>The altitude on night one, and the moose</h3>
+  <p style="margin-top:6px">This route removes the two dangers the other plans were organised around: there is no dry stretch, and there is nowhere above treeline. What is left is smaller but not nothing, and the first item is the one that has a real chance of spoiling the trip.</p>
+  <ul>
+    <li><strong>Camp 1 is at 10,752 feet, and you woke up in Austin.</strong> That is the highest first night of any plan we have costed — nearly two thousand feet above the Lost Creek camp. Headache, nausea and a sleepless night are the ordinary outcome, not the exotic one. Drink hard on the drive, eat at the trailhead, walk the climb slower than you want to, and if one of you is genuinely unwell, Surprise Lake at 10,057 is a legal camp 2.6 miles back down.</li>
+    <li><strong>Moose, and they are the animal to actually worry about here.</strong> The Gore Range holds them and they favour exactly this terrain — willow, lake margins, timbered basins. A moose will not raid your food, and it will not bluff-charge and stop. Give any moose a very wide berth, put a tree between you if one closes, and never get between a cow and a calf. This is a different discipline from bear country, and it is more important on this route than the bear discipline is.</li>
+    <li><strong>No campfires, and not because of the drought.</strong> The Eagles Nest order prohibits fires within a quarter mile of any lake, within 100 feet of any stream or trail, and above 11,000 feet — which is every plausible campsite on this loop. On top of that the forest is currently under Stage 2 restrictions with Very High fire danger. Stove only, and confirm the restriction level before you leave.</li>
+    <li><strong>Afternoon storms still happen — you are just able to hide.</strong> At 10,400 to 10,750 feet in August, expect them. The difference from every other plan we looked at is that you are in trees when it arrives, and no part of this route commits you to a long exposed crossing. Don't take that as licence to sit on an open lakeshore during a cell.</li>
+    <li><strong>Deadfall and route-finding on the Surprise Trail.</strong> A 2024 report through the first 3.3 miles logged significant deadfall and a reroute near mile 2.8. Nothing dangerous, but it slows you down on the day you can least afford it, so budget five hours for six miles rather than four.</li>
+    <li><strong>The spur is the one navigational error available.</strong> Miles 6.1 to 8.1 are the same ground walked twice. If you come back to the Upper Cataract junction and turn the wrong way you are heading back to the car, and if you miss the junction entirely on the way out you skip Camp 1. Everything else on this loop is a signed T.</li>
+  </ul>
+  <p style="margin-bottom:0">Nothing here requires a dawn start or a water plan. It requires drinking enough on Monday and knowing what to do about a moose.</p>
+</div>
+
+<h2>Weather</h2>
+
+<p>Late August in the Gore Range: warm days, cold nights, and thunderstorms most afternoons. These are station normals rather than a forecast, taken from the closest long-record mountain station and adjusted for the extra height at camp. The camps sit roughly 1,300 to 1,650 feet above the station, so the derived figures carry a tilde.</p>
+
+<table class="wx">
+  <thead><tr><th>Typical for these dates</th><th class="n"></th></tr></thead>
+  <tbody>
+    <tr><td>Day high, Dillon (9,102 ft)</td><td class="n">72.5°F</td></tr>
+    <tr><td>Overnight low, Dillon</td><td class="n">36.9°F</td></tr>
+    <tr><td>Derived at Camp 1 (10,752 ft)</td><td class="n">~67° / ~31°</td></tr>
+    <tr><td>Derived at Camp 2 (10,391 ft)</td><td class="n">~68° / ~32°</td></tr>
+    <tr><td>August precipitation, Dillon</td><td class="n">1.91 in</td></tr>
+  </tbody>
+</table>
+<p class="caveat">Dillon 1 E, Colorado (NOAA co-op USC00052281), 1991–2020 monthly normals, retrieved from NCEI 2026-07-29. Station elevation 9,102 ft by USGS 3DEP at its published coordinate. Camp figures are derived with a 3.5°F per 1,000 ft lapse rate, hence the tildes. Expect nights at or below freezing at both camps.</p>
+
+<div id="wx-live">
+  <h3>This week's forecast at the trailhead</h3>
+  <table>
+    <tbody id="wx-rows"></tbody>
+  </table>
+  <p class="caveat">Fetched live from the National Weather Service for the trailhead coordinate. Higher on the route runs colder and more exposed.</p>
+</div>
+
+<p style="font-size:15px">A real forecast only exists inside about a week, so the box above fills in when this page is opened with signal and hides itself when it can't. Before leaving, check the <a href="https://forecast.weather.gov/MapClick.php?lat=39.8369&amp;lon=-106.3110">NWS point forecast for the trailhead</a> — same feed, same coordinate.</p>
+
+<h2>Before we go</h2>
+
+<div class="cols">
+  <div>
+    <h3>Fires</h3>
+    <p>Stove only, twice over. Eagles Nest prohibits campfires within a quarter mile of any lake, within 100 feet of any stream or trail, and above 11,000 feet — there is no legal fire ring on this route. The White River National Forest is additionally under Stage 2 restrictions with Very High fire danger on the Dillon Ranger District as of 2026-07-29. Re-check the forest alerts page within 48 hours of leaving.</p>
+    <h3>Water</h3>
+    <p>The best of any plan we costed. The route is creekside or lakeside for nearly all of it: Cataract Creek at the start, several crossings on the climb, then Surprise, Upper Cataract, Cat, Mirror, Tipperary and Eaglesmere Lakes. Filter everything anyway. This is the one option where the 2026 drought is not the central problem.</p>
+    <h3>Altitude</h3>
+    <p>Trailhead 8,585 feet, Camp 1 at 10,752, Camp 2 at 10,391, and the high point is Camp 1. There is no acclimatisation day in a three-day trip flown in from sea level, so the mitigation is hydration, a slow first climb, and knowing that Surprise Lake at 10,057 is a legal fallback camp.</p>
+  </div>
+  <div>
+    <h3>The road in</h3>
+    <p>Paved to within 2.4 miles of the trailhead. Cataract Creek Road (FDR 1725) is described as improved dirt suitable for most 2WD cars in good condition — better odds for the cheap rental than Lost Creek's eleven miles of FR-211 or Buffalo Peaks' Weston Pass Road. No 2026 condition report was found.</p>
+    <h3>Permit, fee and rules</h3>
+    <p>Free self-issued wilderness permit at the trailhead, plus $5 for the parking and recreation use, good for five consecutive days — bring cash. Group limit 15. Dogs on leash. Camp 100 feet from water and trail. No bicycles or mechanised anything.</p>
+    <h3>Signal and bugs</h3>
+    <p>No signal past Silverthorne to speak of and none in the wilderness. Someone at home gets the itinerary and the plate. Mosquitoes are reported bad after rain in this drainage — bring repellent.</p>
+  </div>
+</div>
+
+<h2>To book, in this order</h2>
+
+<ol class="route">
+  <li>
+    <em>Do this first</em>
+    <strong>Flights — $217 each, Aug 24 out, Aug 27 back</strong>
+    Southwest nonstop both ways. Out on WN 559 at 6:55 AM Monday; home on WN 1438 at 11:00 AM Thursday. Every Thursday nonstop is the same fare, so pick the hour you want. Times were read live on July 29 and repeat daily, but Southwest reshuffles schedules — recheck at booking, and price Choice Extra against basic-plus-bags while you are there.
+  </li>
+  <li>
+    <em>Same day</em>
+    <strong>The car — take the SUV</strong>
+    $69 all in for Monday 9:00 AM to Thursday 8:30 AM. Book those exact times: 72 hours is the four-day threshold and you would be paying for a day you spend asleep. The cheap brands are off-airport shuttles, so build in 30–45 minutes each way.
+  </li>
+  <li>
+    <em>Same day, it will not sell out</em>
+    <strong>One hotel night, Wednesday Aug 26, near the airport</strong>
+    <strong>Avid Hotels — Denver Airport Area, $117</strong>: two queen beds, breakfast, free cancellation, 8.5 from 531 reviews, 5.5 miles from the terminal. Free cancellation is why it beats Spark by Hilton at $114 or Garner at $108 — a trip whose last day depends on a trail finishing on time should not end at a non-refundable room. Add 14.75% if Denver's lodging tax is not already in the quote.
+  </li>
+  <li>
+    <em>Nothing to reserve</em>
+    <strong>No permit lottery here</strong>
+    That is a real advantage of this route. The wilderness permit is free and self-issued at the trailhead — no quota, no reservation window. Desolation, the other lakes-and-granite option, had Lake Aloha fully booked for these dates. Bring $5 cash for the parking station.
+  </li>
+  <li>
+    <em>The week before</em>
+    <strong>Call the Dillon ranger district — (970) 468-5400</strong>
+    Three questions: whether fire restrictions are still Stage 2 for the last week of August, whether the Surprise Trail deadfall has been cleared, and the current state of the last 2.4 miles of Cataract Creek Road for a two-wheel-drive car.
+  </li>
+</ol>
+
+<footer>
+  Trailhead: 39.83689, −106.31097 · Surprise trailhead #62, Cataract Creek Road, White River National Forest<br>
+  Dillon Ranger District · (970) 468-5400<br>
+  Recommended map: USGS 7.5′ Mount Powell quad, or National Geographic Trails Illustrated #108<br>
+  Researched 2026-07-29<br>
+  <br>
+  Open items:<br>
+  01 — The Forest Service page for Surprise Lake Trailhead #62 gives its elevation as 10,085 ft. That is wrong for the trailhead — it is Surprise Lake's elevation, which USGS 3DEP reads at 10,057 and OpenStreetMap tags at 10,064, both a few feet from the Forest Service figure. The trailhead itself is 8,585 ft by 3DEP, and Lower Cataract Lake next door is 8,628. Every elevation on this page is the 3DEP reading, not the Forest Service one.<br>
+  02 — Mileages come from two different kinds of source and it matters which. The through-legs — 3.3 mi to the Gore Range Trail, 4.1 to the Upper Cataract junction, about 7.0 to the Eaglesmere junction, 12.0 for the standard loop including the road walk — are from a June 2024 trip report that recorded them mile by mile. The spur figures are measured along OpenStreetMap trail geometry: 2.0 mi each way from the junction to Camp 1, and 1.5 mi on to Mirror Lake. I had originally assumed 1.2 mi for that spur; the straight-line distance alone is 1.74 mi, which is impossible for a 1.2-mile trail, and that check is what caught the error. Total 17.1 mi.<br>
+  03 — OpenStreetMap's Surprise Trail and Eaglesmere Trail are fragmented into disconnected pieces, so I could not measure those two legs along their geometry — 0.87 mi and 3.02 mi respectively stitched, against reported lengths of 3.3 and 4.4. The trip report's figures are used for both. If you want one number checked on the ground, make it the Eaglesmere descent.<br>
+  04 — Wikimedia Commons has no photograph of any lake on this route, and no category for the Eagles Nest Wilderness at all. The two images used here are distant views of the range, captioned as such. Nothing on this page shows the ground you will actually walk.<br>
+  05 — Fire restrictions for these dates are not knowable today. Stage 2 is in force forest-wide as of July 29 with Very High danger on the Dillon district, but that is a current status rather than a signed order covering late August. The campfire prohibition near lakes is permanent and applies regardless.<br>
+  06 — The Gore Range treeline is roughly 11,300 to 11,500 ft and this route's high point is 10,752, which is the basis for the claim that no part of it is exposed. That is a general figure for the range rather than a surveyed treeline for this specific basin — it holds with about 600 feet to spare, but it is not a measurement.<br>
+  07 — No 2026 trip report was found for this loop, and no condition report at all for the last 2.4 miles of Cataract Creek Road this season. The 2WD claim is from a trailhead description, not from someone who drove it in a rental this summer.
+</footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('map');
+  var status = document.getElementById('mapstatus');
+  var btns = document.querySelector('.mapbtns');
+
+  function degrade(msg) {
+    el.style.display = 'none';
+    btns.style.display = 'none';
+    status.innerHTML = msg;
+  }
+
+  if (typeof L === 'undefined') {
+    degrade('Live map unavailable — the Leaflet library did not load. Use the diagram below, which needs no network.');
+    return;
+  }
+
+  var WAYPOINTS = [{"ll":[39.8561,-104.6737],"name":"Denver airport (DEN)","popup":"Land 8:10 AM, Mon Aug 24. \u003cb>2 hr 15 min and 115 miles\u003c/b> to the trailhead, the last 2.4 on improved dirt.","hike":false},{"ll":[39.83689,-106.31097],"name":"Surprise trailhead","popup":"Mile 0 · 8,585 ft\u003cbr>\u003cb>$5 at the pay station, good for five days.\u003c/b> Free self-issue wilderness permit at the same box. No potable water, no toilet — the nearest vault is a mile back at Lower Cataract Lake.","hike":true},{"ll":[39.8096,-106.29988],"name":"Surprise Lake / Gore Range Trail junction","popup":"Mile 3.3 · 9,981 ft\u003cbr>\u003cb>Left onto Gore Range Trail #60.\u003c/b> The Forest Service lists this trailhead's elevation as 10,085 ft, which is actually Surprise Lake's — see the open questions.","hike":true},{"ll":[39.80781,-106.30288],"name":"Surprise Lake","popup":"10,057 ft by USGS 3DEP; OpenStreetMap tags it 10,064. Legal camping, and the busiest spot on the loop — most day hikers turn around here.","hike":true},{"ll":[39.80911,-106.31194],"name":"Upper Cataract junction","popup":"Mile 4.1 · 10,391 ft\u003cbr>\u003cb>Right and south onto the Upper Cataract–Mirror Lake Trail #63.\u003c/b> You come back to this exact spot at mile 8.1 and continue west on #60.","hike":true},{"ll":[39.79151,-106.33535],"name":"Upper Cataract Lake — Camp 1","popup":"Mile 6.1 · 10,752 ft\u003cbr>\u003cb>The high point of the loop, and it is a lake.\u003c/b> Camp 100 ft from water and trail. No campfires — within a quarter mile of any lake they are prohibited outright.","hike":true},{"ll":[39.79757,-106.33543],"name":"Cat Lake","popup":"10,619 ft · a short way north of Camp 1, off the #63 corridor. Worth the look with a day pack.","hike":true},{"ll":[39.78942,-106.35555],"name":"Mirror Lake","popup":"10,573 ft · 1.5 mi beyond Camp 1 on #63, measured along the mapped trail. The turnaround for day two's morning.","hike":true},{"ll":[39.81618,-106.33189],"name":"Tipperary Lake","popup":"Mile 9.5 · 9,761 ft\u003cbr>The low point between the two camps, on a 0.1 mi spur off #60. The trail climbs 520 ft out of here to the Eaglesmere junction.","hike":true},{"ll":[39.81754,-106.34797],"name":"Eaglesmere junction","popup":"Mile 10.9 · 10,281 ft\u003cbr>\u003cb>Eaglesmere Trail #61 leaves north here.\u003c/b> Carry on 0.6 mi southwest first for Camp 2 at the lakes, then come back to this junction tomorrow.","hike":true},{"ll":[39.81425,-106.35901],"name":"Eaglesmere Lakes — Camp 2","popup":"Mile 11.5 · 10,391 ft\u003cbr>Three tarns; USGS 3DEP reads 10,391 ft at the largest and OpenStreetMap tags it 10,397. Camping permitted, 100 ft setbacks, no fires.","hike":true},{"ll":[39.83983,-106.32187],"name":"Eaglesmere trailhead","popup":"Mile 16.5 · 9,005 ft\u003cbr>Not your car. Turn left and walk 0.6 mi down Cataract Creek Road to the Surprise lot.","hike":true}];
+  var DEFAULT_TILES = "opentopomap";
+
+  if (!WAYPOINTS.length) {
+    degrade('No mapped waypoints for this trip — use the diagram below.');
+    return;
+  }
+
+  var osmAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17, subdomains: 'abc',
+    attribution: osmAttr + ', SRTM &middot; Style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+  });
+  var street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19, attribution: osmAttr
+  });
+
+  var map = L.map('map', { layers: [DEFAULT_TILES === 'street' ? street : topo], scrollWheelZoom: false });
+  L.control.layers({ 'Topographic': topo, 'Street': street }).addTo(map);
+  L.control.scale({ imperial: true, metric: false }).addTo(map);
+
+  WAYPOINTS.forEach(function (w) {
+    L.marker(w.ll).addTo(map).bindPopup('<b>' + w.name + '</b>' + (w.popup ? '<br>' + w.popup : ''));
+  });
+
+  var hikePts = [];
+  var drivePts = [];
+  WAYPOINTS.forEach(function (w) {
+    drivePts.push(w.ll);
+    if (w.hike) hikePts.push(w.ll);
+  });
+  var hike = L.latLngBounds(hikePts.length ? hikePts : drivePts);
+  var drive = L.latLngBounds(drivePts);
+
+  function fitHike() { map.fitBounds(hike, { padding: [36, 36] }); }
+  fitHike();
+  document.getElementById('btn-hike').addEventListener('click', fitHike);
+  document.getElementById('btn-drive').addEventListener('click', function () {
+    map.fitBounds(drive, { padding: [36, 36] });
+  });
+
+  var gotTiles = false;
+  topo.on('tileload', function () { gotTiles = true; });
+  street.on('tileload', function () { gotTiles = true; });
+
+  setTimeout(function () {
+    if (!gotTiles) {
+      degrade('Map tiles were blocked — some viewers do not allow external map servers. <strong>Download this file and open it in a browser</strong> and the map will work. The diagram below needs no network.');
+    } else {
+      status.innerHTML = 'Contours and trail lines are OpenStreetMap data, drawn by volunteers &mdash; <strong>a guide, not a survey.</strong> Zoom in to see the trail network, and check it against the recommended paper sheet before relying on it. Scroll-zoom is off &mdash; use the +/&minus; buttons.';
+    }
+  }, 7000);
+})();
+</script>
+<script>
+(function () {
+  var box = document.getElementById('wx-live');
+  if (!box || !window.fetch) return;
+  var PT = [39.8369,-106.311];
+  var dead = false;
+  var timer = setTimeout(function () { dead = true; }, 8000);
+
+  fetch('https://api.weather.gov/points/' + PT[0] + ',' + PT[1])
+    .then(function (r) { return r.json(); })
+    .then(function (j) { return fetch(j.properties.forecast); })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      if (dead) return;
+      clearTimeout(timer);
+      var rows = document.getElementById('wx-rows');
+      j.properties.periods.slice(0, 8).forEach(function (p) {
+        var tr = document.createElement('tr');
+        var name = document.createElement('strong');
+        name.textContent = p.name;
+        var detail = document.createElement('small');
+        var pop = p.probabilityOfPrecipitation && p.probabilityOfPrecipitation.value;
+        detail.textContent = p.shortForecast + (pop ? ' · ' + pop + '% precip' : '');
+        var td1 = document.createElement('td');
+        td1.appendChild(name);
+        td1.appendChild(detail);
+        var td2 = document.createElement('td');
+        td2.className = 'n';
+        td2.textContent = p.temperature + '°' + p.temperatureUnit;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        rows.appendChild(tr);
+      });
+      box.style.display = 'block';
+    })
+    .catch(function () { /* no network or no coverage — the box stays hidden */ });
+})();
+</script>
+</body>
+</html>
