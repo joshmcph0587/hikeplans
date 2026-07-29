@@ -4,16 +4,16 @@
   "place": "Lost Creek Loop",
   "eyebrow": "Lost Creek Wilderness · Denver · Colorado",
   "title": ["Lost Creek", "Loop"],
-  "dates": "August 24 to 26, 2026",
+  "dates": "August 24 to 27, 2026",
   "party": ["Josh", "Jon"],
-  "thesis": "Twenty-three miles counterclockwise through granite hoodoos and a creek that disappears underground — two hours from the cheapest airport in the West, and home the third night. Josh and Jon — August 24 to 26, 2026.",
+  "thesis": "Twenty-three miles counterclockwise through granite hoodoos and a creek that disappears underground, then a bed and a shower instead of a night flight. Two nights out, one near the airport, home Thursday afternoon. Josh and Jon — August 24 to 27, 2026.",
 
   "facts": [
     { "label": "Distance", "value": "~23.3 mi" },
     { "label": "Elev. gain", "value": "~5,650′" },
-    { "label": "Nights out", "value": "2" },
+    { "label": "Nights out", "value": "2 + hotel" },
     { "label": "Permit", "value": "Free, required" },
-    { "label": "Per person", "value": "~$445" }
+    { "label": "Per person", "value": "~$540" }
   ],
 
   "profile": {
@@ -35,7 +35,7 @@
   },
 
   "why": [
-    "This is the loop the out-and-back version of this trip only hints at. Twenty-three miles of Pikes Peak granite — hoodoos, balanced caprock, freestanding obelisks — with Lost Creek vanishing into the rock and surfacing again downstream, the standing 1890s works of a reservoir company that never accepted the creek could not be dammed, and a high bench at 11,557 feet in the middle. Denver fares run $207 nonstop and the cheapest car on that lot is a compact SUV at $69 for three days, so two people fly in, walk it, and are home the third night for about $445 each.",
+    "This is the loop the out-and-back version of this trip only hints at. Twenty-three miles of Pikes Peak granite — hoodoos, balanced caprock, freestanding obelisks — with Lost Creek vanishing into the rock and surfacing again downstream, the standing 1890s works of a reservoir company that never accepted the creek could not be dammed, and a high bench at 11,557 feet in the middle. Denver fares run $207 nonstop and the cheapest car on that lot is a midsize SUV at $69, so two people fly in, walk it, sleep in a bed, and are home Thursday afternoon for about $540 each.",
     "Late August is the right window and the wrong one at once. The aspens are close to turning and the crowds thin, but 2026 is Colorado's worst drought on record after the lowest snowpack ever recorded, and this loop's water is concentrated in its first half. Every trip report from this summer says the same thing: go counterclockwise, and fill up before the high traverse. That single instruction is what this brief is organised around."
   ],
 
@@ -66,11 +66,22 @@
         ["~07:30", "Over the high point, 11,557 ft, and onto the Lake Park bench"],
         ["~09:30", "Hankins Pass, 10,014 ft. Left and east to descend"],
         ["~13:30", "Trailhead. 8.9 miles, 3,470 feet down"],
-        ["16:00", "Denver airport, drop the car"],
-        ["19:55", "Depart Denver — Southwest nonstop"],
-        ["23:05", "Land Austin"]
+        ["~15:45", "Hotel near the airport. Shower, and a dinner someone else cooked"]
       ],
-      "notes": ["The exposed ground comes first thing, which is the entire argument for walking this loop counterclockwise: from Hay Creek you are over the top inside two hours of leaving camp, instead of arriving there mid-afternoon on a ten-mile day. After Hankins Pass the trail drops beside a creek in Hankins Gulch and finishes through meadow — one July hiker described it as a downhill through wildflowers that seems never to stop. There is also a 3:50 PM flight (WN 4732) for the same fare, but it needs you off the trail by about 11:45, which this day cannot promise."]
+      "notes": [
+        "The exposed ground comes first thing, which is the entire argument for walking this loop counterclockwise: from Hay Creek you are over the top inside two hours of leaving camp, instead of arriving there mid-afternoon on a ten-mile day. After Hankins Pass the trail drops beside a creek in Hankins Gulch and finishes through meadow — one July hiker described it as a downhill through wildflowers that seems never to stop.",
+        "<strong>Nothing is attached to the far end of this descent.</strong> That is the whole point of sleeping in Denver: the earlier version of this plan hung a 7:55 PM flight off it, which meant a blown ankle or a downed tree at mile 21 cost you the trip home. Now the worst case is a late dinner. Walk the last four miles at whatever pace the legs want."
+      ]
+    },
+    {
+      "n": "04", "dow": "Thu", "date": "Aug 27", "title": "Fly home",
+      "log": [
+        ["07:30", "Hotel breakfast — included at every hotel listed below"],
+        ["08:15", "Twenty minutes to the rental lot, then the shuttle to the terminal"],
+        ["11:00", "Depart Denver — Southwest WN 1438, nonstop"],
+        ["14:10", "Land Austin"]
+      ],
+      "notes": ["Seven Southwest nonstops leave Denver for Austin on this Thursday and every one of them prices at the same $217 round trip, so the time of day is a free choice. The 11:00 is the recommendation: unhurried breakfast, a twenty-minute drive, no alarm before seven. Take the 8:20 (in at 11:35) if half a working day is worth the earlier start, or the 4:30 PM if you would rather spend the morning in Denver — Red Rocks and the Morrison side of town are 45 minutes from the hotel and you will already have driven past them."]
     }
   ],
 
@@ -103,7 +114,7 @@
     { "meta": "Miles 7.4–9.2", "title": "Refrigerator Gulch and Lost Creek", "body": "Down past Refrigerator Gulch — a cool, shaded slot in the granite — to the log crossing of Lost Creek at 8,876 feet. <strong>After the logs, take the western trail;</strong> a path also heads east here. This is <strong>Camp 1</strong>: the most reliable water on the loop and established sites, though you will share the corridor. Filter everything — cattle graze upstream of this drainage.",
       "photo": { "commons": "Boulders, Lost Creek Wilderness.jpg", "caption": "Balanced caprock on fluted granite pedestals, Lost Creek Wilderness", "credit": "Adam Baker, CC BY 2.0" } },
     { "meta": "Miles 9.2–13.6", "title": "The climb to the pass", "body": "The work of the trip: 8,876 feet to 10,906 in about 4.4 miles, ending at the pass at the south end of McCurdy Park where #628 ends. The park itself opens at mile 13.2 — grassy, flat, enormous views, and marshy only when there has been enough water, which in 2026 there has not. <strong>Treat McCurdy Park as a viewpoint, not a water source.</strong> The much-repeated claim that McCurdy Creek is an easy top-up here is wrong: it is 0.8 miles off the loop at its closest, in the wrong direction." },
-    { "meta": "Mile 13.6 · 10,906 ft", "title": "The junction that matters most", "body": "#628 ends at the pass. Go <strong>left and south onto Brookside-McCurdy #607.</strong> Right and north leads toward McCurdy Mountain and Bison Peak and drops into an entirely different drainage — this is the one wrong turn on the loop with real consequences. McCurdy Mountain is about five miles round trip from here with an exposed class 3 finish, and Bison Peak nearly ten; neither fits three days with full packs. They deserve their own trip.",
+    { "meta": "Mile 13.6 · 10,906 ft", "title": "The junction that matters most", "body": "#628 ends at the pass. Go <strong>left and south onto Brookside-McCurdy #607.</strong> Right and north leads toward McCurdy Mountain and Bison Peak and drops into an entirely different drainage — this is the one wrong turn on the loop with real consequences. McCurdy Mountain is about five miles round trip from here with an exposed class 3 finish, and Bison Peak nearly ten; neither fits three walking days with full packs. They deserve their own trip.",
       "photo": { "commons": "Obelisk, Lost Creek Wilderness.jpg", "caption": "A granite obelisk on an alpine bench, Lost Creek Wilderness — person at the base for scale", "credit": "Adam Baker, CC BY 2.0" } },
     { "meta": "Mile 14.2 · ~10,621 ft", "title": "Hay Creek — Camp 2, and the last water", "body": "Half a mile past the pass, the Hay Creek headwaters run within a few dozen metres of the trail. <strong>This is the last mapped perennial water for about six miles</strong>, and everything after it is the highest, most open ground of the loop. Fill every container. A late-July 2026 report had Hay Creek down to a trickle, and headwater reaches at 10,600 feet in a record drought are exactly what dries up — so carry enough out of Lost Creek that finding it dry is survivable." },
     { "meta": "Mile 14.55", "title": "Left onto Lake Park #639", "body": "Above Hay Creek, <strong>turn left and east onto Lake Park Trail #639.</strong> Staying south on #607 descends toward the Twin Eagles trailhead — a long way from your car. There is no lake in Lake Park, whatever the name suggests: the water there is a stagnant bog, usable only in desperation, and the flowing stream below it is half a mile off trail." },
@@ -117,12 +128,13 @@
   "costs": {
     "party_size": 2,
     "rows": [
-      { "item": "Flight, Austin–Denver round trip", "pp": 207, "status": "confirmed", "note": "Southwest nonstop, out WN 559 6:55 AM Aug 24, back 7:55 PM Aug 26. Checked live 2026-07-29 — the cheapest pair in the whole Aug 17–31 window." },
+      { "item": "Flight, Austin–Denver round trip", "pp": 207, "status": "confirmed", "note": "Southwest nonstop, out WN 559 6:55 AM Aug 24, home WN 1438 11:00 AM Aug 27. Checked live 2026-07-29. <strong>The Thursday return costs nothing extra</strong> — all seven Thursday nonstops price at the same $217 as the Wednesday evening flight this plan used to take." },
       { "item": "Checked pack, both ways", "pp": 90, "status": "confirmed", "note": "$45 per bag each way, from Southwest's own fee page for tickets booked after April 2026. Ask about the Choice Extra fare — it includes two checked bags, so if it prices under $297 it beats basic plus bags." },
-      { "item": "Rental car, compact SUV, three days", "pp": 35, "status": "confirmed", "note": "$69 total, live quote across Expedia, Kayak and Booking — cheaper than the cheapest economy car. Split two ways. Off-airport brand, so allow 30–45 min for the shuttle each way." },
-      { "item": "Gas", "pp": 18, "status": "estimated", "note": "~230 miles at Colorado's $4.067 average (AAA, 2026-07-29), assuming 26 mpg. Split two ways." },
+      { "item": "Rental car, midsize SUV", "pp": 35, "status": "confirmed", "note": "$69 total including taxes and fees, live Expedia quote for Mon 9:00 AM to Thu 8:30 AM. <strong>The extra night is free here too</strong> — that window is 71½ hours, so it still bills as three rental days. Split two ways. Off-airport brand, so allow 30–45 min for the shuttle each way." },
+      { "item": "Hotel near the airport, Wed night", "pp": 68, "status": "estimated", "note": "$117 for the room, two queen beds, breakfast included, free cancellation — live on Booking.com 2026-07-29 for Aug 26. Denver's combined lodging tax is 14.75% and Booking did not say whether it is included, so this budgets as though it is not. Split two ways." },
+      { "item": "Gas", "pp": 18, "status": "estimated", "note": "~240 miles at Colorado's $4.067 average (AAA, 2026-07-29), assuming 26 mpg. Split two ways. Sleeping by the airport instead of flying out Wednesday adds almost no driving — the hotel is 5.5 miles from the terminal." },
       { "item": "Trail food, three days", "pp": 40, "status": "estimated" },
-      { "item": "Road meals", "pp": 30, "status": "estimated", "note": "Breakfast on the drive out, and something real in Denver before the evening flight." },
+      { "item": "Road meals", "pp": 55, "status": "estimated", "note": "Breakfast on the drive out Monday, a real dinner in Denver Wednesday, and something at the gate Thursday. Thursday breakfast is free at the hotel." },
       { "item": "Fuel canister and odds and ends", "pp": 15, "status": "estimated", "note": "Bought near Denver — canisters can't fly." },
       { "item": "Bear hang kit", "pp": 10, "status": "estimated", "note": "Rope and a dry bag, shared. A hang to the posted spec — 10 ft up, 4 ft out — is required by forest order." },
       { "item": "Wilderness permit", "pp": 0, "status": "confirmed", "note": "Free, but mandatory. Fill it in at the trailhead board." }
@@ -164,9 +176,10 @@
   ],
 
   "booking": [
-    { "meta": "Do this first", "title": "Flights — $207 each, Aug 24 out, Aug 26 back", "body": "Southwest nonstop both ways, and the cheapest pair in the second half of August. Out on WN 559 at 6:55 AM; home on the 7:55 PM. Times were read live on July 29 and repeat daily, but Southwest reshuffles schedules — recheck at booking, and price the Choice Extra fare against basic-plus-bags while you are there." },
-    { "meta": "Same day", "title": "The car — take the SUV", "body": "$69 total for three days, which is less than the cheapest economy car. The cheap brands are off-airport shuttles, so build in 30–45 minutes each way; that is comfortable on the 8:10 AM arrival and matters on the way back." },
-    { "meta": "Nothing to reserve", "title": "No campsites, no motel", "body": "Dispersed camping, permit self-issued at the trailhead board. Goose Creek Campground next door is first-come at $27 if plans change." },
+    { "meta": "Do this first", "title": "Flights — $207 each, Aug 24 out, Aug 27 back", "body": "Southwest nonstop both ways, and the cheapest pair in the second half of August. Out on WN 559 at 6:55 AM Monday; home on WN 1438 at 11:00 AM Thursday. Every Thursday nonstop is the same fare, so pick the hour you want. Times were read live on July 29 and repeat daily, but Southwest reshuffles schedules — recheck at booking, and price the Choice Extra fare against basic-plus-bags while you are there." },
+    { "meta": "Same day", "title": "The car — take the SUV", "body": "$69 all in for Monday 9:00 AM to Thursday 8:30 AM. Book those times rather than rounder ones: 72 hours is the four-day threshold and you would be paying for a day you spend asleep. The cheap brands are off-airport shuttles, so build in 30–45 minutes each way." },
+    { "meta": "Same day, it's cheap and it will not sell out", "title": "One hotel night, Wednesday Aug 26, near the airport", "body": "<strong>Avid Hotels — Denver Airport Area, $117</strong> is the pick: two queen beds, breakfast included, free cancellation, 8.5 from 531 reviews, 5.5 miles from the terminal. Free cancellation is the reason to prefer it over <strong>Spark by Hilton</strong> at $114 or <strong>Garner</strong> at $108 — a trip whose last day depends on a trail finishing on time should not have a non-refundable room at the end of it. Prices are live Booking.com quotes for that night, two adults; add 14.75% if Denver's lodging tax is not already in them.<br><br>The tradeoff is food. The Tower Road cluster is chain restaurants and a parking lot. <strong>Lakewood</strong> is the alternative and it is genuinely on the drive home — Holiday Inn Denver Lakewood was $123 for the same night, you stop driving an hour earlier, and Golden is fifteen minutes away. It costs you Thursday morning: forty to fifty-five minutes across town on I-70 in rush hour, on top of the off-airport rental return. Golden itself starts at $208, which is what settles it. Sleep by the airport and eat a mediocre dinner." },
+    { "meta": "Nothing to reserve", "title": "No campsites", "body": "Dispersed camping both nights, permit self-issued at the trailhead board. Goose Creek Campground next door is first-come at $27 if plans change." },
     { "meta": "The week before", "title": "Call the South Platte ranger district — (303) 275-5610", "body": "This trailhead is South Platte, not South Park. Three questions: whether fire restrictions have been re-issued for August, whether Hay Creek and the McCurdy Park marsh are holding any water, and whether the blowdown from the 2025 windstorm has been cleared on #628, #639 and #630." }
   ],
 
@@ -177,6 +190,8 @@
       "Recommended map: USGS 7.5′ McCurdy Mountain quad, or National Geographic Trails Illustrated #105"
     ],
     "open_questions": [
+      "Changed since this brief was first published: it ran August 24 to 26 with a 7:55 PM Wednesday flight home, at about $445 each. It now adds a Wednesday night near the airport and flies Thursday. The fare is identical and so is the car, so the entire difference is the room and two more restaurant meals — about $93 each, and the per-person figure everywhere on this page is now ~$540, not $445. Nothing about the route, the mileage or the water plan changed.",
+      "Whether the $117 hotel quote includes Denver's 14.75% lodging tax could not be determined — Booking.com's results page discloses neither a tax line nor a tax-inclusive label. The cost table assumes it does not, so the room may come in about $17 cheaper than budgeted.",
       "AllTrails gives the high point as 11,909 ft. That is wrong by about 350 feet — USGS 3DEP, Colorado's state trail GIS, the trail stewards and a trip report all put it at 11,557 ft, and nothing on this loop reaches 11,900. Distance and gain, however, check out: 23.34 mi computed against their 23.6, and ~5,650 ft against their 5,606. One July 2026 hiker measured 26 mi and 5,700 ft.",
       "Whether Hay Creek is flowing in late August of a record drought year is the single biggest unknown in this plan. It is a named perennial stream 10 metres off the trail, which is the best signal available, but headwaters at 10,600 feet are exactly what fails. Carry for a dry camp and ask the district.",
       "No trip report could be found for this loop in late August — accounts cluster May to July. The water beta here is extrapolated into a drier season than anyone whose report I read actually walked.",
