@@ -71,8 +71,14 @@ function titleTag(trip) {
 }
 
 function metaDescription(trip) {
-  const where = String(trip.eyebrow || '').split(' · ').join(', ');
-  return `Backpacking trip brief: ${trip.place}${where ? ', ' + where : ''}, ${trip.dates}.`;
+  // The eyebrow leads with the wilderness name, which is sometimes also the
+  // place — drop the repeat rather than saying it twice.
+  const place = String(trip.place || '');
+  const where = String(trip.eyebrow || '')
+    .split(' · ')
+    .filter((part) => part.toLowerCase() !== place.toLowerCase())
+    .join(', ');
+  return `Backpacking trip brief: ${place}${where ? ', ' + where : ''}, ${trip.dates}.`;
 }
 
 // ---------------------------------------------------------------------------

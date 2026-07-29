@@ -95,7 +95,11 @@ is worse than no brief.
 
 Every brief has all of these. Omitting one is a bug.
 
-1. **Header** — place, dates, names of the party, one-paragraph thesis.
+1. **Header** — place, dates, names of the party, one-paragraph thesis. The
+   `eyebrow` is always three parts in this order: **wilderness or area ·
+   airport city · state.** No exceptions, no substitutions — trip character
+   ("solo", "no motel") belongs in `place`, `title` and the thesis, not here.
+   For a drive-in trip, still name the airport city that serves the area.
 2. **Elevation profile** — inline SVG, real elevations, labelled camps.
 3. **Facts strip** — distance, gain, nights out, permit cost, per-person cost.
 4. **Why here** — why this place, why this season. Two paragraphs, no filler.
