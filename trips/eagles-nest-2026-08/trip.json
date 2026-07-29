@@ -5,15 +5,15 @@
   "eyebrow": "Eagles Nest Wilderness · Denver · Colorado",
   "title": ["Five lakes,", "no exposure"],
   "dates": "August 24 to 27, 2026",
-  "party": ["Josh", "Jon"],
-  "thesis": "Seventeen miles through the Gore Range on a loop whose high point is a lake, not a pass — five alpine lakes, water the whole way, and every camp in the trees. Josh and Jon — August 24 to 27, 2026.",
+  "party": ["Josh", "Jon", "Pat"],
+  "thesis": "Seventeen miles through the Gore Range on a loop whose high point is a lake, not a pass — five alpine lakes, water the whole way, and every camp in the trees. Josh, Jon and Pat — August 24 to 27, 2026.",
 
   "facts": [
     { "label": "Distance", "value": "~17.1 mi" },
     { "label": "Elev. gain", "value": "~2,800′" },
     { "label": "Nights out", "value": "2 + hotel" },
     { "label": "Permit", "value": "Free · $5 lot" },
-    { "label": "Per person", "value": "~$552" }
+    { "label": "Per person", "value": "~$309" }
   ],
 
   "profile": {
@@ -124,18 +124,14 @@
   ],
 
   "costs": {
-    "party_size": 2,
+    "party_size": 3,
     "rows": [
-      { "item": "Flight, Austin–Denver round trip", "pp": 217, "status": "confirmed", "note": "Southwest nonstop, out WN 559 6:55 AM Aug 24, home WN 1438 11:00 AM Aug 27. Checked live 2026-07-29 — the cheapest fare to any airport with mountain access, and all seven Thursday nonstops price the same." },
-      { "item": "Checked pack, both ways", "pp": 90, "status": "confirmed", "note": "$45 per bag each way, from Southwest's own fee page for tickets booked after April 2026. Price the Choice Extra fare against basic-plus-bags — it includes two checked bags." },
-      { "item": "Rental car, midsize SUV", "pp": 35, "status": "confirmed", "note": "$69 total including taxes and fees, live Expedia quote for Mon 9:00 AM to Thu 8:30 AM — 71½ hours, so it still bills as three days. Off-airport brand, non-refundable; the cheapest in-terminal option at DEN was $281." },
-      { "item": "Hotel near the airport, Wed night", "pp": 68, "status": "estimated", "note": "$117 for the room, two queen beds, breakfast included, free cancellation — live on Booking.com 2026-07-29. Denver's combined lodging tax is 14.75% and Booking did not disclose whether it is included, so this budgets as though it is not." },
-      { "item": "Gas", "pp": 19, "status": "estimated", "note": "~240 miles at Colorado's $4.067 average (AAA, 2026-07-29), assuming 26 mpg. The trailhead is 115 miles each way — 24 further than the Lost Creek option, which is most of the difference between the two plans." },
-      { "item": "Trail food, three days", "pp": 40, "status": "estimated" },
-      { "item": "Road meals", "pp": 55, "status": "estimated", "note": "Breakfast on the drive out Monday, a real dinner in Denver Wednesday, something at the gate Thursday. Thursday breakfast is free at the hotel." },
+      { "item": "Flight, Austin–Denver round trip", "pp": 217, "status": "confirmed", "note": "Southwest nonstop, out WN 559 6:55 AM Aug 24, home WN 1438 11:00 AM Aug 27. Checked live 2026-07-29 — the cheapest fare to any airport with mountain access, and all seven Thursday nonstops price the same. Fare was read for one seat; three seats on the same flight can price higher if the cheapest fare bucket runs out, so book all three together." },
+      { "item": "Rental car, midsize SUV", "pp": 23, "status": "confirmed", "note": "$69 total including taxes and fees, live Expedia quote for Mon 9:00 AM to Thu 8:30 AM — 71½ hours, so it still bills as three days. A Nissan Rogue seats five, so three with packs is fine. Split three ways. Off-airport brand, non-refundable." },
+      { "item": "Hotel near the airport, Wed night", "pp": 39, "status": "estimated", "note": "$117 for the room split three ways — but <strong>that quote was for two adults in a two-queen room.</strong> A third guest usually means a rollaway fee, a different room type, or a second room, and Denver's 14.75% lodging tax may sit on top. Re-price this for three before trusting the figure." },
+      { "item": "Gas", "pp": 13, "status": "estimated", "note": "~240 miles at Colorado's $4.067 average (AAA, 2026-07-29), assuming 26 mpg — about $38 for the trip. The trailhead is 115 miles each way. Split three ways." },
       { "item": "Fuel canister and odds and ends", "pp": 15, "status": "estimated", "note": "Bought near Denver or in Silverthorne — canisters can't fly." },
-      { "item": "Bear hang kit", "pp": 10, "status": "estimated", "note": "Rope and a dry bag, shared. No posted food-storage order was found for Eagles Nest, unlike Lost Creek — but 2026 is a bad bear year in Colorado and a hang costs nothing to carry." },
-      { "item": "Trailhead fee", "pp": 3, "status": "confirmed", "note": "$5 at the Surprise trailhead pay station, good for five consecutive days. Split two ways. Bring cash." },
+      { "item": "Trailhead fee", "pp": 2, "status": "confirmed", "note": "$5 at the Surprise trailhead pay station, good for five consecutive days. Split three ways. Bring cash." },
       { "item": "Wilderness permit", "pp": 0, "status": "confirmed", "note": "Free, self-issued at the trailhead. No quota, no reservation — unlike Desolation, where Lake Aloha was already sold out for these dates." }
     ]
   },
@@ -178,7 +174,7 @@
   "booking": [
     { "meta": "Do this first", "title": "Flights — $217 each, Aug 24 out, Aug 27 back", "body": "Southwest nonstop both ways. Out on WN 559 at 6:55 AM Monday; home on WN 1438 at 11:00 AM Thursday. Every Thursday nonstop is the same fare, so pick the hour you want. Times were read live on July 29 and repeat daily, but Southwest reshuffles schedules — recheck at booking, and price Choice Extra against basic-plus-bags while you are there." },
     { "meta": "Same day", "title": "The car — take the SUV", "body": "$69 all in for Monday 9:00 AM to Thursday 8:30 AM. Book those exact times: 72 hours is the four-day threshold and you would be paying for a day you spend asleep. The cheap brands are off-airport shuttles, so build in 30–45 minutes each way." },
-    { "meta": "Same day, it will not sell out", "title": "One hotel night, Wednesday Aug 26, near the airport", "body": "<strong>Avid Hotels — Denver Airport Area, $117</strong>: two queen beds, breakfast, free cancellation, 8.5 from 531 reviews, 5.5 miles from the terminal. Free cancellation is why it beats Spark by Hilton at $114 or Garner at $108 — a trip whose last day depends on a trail finishing on time should not end at a non-refundable room. Add 14.75% if Denver's lodging tax is not already in the quote." },
+    { "meta": "Same day, it will not sell out", "title": "One hotel night, Wednesday Aug 26, near the airport", "body": "<strong>Avid Hotels — Denver Airport Area, $117</strong>: breakfast, free cancellation, 8.5 from 531 reviews, 5.5 miles from the terminal. Free cancellation is why it beats Spark by Hilton at $114 or Garner at $108 — a trip whose last day depends on a trail finishing on time should not end at a non-refundable room.<br><br><strong>Book this one for three, not two.</strong> The $117 was quoted for two adults in a two-queen room. Three people means a rollaway, a suite, or a second room, and none of those is the same price — search it with the occupancy set to three and expect the cost line in this brief to move. Add 14.75% if Denver's lodging tax is not already in the quote." },
     { "meta": "Nothing to reserve", "title": "No permit lottery here", "body": "That is a real advantage of this route. The wilderness permit is free and self-issued at the trailhead — no quota, no reservation window. Desolation, the other lakes-and-granite option, had Lake Aloha fully booked for these dates. Bring $5 cash for the parking station." },
     { "meta": "The week before", "title": "Call the Dillon ranger district — (970) 468-5400", "body": "Three questions: whether fire restrictions are still Stage 2 for the last week of August, whether the Surprise Trail deadfall has been cleared, and the current state of the last 2.4 miles of Cataract Creek Road for a two-wheel-drive car." }
   ],
@@ -190,6 +186,8 @@
       "Recommended map: USGS 7.5′ Mount Powell quad, or National Geographic Trails Illustrated #108"
     ],
     "open_questions": [
+      "The cost table is deliberately not an all-in figure. Checked bags, trail food, road meals and a bear hang kit were taken out at Josh's request, so ~$309 covers the flight, the car, the room, the gas, the trailhead fee and a fuel canister — and nothing you eat. Budget separately, and don't compare this number against the other briefs, which do include food. Southwest's checked-bag fee is $45 each way per bag if you want to add it back.",
+      "The hotel figure is the weakest number on this page now that there are three of you. The $117 was a live quote for two adults in a two-queen room; a third person means a rollaway, a suite or a second room. It is split three ways here for arithmetic's sake, not because a three-person room costs $117.",
       "The Forest Service page for Surprise Lake Trailhead #62 gives its elevation as 10,085 ft. That is wrong for the trailhead — it is Surprise Lake's elevation, which USGS 3DEP reads at 10,057 and OpenStreetMap tags at 10,064, both a few feet from the Forest Service figure. The trailhead itself is 8,585 ft by 3DEP, and Lower Cataract Lake next door is 8,628. Every elevation on this page is the 3DEP reading, not the Forest Service one.",
       "Mileages come from two different kinds of source and it matters which. The through-legs — 3.3 mi to the Gore Range Trail, 4.1 to the Upper Cataract junction, about 7.0 to the Eaglesmere junction, 12.0 for the standard loop including the road walk — are from a June 2024 trip report that recorded them mile by mile. The spur figures are measured along OpenStreetMap trail geometry: 2.0 mi each way from the junction to Camp 1, and 1.5 mi on to Mirror Lake. I had originally assumed 1.2 mi for that spur; the straight-line distance alone is 1.74 mi, which is impossible for a 1.2-mile trail, and that check is what caught the error. Total 17.1 mi.",
       "OpenStreetMap's Surprise Trail and Eaglesmere Trail are fragmented into disconnected pieces, so I could not measure those two legs along their geometry — 0.87 mi and 3.02 mi respectively stitched, against reported lengths of 3.3 and 4.4. The trip report's figures are used for both. If you want one number checked on the ground, make it the Eaglesmere descent.",
