@@ -169,19 +169,32 @@ function planSvg(trip, ctx) {
   const located = wps.filter((w) => w.lat != null);
   if (located.length < 2) fail(`${ctx}: at least two diagram waypoints need real coordinates`);
 
-  const W = 340, H = 440, TOP = 68, BOTTOM = 82, RIGHT_X = 198;
+  // Marker labels are drawn to the right of their dot, so the route itself gets
+  // the left ~180px and labels take the rest.
+  const W = 340, H = 440, TOP = 68, BOTTOM = 82, LEFT_X = 18, RIGHT_X = 198;
   const lats = located.map((w) => w.lat);
   const lons = located.map((w) => w.lon);
   const latMax = Math.max(...lats), latMin = Math.min(...lats);
-  const lonMax = Math.max(...lons);
-  // Equirectangular projection with equal scale on both axes: latitude spans
-  // the panel's content height; longitude is compressed by cos(mid-latitude).
-  const s = (H - TOP - BOTTOM) / (latMax - latMin);
+  const lonMax = Math.max(...lons), lonMin = Math.min(...lons);
+  const boxH = H - TOP - BOTTOM;
+  const boxW = RIGHT_X - LEFT_X;
+  // Equirectangular projection, equal scale on both axes: longitude is
+  // compressed by cos(mid-latitude), then the route is scaled to whichever
+  // axis runs out of room first and centred in the panel. A wide route (a
+  // loop) is width-limited; a long corridor is height-limited.
   const cosF = Math.cos(((latMax + latMin) / 2) * Math.PI / 180);
+  const latSpan = latMax - latMin;
+  const lonSpan = (lonMax - lonMin) * cosF;
+  const sLat = latSpan > 0 ? boxH / latSpan : Infinity;
+  const sLon = lonSpan > 0 ? boxW / lonSpan : Infinity;
+  const s = Math.min(sLat, sLon);
+  if (!isFinite(s)) fail(`${ctx}: diagram waypoints are all at one point — cannot draw the plan view`);
+  const originX = LEFT_X + (boxW - lonSpan * s) / 2;
+  const originY = TOP + (boxH - latSpan * s) / 2;
 
   const pos = wps.map((w) =>
     w.lat != null
-      ? { x: RIGHT_X - (lonMax - w.lon) * cosF * s, y: TOP + (latMax - w.lat) * s }
+      ? { x: originX + (w.lon - lonMin) * cosF * s, y: originY + (latMax - w.lat) * s }
       : null
   );
   // Waypoints without a coordinate (dispersed camps) are interpolated along
@@ -199,18 +212,26 @@ function planSvg(trip, ctx) {
   });
 
   const P = pos.map((pt) => ({ x: Math.round(pt.x), y: Math.round(pt.y) }));
-  const radius = (i) => (i === 0 ? 6 : i === wps.length - 1 ? 7 : 5);
+  const last = P.length - 1;
+  // A loop repeats its first waypoint at the end so the corridor closes. That
+  // trailing point draws the line but not a second marker or a label on top of
+  // the first one's.
+  const closesLoop = P.length > 2 && P[0].x === P[last].x && P[0].y === P[last].y;
+  const drawn = (i) => !(closesLoop && i === last);
+  const radius = (i) => (i === 0 ? 6 : i === last && !closesLoop ? 7 : 5);
 
   const corridor = P.map((pt) => `${pt.x},${pt.y}`).join(' ');
 
   const circles = wps.map((w, i) => {
+    if (!drawn(i)) return null;
     const r = radius(i);
     return w.kind === 'approximate'
       ? `      <circle cx="${P[i].x}" cy="${P[i].y}" r="${r}" fill="${C.paper2}" stroke="${C.route}" stroke-width="2"/>`
       : `      <circle cx="${P[i].x}" cy="${P[i].y}" r="${r}" fill="${i === 0 ? C.forest : C.water}" stroke="${C.paper2}" stroke-width="2"/>`;
-  });
+  }).filter(Boolean);
 
   const labels = wps.map((w, i) => {
+    if (!drawn(i)) return null;
     const x = P[i].x + radius(i) + 6;
     const y = P[i].y;
     let l2 = w.diagram_label[1] || '';
@@ -218,10 +239,11 @@ function planSvg(trip, ctx) {
     const out = [`        <text x="${x}" y="${y - 3}" font-size="12.5" font-weight="600">${esc(w.diagram_label[0])}</text>`];
     if (l2) out.push(`        <text x="${x}" y="${y + 11}" font-size="11" fill="${C.muted}">${esc(l2)}</text>`);
     return out.join('\n');
-  });
+  }).filter(Boolean);
 
-  // Scale bar: the largest round mile figure that stays well inside the panel.
-  const spanMiles = (latMax - latMin) * MILES_PER_DEG_LAT;
+  // Scale bar: the largest round mile figure that stays well inside the panel,
+  // sized off whichever axis the route actually spans.
+  const spanMiles = Math.max(latSpan, lonSpan) * MILES_PER_DEG_LAT;
   let barMiles = 1;
   for (const n of [1, 2, 5, 10, 20, 50]) if (n <= spanMiles / 2.5) barMiles = n;
   const barPx = Math.round((barMiles / MILES_PER_DEG_LAT) * s);
@@ -307,8 +329,21 @@ function legsHtml(legs) {
     .join('\n');
 }
 
+// A loop repeats its first waypoint to close the diagram corridor; it should
+// not show up twice in the table or as two stacked map markers.
+function dedupeByCoord(wps) {
+  const seen = new Set();
+  return wps.filter((w) => {
+    if (w.lat == null) return true;
+    const key = `${w.lat.toFixed(5)},${w.lon.toFixed(5)}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 function waypointRows(wps) {
-  return wps
+  return dedupeByCoord(wps)
     .filter((w) => w.lat != null)
     .map((w) => `      <tr><td>${esc(w.name)}</td><td class="n">${coordFmt(w.lat)}, ${coordFmt(w.lon)}</td></tr>`)
     .join('\n');
@@ -382,7 +417,7 @@ function render(template, trip, ctx) {
   }
 
   const wps = need(trip.map, 'waypoints', ctx + ' map');
-  const liveWps = wps
+  const liveWps = dedupeByCoord(wps)
     .filter((w) => w.lat != null)
     .map((w) => ({
       ll: [w.lat, w.lon],

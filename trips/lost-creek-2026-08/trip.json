@@ -1,6 +1,6 @@
 {
   "slug": "lost-creek-2026-08",
-  "researched": "2026-07-28",
+  "researched": "2026-07-29",
   "place": "Lost Creek Wilderness",
   "eyebrow": "Lost Creek Wilderness · Denver · Colorado",
   "title": ["Lost", "Creek"],
@@ -10,7 +10,7 @@
 
   "facts": [
     { "label": "Distance", "value": "~13 mi" },
-    { "label": "Gain, in", "value": "~1,850′" },
+    { "label": "Gain, in", "value": "~1,400′" },
     { "label": "Nights out", "value": "2" },
     { "label": "Permit", "value": "Free, required" },
     { "label": "All in", "value": "~$550" }
@@ -18,11 +18,11 @@
 
   "profile": {
     "note": "Trailhead and Wigwam Park are USGS 10-metre DEM values at surveyed coordinates; the line between them is drawn straight because no source gives the intermediate profile. The real trail undulates — Hiking Project logs a 10,120-foot high point and 2,377 feet of gain over the full length, more than the endpoints suggest.",
-    "y_min": 7000,
+    "y_min": 8000,
     "y_max": 10000,
     "x_max": 10,
     "points": [
-      { "mile": 0, "elev": 7709, "label": "Goose Creek trailhead · 7,709 ft" },
+      { "mile": 0, "elev": 8203, "label": "Goose Creek trailhead · 8,203 ft" },
       { "mile": 4.5, "elev": 8600, "label": "Camp · ~8,600 ft" },
       { "mile": 9.7, "elev": 9548, "label": "Wigwam Park · 9,548 ft", "emphasis": true }
     ]
@@ -41,7 +41,7 @@
         ["08:10", "Land Denver, collect the car"],
         ["09:00", "US-285 southwest to Pine Junction, about 20 miles"],
         ["09:45", "South on CR-126 about 22 miles, then FR-211 (Matukat Road) west 11 miles — gravel, ordinary-car passable when dry"],
-        ["11:00", "Goose Creek trailhead, 7,709 ft. <strong>Fill out the free wilderness permit at the board — it's mandatory here</strong>"],
+        ["11:00", "Goose Creek trailhead, 8,203 ft. <strong>Fill out the free wilderness permit at the board — it's mandatory here</strong>"],
         ["~15:00", "<strong>Camp</strong> up the Goose Creek valley, roughly 4–5 miles in, 100 ft off the creek and the trail"]
       ],
       "notes": ["Legal sites are genuinely scarce in the lower valley — the Forest Service says so plainly, because the setback is 100 feet from both water and trail and the canyon is tight. Start walking early enough to be choosy, and be willing to go further than planned to camp legally."]
@@ -49,7 +49,7 @@
     {
       "n": "02", "dow": "Tue", "date": "Aug 18", "title": "The Shafthouse, the domes, the sinks",
       "notes": [
-        "The day this trip exists for, walked with a light pack. The Shafthouse sits 3.8 miles from the trailhead — the surviving bunkhouses and shaft works of the Antero and Lost Park Reservoir Company's attempt, in the 1890s, to dam a creek that kept vanishing into the granite. The scheme failed; the buildings are still standing.",
+        "The day this trip exists for, walked with a light pack. The signed Shafthouse spur leaves the main trail 3.95 miles from the trailhead and runs 0.71 miles west to the ruins — the surviving bunkhouses and shaft works of the Antero and Lost Park Reservoir Company's attempt, in the 1890s, to dam a creek that kept vanishing into the granite. The scheme failed; the buildings are still standing.",
         "Above it, Refrigerator Gulch and the sinks where Lost Creek disappears under the rock and re-emerges, with red granite domes over the whole thing. Wander as far as the weather and the legs allow, then back to camp."
       ]
     },
@@ -62,7 +62,7 @@
         ["19:55", "Depart Denver — Southwest nonstop"],
         ["23:05", "Land Austin"]
       ],
-      "notes": ["Downhill and easy. The 7:55 PM departure leaves about seven hours of slack after reaching the car — more than any single thing that can go wrong on eleven miles of gravel road. If that wait is too long, Southwest also flies at 3:50 PM and 12:50 PM, and Frontier at 4:14 PM; all were confirmed nonstop for this date."]
+      "notes": ["Downhill and easy. The 7:55 PM departure leaves about seven hours of slack after reaching the car — more than any single thing that can go wrong on eleven miles of gravel road. If that wait is too long, Southwest also flies at 3:50 PM and 12:50 PM, both confirmed nonstop for this date."]
     }
   ],
 
@@ -71,7 +71,7 @@
     "tiles": "opentopomap",
     "waypoints": [
       { "name": "Denver airport (DEN)", "lat": 39.8561, "lon": -104.6737, "kind": "transport", "popup": "Land 8:10 AM. About 2 hours to the trailhead, last 11 miles gravel.", "in_hike_bounds": false },
-      { "name": "Goose Creek trailhead", "lat": 39.1712, "lon": -105.3602, "kind": "verified", "mile": 0, "diagram_label": ["Goose Creek trailhead", "mile 0 · 7,709 ft"], "popup": "Mile 0 · 7,709 ft<br><b>Mandatory free self-issue wilderness permit at the board.</b> Goose Creek #612 and Hankins Pass #630 both start here — take #612, north up the creek." },
+      { "name": "Goose Creek trailhead", "lat": 39.1727, "lon": -105.3762, "kind": "verified", "mile": 0, "diagram_label": ["Goose Creek trailhead", "mile 0 · 8,203 ft"], "popup": "Mile 0 · 8,203 ft<br><b>Mandatory free self-issue wilderness permit at the board.</b> Goose Creek #612 and Hankins Pass #630 both start here — take #612, north up the creek." },
       { "name": "Camp, Goose Creek valley", "lat": null, "kind": "approximate", "mile": 4.5, "diagram_label": ["Camp", "mile ~4.5 · ~8,600 ft"], "note": "Dispersed camping, no fixed site — so no coordinate. Interpolated by trail mile on the diagram only and marked approximate. Legal sites need 100 ft of clearance from both the creek and the trail, and they are scarce down low." },
       { "name": "Wigwam Park", "lat": 39.2686, "lon": -105.4055, "kind": "verified", "mile": 9.7, "diagram_label": ["Wigwam Park", "mile 9.7 · 9,548 ft"], "popup": "Mile 9.7 · 9,548 ft<br>North end of Goose Creek #612, at the junction with Wigwam Trail #609. The far turnaround if legs and weather cooperate." },
       { "name": "Hankins Pass (not our route)", "lat": 39.1642, "lon": -105.4356, "kind": "verified", "in_hike_bounds": false, "popup": "10,010 ft · Hankins Pass Trail #630 leaves the same trailhead and climbs southwest. The wrong turn to avoid on day one." }
@@ -81,14 +81,14 @@
   },
 
   "route": [
-    { "meta": "Mile 0 · 7,709 ft", "title": "Goose Creek trailhead", "body": "End of eleven gravel miles on FR-211, next to Goose Creek Campground. Parking and horse facilities, and a permit board. <strong>The self-issue wilderness permit here is mandatory, not courtesy</strong> — Lost Creek is one of the few Colorado wildernesses that requires one. It is free. Elevation is the USGS 10-metre DEM value at the Forest Service coordinate; the agency lists the adjacent campground at 7,723 ft, which agrees." },
+    { "meta": "Mile 0 · 8,203 ft", "title": "Goose Creek trailhead", "body": "End of eleven gravel miles on FR-211. Free lot for about 30 cars, horse corrals, and a permit board. <strong>The self-issue wilderness permit here is mandatory, not courtesy</strong> — Lost Creek is one of the few Colorado wildernesses that requires one. It is free. Elevation is a USGS 3DEP reading at the surveyed trailhead; the Forest Service publishes 8,220 ft. Goose Creek Campground, 0.9 miles back down the road, has a potable hand pump open through Labor Day weekend." },
     { "meta": "The first decision", "title": "Goose Creek #612, not Hankins Pass #630", "body": "Two trails leave this trailhead. Take <strong>Goose Creek Trail #612, north up the creek.</strong> Hankins Pass Trail #630 climbs southwest toward a 10,010-foot pass — a fine trail and entirely the wrong direction for this trip." },
     { "meta": "Miles 0–4.5", "title": "Up the valley, looking for a legal site", "body": "The trail winds north with the creek through Pikes Peak granite. Water throughout. The Forest Service's own warning is worth repeating: <strong>the lower valley is tight and good legal campsites are scarce</strong>, because the wilderness order requires 100 feet of separation from lakes, streams, and trails alike. Walk until you find one rather than settling for an illegal spot near the water.",
       "photo": { "commons": "Rock Formations Near Summit of Bison Peak in Colorado.jpg", "caption": "Granite formations in the Lost Creek Wilderness, near the summit of Bison Peak", "credit": "Jsdratm, CC0" } },
-    { "meta": "Mile 3.8 · the side trail", "title": "The Shafthouse", "body": "A signed spur leads to the standing bunkhouses and the remains of the shaft house — the 1890s works of the Antero and Lost Park Reservoir Company, who tried to dam Lost Creek and discovered that a creek which flows through granite rather than over it cannot be impounded. The most-walked destination in this half of the wilderness, and a reasonable turnaround in itself: about 10.6 miles round trip from the trailhead if you add the creek below the buildings." },
+    { "meta": "Mile 3.95 · the side trail", "title": "The Shafthouse", "body": "A signed spur runs 0.71 miles west to the standing bunkhouses and the remains of the shaft house — the 1890s works of the Antero and Lost Park Reservoir Company, who tried to dam Lost Creek and discovered that a creek which flows through granite rather than over it cannot be impounded. The most-walked destination in this half of the wilderness, and a reasonable turnaround in itself: about 10.6 miles round trip from the trailhead if you add the creek below the buildings." },
     { "meta": "Above the Shafthouse", "title": "Refrigerator Gulch and the sinks", "body": "Where Lost Creek does the thing it is named for — vanishing into the rock and surfacing again downstream, with domes and hoodoos above. This is the day-two wander, done with a light pack from camp. Distances beyond the Shafthouse are not well sourced; treat the map and the weather as the limit, not a mileage target." },
     { "meta": "Mile 9.7 · 9,548 ft", "title": "Wigwam Park, if you go the distance", "body": "Goose Creek #612 ends here at the junction with Wigwam Trail #609 — 9.7 miles from the trailhead, with 2,377 feet of cumulative gain and a 10,120-foot high point along the way. Reaching it and returning makes for a long second day; it is the stretch goal, not the plan." },
-    { "meta": "Back to 7,709 ft", "title": "The return", "body": "Straight back down the valley to the trailhead — losing what you climbed, on a trail you have already read once. Sign out if there's a register. The gravel road is the last obstacle, and it is easier in daylight going out than it was coming in." }
+    { "meta": "Back to 8,203 ft", "title": "The return", "body": "Straight back down the valley to the trailhead — losing what you climbed, on a trail you have already read once. Sign out if there's a register. The gravel road is the last obstacle, and it is easier in daylight going out than it was coming in." }
   ],
 
   "costs": {
@@ -137,7 +137,7 @@
     { "h": "Fires", "p": "Plan a stove-only trip and don't plan a campfire at all. Stage 2 restrictions took effect June 30, 2026 across this district — gas or liquid-fuel stoves only, in a three-foot cleared area, no wood or charcoal. The forest order as signed expires August 1 and no successor had been published as of July 29, but Park County's own Stage II ban has no end date, fire danger reads Very High, and Colorado is in its worst drought on record after the lowest snowpack ever recorded. Re-check the forest alerts page within 48 hours of leaving." },
     { "h": "Permit", "p": "Lost Creek requires a mandatory free self-issue wilderness permit, which is unusual for Colorado. Fill it in at the trailhead board — this is the detail most people miss." },
     { "h": "Water", "p": "Goose Creek runs alongside the trail for most of the route — the wet part of this wilderness. But Colorado rivers were at roughly half of normal flow in late July, so carry more capacity than a normal August and don't count on side trickles. Filter everything; the Forest Service warns all sources here may carry giardia. Goose Creek Campground at the trailhead has a potable hand pump, open through Labor Day weekend — top off there." },
-    { "h": "Altitude", "p": "The mildest of the three trips: trailhead 7,709 feet and camps around 8,600. Coming from Austin you will still notice it, but this is the option that doesn't punish a same-day arrival." },
+    { "h": "Altitude", "p": "The mildest of the three trips: trailhead 8,203 feet and camps around 8,600. Coming from Austin you will still notice it, but this is the option that doesn't punish a same-day arrival." },
     { "h": "The road in", "p": "Eleven miles of unpaved FR-211 (Matukat Road) after 42 miles of pavement. The Forest Service posts no high-clearance requirement, which is why this trip works with the cheapest car on the lot — but it's washboard, and wet weather changes the calculation." },
     { "h": "Other rules", "p": "Group limit 15 people (25 combined with pack animals), dogs on a leash, no bicycles or game carts, pack out all refuse, nothing left unattended more than 72 hours. All from the wilderness order in force through December 31, 2027." }
   ],
@@ -151,14 +151,14 @@
 
   "footer": {
     "lines": [
-      "Trailhead: 39.1712, −105.3602 · Goose Creek trailhead, FR-211, Pike National Forest",
+      "Trailhead: 39.1727, −105.3762 · Goose Creek trailhead, FR-211, Pike National Forest",
       "South Platte Ranger District (this trailhead) · (303) 275-5610",
       "South Park Ranger District, Fairplay — the Lost Park side · (719) 836-2031",
       "Recommended map: National Geographic Trails Illustrated #105, Tarryall Mountains / Kenosha Pass"
     ],
     "open_questions": [
-      "Distances beyond the Shafthouse spur (3.8 mi) are not well sourced — Refrigerator Gulch and the sinks are described in trip reports without consistent mileage. Day two is deliberately written as a wander, not a mileage plan.",
-      "Hiking Project gives Goose Creek #612 a 8,076-foot low point, which conflicts with the trailhead at 7,709 (DEM) / 7,723 (Forest Service) — the logged segment probably starts above the trailhead. Camp elevation (~8,600 ft) is interpolated, not sourced, and is marked as such on the profile.",
+      "Distances beyond the Shafthouse spur (leaves the trail at mile 3.95) are not well sourced — Refrigerator Gulch and the sinks are described in trip reports without consistent mileage. Day two is deliberately written as a wander, not a mileage plan.",
+      "Corrected after first publication: this brief originally put the trailhead at 39.1712, −105.3602 and 7,709 ft. That is the Goose Creek Campground, 0.86 miles east-southeast and 500 feet lower. The trailhead is at 39.1727, −105.3762 and 8,203 ft, which also resolves the flagged conflict with Hiking Project's 8,076-foot low point — that figure was right and mine was measuring the wrong place. Camp elevation (~8,600 ft) is still interpolated, not sourced, and is marked as such on the profile.",
       "The Wigwam Park coordinate is an OpenStreetMap node on Wigwam Creek rather than a surveyed feature centre. Good enough to anchor the far end of the diagram; not a navigation target.",
       "Corrected after first publication: this brief originally gave the South Park ranger district as the contact. Goose Creek trailhead is South Platte district — (303) 275-5610 — and the earlier number reaches the office for the Lost Park side of the wilderness. It also said no food-storage requirement existed; a forest-wide order in force to 2028 does require a 10-ft-up, 4-ft-out hang, and covers cookware and toiletries.",
       "Fire restrictions are the one genuinely unresolved item. Stage 1 ran from March 27 to August 1, 2026; Stage 2 was signed June 29 and escalated it, and the forest's own alert page gave the Stage 2 order an August 1 end date as well. Whether anything is in force on August 17 is unknowable today — assume stove-only and call the district.",

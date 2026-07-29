@@ -1,0 +1,190 @@
+{
+  "slug": "lost-creek-loop-2026-08",
+  "researched": "2026-07-29",
+  "place": "Lost Creek Loop",
+  "eyebrow": "Lost Creek Wilderness · Denver · Colorado",
+  "title": ["Lost Creek", "Loop"],
+  "dates": "August 24 to 26, 2026",
+  "party": ["Josh", "Jon"],
+  "thesis": "Twenty-three miles counterclockwise through granite hoodoos and a creek that disappears underground — two hours from the cheapest airport in the West, and home the third night. Josh and Jon — August 24 to 26, 2026.",
+
+  "facts": [
+    { "label": "Distance", "value": "~23.3 mi" },
+    { "label": "Elev. gain", "value": "~5,650′" },
+    { "label": "Nights out", "value": "2" },
+    { "label": "Permit", "value": "Free, required" },
+    { "label": "Per person", "value": "~$445" }
+  ],
+
+  "profile": {
+    "note": "Every elevation here is a USGS 3DEP reading at a surveyed junction coordinate, sampled along OpenStreetMap trail geometry that matches Colorado's state trail GIS to within 0.05 mi. The high point is 11,557 ft — AllTrails says 11,909, which four independent sources contradict.",
+    "y_min": 8000,
+    "y_max": 12000,
+    "x_max": 24,
+    "points": [
+      { "mile": 0, "elev": 8203, "label": "Trailhead · 8,203 ft" },
+      { "mile": 0.45, "elev": 8052 },
+      { "mile": 6.39, "elev": 9429 },
+      { "mile": 9.2, "elev": 8890, "label": "Camp 1 · Lost Creek · 8,890 ft" },
+      { "mile": 13.6, "elev": 10906 },
+      { "mile": 14.2, "elev": 10621, "label": "Camp 2 · Hay Creek · 10,621 ft" },
+      { "mile": 15.8, "elev": 11557, "label": "High point · 11,557 ft", "emphasis": true },
+      { "mile": 19.06, "elev": 10014 },
+      { "mile": 23.34, "elev": 8203, "label": "Back at the trailhead" }
+    ]
+  },
+
+  "why": [
+    "This is the loop the out-and-back version of this trip only hints at. Twenty-three miles of Pikes Peak granite — hoodoos, balanced caprock, freestanding obelisks — with Lost Creek vanishing into the rock and surfacing again downstream, the standing 1890s works of a reservoir company that never accepted the creek could not be dammed, and a high bench at 11,557 feet in the middle. Denver fares run $207 nonstop and the cheapest car on that lot is a compact SUV at $69 for three days, so two people fly in, walk it, and are home the third night for about $445 each.",
+    "Late August is the right window and the wrong one at once. The aspens are close to turning and the crowds thin, but 2026 is Colorado's worst drought on record after the lowest snowpack ever recorded, and this loop's water is concentrated in its first half. Every trip report from this summer says the same thing: go counterclockwise, and fill up before the high traverse. That single instruction is what this brief is organised around."
+  ],
+
+  "days": [
+    {
+      "n": "01", "dow": "Mon", "date": "Aug 24", "title": "Fly in, up Goose Creek",
+      "log": [
+        ["06:55", "Depart Austin — Southwest WN 559, nonstop"],
+        ["08:10", "Land Denver. The cheap rental brands are off-airport — budget 30–45 minutes for the shuttle"],
+        ["09:15", "US-285 southwest to Pine Junction, then CR-126 south, then FR-211 west 11 miles of graded dirt"],
+        ["11:15", "Goose Creek trailhead, 8,203 ft. Free lot, about 30 cars. <strong>Fill in the wilderness permit at the board — it is mandatory here</strong>"],
+        ["11:30", "Walking. Right at the split onto Goose Creek #612 within a quarter mile"],
+        ["~17:00", "<strong>Camp 1</strong> along Lost Creek, ~8,890 ft — 100 ft off both the creek and the trail"]
+      ],
+      "notes": ["9.2 miles and 2,368 feet of gain: a full first day, but all of it in the canyon and the timber, which is where you want to be when the storms fire between two and four. Water is plentiful today and scarce tomorrow, so this is the easy half. Legal sites are genuinely scarce down low — the Forest Service says so outright, because the setback is 100 feet from water <em>and</em> trail. Arrive with daylight to spare and be willing to walk past the obvious spots."]
+    },
+    {
+      "n": "02", "dow": "Tue", "date": "Aug 25", "title": "The climb, and the last water",
+      "notes": [
+        "Only 5.2 miles, but 2,214 feet of it — the sustained climb out of Lost Creek to the pass at the south end of McCurdy Park, 10,906 feet. Short on purpose: it buys an early start tomorrow over the exposed ground, and it gets the big climb done on a lighter pack than day one.",
+        "At the pass, <strong>left and south onto Brookside-McCurdy #607</strong> — this is the consequential junction of the whole loop, because turning north drops you into a different drainage entirely. <strong>Camp 2</strong> at the Hay Creek headwaters, about 10,620 feet, half a mile past the pass. This is the last mapped perennial water before the high traverse, and in a drought year it may be a trickle or nothing at all. Fill everything here, and carry enough from Lost Creek this morning that a dry Hay Creek is a disappointment rather than a problem."
+      ]
+    },
+    {
+      "n": "03", "dow": "Wed", "date": "Aug 26", "title": "Over the top, and the long way down",
+      "log": [
+        ["06:00", "Break camp. Full water — the next source is about six miles on"],
+        ["~07:30", "Over the high point, 11,557 ft, and onto the Lake Park bench"],
+        ["~09:30", "Hankins Pass, 10,014 ft. Left and east to descend"],
+        ["~13:30", "Trailhead. 8.9 miles, 3,470 feet down"],
+        ["16:00", "Denver airport, drop the car"],
+        ["19:55", "Depart Denver — Southwest nonstop"],
+        ["23:05", "Land Austin"]
+      ],
+      "notes": ["The exposed ground comes first thing, which is the entire argument for walking this loop counterclockwise: from Hay Creek you are over the top inside two hours of leaving camp, instead of arriving there mid-afternoon on a ten-mile day. After Hankins Pass the trail drops beside a creek in Hankins Gulch and finishes through meadow — one July hiker described it as a downhill through wildflowers that seems never to stop. There is also a 3:50 PM flight (WN 4732) for the same fare, but it needs you off the trail by about 11:45, which this day cannot promise."]
+    }
+  ],
+
+  "map": {
+    "intro": "Four trails, five junctions that matter, and one of them decides whether you finish at your car or at a trailhead twenty road miles away. Counterclockwise throughout: Goose Creek #612, McCurdy Park #628, a short connector on Brookside-McCurdy #607, Lake Park #639, then Hankins Pass #630 home.",
+    "tiles": "opentopomap",
+    "waypoints": [
+      { "name": "Denver airport (DEN)", "lat": 39.8561, "lon": -104.6737, "kind": "transport", "popup": "Land 8:10 AM, Mon Aug 24. About two hours to the trailhead, the last 11 miles graded dirt.", "in_hike_bounds": false },
+      { "name": "Goose Creek trailhead", "lat": 39.1727, "lon": -105.3762, "kind": "verified", "mile": 0, "diagram_label": ["Trailhead", "mile 0 · 8,203 ft"], "popup": "Mile 0 · 8,203 ft<br><b>Mandatory free self-issue permit at the board.</b> At mile 0.22 go <b>right/north onto Goose Creek #612</b> — left is Hankins Pass, which is the loop backwards." },
+      { "name": "Shafthouse ruins (spur)", "lat": 39.2085, "lon": -105.4029, "kind": "verified", "in_hike_bounds": true, "popup": "8,731 ft · a 0.71 mi signed spur leaving #612 at mile 3.95, so 1.4 mi round trip. The 1890s bunkhouses and shaft works of the Antero and Lost Park Reservoir Company." },
+      { "name": "Left onto McCurdy Park #628", "lat": 39.2322, "lon": -105.4074, "kind": "verified", "mile": 6.39, "diagram_label": ["Left onto #628", "mile 6.4 · 9,429 ft"], "popup": "Mile 6.4 · 9,429 ft<br><b>Left/west onto McCurdy Park #628.</b> Straight on north stays on #612 toward Wigwam Park and the 37-mile loop." },
+      { "name": "Lost Creek crossing — Camp 1 nearby", "lat": 39.2386, "lon": -105.4331, "kind": "verified", "mile": 9.15, "diagram_label": ["Lost Creek · Camp 1", "mile 9.2 · ~8,890 ft"], "popup": "Mile 9.2 · 8,876 ft<br>Log crossing. <b>Take the western trail</b> — there is a path heading east here. Reliable water; camp 100 ft off creek and trail." },
+      { "name": "McCurdy Park", "lat": 39.2100, "lon": -105.4528, "kind": "verified", "mile": 13.2, "diagram_label": ["McCurdy Park", "mile 13.2 · 10,790 ft"], "popup": "10,790 ft · open park, good flat ground, big views. Water is a marsh that may be dry — do not plan on it. The pass at its south end, mile 13.6, is where #628 ends: <b>left/south onto #607.</b>" },
+      { "name": "Hay Creek — Camp 2", "lat": 39.2002, "lon": -105.4514, "kind": "verified", "mile": 14.2, "diagram_label": ["Hay Creek · Camp 2", "mile 14.2 · ~10,621 ft"], "popup": "Mile 14.2 · ~10,621 ft<br><b>The last mapped perennial water before the high traverse.</b> Fill everything. A July 2026 report had it down to a trickle." },
+      { "name": "Loop high point", "lat": 39.1903, "lon": -105.4349, "kind": "verified", "mile": 15.8, "diagram_label": ["High point", "mile 15.8 · 11,557 ft"], "popup": "11,557 ft · an unnamed granite shoulder on Lake Park #639. Not 11,909 ft, whatever AllTrails says." },
+      { "name": "Hankins Pass", "lat": 39.1644, "lon": -105.4357, "kind": "verified", "mile": 19.06, "diagram_label": ["Hankins Pass", "mile 19.1 · 10,014 ft"], "popup": "Mile 19.1 · 10,014 ft<br><b>Left/east onto Hankins Pass #630 to descend.</b> Right/west drops to the Lizard Rock junction and Twin Eagles trailhead — 20+ road miles from your car." },
+      { "name": "Goose Creek trailhead — loop closes", "lat": 39.1727, "lon": -105.3762, "kind": "verified", "mile": 23.34, "diagram_label": ["Back at the trailhead", "mile 23.3 · 8,203 ft"], "popup": "Mile 23.3 · 8,203 ft<br>The last 4 miles follow a creek down Hankins Gulch, then meadow." }
+    ],
+    "drive_note": "US-285 southwest from Denver about 20 miles to Pine Junction, south on County Road 126 about 22 miles, then Forest Road 211 — the Matukat Road — west about 11 miles, then the trailhead road. Roughly two hours. The last stretch is graded dirt; the Forest Service posts no high-clearance requirement, so the cheapest car on the lot does it when dry.",
+    "caveat": "The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. It plots surveyed junction coordinates in walking order and <strong>closes the loop, but the dashed lines are straight-line spacing, not the trail alignment.</strong> The between-junction geometry it is derived from is volunteer-mapped OpenStreetMap data, good enough to plan against and not something to navigate off. Carry the paper sheet — the USGS McCurdy Mountain quad covers most of this loop."
+  },
+
+  "route": [
+    { "meta": "Mile 0 · 8,203 ft", "title": "Goose Creek trailhead", "body": "End of eleven graded-dirt miles on FR-211. Free lot, roughly 30 cars, corrals, and a permit board — <strong>the self-issue wilderness permit here is mandatory, not courtesy.</strong> No camping at the trailhead. Goose Creek Campground, 0.9 miles back down the road, has a potable hand pump open through Labor Day weekend if you want to start full. Elevation is a USGS 3DEP reading at the surveyed trailhead; the Forest Service publishes 8,220 ft." },
+    { "meta": "Mile 0.22 · the first decision", "title": "Right onto Goose Creek #612", "body": "Just past the start the trail splits. Go <strong>right and north onto Goose Creek #612.</strong> Left is Hankins Pass #630 — not a disaster, it is simply this loop backwards, and backwards means arriving at the exposed high ground in the middle of a ten-mile first day with storms building. The trail then drops to the creek and crosses a bridge at mile 0.45, 8,052 feet, the low point of the whole loop." },
+    { "meta": "Miles 0.5–4", "title": "Up the canyon, past the domes", "body": "Granite closes in — this is the stretch people come for, and the wet half of the loop. Water is never far. Legal campsites, though, are scarce: the wilderness order wants 100 feet from water and trail both, and the Forest Service warns the valley is too tight to offer many. Expect a maze of spur paths to old illegal sites, and expect to lose the main trail once or twice.",
+      "photo": { "commons": "GooseCreek.JPG", "caption": "Goose Creek running over pink granite below the domes", "credit": "Hogs555, CC BY-SA 3.0" } },
+    { "meta": "Mile 3.95 · worth the detour", "title": "The Shafthouse spur", "body": "A signed spur heads west 0.71 miles to the standing bunkhouses and shaft works — the 1890s attempt by the Antero and Lost Park Reservoir Company to dam a creek that runs <em>through</em> granite rather than over it. The scheme failed; the buildings did not. About 1.4 miles round trip, and the best hour on day one if the legs allow." },
+    { "meta": "Mile 6.39 · 9,429 ft", "title": "Left onto McCurdy Park #628", "body": "At a high point overlooking the valley, <strong>turn left and west onto McCurdy Park Trail #628.</strong> Continuing north on #612 runs three more miles to Wigwam Park and commits you to the thirty-seven-mile loop instead." },
+    { "meta": "Miles 7.4–9.2", "title": "Refrigerator Gulch and Lost Creek", "body": "Down past Refrigerator Gulch — a cool, shaded slot in the granite — to the log crossing of Lost Creek at 8,876 feet. <strong>After the logs, take the western trail;</strong> a path also heads east here. This is <strong>Camp 1</strong>: the most reliable water on the loop and established sites, though you will share the corridor. Filter everything — cattle graze upstream of this drainage.",
+      "photo": { "commons": "Boulders, Lost Creek Wilderness.jpg", "caption": "Balanced caprock on fluted granite pedestals, Lost Creek Wilderness", "credit": "Adam Baker, CC BY 2.0" } },
+    { "meta": "Miles 9.2–13.6", "title": "The climb to the pass", "body": "The work of the trip: 8,876 feet to 10,906 in about 4.4 miles, ending at the pass at the south end of McCurdy Park where #628 ends. The park itself opens at mile 13.2 — grassy, flat, enormous views, and marshy only when there has been enough water, which in 2026 there has not. <strong>Treat McCurdy Park as a viewpoint, not a water source.</strong> The much-repeated claim that McCurdy Creek is an easy top-up here is wrong: it is 0.8 miles off the loop at its closest, in the wrong direction." },
+    { "meta": "Mile 13.6 · 10,906 ft", "title": "The junction that matters most", "body": "#628 ends at the pass. Go <strong>left and south onto Brookside-McCurdy #607.</strong> Right and north leads toward McCurdy Mountain and Bison Peak and drops into an entirely different drainage — this is the one wrong turn on the loop with real consequences. McCurdy Mountain is about five miles round trip from here with an exposed class 3 finish, and Bison Peak nearly ten; neither fits three days with full packs. They deserve their own trip.",
+      "photo": { "commons": "Obelisk, Lost Creek Wilderness.jpg", "caption": "A granite obelisk on an alpine bench, Lost Creek Wilderness — person at the base for scale", "credit": "Adam Baker, CC BY 2.0" } },
+    { "meta": "Mile 14.2 · ~10,621 ft", "title": "Hay Creek — Camp 2, and the last water", "body": "Half a mile past the pass, the Hay Creek headwaters run within a few dozen metres of the trail. <strong>This is the last mapped perennial water for about six miles</strong>, and everything after it is the highest, most open ground of the loop. Fill every container. A late-July 2026 report had Hay Creek down to a trickle, and headwater reaches at 10,600 feet in a record drought are exactly what dries up — so carry enough out of Lost Creek that finding it dry is survivable." },
+    { "meta": "Mile 14.55", "title": "Left onto Lake Park #639", "body": "Above Hay Creek, <strong>turn left and east onto Lake Park Trail #639.</strong> Staying south on #607 descends toward the Twin Eagles trailhead — a long way from your car. There is no lake in Lake Park, whatever the name suggests: the water there is a stagnant bog, usable only in desperation, and the flowing stream below it is half a mile off trail." },
+    { "meta": "Mile 15.8 · 11,557 ft", "title": "The high point", "body": "An unnamed granite shoulder, and the top of the loop. <strong>Not 11,909 feet</strong> — AllTrails is roughly 350 feet high, and four independent sources put it here at 11,557. Nothing on this loop reaches 11,900. The traverse from McCurdy Park to about mile 17.5 is three and a half miles of open park, burn snags and granite with no shelter and no water, so be across it in the morning.",
+      "photo": { "commons": "Lost Creek Wilderness in August 2013.jpg", "caption": "Granite hoodoos and columns rising out of aspen — Lost Creek Wilderness in August", "credit": "Hogs555, CC BY-SA 3.0" } },
+    { "meta": "Miles 16.9–19.1", "title": "The Lake Park bench, then Hankins Pass", "body": "Across the bench at about 10,900 feet, through the snags of an old burn, and down to Hankins Pass at 10,014 feet. Views the whole way, and the last of the exposure." },
+    { "meta": "Mile 19.06 · 10,014 ft", "title": "Left, and down Hankins Gulch", "body": "At the pass, <strong>left and east onto Hankins Pass #630.</strong> Right and west descends the far side toward Lizard Rock and Twin Eagles. There is little flat ground west of the pass anyway — the gradient is against you." },
+    { "meta": "Miles 19.1–23.34 · back to 8,203 ft", "title": "The creek, the meadow, the car", "body": "The trail bends northeast into Hankins Gulch and runs beside a creek for roughly three miles — water again, and several crossings. One June hiker face-planted on a crossing half a mile from the end, so keep paying attention when it feels finished. The last stretch is meadow and wildflowers, then the #612 split, then the trailhead. Sign out if there is a register." }
+  ],
+
+  "costs": {
+    "party_size": 2,
+    "rows": [
+      { "item": "Flight, Austin–Denver round trip", "pp": 207, "status": "confirmed", "note": "Southwest nonstop, out WN 559 6:55 AM Aug 24, back 7:55 PM Aug 26. Checked live 2026-07-29 — the cheapest pair in the whole Aug 17–31 window." },
+      { "item": "Checked pack, both ways", "pp": 90, "status": "confirmed", "note": "$45 per bag each way, from Southwest's own fee page for tickets booked after April 2026. Ask about the Choice Extra fare — it includes two checked bags, so if it prices under $297 it beats basic plus bags." },
+      { "item": "Rental car, compact SUV, three days", "pp": 35, "status": "confirmed", "note": "$69 total, live quote across Expedia, Kayak and Booking — cheaper than the cheapest economy car. Split two ways. Off-airport brand, so allow 30–45 min for the shuttle each way." },
+      { "item": "Gas", "pp": 18, "status": "estimated", "note": "~230 miles at Colorado's $4.067 average (AAA, 2026-07-29), assuming 26 mpg. Split two ways." },
+      { "item": "Trail food, three days", "pp": 40, "status": "estimated" },
+      { "item": "Road meals", "pp": 30, "status": "estimated", "note": "Breakfast on the drive out, and something real in Denver before the evening flight." },
+      { "item": "Fuel canister and odds and ends", "pp": 15, "status": "estimated", "note": "Bought near Denver — canisters can't fly." },
+      { "item": "Bear hang kit", "pp": 10, "status": "estimated", "note": "Rope and a dry bag, shared. A hang to the posted spec — 10 ft up, 4 ft out — is required by forest order." },
+      { "item": "Wilderness permit", "pp": 0, "status": "confirmed", "note": "Free, but mandatory. Fill it in at the trailhead board." }
+    ]
+  },
+
+  "hazard": {
+    "title": "Six dry miles, and three and a half with nowhere to hide",
+    "intro": "This loop's two real dangers are the same fact seen twice: the highest ground is also the driest, and it has no shelter. Everything below is why the trip runs counterclockwise and why day three starts at six in the morning.",
+    "points": [
+      "<strong>Fill up at Hay Creek, mile 14.2 — and don't count on it.</strong> It is the last mapped perennial water before roughly mile 20. A late-July 2026 report had it at a trickle, and Colorado is in its worst drought on record. Carry enough out of Lost Creek that a dry Hay Creek is an inconvenience. Reports this summer describe passing a low source hoping for a better one and finding it dry.",
+      "<strong>Miles 13.2 to 17.5 are exposed.</strong> Open park, old burn snags and granite — no reliable shelter, no water, and nowhere to descend quickly. Trip reports this summer put the storms at two to four every afternoon. Going counterclockwise from Hay Creek you cross it all before nine in the morning; do not invent a reason to be there later.",
+      "<strong>At the pass, mile 13.6, go left.</strong> #628 ends there and north on #607 leads into a different drainage. Two other junctions send you to the Twin Eagles trailhead, twenty road miles from the car: #607 continuing south at 14.55, and Hankins Pass heading west at 19.06.",
+      "<strong>Hang food 10 feet up and 4 feet out — it's the law here.</strong> A forest order in force to 2028 requires it and covers cookware, toothpaste and sunscreen, not just food. 2026 is a bad bear year: drought failed the berry and acorn crop, statewide reports passed 1,100 by mid-June, and Colorado's first bear attack of the year was in June in Jefferson County, on the drive in. Stand your ground, make yourself large, never run.",
+      "<strong>Legal campsites are scarce, and that's a rule not a preference.</strong> 100 feet from water and from the trail, both. The Forest Service adds that sites should not be visible from the trail. Arrive at each camp with daylight to spare.",
+      "<strong>Standing dead timber.</strong> The trailhead end crosses the 2002 Hayman burn, and a December 2025 windstorm left this district warning of many downed and weakened trees — an alert never rescinded. June 2026 hikers logged obstructions. Don't pitch under a dead tree."
+    ],
+    "outro": "None of this is exotic for Colorado in August. It is a water plan and a start time, and both have to actually happen."
+  },
+
+  "weather": {
+    "intro": "Mid-August in the Front Range high country: clear mornings, thunderstorms most afternoons, cold nights. Trip reports from this summer put the storms between two and four almost daily, which is the clock this itinerary is set to. 2026 is an exceptional drought year, so expect the dry-year version of everything below. These are station normals, not a forecast.",
+    "rows": [
+      { "label": "Day high, Grant (8,963 ft)", "value": "~73°F" },
+      { "label": "Overnight low, Grant", "value": "~42°F" },
+      { "label": "Derived at Camp 2 (10,621 ft)", "value": "~67° / mid-30s" },
+      { "label": "Afternoon thunderstorms", "value": "daily, 2–4 PM" }
+    ],
+    "source": "Grant, Colorado co-op station normals (8,963 ft by DEM, WRCC, 1963–2013 record) — the nearest mountain station, on US-285. Camp 1 sits near station elevation; Camp 2 figures are lapse-rate derived, hence the ~. Storm timing from 2026 trip reports. Checked 2026-07-29."
+  },
+
+  "before": [
+    { "h": "Fires", "p": "Plan stove-only and plan no campfire at all. Stage 2 restrictions took effect June 30, 2026 across this district — gas or liquid-fuel stoves only, in a three-foot cleared area. The forest order as signed expires August 1 and no successor was published as of July 29, but Park County's own Stage II ban has no end date, fire danger reads Very High, and this is the worst drought on record. Re-check the forest alerts page within 48 hours of leaving." },
+    { "h": "Water", "p": "The first half is wet and the second half is not. Goose Creek and Lost Creek are reliable; Hay Creek at mile 14.2 is the last mapped perennial source and may be a trickle; McCurdy Park's marsh and Lake Park's bog are not sources. Colorado rivers ran near half of normal in late July. Filter everything — cattle graze the Goose Creek drainage." },
+    { "h": "Altitude", "p": "Trailhead 8,203 feet, camps at 8,890 and 10,621, high point 11,557. Night one is low enough to take the edge off, and day two is deliberately short. Coming from Austin you will still feel the climb to the pass." },
+    { "h": "The road in", "p": "Forty-two paved miles then eleven of graded dirt on FR-211. The Forest Service posts no high-clearance requirement and recent reports call it maintained and passable for most vehicles, but it is signed as an OHV route in places, so expect washboard. No 2026 condition report exists. Drive it in daylight both ways." },
+    { "h": "Permit and rules", "p": "A free self-issue wilderness permit is mandatory — fill it in and carry your copy. Group limit 15. Dogs leashed. No bicycles or carts of any kind. Pack out all refuse; hikers this summer found trash and fire remnants, so leave it better." },
+    { "h": "Signal and bugs", "p": "No signal past Pine Junction to speak of, and none in the wilderness. Someone at home gets the itinerary and the plate. Bugs were still being reported into late July — bring repellent." }
+  ],
+
+  "booking": [
+    { "meta": "Do this first", "title": "Flights — $207 each, Aug 24 out, Aug 26 back", "body": "Southwest nonstop both ways, and the cheapest pair in the second half of August. Out on WN 559 at 6:55 AM; home on the 7:55 PM. Times were read live on July 29 and repeat daily, but Southwest reshuffles schedules — recheck at booking, and price the Choice Extra fare against basic-plus-bags while you are there." },
+    { "meta": "Same day", "title": "The car — take the SUV", "body": "$69 total for three days, which is less than the cheapest economy car. The cheap brands are off-airport shuttles, so build in 30–45 minutes each way; that is comfortable on the 8:10 AM arrival and matters on the way back." },
+    { "meta": "Nothing to reserve", "title": "No campsites, no motel", "body": "Dispersed camping, permit self-issued at the trailhead board. Goose Creek Campground next door is first-come at $27 if plans change." },
+    { "meta": "The week before", "title": "Call the South Platte ranger district — (303) 275-5610", "body": "This trailhead is South Platte, not South Park. Three questions: whether fire restrictions have been re-issued for August, whether Hay Creek and the McCurdy Park marsh are holding any water, and whether the blowdown from the 2025 windstorm has been cleared on #628, #639 and #630." }
+  ],
+
+  "footer": {
+    "lines": [
+      "Trailhead: 39.1727, −105.3762 · Goose Creek trailhead, FR-211, Pike National Forest",
+      "South Platte Ranger District (this trailhead) · (303) 275-5610",
+      "Recommended map: USGS 7.5′ McCurdy Mountain quad, or National Geographic Trails Illustrated #105"
+    ],
+    "open_questions": [
+      "AllTrails gives the high point as 11,909 ft. That is wrong by about 350 feet — USGS 3DEP, Colorado's state trail GIS, the trail stewards and a trip report all put it at 11,557 ft, and nothing on this loop reaches 11,900. Distance and gain, however, check out: 23.34 mi computed against their 23.6, and ~5,650 ft against their 5,606. One July 2026 hiker measured 26 mi and 5,700 ft.",
+      "Whether Hay Creek is flowing in late August of a record drought year is the single biggest unknown in this plan. It is a named perennial stream 10 metres off the trail, which is the best signal available, but headwaters at 10,600 feet are exactly what fails. Carry for a dry camp and ask the district.",
+      "No trip report could be found for this loop in late August — accounts cluster May to July. The water beta here is extrapolated into a drier season than anyone whose report I read actually walked.",
+      "Fire restrictions for these dates are unknowable today: the Stage 2 order expires August 1 with no successor published as of July 29.",
+      "AllTrails flags one alert on this route that I could not read — the page blocks automated access and the text is not in the page source. No Forest Service alert names Goose Creek, FR-211, McCurdy, Lake Park or Hankins Pass, so it is most likely the syndicated wilderness occupancy order or the fire restriction, both covered above. Worth ten seconds in a browser.",
+      "Coordinates are surveyed junction nodes, but the trail alignment between them is volunteer-mapped OpenStreetMap data validated against state GIS — plan against it, don't navigate off it. Lake Park has no gazetteer coordinate at all; its position is derived from the trail profile.",
+      "Summit elevations conflict: Bison Peak 12,431 ft (Wikipedia, SummitPost) against 12,392 ft (OpenStreetMap); McCurdy Mountain 12,172 ft (GNIS) against 12,146 ft. Neither is on this itinerary.",
+      "Wikimedia Commons has no photograph of McCurdy Park or McCurdy Mountain — the entire Lost Creek Wilderness category is thirteen files. A Commons file named for the Shafthouse ruins does not actually show them, and its embedded coordinate is wrong by two miles; it is not used here."
+    ]
+  }
+}

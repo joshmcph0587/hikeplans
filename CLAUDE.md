@@ -206,6 +206,12 @@ diagram, on entries in `map.waypoints`:
   lets a waypoint with `"lat": null` (a dispersed camp) be interpolated between
   its located neighbours. Required on any diagram waypoint without coordinates,
   and on its neighbours.
+For a **loop**, repeat the first waypoint as the last one, with the same
+coordinates and its own `diagram_label`, so the static corridor closes. The
+build detects the repeat and skips the duplicate marker, label, table row and
+map pin — you get a closed loop drawn once. The plan view scales to whichever
+axis runs out of room first, so wide loops and long corridors both fit.
+
 - `diagram_label` (array of two strings) — the marker's label lines, e.g.
   `["Trailhead", "mile 0 · 6,120 ft"]`. Only waypoints with a `diagram_label`
   appear on the static diagram. Keep `~` on any derived elevation. For
