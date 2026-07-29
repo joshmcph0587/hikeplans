@@ -6,14 +6,14 @@
   "title": ["Naturalist", "Basin"],
   "dates": "August 17 to 19, 2026",
   "party": ["Josh"],
-  "thesis": "A hanging basin of lakes at 10,600 feet under Mount Agassiz, reached by the flattest five miles in the Rockies. Fly in at dawn, fly out on the third evening, no motel either end. Josh — August 17 to 19, 2026.",
+  "thesis": "A hanging basin of lakes at 10,600 feet under Mount Agassiz, reached by the flattest five miles in the Rockies. Fly in in the morning, fly out on the third evening, no motel either end. Josh — August 17 to 19, 2026.",
 
   "facts": [
     { "label": "Distance", "value": "~11 mi" },
     { "label": "Gain, in", "value": "~700′" },
     { "label": "Nights out", "value": "2" },
     { "label": "Permit", "value": "Free" },
-    { "label": "All in", "value": "~$660" }
+    { "label": "All in", "value": "~$680" }
   ],
 
   "profile": {
@@ -29,39 +29,41 @@
 
   "why": [
     "Naturalist Basin is the rare high-alpine destination that asks almost nothing of your legs. The Highline Trail leaves a trailhead already at 10,364 feet and traverses a plateau — about five miles and seven hundred feet of gain to a shelf holding Jordan, Blue, Morat, LeConte and Shaler Lakes, with Mount Agassiz standing over them. For a solo trip that arrives from sea level the same morning, a near-flat approach at altitude is the whole argument.",
-    "The logistics are unusually clean. A 6:05 AM nonstop lands in Salt Lake at 7:55, the drive is two paved hours, and you are walking before eleven. On the third day you walk out, drive back, and fly home at 7:30 that evening — no motel at either end, which is what keeps a solo trip with an unsplit rental car under seven hundred dollars. The catch is the fare: Salt Lake is the most expensive of the three airports at $307."
+    "The logistics work, with one wrinkle worth knowing before you book. An 8:00 AM nonstop lands in Salt Lake at 9:53, the drive is a little over two paved hours, and you are walking by early afternoon. On the third day you walk out, drive back, and fly home the same evening — no motel at either end, which is what holds a solo trip with an unsplit rental car under seven hundred dollars. The wrinkle: Salt Lake has only four nonstops back to Austin on a Wednesday, and the cheap Southwest one leaves at 11:30 in the morning, which is unreachable after breaking camp five miles up the trail. That single fact puts this trip on Delta and costs about fifty dollars more than the headline fare."
   ],
 
   "days": [
     {
       "n": "01", "dow": "Mon", "date": "Aug 17", "title": "Dawn flight, afternoon in the basin",
       "log": [
-        ["06:05", "Depart Austin — Southwest nonstop"],
-        ["07:55", "Land Salt Lake City, collect the car"],
-        ["08:45", "I-80 east, then US-40 and UT-32 to Kamas. Groceries and a canister here — last town"],
-        ["10:15", "Mirror Lake Highway (UT-150) east 34 miles. Pay the $10 three-day pass at a fee tube"],
-        ["11:00", "Highline trailhead, 10,364 ft. Self-register, boots on"],
-        ["~14:30", "<strong>Camp</strong> in Naturalist Basin near Jordan Lake, 10,626 ft — 200 ft back from the water"]
+        ["08:00", "Depart Austin — Delta nonstop"],
+        ["09:53", "Land Salt Lake City, collect the car"],
+        ["10:30", "I-80 east, then US-40 and UT-32 to Kamas"],
+        ["11:30", "Kamas — groceries and a fuel canister. Last town, and the last chance to buy the highway pass indoors"],
+        ["12:00", "Mirror Lake Highway (UT-150) east 34 miles of mountain road. Pay the $10 three-day pass at a fee tube if you skipped the office"],
+        ["13:00", "Highline trailhead, 10,364 ft. Self-register, boots on"],
+        ["~16:00", "<strong>Camp</strong> in Naturalist Basin near Jordan Lake, 10,626 ft — 200 ft back from the water"]
       ],
-      "notes": ["5.3 miles with barely 700 feet of gain, which is why arriving the same morning from Austin is reasonable here and would not be anywhere else. Filterable water most of the way. Camp is set for both nights — this is a basecamp trip, not a march."]
+      "notes": ["5.3 miles with barely 700 feet of gain, which is why arriving the same morning from Austin is reasonable here and would not be anywhere else. An early-afternoon start does put you on open plateau during prime thunderstorm hours — watch the sky from the trailhead and wait it out there if it looks bad, rather than committing to the crossing. Filterable water most of the way. Camp is set for both nights; this is a basecamp trip, not a march."]
     },
     {
       "n": "02", "dow": "Tue", "date": "Aug 18", "title": "The whole basin, slowly",
       "notes": [
         "A day to wander the shelf with no pack: Jordan, Blue, Morat, LeConte and Shaler Lakes sit within a couple of miles of each other, and the loop around them adds roughly five miles at a walking pace. The basin's high ground reaches about 11,000 feet.",
-        "Mount Agassiz, 12,428 feet by the ridge above the basin, is the obvious objective and the obvious hazard — wholly exposed. Before noon under a clean sky, or not at all. Otherwise: fish, read, and be back at camp when the weather arrives."
+        "Mount Agassiz, 12,433 feet by the ridge above the basin, is the obvious objective and the obvious hazard — wholly exposed. Before noon under a clean sky, or not at all. Otherwise: fish, read, and be back at camp when the weather arrives."
       ]
     },
     {
       "n": "03", "dow": "Wed", "date": "Aug 19", "title": "Out and home the same day",
       "log": [
-        ["07:00", "Break camp, back down the Highline"],
-        ["~10:00", "Trailhead. Boots off, drive west"],
-        ["12:30", "Kamas, then I-80 to the airport. Drop the car"],
-        ["19:30", "Depart Salt Lake City — Southwest nonstop"],
-        ["21:15", "Land Austin"]
+        ["06:30", "Break camp, back down the Highline"],
+        ["~09:30", "Trailhead. Boots off, drive west"],
+        ["11:00", "Kamas — a real breakfast, which the schedule has room for"],
+        ["13:00", "Salt Lake City airport, drop the car"],
+        ["17:45", "Depart Salt Lake City — Delta nonstop"],
+        ["21:31", "Land Austin"]
       ],
-      "notes": ["5.3 easy miles out, mostly flat, and there is a full seven hours of slack between reaching the car and the flight. That slack is deliberate: it absorbs a slow morning, a flat tire, or a long stop for a real breakfast in Kamas."]
+      "notes": ["5.3 easy miles out, mostly flat. The 5:45 PM departure leaves a long afternoon at the airport, and that is the deliberate trade: the only earlier nonstop that works is Delta's 1:25 PM, which would mean leaving the trailhead by ten and returning the car with barely an hour to spare. Alone, with a two-hour mountain drive in between, the long wait is the better buy. Kamas and Park City both make decent places to burn some of it."]
     }
   ],
 
@@ -72,9 +74,10 @@
       { "name": "Salt Lake City airport (SLC)", "lat": 40.7899, "lon": -111.9791, "kind": "transport", "popup": "Land 7:55 AM. About 2 hours to the trailhead, all paved.", "in_hike_bounds": false },
       { "name": "Highline trailhead (Hayden Pass)", "lat": 40.7229, "lon": -110.8636, "kind": "verified", "mile": 0, "diagram_label": ["Highline trailhead", "mile 0 · 10,364 ft"], "popup": "Mile 0 · 10,364 ft<br>Mile 34 on UT-150. <b>$10 three-day recreation pass required to park.</b> Highline Trail #105 heads east." },
       { "name": "Naturalist Basin junction", "lat": null, "kind": "approximate", "mile": 4.5, "diagram_label": ["Basin junction", "mile ~4.5"], "note": "The signed fork where the basin trail leaves the Highline. No coordinate found from a geocoding-quality source, so it is interpolated by trail mile on the diagram only and marked approximate." },
-      { "name": "Jordan Lake — camp", "lat": 40.7045, "lon": -110.7976, "kind": "verified", "mile": 5.3, "diagram_label": ["Jordan Lake · camp", "mile 5.3 · 10,626 ft"], "popup": "Mile 5.3 · 10,626 ft<br><b>Campfires prohibited anywhere in Naturalist Basin.</b> Camp at least 200 ft from the lake. Gas stove only." }
+      { "name": "Jordan Lake — camp", "lat": 40.7045, "lon": -110.7976, "kind": "verified", "mile": 5.3, "diagram_label": ["Jordan Lake · camp", "mile 5.3 · 10,626 ft"], "popup": "Mile 5.3 · 10,626 ft<br><b>Campfires prohibited anywhere in Naturalist Basin.</b> Camp at least 200 ft from the lake. Gas stove only." },
+      { "name": "Mount Agassiz (side trip)", "lat": 40.7111, "lon": -110.8235, "kind": "verified", "in_hike_bounds": true, "popup": "12,433 ft · the peak above the basin. Exposed the whole way — before noon or not at all." }
     ],
-    "drive_note": "I-80 east out of Salt Lake, US-40 and UT-32 to Kamas, then Mirror Lake Highway (UT-150) east about 34 miles to the trailhead. Paved the whole way; the highway is seasonal, typically open Memorial Day to late October.",
+    "drive_note": "I-80 east out of Salt Lake, US-40 and UT-32 to Kamas, then Mirror Lake Highway (UT-150) east about 34 miles to the trailhead. Paved the whole way, and a little over two hours all in; the highway is seasonal, typically open Memorial Day to late October.",
     "caveat": "The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. The dashed line is straight-line spacing between surveyed waypoints, <strong>not the trail</strong>, and the basin junction is a hollow marker because it is interpolated by mileage, not surveyed. Straight-line to trail distance runs about 1.44 here — the Highline contours rather than beelines. Carry the paper sheet."
   },
 
@@ -86,15 +89,15 @@
       "photo": { "commons": "High Uintas, Utah - 2015.07.11 12.34.20 DSCN2672 - Flickr - andrey zharkikh.jpg", "caption": "Krummholz giving way to timber on the Uinta plateau near Mount Agassiz", "credit": "Andrey Zharkikh, CC BY 2.0" } },
     { "meta": "Mile ~4.5 · the one junction", "title": "Left into Naturalist Basin", "body": "The signed fork: <strong>left for Naturalist Basin, right for Rocky Sea Pass</strong> and the rest of the ninety-six-mile Highline. This is the only navigational decision on the trip. Missing it means a long, scenic walk in the wrong direction." },
     { "meta": "Mile 5.3 · 10,626 ft", "title": "Jordan Lake — camp", "body": "The basin is a shelf holding Jordan, Blue, Morat, LeConte and Shaler Lakes within a short walk of each other. <strong>Campfires are prohibited throughout Naturalist Basin</strong> — the Forest Service names all five lakes in the order, and a gas stove is mandatory, not preferred. Camp at least 200 feet from any lake; one guide puts the fire ban at a quarter mile from water, so keep the stove well back and read the trailhead board." },
-    { "meta": "From camp · 12,428 ft", "title": "Mount Agassiz, if the morning is clean", "body": "The peak above the basin, by the ridge. Exposed from the moment you leave the trees, in a range where afternoon storms are the rule in August. Alone, this is a before-noon objective with a hard turnaround — the basin lakes are the trip, and the summit is a bonus you can decline." },
+    { "meta": "From camp · 12,433 ft", "title": "Mount Agassiz, if the morning is clean", "body": "The peak above the basin, by the ridge. Exposed from the moment you leave the trees, in a range where afternoon storms are the rule in August. Alone, this is a before-noon objective with a hard turnaround — the basin lakes are the trip, and the summit is a bonus you can decline." },
     { "meta": "Miles 5.3–11 · back to 10,364 ft", "title": "The return", "body": "Reverse it: <strong>right</strong> onto the Highline at the junction, then the plateau west, past the Mirror Lake junction, and down to the pass. Nearly flat, about three hours, with the whole afternoon in hand for the drive and the evening flight." }
   ],
 
   "costs": {
     "party_size": 1,
     "rows": [
-      { "item": "Flight, Austin–Salt Lake City round trip", "pp": 307, "status": "confirmed", "note": "Southwest nonstop, Mon Aug 17 out (6:05 AM) / Wed Aug 19 back (7:30 PM). Google Flights, checked 2026-07-28, rated typical. Delta nonstops were $347." },
-      { "item": "Checked pack, both ways", "pp": 90, "status": "estimated", "note": "Southwest charges $45/bag each way on basic fares since April 2026." },
+      { "item": "Flight, Austin–Salt Lake City round trip", "pp": 328, "status": "estimated", "note": "Delta nonstop, out 8:00 AM Aug 17 / back 5:45 PM Aug 19. Google Flights showed $328 round trip against that 8:00 AM outbound and $298 against a midday one, checked 2026-07-28, rated typical — but the late-afternoon return leg prices higher than the midday ones, so confirm the exact pairing at booking. Southwest is $277 and cannot be used: its only Aug 19 nonstop leaves at 11:30 AM." },
+      { "item": "Checked pack, both ways", "pp": 90, "status": "estimated", "note": "Budgeted at Southwest's published $45 each way; Delta's first-bag fee was not verified for these dates and may differ." },
       { "item": "Rental car, three days", "pp": 122, "status": "estimated", "note": "Cheapest agency quote at SLC for these dates (live Kayak check). Turo listings ran $109–114. Nothing here needs clearance." },
       { "item": "Gas", "pp": 25, "status": "estimated", "note": "~230 miles round trip from the airport." },
       { "item": "Mirror Lake Highway pass", "pp": 10, "status": "confirmed", "note": "$10 for three days; required to park at the trailhead. $60 buys the annual if you'd use it again." },
@@ -133,7 +136,7 @@
 
   "before": [
     { "h": "Fires", "p": "Campfires are prohibited throughout Naturalist Basin year-round by forest order — Blue, Morat, LeConte, Shaler and Jordan Lakes are all named. Bring a gas stove. Forest-wide Stage 1 restrictions applied only to the Salt Lake district when checked, not the Kamas side." },
-    { "h": "A fire nearby", "p": "The lightning-caused Buck Basin Fire has been burning on the Heber-Kamas district near Currant Creek Reservoir since mid-July, a few hundred acres and well southeast of this route. Only Red Creek Mountain Road and Low Pass Road were closed. It could still put smoke in the air — check before you go." },
+    { "h": "A fire nearby", "p": "The lightning-caused Buck Basin Fire started July 11 on the Heber-Kamas district, four to five miles northwest of Currant Creek Reservoir — well southeast of this route. Rain brought it to 145 acres and 64% containment by July 17, and only Red Creek Mountain Road and Low Pass Road were closed. It should be a non-issue by late August, but smoke drifts; check the forest alerts page." },
     { "h": "Water", "p": "Unusually good: filterable water most of the way along the Highline, and five lakes at the destination. Filter everything." },
     { "h": "Altitude", "p": "Sea level to 10,364 feet at the trailhead, camp at 10,626, all in one day. The near-flat approach is what makes this defensible — take it slowly anyway." },
     { "h": "The road in", "p": "Paved to the trailhead. UT-150 is seasonal — typically open Memorial Day to late October, so late August is safely inside the window. A $10 three-day pass is required to park." },
@@ -141,7 +144,7 @@
   ],
 
   "booking": [
-    { "meta": "Do this first", "title": "Flight — $307, Aug 17 out, Aug 19 back", "body": "The 6:05 AM out and 7:30 PM back are the two flights that make this a no-motel trip; losing either adds a night's lodging. Times read live July 28 — recheck at booking." },
+    { "meta": "Do this first, and read the note", "title": "Flight — Delta, out 8:00 AM Aug 17, back 5:45 PM Aug 19", "body": "Book Delta, not Southwest, and check the total before you commit. Southwest is $277 but its only Wednesday nonstop home leaves at 11:30 AM, which you cannot reach after breaking camp — taking it means adding a fourth day or a motel night. Delta's 5:45 PM return is what makes the three-day, no-motel shape work; budget $328 and expect the evening leg to price above the $298 headline." },
     { "meta": "Same day", "title": "The cheapest car at Salt Lake", "body": "About $122 for three days from an agency; Turo listings were slightly cheaper if you're comfortable with that. Nothing on this drive needs clearance." },
     { "meta": "Nothing to reserve", "title": "No permit, no campsite, no motel", "body": "Self-register at the trailhead and camp where you like, 200 feet off the lakes. Buy the $10 highway pass at a fee tube on the way in or at the Kamas office." },
     { "meta": "The week before", "title": "Call the Heber-Kamas ranger district — (435) 783-4338", "body": "Ask about the Buck Basin Fire and smoke, current fire restrictions, and whether the Highline has any blowdown. Confirm the pass price at the same time." }
@@ -156,9 +159,10 @@
     "open_questions": [
       "The basin junction at about mile 4.5 has no coordinate from a geocoding-quality source — it is interpolated by trail mile on the diagram and drawn as a hollow marker. The signed fork is unambiguous on the ground.",
       "Two different framings of the fire ban exist: the Forest Service order prohibits campfires throughout Naturalist Basin and names the five lakes; one route guide states no fires within a quarter mile of any lake. Either way it is stove-only — read the trailhead board.",
-      "Mount Agassiz's elevation (12,428 ft) and the basin high point (~11,000 ft) come from route guides rather than a survey source; the trailhead and Jordan Lake elevations are USGS DEM values at surveyed coordinates.",
       "Interior basin distances (the five-lake loop, roughly 5 miles) are from a single route guide and not cross-checked.",
-      "Drive time Salt Lake to the trailhead is estimated at about two hours from the route's length, not taken from a source. Ranger district phone came via a search result citing the Forest Service listing, not the office page itself."
+      "The return fare is the soft number. Google Flights quoted Delta round trips at $298–328 depending on the outbound, but the 5:45 PM return leg prices higher than the midday ones, so the specific pairing in this itinerary was not priced end to end. Budget $328 and confirm before booking.",
+      "Drive time is estimated at a little over two hours: Visit Utah puts the Mirror Lake Highway under two hours from the Salt Lake metro area, and the trailhead is 34 more miles of mountain road beyond Kamas. No single source gives the door-to-door figure. Ranger district phone came via a search result citing the Forest Service listing, not the office page itself.",
+      "Corrected after first publication: an earlier version of this brief had a 6:05 AM Southwest flight out and a 7:30 PM Southwest flight home. The outbound is real, but there is no 7:30 PM Southwest departure from Salt Lake — that time was never verified and the itinerary now uses Delta both ways."
     ]
   }
 }

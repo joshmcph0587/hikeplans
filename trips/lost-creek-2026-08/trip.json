@@ -13,7 +13,7 @@
     { "label": "Gain, in", "value": "~1,850′" },
     { "label": "Nights out", "value": "2" },
     { "label": "Permit", "value": "Free, required" },
-    { "label": "All in", "value": "~$560" }
+    { "label": "All in", "value": "~$550" }
   ],
 
   "profile": {
@@ -29,7 +29,7 @@
   },
 
   "why": [
-    "Lost Creek is the cheapest way out of Austin into real wilderness. Denver fares run to $128 nonstop, the cheapest cars on that lot quote under a hundred dollars for three days, and the trailhead is two hours from the terminal. Solo, where nothing splits, those two lines are the difference between a five-hundred-dollar trip and an eight-hundred-dollar one.",
+    "Lost Creek is the cheapest way out of Austin into real wilderness. Denver fares run $118 nonstop on Frontier and $247 on Southwest, the cheapest cars on that lot quote under a hundred dollars for three days, and the trailhead is two hours from the terminal. Solo, where nothing splits, those two lines are the difference between a five-hundred-dollar trip and an eight-hundred-dollar one. The schedule cooperates too: a 6:55 AM flight out and a 7:55 PM flight home on day three, so neither end needs a motel.",
     "It also happens to be the right shape for August. This is a wilderness of Pikes Peak granite domes and hoodoos with the trail threading below them at eight to nine thousand feet — under treeline nearly the whole way, in a month when the high country gets hit by lightning most afternoons. Lost Creek itself vanishes into and out of the rock repeatedly, which is the thing people come to see. Water is reliable, camps are established, and the trail is popular enough to be a solo-friendly place to be alone."
   ],
 
@@ -59,10 +59,10 @@
         ["07:00", "Break camp, down the valley"],
         ["~10:00", "Trailhead, boots off"],
         ["12:30", "Denver airport, drop the car"],
-        ["21:00", "Depart Denver — Southwest nonstop"],
-        ["23:50", "Land Austin"]
+        ["19:55", "Depart Denver — Southwest nonstop"],
+        ["23:05", "Land Austin"]
       ],
-      "notes": ["Downhill and easy. The 9:00 PM flight leaves eight hours of slack after reaching the car, which is more than any single thing that can go wrong on eleven miles of gravel road. An earlier flight exists but this one costs the same and removes the hurry."]
+      "notes": ["Downhill and easy. The 7:55 PM departure leaves about seven hours of slack after reaching the car — more than any single thing that can go wrong on eleven miles of gravel road. If that wait is too long, Southwest also flies at 3:50 PM and 12:50 PM, and Frontier at 4:14 PM; all were confirmed nonstop for this date."]
     }
   ],
 
@@ -94,7 +94,7 @@
   "costs": {
     "party_size": 1,
     "rows": [
-      { "item": "Flight, Austin–Denver round trip", "pp": 257, "status": "confirmed", "note": "Southwest nonstop, Mon Aug 17 / Wed Aug 19, checked 2026-07-28, rated typical. Frontier flies the same route nonstop for $128 — see the note in the booking section before assuming that's cheaper." },
+      { "item": "Flight, Austin–Denver round trip", "pp": 247, "status": "confirmed", "note": "Southwest nonstop both ways for these exact dates — out 6:55 AM Aug 17, back 7:55 PM Aug 19. Google Flights, checked 2026-07-28, rated typical pricing. Frontier flies the same route nonstop for $118; see the booking section before assuming that wins." },
       { "item": "Checked pack, both ways", "pp": 90, "status": "estimated", "note": "Southwest charges $45/bag each way on basic fares since April 2026." },
       { "item": "Rental car, three days", "pp": 90, "status": "estimated", "note": "Denver is the cheapest rental market of the three: a compact SUV quoted $67 total across Expedia, Kayak and Booking for these dates. Budgeting $90 for fees and a normal car class." },
       { "item": "Gas", "pp": 20, "status": "estimated", "note": "~230 miles round trip from the airport." },
@@ -141,7 +141,7 @@
   ],
 
   "booking": [
-    { "meta": "Do this first, with care", "title": "Flight — $257 Southwest, or the $128 Frontier gamble", "body": "Frontier flies AUS–DEN nonstop for $128 round trip against Southwest's $257. Frontier charges for carry-on and checked bags separately and I could not verify its current fees, so the real Frontier total is unknown — a checked pack can erase the difference. Price the bags before choosing; the table above assumes Southwest." },
+    { "meta": "Do this first, with care", "title": "Flight — $247 Southwest, or the $118 Frontier arithmetic", "body": "Frontier flies this nonstop for $118 round trip against Southwest's $247, and its schedule works (6:30 AM out, 8:26 PM back). The catch is bags: Frontier charges separately for carry-on and checked, published as roughly $39–60 per checked bag prepaid and rising steeply if you wait, so a pack both ways lands somewhere near $80–120 on top. That still likely beats Southwest's $247 including its $90 of bag fees — but the fee depends on your dates and when you pay, so run it through Frontier's own bag price checker before booking. The table above uses Southwest because it's the number I could pin down." },
     { "meta": "Same day", "title": "The cheapest car at Denver", "body": "Denver quoted a compact SUV at $67 total for three days across three booking sites — the cheapest car in this whole research effort. Take it; the road wants nothing more." },
     { "meta": "Nothing to reserve", "title": "No campsite, no motel", "body": "Dispersed camping, permit self-issued at the board. Goose Creek Campground next door is first-come only at $27 if plans change." },
     { "meta": "The week before", "title": "Call the South Park ranger district — (719) 836-2031", "body": "Two questions that actually matter: whether Stage 2 fire restrictions have been re-issued for August, and the current state of FR-211 for a passenger car." }
@@ -157,8 +157,8 @@
       "Distances beyond the Shafthouse spur (3.8 mi) are not well sourced — Refrigerator Gulch and the sinks are described in trip reports without consistent mileage. Day two is deliberately written as a wander, not a mileage plan.",
       "Hiking Project gives Goose Creek #612 a 8,076-foot low point, which conflicts with the trailhead at 7,709 (DEM) / 7,723 (Forest Service) — the logged segment probably starts above the trailhead. Camp elevation (~8,600 ft) is interpolated, not sourced, and is marked as such on the profile.",
       "The Wigwam Park coordinate is an OpenStreetMap node on Wigwam Creek rather than a surveyed feature centre. Good enough to anchor the far end of the diagram; not a navigation target.",
-      "Stage 2 fire restrictions as signed expired August 1, 2026, before these dates. Whether they are re-issued for mid-August is unknowable today — verify by phone.",
-      "Frontier's 2026 baggage fees could not be verified, so its $128 fare cannot be turned into a real total. The cost table uses Southwest.",
+      "Fire restrictions are the one genuinely unresolved item. Stage 1 ran from March 27 to August 1, 2026; Stage 2 was signed June 29 and escalated it, and the forest's own alert page gave the Stage 2 order an August 1 end date as well. Whether anything is in force on August 17 is unknowable today — assume stove-only and call the district.",
+      "Frontier's bag fees are published only as ranges (roughly $39–60 per checked bag prepaid, more at the airport) and vary by date, so its $118 fare cannot be turned into an exact total. The cost table uses Southwest's $247, which includes known $45-per-bag pricing.",
       "Commons has no freely licensed photograph of the Shafthouse, Refrigerator Gulch, or Goose Creek itself; the one photo here shows granite formations elsewhere in the same wilderness."
     ]
   }
