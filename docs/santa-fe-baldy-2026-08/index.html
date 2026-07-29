@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Backpacking trip brief: Lake Katherine, Pecos Wilderness, Sangre de Cristo, Solo, cheap car, August 25 to 28, 2026.">
+<title>Lake Katherine — Aug 25–28, 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+  #map{height:460px;width:100%;border:1px solid var(--rule);background:var(--paper-2);margin:22px 0 0}
+  .leaflet-container{font-family:system-ui,-apple-system,sans-serif;font-size:13px}
+  .mapbtns{display:flex;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+  .mapbtns button{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;background:transparent;color:#2E5339;border:1px solid #2E5339;
+    padding:7px 13px;cursor:pointer}
+  .mapbtns button:hover{background:#2E5339;color:#F6F7F3}
+</style>
+<style>
+  :root{
+    --paper:#EDF0E8;
+    --paper-2:#F6F7F3;
+    --contour:#7A5B38;
+    --forest:#2E5339;
+    --water:#1D6F8E;
+    --route:#B5651D;
+    --rule:#C9CEC0;
+    --ink:#23281F;
+    --ink-2:#5A6152;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:400 17px/1.65 var(--sans);
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:0 24px 96px}
+
+  header{padding:56px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--contour);margin:0 0 18px
+  }
+  h1{
+    font:700 clamp(42px,9vw,76px)/0.95 var(--serif);
+    margin:0;letter-spacing:-.02em;color:var(--forest)
+  }
+  .sub{font-size:19px;color:var(--ink-2);margin:14px 0 0;max-width:52ch}
+
+  .hero{margin:34px 0 0;border:1px solid var(--rule);background:var(--paper-2);padding:20px 8px 8px}
+  .hero svg{display:block;width:100%;height:auto}
+  .hero .vizsource{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    color:var(--ink-2);margin:8px 8px 4px}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1px 0 0
+  }
+  .fact{background:var(--paper-2);padding:14px 16px}
+  .fact dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 4px}
+  .fact dd{margin:0;font:600 21px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+
+  h2{
+    font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--contour);margin:72px 0 0;padding-bottom:10px;border-bottom:2px solid var(--forest)
+  }
+  h3{font:600 27px/1.2 var(--serif);margin:34px 0 2px;color:var(--forest)}
+  p{margin:14px 0}
+  a{color:var(--water);text-underline-offset:2px}
+
+  .day{display:grid;grid-template-columns:64px 1fr;gap:0 22px;margin:40px 0 0;
+    padding-top:26px;border-top:1px solid var(--rule)}
+  .day:first-of-type{border-top:0}
+  .daymark{font:700 34px/1 var(--mono);color:var(--route);margin:0}
+  .daydate{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0}
+  .day h3{margin-top:0}
+
+  .log{margin:16px 0 0;border-top:1px solid var(--rule)}
+  .log div{display:grid;grid-template-columns:82px 1fr;gap:16px;
+    padding:9px 0;border-bottom:1px solid var(--rule);font-size:16px}
+  .log span{font-family:var(--mono);font-size:13px;color:var(--contour);padding-top:2px;
+    font-variant-numeric:tabular-nums}
+  .log p{margin:0}
+
+  ol.route{list-style:none;counter-reset:leg;padding:0;margin:22px 0 0}
+  ol.route li{counter-increment:leg;position:relative;padding:0 0 22px 62px;
+    border-left:2px solid var(--rule);margin-left:14px}
+  ol.route li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.route li::before{
+    content:counter(leg,decimal-leading-zero);position:absolute;left:-15px;top:0;
+    width:28px;height:28px;border-radius:50%;background:var(--forest);color:var(--paper-2);
+    font:600 11px/28px var(--mono);text-align:center
+  }
+  ol.route strong{display:block;font:600 17px/1.4 var(--sans)}
+  ol.route em{font-style:normal;font-family:var(--mono);font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--contour);display:block;margin:0 0 3px}
+
+  table{width:100%;border-collapse:collapse;margin:22px 0 0;font-size:16px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.total td{border-bottom:0;border-top:2px solid var(--forest);font-weight:600;
+    color:var(--forest);padding-top:13px}
+  td small{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.4}
+
+  .alert{border:2px solid var(--route);background:#FBF3E9;padding:22px 26px;margin:24px 0 0}
+  .alert h3{margin-top:0;color:#8A4A12}
+  .alert ul{margin:12px 0 0;padding-left:20px}
+  .alert li{margin:8px 0}
+
+  .mapwrap{display:grid;grid-template-columns:340px 1fr;gap:0 34px;margin:24px 0 0;align-items:start}
+  .mappanel{border:1px solid var(--rule);background:var(--paper-2);padding:12px}
+  .mappanel svg{display:block;width:100%;height:auto}
+  .mapkey h3{margin-top:0;font-size:20px}
+  table.wp{margin:10px 0 0;font-size:14px}
+  table.wp td{padding:7px 0;border-bottom:1px solid var(--rule)}
+  table.wp td.n{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2)}
+  ol.route figure{margin:16px 0 0}
+  ol.route img{display:block;width:100%;max-width:430px;height:auto;border:1px solid var(--rule)}
+  ol.route figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0;max-width:430px;line-height:1.5}
+  ol.route figcaption a{color:var(--ink-2)}
+  .caveat{font-size:14.5px;color:var(--ink-2);border-left:3px solid var(--route);
+    border-radius:0;padding-left:14px;margin-top:20px}
+  @media (max-width:660px){.mapwrap{grid-template-columns:1fr}}
+
+  #wx-live{display:none;margin-top:28px}
+  #wx-live h3{font-size:20px}
+  table.wx td small{font-weight:400}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+  .cols h3{font-size:20px}
+  .cols p{font-size:16px;margin:8px 0 0}
+
+  footer{margin:80px 0 0;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+
+  @media (max-width:560px){
+    .sheet{padding:0 18px 64px}
+    .day{grid-template-columns:1fr;gap:0}
+    .daymark{font-size:26px}
+    .log div{grid-template-columns:72px 1fr;gap:12px}
+    ol.route li{padding-left:44px}
+  }
+  @media print{body{background:#fff}.hero,.day,.alert,figure,#wx-live{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">Pecos Wilderness · Sangre de Cristo · Solo, cheap car</p>
+  <h1>Lake<br>Katherine</h1>
+  <p class="sub">Solo to an 11,700-foot lake under Santa Fe Baldy, from a paved trailhead forty minutes above Santa Fe. Nonstop in, cheapest car on the lot, no rough road. Josh — August 25 to 28, 2026.</p>
+</header>
+
+<div class="hero">
+<svg viewBox="0 0 780 300" role="img" aria-label="Elevation profile: 10,272 feet at mile 0 to 11,737 feet at mile 7.4">
+  <title>Elevation profile</title>
+  <line x1="96" y1="248" x2="740" y2="248" stroke="#C9CEC0"/>
+  <line x1="96" y1="164" x2="740" y2="164" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="80" x2="740" y2="80" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="#5A6152">
+    <text x="86" y="252" text-anchor="end">10,000</text>
+    <text x="86" y="168" text-anchor="end">11,000</text>
+    <text x="86" y="84" text-anchor="end">12,000</text>
+    <text x="96" y="270" text-anchor="middle">0</text>
+    <text x="257" y="270" text-anchor="middle">2</text>
+    <text x="418" y="270" text-anchor="middle">4</text>
+    <text x="579" y="270" text-anchor="middle">6</text>
+    <text x="740" y="270" text-anchor="middle">8</text>
+    <text x="418" y="291" text-anchor="middle" letter-spacing="1.4" fill="#7A5B38">MILES FROM TRAILHEAD</text>
+  </g>
+  <path d="M96 225 L466 155 L692 102 L692 248 L96 248 Z" fill="#2E5339" opacity="0.1"/>
+  <path d="M96 225 L466 155 L692 102" fill="none" stroke="#B5651D" stroke-width="2.5" stroke-linejoin="round"/>
+  <g fill="#B5651D" stroke="#F6F7F3" stroke-width="2">
+    <circle cx="96" cy="225" r="4.5"/>
+    <circle cx="466" cy="155" r="4.5"/>
+    <circle cx="692" cy="102" r="6"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#23281F">
+    <text x="96" y="212" font-size="12" fill="#5A6152">Ski basin · 10,272 ft</text>
+    <text x="482" y="196" font-size="12" fill="#5A6152">Puerto Nambe · 11,104 ft</text>
+    <text x="692" y="82" text-anchor="end" font-weight="600">Camp · Lake Katherine · 11,737 ft</text>
+  </g>
+</svg>
+<p class="vizsource">Trailhead, Puerto Nambe and Lake Katherine elevations are USGS 10-metre DEM values at surveyed coordinates, cross-checked against published figures. The drawn line hides a real dip: the trail descends into the Rio Nambe below mile 2 before climbing again.</p>
+</div>
+
+<dl class="facts">
+  <div class="fact"><dt>Distance</dt><dd>~15 mi</dd></div>
+  <div class="fact"><dt>Gain, in</dt><dd>~1,900′</dd></div>
+  <div class="fact"><dt>Nights out</dt><dd>2</dd></div>
+  <div class="fact"><dt>Permit</dt><dd>Free</dd></div>
+  <div class="fact"><dt>All in</dt><dd>~$770</dd></div>
+</dl>
+
+<h2>Why here</h2>
+
+<p>This is the cheapest, lowest-friction alpine trip available from Austin. One nonstop to Albuquerque, the cheapest class of rental car, and NM-475 is paved the whole way to a trailhead at 10,272 feet — no forest road, no clearance question, no gate to open. Fifteen miles of walking gets a lake at 11,737 feet with Santa Fe Baldy, a 12,631-foot walk-up, directly above camp.</p>
+
+<p>It also suits going alone. The Winsor Trail is the busiest trail in the Sangre de Cristos — a mountain-bike corridor for its first miles and a day-hiker highway to Nambe Lake — which means company, a beaten track, and a short bail-out the entire way. The trade is honest: Lake Katherine is a popular camp and you will not have it to yourself. On a solo trip that is a feature, not a cost.</p>
+
+<h2>The itinerary</h2>
+
+<div class="day">
+  <div><p class="daymark">01</p><p class="daydate">Tue<br>Aug 25</p></div>
+  <div>
+    <h3>Fly in, walk to the pass</h3>
+    <div class="log">
+      <div><span>08:40</span><p>Depart Austin — Southwest WN 2654, nonstop</p></div>
+      <div><span>09:30</span><p>Land Albuquerque, collect the car — cheapest class on the lot</p></div>
+      <div><span>10:15</span><p>I-25 north to Santa Fe. Groceries and a fuel canister on the way through</p></div>
+      <div><span>12:15</span><p>NM-475 up through Hyde Park to the ski basin, 15 winding miles</p></div>
+      <div><span>13:00</span><p>Winsor trailhead, 10,272 ft. Upper or lower lot, boots on</p></div>
+      <div><span>~16:30</span><p><strong>Camp 1</strong> near Puerto Nambe, 11,104 ft — meadow at the trail junction, 200 ft off water</p></div>
+    </div>
+    <p>4.6 miles: a steep half mile to start, then the trail drops through aspen into the Rio Nambe and climbs to the pass. Short on purpose — it's the acclimatization day from 500 feet. Water at the Nambe crossing and at La Vega below the pass. Mind the cattle at La Vega.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">02</p><p class="daydate">Wed<br>Aug 26</p></div>
+  <div>
+    <h3>The lake, and the peak if the sky allows</h3>
+    <p>2.8 miles and 630 feet from Puerto Nambe to Lake Katherine: left at the pass, then tight switchbacks under the ridge into denser forest. Short enough to be at the lake by mid-morning with the whole day left.</p>
+    <p>Santa Fe Baldy, 12,631 feet, is the reason to be here early. Skyline Trail #251 climbs to a saddle roughly a thousand feet below the summit, and an unofficial ridge path finishes it — a walk-up in good conditions, nowhere to be in a storm. Solo rule: on the summit by noon under a clean sky, or not at all. <strong>Camp 2</strong> at Lake Katherine, 200 feet back from the water.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">03</p><p class="daydate">Thu<br>Aug 27</p></div>
+  <div>
+    <h3>Out, and into Santa Fe</h3>
+    <p>7.4 miles back down, mostly gentle, with one genuine climb out of the Rio Nambe before the last mile to the lot. Four hours at a civilized pace.</p>
+    <p>Down NM-475 to a motel on Cerrillos Road, a shower, and the best plate in walking distance. The Plaza is ten minutes away if there's energy left for it.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">04</p><p class="daydate">Fri<br>Aug 28</p></div>
+  <div>
+    <h3>Home</h3>
+    <div class="log">
+      <div><span>08:45</span><p>Santa Fe to the Albuquerque airport, about an hour. Drop the car</p></div>
+      <div><span>11:35</span><p>Depart Albuquerque — Southwest WN 3269, nonstop</p></div>
+      <div><span>14:20</span><p>Land Austin</p></div>
+    </div>
+    <p>There's also an 8:10 PM nonstop for the same fare if a slow morning in Santa Fe sounds better than an early one.</p>
+  </div>
+</div>
+
+<h2>The route, junction by junction</h2>
+
+<p>Two junctions matter, and both are signed. Everything else on this trail is obvious — which is most of why it works as a solo trip.</p>
+
+<div id="map"></div>
+<div class="mapbtns">
+  <button type="button" id="btn-hike">Fit the hike</button>
+  <button type="button" id="btn-drive">Fit the drive</button>
+</div>
+<p class="caveat" id="mapstatus">Loading the map…</p>
+
+<div class="mapwrap">
+  <div class="mappanel">
+    <svg viewBox="0 0 340 440" role="img" aria-label="Plan-view diagram, drawn to scale: Ski basin trailhead to Lake Katherine · Camp 2, connected by straight corridor lines, not the trail alignment">
+      <title>Route waypoints</title>
+      <g stroke="#2E5339" stroke-width="1.4" fill="none">
+        <line x1="40" y1="86" x2="40" y2="60"/>
+      </g>
+      <polygon points="40,54 36,64 44,64" fill="#2E5339"/>
+      <text x="40" y="100" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#2E5339">N</text>
+
+      <polyline points="-125,358 176,245 198,68" fill="none" stroke="#B5651D"
+        stroke-width="2" stroke-dasharray="6 5" stroke-linejoin="round"/>
+
+      <circle cx="-125" cy="358" r="6" fill="#2E5339" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="176" cy="245" r="5" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="198" cy="68" r="7" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+
+      <g font-family="system-ui, sans-serif" fill="#23281F">
+        <text x="-113" y="355" font-size="12.5" font-weight="600">Ski basin trailhead</text>
+        <text x="-113" y="369" font-size="11" fill="#5A6152">mile 0 · 10,272 ft</text>
+
+        <text x="187" y="242" font-size="12.5" font-weight="600">Puerto Nambe · Camp 1</text>
+        <text x="187" y="256" font-size="11" fill="#5A6152">mile 4.6 · 11,104 ft</text>
+
+        <text x="211" y="65" font-size="12.5" font-weight="600">Lake Katherine · Camp 2</text>
+        <text x="211" y="79" font-size="11" fill="#5A6152">mile 7.4 · 11,737 ft</text>
+      </g>
+
+      <g stroke="#5A6152" stroke-width="1.2">
+        <line x1="30" y1="405" x2="139" y2="405"/>
+        <line x1="30" y1="400" x2="30" y2="410"/>
+        <line x1="85" y1="402" x2="85" y2="408"/>
+        <line x1="139" y1="400" x2="139" y2="410"/>
+      </g>
+      <text x="85" y="424" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+        font-size="10.5" letter-spacing="0.8" fill="#5A6152">1 MILE</text>
+    </svg>
+  </div>
+
+  <div class="mapkey">
+    <h3>Waypoints</h3>
+    <table class="wp">
+      <tr><td>Albuquerque airport (ABQ)</td><td class="n">35.0402, −106.6091</td></tr>
+      <tr><td>Winsor trailhead #254 (ski basin)</td><td class="n">35.7956, −105.8049</td></tr>
+      <tr><td>Puerto Nambe — Camp 1</td><td class="n">35.8107, −105.7555</td></tr>
+      <tr><td>Lake Katherine — Camp 2</td><td class="n">35.8342, −105.7519</td></tr>
+      <tr><td>Santa Fe Baldy (side trip)</td><td class="n">35.8322, −105.7581</td></tr>
+    </table>
+    <p style="margin-top:16px;font-size:15px">I-25 north to Santa Fe, then St Francis Drive to Artist Road and NM-475 for 15 miles to the end of the pavement at Ski Santa Fe. No dirt, no clearance requirement — the cheapest car on the lot does this. <a href="https://www.google.com/maps/dir/?api=1&amp;origin=35.0402,-106.6091&amp;destination=35.7956,-105.8049">Airport to trailhead on Google Maps.</a></p>
+    <p class="caveat">The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. The dashed line is straight-line spacing between surveyed waypoints, <strong>not the trail.</strong> It understates the walking badly: the trailhead sits four straight-line miles from the lake but seven and a half trail miles, because the route drops into the Rio Nambe and climbs back over a pass. Carry the paper sheet.</p>
+  </div>
+</div>
+
+<ol class="route">
+  <li>
+    <em>Mile 0 · 10,272 ft</em>
+    <strong>Winsor trailhead, Ski Santa Fe</strong>
+    End of NM-475, fifteen miles above town. Upper and lower lots, restrooms, and no wilderness permit needed anywhere in the Pecos. Trail #254 leaves from the left as you pull in. Elevation from the USGS 10-metre DEM at the Forest Service trailhead coordinate; the agency lists the trail topping out at 10,293 ft, which agrees.
+  </li>
+  <li>
+    <em>Miles 0–1</em>
+    <strong>The only steep half mile</strong>
+    A stiff climb to the wilderness boundary fence, then it flattens. At the boundary keep <strong>straight</strong> — the path breaking right climbs Raven's Ridge, a fine walk and the wrong one today.
+  </li>
+  <li>
+    <em>Mile 2.4 · the Y</em>
+    <strong>Left at the Y</strong>
+    The trail has been descending through aspen into the Rio Nambe. At the signed Y, go <strong>left</strong> for Puerto Nambe and Lake Katherine. <strong>Right is the spur to Nambe Lake</strong> — the most popular day hike in the range, and a dead end for this trip. Water at the Nambe crossing just past the junction; the footbridge has needed repair in recent years.
+  </li>
+  <li>
+    <em>Miles 3–4.6</em>
+    <strong>La Vega, then the pass</strong>
+    Open meadow with water and, most summers, cattle. Above it the trail climbs steadily to Puerto Nambe. Last easy water before camp is here.
+  </li>
+  <li>
+    <em>Mile 4.6 · 11,104 ft</em>
+    <strong>Puerto Nambe — Camp 1</strong>
+    A broad meadow pass where Skyline Trail #251 splits off. Good dispersed camping in the trees at the edges — 200 feet off water, 50 feet off the trail, per Pecos Wilderness rules. Storms rake this pass in the afternoon; it is not a place to be caught high and late.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Pecos_Baldy_Santa_Fe_Baldy.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pecos_Baldy_Santa_Fe_Baldy.jpg?width=900" alt="Santa Fe Baldy (right) and Pecos Baldy across the Pecos high country" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Santa Fe Baldy (right) and Pecos Baldy across the Pecos high country · JerryFriedman, CC BY-SA 3.0, via <a href="https://commons.wikimedia.org/wiki/File:Pecos_Baldy_Santa_Fe_Baldy.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Miles 4.6–7.4</em>
+    <strong>Left, and up the switchbacks</strong>
+    From the pass, <strong>left</strong> toward Lake Katherine; right runs to Spirit Lake, which is the sheltered alternative if the weather is ugly and has good established sites of its own. The Katherine line climbs about 630 feet in tight switchbacks under the ridge. The Forest Service numbers the final branch Lake Katherine Trail #242 and gives it 1.3 miles, so roughly half this segment is still on #254 and #251 — trust the signs over the arithmetic.
+  </li>
+  <li>
+    <em>Mile 7.4 · 11,737 ft</em>
+    <strong>Lake Katherine — Camp 2</strong>
+    A cirque lake directly under the north face of Santa Fe Baldy. <strong>Camping and campfires are prohibited within 200 feet of the lake</strong>, and the Forest Service says plainly that Katherine is heavily impacted and asks people to camp elsewhere where they can — worth taking seriously, and worth arriving early enough to have the choice. Volunteer rangers do check and will move you.
+  </li>
+  <li>
+    <em>From camp · 12,631 ft</em>
+    <strong>Santa Fe Baldy, if the morning is clean</strong>
+    Back to the Skyline saddle and up the ridge — a walk-up with no technical difficulty in good conditions, about a thousand feet from the saddle. Wholly exposed. Alone, this is a before-noon proposition with a hard turnaround, no exceptions.
+  </li>
+  <li>
+    <em>Miles 7.4–15 · back to 10,272 ft</em>
+    <strong>The return</strong>
+    Reverse it: down the switchbacks, <strong>right</strong> at Puerto Nambe, past La Vega, across the Nambe, then the one real climb of the day back to the boundary fence and a final easy half mile down to the lot. Four hours or so, and the last stretch has cell signal well before the car.
+  </li>
+</ol>
+<p style="font-size:14.5px;color:var(--ink-2);margin-top:20px">Photographs are from Wikimedia Commons, which hosts only freely licensed or public-domain media. Each caption links to its file page — worth a look at the license there before reusing any of them anywhere public.</p>
+
+<h2>What it costs</h2>
+
+<table>
+  <thead><tr><th>Item</th><th class="n">Per person</th></tr></thead>
+  <tbody>
+    <tr data-status="confirmed"><td>Flight, Austin–Albuquerque round trip<small>Southwest nonstop, Tue Aug 25 out / Fri Aug 28 back. Google Flights, checked 2026-07-28, rated typical pricing.</small></td><td class="n">$217</td></tr>
+    <tr data-status="estimated"><td>Checked pack, both ways<small>Southwest charges $45/bag each way on basic fares since April 2026. Poles and a stove can't carry on.</small></td><td class="n">$90</td></tr>
+    <tr data-status="estimated"><td>Rental car, cheapest class, three days<small>Live Kayak quote for these dates, cheapest conventional class at ABQ. Solo, nothing splits — this is the single line that makes flying expensive alone.</small></td><td class="n">$231</td></tr>
+    <tr data-status="estimated"><td>Gas<small>~170 miles at NM average $3.98 (AAA, 2026-07-28).</small></td><td class="n">$15</td></tr>
+    <tr data-status="estimated"><td>Motel, Santa Fe, Thursday<small>Cerrillos Road corridor ran $84–130 for comparable late-August nights when checked.</small></td><td class="n">$95</td></tr>
+    <tr data-status="estimated"><td>Trail food, three days</td><td class="n">$40</td></tr>
+    <tr data-status="estimated"><td>Two meals in town</td><td class="n">$45</td></tr>
+    <tr data-status="estimated"><td>Fuel canister and odds and ends<small>Bought in Santa Fe — canisters can't fly.</small></td><td class="n">$15</td></tr>
+    <tr data-status="estimated"><td>Bear hang kit<small>Rope and a dry bag. No canister requirement in the Pecos.</small></td><td class="n">$20</td></tr>
+    <tr data-status="confirmed"><td>Wilderness permit<small>None required anywhere in the Pecos Wilderness.</small></td><td class="n">$0</td></tr>
+    <tr class="total"><td>Total<small style="font-weight:400">Traveling solo — nothing splits.</small></td><td class="n">~$768</td></tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <h3>Exposed ground, alone, in monsoon season</h3>
+  <p style="margin-top:6px">This is an easy trail with one serious hazard: everything above Puerto Nambe is open, high, and directly in the path of the afternoon storms that build here most days in August. Solo removes the margin — nobody to go for help, nobody to argue you out of a bad call.</p>
+  <ul>
+    <li><strong>Puerto Nambe and the Baldy ridge by noon.</strong> The pass and the summit ridge are both fully exposed. Turn around alone, on schedule, with nobody watching.</li>
+    <li><strong>Satellite messenger on your body</strong>, not in the pack, with a check-in someone at home is actually watching. They get the route, the camps, the plate, and a walk-out deadline before you leave.</li>
+    <li><strong>Hang everything scented.</strong> Black bears, no grizzlies, no canister rule — a proper hang or Ursack, well away from the tent.</li>
+    <li><strong>Respect the 200-foot rule at the lake.</strong> Rangers check Katherine, and a drought year makes the shoreline damage worse. Arrive early enough to have a legal site.</li>
+    <li><strong>Altitude, fast.</strong> Austin to 11,100 feet in one afternoon. The short first day is the plan; drink ahead of thirst and treat a headache as information.</li>
+  </ul>
+  <p style="margin-bottom:0">The trail's popularity is the safety net here. Use it — camp near other people, and tell someone the plan.</p>
+</div>
+
+<h2>Weather</h2>
+
+<p>Late August is the back half of the monsoon: clear mornings, storms building over the divide by early afternoon most days, gone by dark. 2026's monsoon came late but strong over a severe-drought base. These are station normals, not a forecast.</p>
+
+<table class="wx">
+  <thead><tr><th>Typical for these dates</th><th class="n"></th></tr></thead>
+  <tbody>
+    <tr><td>Day high, Terrero (7,714 ft)</td><td class="n">~76°F</td></tr>
+    <tr><td>Overnight low, Terrero</td><td class="n">~42°F</td></tr>
+    <tr><td>Derived at the lake (11,737 ft)</td><td class="n">~62° / low 30s</td></tr>
+    <tr><td>Afternoon thunderstorms</td><td class="n">most days</td></tr>
+  </tbody>
+</table>
+<p class="caveat">Terrero co-op station normals (7,714 ft, WRCC, 1946–61 record) — the nearest mountain station, in the Pecos canyon over the divide. Lake figures lapse-rate derived, hence the ~; canyon-bottom lows overstate the spread, so plan for low 30s and possible frost. Checked 2026-07-28.</p>
+
+<div id="wx-live">
+  <h3>This week's forecast at the trailhead</h3>
+  <table>
+    <tbody id="wx-rows"></tbody>
+  </table>
+  <p class="caveat">Fetched live from the National Weather Service for the trailhead coordinate. Higher on the route runs colder and more exposed.</p>
+</div>
+
+<p style="font-size:15px">A real forecast only exists inside about a week, so the box above fills in when this page is opened with signal and hides itself when it can't. Before leaving, check the <a href="https://forecast.weather.gov/MapClick.php?lat=35.7956&amp;lon=-105.8049">NWS point forecast for the trailhead</a> — same feed, same coordinate.</p>
+
+<h2>Before we go</h2>
+
+<div class="cols">
+  <div>
+    <h3>Fires</h3>
+    <p>Stage II restrictions (no wood or charcoal fires; stoves only, in a cleared area) were ordered forest-wide June 26 through September 30, 2026 — though the order had dropped off the Santa Fe NF alerts page by July 28 with no rescission announced. Plan stove-only and check the alerts page the week of.</p>
+    <h3>Water</h3>
+    <p>The Rio Nambe crossing, La Vega, and the lake are the reliable sources; the stretch between La Vega and the lake is dry. Filter everything, and top off at La Vega before the pass.</p>
+    <h3>Altitude</h3>
+    <p>The trailhead is already at 10,272 feet — higher than most Colorado trailheads. Camp one at 11,104 is the acclimatization night, and the short first day exists for that reason alone.</p>
+  </div>
+  <div>
+    <h3>The road up</h3>
+    <p>NM-475 is paved, winding, and busy on weekends. The lots at the ski basin fill on August weekends; a Tuesday is fine. No forest road, no clearance question — this is the trip's whole logistical argument.</p>
+    <h3>Signal</h3>
+    <p>There is usually service at the ski basin and on the upper switchbacks, and none in the Nambe drainage or at the lake. Send the itinerary before you start walking.</p>
+    <h3>Camping rules</h3>
+    <p>No permit needed. Camping and campfires prohibited within 200 feet of any lake and within 50 feet of trails and streams. Lake Katherine is heavily used and the Forest Service asks people to spread out — Puerto Nambe and Spirit Lake both hold legal, quieter sites.</p>
+  </div>
+</div>
+
+<h2>To book, in this order</h2>
+
+<ol class="route">
+  <li>
+    <em>Do this first</em>
+    <strong>Flight — $217, Aug 25 out, Aug 28 back</strong>
+    Times were read live on July 28 and repeat daily, but Southwest reshuffles schedules — recheck when booking. The Monday–Thursday pair costs $237.
+  </li>
+  <li>
+    <em>Same day</em>
+    <strong>The cheapest car they have</strong>
+    About $231 for three days at Albuquerque. Nothing about this drive needs clearance, so take the smallest thing on the lot and put the difference toward the motel.
+  </li>
+  <li>
+    <em>A week or two out</em>
+    <strong>One motel night in Santa Fe, Thursday</strong>
+    Cerrillos Road, $84–130. Tourist-season Santa Fe does fill; don't leave it to the final days.
+  </li>
+  <li>
+    <em>The week before</em>
+    <strong>Call the Española ranger district — (505) 753-7331</strong>
+    This side of the wilderness is the Española district, not Pecos. Ask about fire restrictions and current trail conditions above Puerto Nambe.
+  </li>
+</ol>
+
+<footer>
+  Trailhead: 35.7956, −105.8049 · Winsor Trailhead #254, end of NM-475, Ski Santa Fe<br>
+  Española Ranger District, Santa Fe National Forest · (505) 753-7331<br>
+  Recommended map: Outdoor Trail Maps, Santa Fe &amp; Pecos Wilderness (2023) — or the USGS Aspen Basin quad<br>
+  Researched 2026-07-28<br>
+  <br>
+  Open items:<br>
+  01 — Mileages come from local trail guides (2.4 mi to the Y, 2.2 more to Puerto Nambe, 2.8 more to Lake Katherine). The Forest Service gives Lake Katherine Trail #242 as only 1.3 miles, so the segment splits across three trail numbers — the total is consistent but the internal breakdown is not firmly sourced.<br>
+  02 — All elevations here are USGS 10-metre DEM values read at surveyed coordinates. They agree closely with published figures (lake 11,737 vs 11,742 cited; Baldy 12,631 vs 12,632), which is the cross-check, but no single trip report states the whole profile.<br>
+  03 — Straight-line to trail-mile ratio on this route runs about 1.85 — well outside the normal band. That is real, not an error: the trail drops into the Rio Nambe and crosses a pass. The diagram understates the walking.<br>
+  04 — Stage II fire restrictions were ordered through Sept 30 but had dropped off the forest's alert page by July 28 with no rescission found — status ambiguous, verify by phone.<br>
+  05 — Commons has no freely licensed photograph of Lake Katherine itself; the one photo here shows Santa Fe Baldy from a distance.
+</footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('map');
+  var status = document.getElementById('mapstatus');
+  var btns = document.querySelector('.mapbtns');
+
+  function degrade(msg) {
+    el.style.display = 'none';
+    btns.style.display = 'none';
+    status.innerHTML = msg;
+  }
+
+  if (typeof L === 'undefined') {
+    degrade('Live map unavailable — the Leaflet library did not load. Use the diagram below, which needs no network.');
+    return;
+  }
+
+  var WAYPOINTS = [{"ll":[35.0402,-106.6091],"name":"Albuquerque airport (ABQ)","popup":"Land 9:30 AM. About 1 h 40 m to the trailhead, all paved.","hike":false},{"ll":[35.7956,-105.8049],"name":"Winsor trailhead #254 (ski basin)","popup":"Mile 0 · 10,272 ft\u003cbr>End of NM-475 at Ski Santa Fe. Upper or lower lot. Winsor Trail #254 leaves the left side of the parking area.","hike":true},{"ll":[35.8107,-105.7555],"name":"Puerto Nambe — Camp 1","popup":"Mile 4.6 · 11,104 ft\u003cbr>Meadow pass and trail junction. \u003cb>Left for Lake Katherine, right for Spirit Lake.\u003c/b> Camp 200 ft off water, 50 ft off the trail.","hike":true},{"ll":[35.8342,-105.7519],"name":"Lake Katherine — Camp 2","popup":"Mile 7.4 · 11,737 ft\u003cbr>Camping and campfires prohibited within 200 ft of the lake. Heavily used — expect neighbours.","hike":true},{"ll":[35.8322,-105.7581],"name":"Santa Fe Baldy (side trip)","popup":"12,631 ft · walk-up from the Skyline saddle above Puerto Nambe. Before noon or not at all.","hike":true}];
+  var DEFAULT_TILES = "opentopomap";
+
+  if (!WAYPOINTS.length) {
+    degrade('No mapped waypoints for this trip — use the diagram below.');
+    return;
+  }
+
+  var osmAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17, subdomains: 'abc',
+    attribution: osmAttr + ', SRTM &middot; Style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+  });
+  var street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19, attribution: osmAttr
+  });
+
+  var map = L.map('map', { layers: [DEFAULT_TILES === 'street' ? street : topo], scrollWheelZoom: false });
+  L.control.layers({ 'Topographic': topo, 'Street': street }).addTo(map);
+  L.control.scale({ imperial: true, metric: false }).addTo(map);
+
+  WAYPOINTS.forEach(function (w) {
+    L.marker(w.ll).addTo(map).bindPopup('<b>' + w.name + '</b>' + (w.popup ? '<br>' + w.popup : ''));
+  });
+
+  var hikePts = [];
+  var drivePts = [];
+  WAYPOINTS.forEach(function (w) {
+    drivePts.push(w.ll);
+    if (w.hike) hikePts.push(w.ll);
+  });
+  var hike = L.latLngBounds(hikePts.length ? hikePts : drivePts);
+  var drive = L.latLngBounds(drivePts);
+
+  function fitHike() { map.fitBounds(hike, { padding: [36, 36] }); }
+  fitHike();
+  document.getElementById('btn-hike').addEventListener('click', fitHike);
+  document.getElementById('btn-drive').addEventListener('click', function () {
+    map.fitBounds(drive, { padding: [36, 36] });
+  });
+
+  var gotTiles = false;
+  topo.on('tileload', function () { gotTiles = true; });
+  street.on('tileload', function () { gotTiles = true; });
+
+  setTimeout(function () {
+    if (!gotTiles) {
+      degrade('Map tiles were blocked — some viewers do not allow external map servers. <strong>Download this file and open it in a browser</strong> and the map will work. The diagram below needs no network.');
+    } else {
+      status.innerHTML = 'Contours and trail lines are OpenStreetMap data, drawn by volunteers &mdash; <strong>a guide, not a survey.</strong> Zoom in to see the trail network, and check it against the recommended paper sheet before relying on it. Scroll-zoom is off &mdash; use the +/&minus; buttons.';
+    }
+  }, 7000);
+})();
+</script>
+<script>
+(function () {
+  var box = document.getElementById('wx-live');
+  if (!box || !window.fetch) return;
+  var PT = [35.7956,-105.8049];
+  var dead = false;
+  var timer = setTimeout(function () { dead = true; }, 8000);
+
+  fetch('https://api.weather.gov/points/' + PT[0] + ',' + PT[1])
+    .then(function (r) { return r.json(); })
+    .then(function (j) { return fetch(j.properties.forecast); })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      if (dead) return;
+      clearTimeout(timer);
+      var rows = document.getElementById('wx-rows');
+      j.properties.periods.slice(0, 8).forEach(function (p) {
+        var tr = document.createElement('tr');
+        var name = document.createElement('strong');
+        name.textContent = p.name;
+        var detail = document.createElement('small');
+        var pop = p.probabilityOfPrecipitation && p.probabilityOfPrecipitation.value;
+        detail.textContent = p.shortForecast + (pop ? ' · ' + pop + '% precip' : '');
+        var td1 = document.createElement('td');
+        td1.appendChild(name);
+        td1.appendChild(detail);
+        var td2 = document.createElement('td');
+        td2.className = 'n';
+        td2.textContent = p.temperature + '°' + p.temperatureUnit;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        rows.appendChild(tr);
+      });
+      box.style.display = 'block';
+    })
+    .catch(function () { /* no network or no coverage — the box stays hidden */ });
+})();
+</script>
+</body>
+</html>
