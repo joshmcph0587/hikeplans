@@ -13,7 +13,7 @@
     { "label": "Elev. gain", "value": "~5,650′" },
     { "label": "Nights out", "value": "2 + hotel" },
     { "label": "Permit", "value": "Free, required" },
-    { "label": "Per person", "value": "~$540" }
+    { "label": "Per person", "value": "~$535" }
   ],
 
   "profile": {
@@ -35,7 +35,7 @@
   },
 
   "why": [
-    "This is the loop the out-and-back version of this trip only hints at. Twenty-three miles of Pikes Peak granite — hoodoos, balanced caprock, freestanding obelisks — with Lost Creek vanishing into the rock and surfacing again downstream, the standing 1890s works of a reservoir company that never accepted the creek could not be dammed, and a high bench at 11,557 feet in the middle. Denver fares run $207 nonstop and the cheapest car on that lot is a midsize SUV at $69, so two people fly in, walk it, sleep in a bed, and are home Thursday afternoon for about $540 each.",
+    "This is the loop the out-and-back version of this trip only hints at. Twenty-three miles of Pikes Peak granite — hoodoos, balanced caprock, freestanding obelisks — with Lost Creek vanishing into the rock and surfacing again downstream, the standing 1890s works of a reservoir company that never accepted the creek could not be dammed, and a high bench at 11,557 feet in the middle. Denver fares run $207 nonstop and the cheapest car on that lot is a midsize SUV at $69, so two people fly in, walk it, sleep in a bed, and are home Thursday afternoon for about $535 each.",
     "Late August is the right window and the wrong one at once. The aspens are close to turning and the crowds thin, but 2026 is Colorado's worst drought on record after the lowest snowpack ever recorded, and this loop's water is concentrated in its first half. Every trip report from this summer says the same thing: go counterclockwise, and fill up before the high traverse. That single instruction is what this brief is organised around."
   ],
 
@@ -46,9 +46,9 @@
         ["06:55", "Depart Austin — Southwest WN 559, nonstop"],
         ["08:10", "Land Denver. The cheap rental brands are off-airport — budget 30–45 minutes for the shuttle"],
         ["09:15", "US-285 southwest to Pine Junction, then CR-126 south, then FR-211 west 11 miles of graded dirt"],
-        ["11:15", "Goose Creek trailhead, 8,203 ft. Free lot, about 30 cars. <strong>Fill in the wilderness permit at the board — it is mandatory here</strong>"],
-        ["11:30", "Walking. Right at the split onto Goose Creek #612 within a quarter mile"],
-        ["~17:00", "<strong>Camp 1</strong> along Lost Creek, ~8,890 ft — 100 ft off both the creek and the trail"]
+        ["11:40", "Goose Creek trailhead, 8,203 ft. Free lot, about 30 cars. <strong>Fill in the wilderness permit at the board — it is mandatory here</strong>"],
+        ["11:55", "Walking. Right at the split onto Goose Creek #612 within a quarter mile"],
+        ["~17:30", "<strong>Camp 1</strong> along Lost Creek, ~8,890 ft — 100 ft off both the creek and the trail"]
       ],
       "notes": ["9.2 miles and 2,368 feet of gain: a full first day, but all of it in the canyon and the timber, which is where you want to be when the storms fire between two and four. Water is plentiful today and scarce tomorrow, so this is the easy half. Legal sites are genuinely scarce down low — the Forest Service says so outright, because the setback is 100 feet from water <em>and</em> trail. Arrive with daylight to spare and be willing to walk past the obvious spots."]
     },
@@ -89,7 +89,7 @@
     "intro": "Four trails, five junctions that matter, and one of them decides whether you finish at your car or at a trailhead twenty road miles away. Counterclockwise throughout: Goose Creek #612, McCurdy Park #628, a short connector on Brookside-McCurdy #607, Lake Park #639, then Hankins Pass #630 home.",
     "tiles": "opentopomap",
     "waypoints": [
-      { "name": "Denver airport (DEN)", "lat": 39.8561, "lon": -104.6737, "kind": "transport", "popup": "Land 8:10 AM, Mon Aug 24. About two hours to the trailhead, the last 11 miles graded dirt.", "in_hike_bounds": false },
+      { "name": "Denver airport (DEN)", "lat": 39.8561, "lon": -104.6737, "kind": "transport", "popup": "Land 8:10 AM, Mon Aug 24. <b>2 hr 27 min and 91 miles</b> to the trailhead, the last 11 miles graded dirt.", "in_hike_bounds": false },
       { "name": "Goose Creek trailhead", "lat": 39.1727, "lon": -105.3762, "kind": "verified", "mile": 0, "diagram_label": ["Trailhead", "mile 0 · 8,203 ft"], "popup": "Mile 0 · 8,203 ft<br><b>Mandatory free self-issue permit at the board.</b> At mile 0.22 go <b>right/north onto Goose Creek #612</b> — left is Hankins Pass, which is the loop backwards." },
       { "name": "Shafthouse ruins (spur)", "lat": 39.2085, "lon": -105.4029, "kind": "verified", "in_hike_bounds": true, "popup": "8,731 ft · a 0.71 mi signed spur leaving #612 at mile 3.95, so 1.4 mi round trip. The 1890s bunkhouses and shaft works of the Antero and Lost Park Reservoir Company." },
       { "name": "Left onto McCurdy Park #628", "lat": 39.2322, "lon": -105.4074, "kind": "verified", "mile": 6.39, "diagram_label": ["Left onto #628", "mile 6.4 · 9,429 ft"], "popup": "Mile 6.4 · 9,429 ft<br><b>Left/west onto McCurdy Park #628.</b> Straight on north stays on #612 toward Wigwam Park and the 37-mile loop." },
@@ -100,7 +100,7 @@
       { "name": "Hankins Pass", "lat": 39.1644, "lon": -105.4357, "kind": "verified", "mile": 19.06, "diagram_label": ["Hankins Pass", "mile 19.1 · 10,014 ft"], "popup": "Mile 19.1 · 10,014 ft<br><b>Left/east onto Hankins Pass #630 to descend.</b> Right/west drops to the Lizard Rock junction and Twin Eagles trailhead — 20+ road miles from your car." },
       { "name": "Goose Creek trailhead — loop closes", "lat": 39.1727, "lon": -105.3762, "kind": "verified", "mile": 23.34, "diagram_label": ["Back at the trailhead", "mile 23.3 · 8,203 ft"], "popup": "Mile 23.3 · 8,203 ft<br>The last 4 miles follow a creek down Hankins Gulch, then meadow." }
     ],
-    "drive_note": "US-285 southwest from Denver about 20 miles to Pine Junction, south on County Road 126 about 22 miles, then Forest Road 211 — the Matukat Road — west about 11 miles, then the trailhead road. Roughly two hours. The last stretch is graded dirt; the Forest Service posts no high-clearance requirement, so the cheapest car on the lot does it when dry.",
+    "drive_note": "US-285 southwest from Denver about 20 miles to Pine Junction, south on County Road 126 about 22 miles, then Forest Road 211 — the Matukat Road — west about 11 miles, then the trailhead road. <strong>Two hours twenty-seven minutes, 91 miles</strong> — Google's route from the terminal, checked 2026-07-29. An earlier version of this brief said two hours, which was wrong by about half an hour on a day that has 9.2 miles to walk after it. The last stretch is graded dirt; the Forest Service posts no high-clearance requirement, so the cheapest car on the lot does it when dry.",
     "caveat": "The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. It plots surveyed junction coordinates in walking order and <strong>closes the loop, but the dashed lines are straight-line spacing, not the trail alignment.</strong> The between-junction geometry it is derived from is volunteer-mapped OpenStreetMap data, good enough to plan against and not something to navigate off. Carry the paper sheet — the USGS McCurdy Mountain quad covers most of this loop."
   },
 
@@ -132,7 +132,7 @@
       { "item": "Checked pack, both ways", "pp": 90, "status": "confirmed", "note": "$45 per bag each way, from Southwest's own fee page for tickets booked after April 2026. Ask about the Choice Extra fare — it includes two checked bags, so if it prices under $297 it beats basic plus bags." },
       { "item": "Rental car, midsize SUV", "pp": 35, "status": "confirmed", "note": "$69 total including taxes and fees, live Expedia quote for Mon 9:00 AM to Thu 8:30 AM. <strong>The extra night is free here too</strong> — that window is 71½ hours, so it still bills as three rental days. Split two ways. Off-airport brand, so allow 30–45 min for the shuttle each way." },
       { "item": "Hotel near the airport, Wed night", "pp": 68, "status": "estimated", "note": "$117 for the room, two queen beds, breakfast included, free cancellation — live on Booking.com 2026-07-29 for Aug 26. Denver's combined lodging tax is 14.75% and Booking did not say whether it is included, so this budgets as though it is not. Split two ways." },
-      { "item": "Gas", "pp": 18, "status": "estimated", "note": "~240 miles at Colorado's $4.067 average (AAA, 2026-07-29), assuming 26 mpg. Split two ways. Sleeping by the airport instead of flying out Wednesday adds almost no driving — the hotel is 5.5 miles from the terminal." },
+      { "item": "Gas", "pp": 15, "status": "estimated", "note": "~190 miles at Colorado's $4.067 average (AAA, 2026-07-29), assuming 26 mpg. Split two ways. The trailhead is 91 miles each way, and sleeping by the airport instead of flying out Wednesday adds almost nothing — the hotel is 5.5 miles from the terminal. An earlier version budgeted 240 miles, which was too high." },
       { "item": "Trail food, three days", "pp": 40, "status": "estimated" },
       { "item": "Road meals", "pp": 55, "status": "estimated", "note": "Breakfast on the drive out Monday, a real dinner in Denver Wednesday, and something at the gate Thursday. Thursday breakfast is free at the hotel." },
       { "item": "Fuel canister and odds and ends", "pp": 15, "status": "estimated", "note": "Bought near Denver — canisters can't fly." },
@@ -190,7 +190,8 @@
       "Recommended map: USGS 7.5′ McCurdy Mountain quad, or National Geographic Trails Illustrated #105"
     ],
     "open_questions": [
-      "Changed since this brief was first published: it ran August 24 to 26 with a 7:55 PM Wednesday flight home, at about $445 each. It now adds a Wednesday night near the airport and flies Thursday. The fare is identical and so is the car, so the entire difference is the room and two more restaurant meals — about $93 each, and the per-person figure everywhere on this page is now ~$540, not $445. Nothing about the route, the mileage or the water plan changed.",
+      "Changed since this brief was first published: it ran August 24 to 26 with a 7:55 PM Wednesday flight home, at about $445 each. It now adds a Wednesday night near the airport and flies Thursday. The fare is identical and so is the car, so the difference is the room and two more restaurant meals — about $90 each, and the per-person figure everywhere on this page is now ~$535, not $445. Nothing about the route, the mileage or the water plan changed.",
+      "Corrected 2026-07-29, and it matters more than the money: this brief said the drive in was \"roughly two hours\" and its day-one log allowed exactly that. Google routes the terminal to the trailhead at 2 hr 27 min over 91 miles. Day one now reaches the trailhead at 11:40 rather than 11:15 and camp around 5:30 rather than 5:00 — still fine for a 9.2-mile day, but half an hour less daylight than the page previously promised. The same check dropped the gas basis from 240 round-trip miles to about 190, taking that row from $18 to $15.",
       "Whether the $117 hotel quote includes Denver's 14.75% lodging tax could not be determined — Booking.com's results page discloses neither a tax line nor a tax-inclusive label. The cost table assumes it does not, so the room may come in about $17 cheaper than budgeted.",
       "AllTrails gives the high point as 11,909 ft. That is wrong by about 350 feet — USGS 3DEP, Colorado's state trail GIS, the trail stewards and a trip report all put it at 11,557 ft, and nothing on this loop reaches 11,900. Distance and gain, however, check out: 23.34 mi computed against their 23.6, and ~5,650 ft against their 5,606. One July 2026 hiker measured 26 mi and 5,700 ft.",
       "Whether Hay Creek is flowing in late August of a record drought year is the single biggest unknown in this plan. It is a named perennial stream 10 metres off the trail, which is the best signal available, but headwaters at 10,600 feet are exactly what fails. Carry for a dry camp and ask the district.",
