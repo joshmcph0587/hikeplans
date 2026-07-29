@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Backpacking trip brief: Lost Creek Wilderness, Pike National Forest, Colorado, Solo, cheapest everything, August 17 to 19, 2026.">
+<title>Lost Creek Wilderness — Aug 17–19, 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+  #map{height:460px;width:100%;border:1px solid var(--rule);background:var(--paper-2);margin:22px 0 0}
+  .leaflet-container{font-family:system-ui,-apple-system,sans-serif;font-size:13px}
+  .mapbtns{display:flex;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+  .mapbtns button{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;background:transparent;color:#2E5339;border:1px solid #2E5339;
+    padding:7px 13px;cursor:pointer}
+  .mapbtns button:hover{background:#2E5339;color:#F6F7F3}
+</style>
+<style>
+  :root{
+    --paper:#EDF0E8;
+    --paper-2:#F6F7F3;
+    --contour:#7A5B38;
+    --forest:#2E5339;
+    --water:#1D6F8E;
+    --route:#B5651D;
+    --rule:#C9CEC0;
+    --ink:#23281F;
+    --ink-2:#5A6152;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:400 17px/1.65 var(--sans);
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:0 24px 96px}
+
+  header{padding:56px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--contour);margin:0 0 18px
+  }
+  h1{
+    font:700 clamp(42px,9vw,76px)/0.95 var(--serif);
+    margin:0;letter-spacing:-.02em;color:var(--forest)
+  }
+  .sub{font-size:19px;color:var(--ink-2);margin:14px 0 0;max-width:52ch}
+
+  .hero{margin:34px 0 0;border:1px solid var(--rule);background:var(--paper-2);padding:20px 8px 8px}
+  .hero svg{display:block;width:100%;height:auto}
+  .hero .vizsource{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    color:var(--ink-2);margin:8px 8px 4px}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1px 0 0
+  }
+  .fact{background:var(--paper-2);padding:14px 16px}
+  .fact dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 4px}
+  .fact dd{margin:0;font:600 21px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+
+  h2{
+    font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--contour);margin:72px 0 0;padding-bottom:10px;border-bottom:2px solid var(--forest)
+  }
+  h3{font:600 27px/1.2 var(--serif);margin:34px 0 2px;color:var(--forest)}
+  p{margin:14px 0}
+  a{color:var(--water);text-underline-offset:2px}
+
+  .day{display:grid;grid-template-columns:64px 1fr;gap:0 22px;margin:40px 0 0;
+    padding-top:26px;border-top:1px solid var(--rule)}
+  .day:first-of-type{border-top:0}
+  .daymark{font:700 34px/1 var(--mono);color:var(--route);margin:0}
+  .daydate{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0}
+  .day h3{margin-top:0}
+
+  .log{margin:16px 0 0;border-top:1px solid var(--rule)}
+  .log div{display:grid;grid-template-columns:82px 1fr;gap:16px;
+    padding:9px 0;border-bottom:1px solid var(--rule);font-size:16px}
+  .log span{font-family:var(--mono);font-size:13px;color:var(--contour);padding-top:2px;
+    font-variant-numeric:tabular-nums}
+  .log p{margin:0}
+
+  ol.route{list-style:none;counter-reset:leg;padding:0;margin:22px 0 0}
+  ol.route li{counter-increment:leg;position:relative;padding:0 0 22px 62px;
+    border-left:2px solid var(--rule);margin-left:14px}
+  ol.route li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.route li::before{
+    content:counter(leg,decimal-leading-zero);position:absolute;left:-15px;top:0;
+    width:28px;height:28px;border-radius:50%;background:var(--forest);color:var(--paper-2);
+    font:600 11px/28px var(--mono);text-align:center
+  }
+  ol.route strong{display:block;font:600 17px/1.4 var(--sans)}
+  ol.route em{font-style:normal;font-family:var(--mono);font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--contour);display:block;margin:0 0 3px}
+
+  table{width:100%;border-collapse:collapse;margin:22px 0 0;font-size:16px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.total td{border-bottom:0;border-top:2px solid var(--forest);font-weight:600;
+    color:var(--forest);padding-top:13px}
+  td small{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.4}
+
+  .alert{border:2px solid var(--route);background:#FBF3E9;padding:22px 26px;margin:24px 0 0}
+  .alert h3{margin-top:0;color:#8A4A12}
+  .alert ul{margin:12px 0 0;padding-left:20px}
+  .alert li{margin:8px 0}
+
+  .mapwrap{display:grid;grid-template-columns:340px 1fr;gap:0 34px;margin:24px 0 0;align-items:start}
+  .mappanel{border:1px solid var(--rule);background:var(--paper-2);padding:12px}
+  .mappanel svg{display:block;width:100%;height:auto}
+  .mapkey h3{margin-top:0;font-size:20px}
+  table.wp{margin:10px 0 0;font-size:14px}
+  table.wp td{padding:7px 0;border-bottom:1px solid var(--rule)}
+  table.wp td.n{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2)}
+  ol.route figure{margin:16px 0 0}
+  ol.route img{display:block;width:100%;max-width:430px;height:auto;border:1px solid var(--rule)}
+  ol.route figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0;max-width:430px;line-height:1.5}
+  ol.route figcaption a{color:var(--ink-2)}
+  .caveat{font-size:14.5px;color:var(--ink-2);border-left:3px solid var(--route);
+    border-radius:0;padding-left:14px;margin-top:20px}
+  @media (max-width:660px){.mapwrap{grid-template-columns:1fr}}
+
+  #wx-live{display:none;margin-top:28px}
+  #wx-live h3{font-size:20px}
+  table.wx td small{font-weight:400}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+  .cols h3{font-size:20px}
+  .cols p{font-size:16px;margin:8px 0 0}
+
+  footer{margin:80px 0 0;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+
+  @media (max-width:560px){
+    .sheet{padding:0 18px 64px}
+    .day{grid-template-columns:1fr;gap:0}
+    .daymark{font-size:26px}
+    .log div{grid-template-columns:72px 1fr;gap:12px}
+    ol.route li{padding-left:44px}
+  }
+  @media print{body{background:#fff}.hero,.day,.alert,figure,#wx-live{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">Pike National Forest · Colorado · Solo, cheapest everything</p>
+  <h1>Lost<br>Creek</h1>
+  <p class="sub">Granite domes and a creek that disappears underground, two hours from the cheapest airport in the West. Below treeline nearly the whole way, which is the point in storm season. Josh — August 17 to 19, 2026.</p>
+</header>
+
+<div class="hero">
+<svg viewBox="0 0 780 300" role="img" aria-label="Elevation profile: 7,709 feet at mile 0 to 9,548 feet at mile 9.7">
+  <title>Elevation profile</title>
+  <line x1="96" y1="248" x2="740" y2="248" stroke="#C9CEC0"/>
+  <line x1="96" y1="192" x2="740" y2="192" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="136" x2="740" y2="136" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="80" x2="740" y2="80" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="#5A6152">
+    <text x="86" y="252" text-anchor="end">7,000</text>
+    <text x="86" y="196" text-anchor="end">8,000</text>
+    <text x="86" y="140" text-anchor="end">9,000</text>
+    <text x="86" y="84" text-anchor="end">10,000</text>
+    <text x="96" y="270" text-anchor="middle">0</text>
+    <text x="225" y="270" text-anchor="middle">2</text>
+    <text x="354" y="270" text-anchor="middle">4</text>
+    <text x="482" y="270" text-anchor="middle">6</text>
+    <text x="611" y="270" text-anchor="middle">8</text>
+    <text x="740" y="270" text-anchor="middle">10</text>
+    <text x="418" y="291" text-anchor="middle" letter-spacing="1.4" fill="#7A5B38">MILES FROM TRAILHEAD</text>
+  </g>
+  <path d="M96 208 L386 158 L721 105 L721 248 L96 248 Z" fill="#2E5339" opacity="0.1"/>
+  <path d="M96 208 L386 158 L721 105" fill="none" stroke="#B5651D" stroke-width="2.5" stroke-linejoin="round"/>
+  <g fill="#B5651D" stroke="#F6F7F3" stroke-width="2">
+    <circle cx="96" cy="208" r="4.5"/>
+    <circle cx="386" cy="158" r="4.5"/>
+    <circle cx="721" cy="105" r="6"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#23281F">
+    <text x="96" y="195" font-size="12" fill="#5A6152">Goose Creek trailhead · 7,709 ft</text>
+    <text x="402" y="199" font-size="12" fill="#5A6152">Camp · ~8,600 ft</text>
+    <text x="721" y="85" text-anchor="end" font-weight="600">Wigwam Park · 9,548 ft</text>
+  </g>
+</svg>
+<p class="vizsource">Trailhead and Wigwam Park are USGS 10-metre DEM values at surveyed coordinates; the line between them is drawn straight because no source gives the intermediate profile. The real trail undulates — Hiking Project logs a 10,120-foot high point and 2,377 feet of gain over the full length, more than the endpoints suggest.</p>
+</div>
+
+<dl class="facts">
+  <div class="fact"><dt>Distance</dt><dd>~13 mi</dd></div>
+  <div class="fact"><dt>Gain, in</dt><dd>~1,850′</dd></div>
+  <div class="fact"><dt>Nights out</dt><dd>2</dd></div>
+  <div class="fact"><dt>Permit</dt><dd>Free, required</dd></div>
+  <div class="fact"><dt>All in</dt><dd>~$560</dd></div>
+</dl>
+
+<h2>Why here</h2>
+
+<p>Lost Creek is the cheapest way out of Austin into real wilderness. Denver fares run to $128 nonstop, the cheapest cars on that lot quote under a hundred dollars for three days, and the trailhead is two hours from the terminal. Solo, where nothing splits, those two lines are the difference between a five-hundred-dollar trip and an eight-hundred-dollar one.</p>
+
+<p>It also happens to be the right shape for August. This is a wilderness of Pikes Peak granite domes and hoodoos with the trail threading below them at eight to nine thousand feet — under treeline nearly the whole way, in a month when the high country gets hit by lightning most afternoons. Lost Creek itself vanishes into and out of the rock repeatedly, which is the thing people come to see. Water is reliable, camps are established, and the trail is popular enough to be a solo-friendly place to be alone.</p>
+
+<h2>The itinerary</h2>
+
+<div class="day">
+  <div><p class="daymark">01</p><p class="daydate">Mon<br>Aug 17</p></div>
+  <div>
+    <h3>Fly in, walk up the creek</h3>
+    <div class="log">
+      <div><span>06:55</span><p>Depart Austin — Southwest nonstop</p></div>
+      <div><span>08:10</span><p>Land Denver, collect the car</p></div>
+      <div><span>09:00</span><p>US-285 southwest to Pine Junction, about 20 miles</p></div>
+      <div><span>09:45</span><p>South on CR-126 about 22 miles, then FR-211 (Matukat Road) west 11 miles — gravel, ordinary-car passable when dry</p></div>
+      <div><span>11:00</span><p>Goose Creek trailhead, 7,709 ft. <strong>Fill out the free wilderness permit at the board — it's mandatory here</strong></p></div>
+      <div><span>~15:00</span><p><strong>Camp</strong> up the Goose Creek valley, roughly 4–5 miles in, 100 ft off the creek and the trail</p></div>
+    </div>
+    <p>Legal sites are genuinely scarce in the lower valley — the Forest Service says so plainly, because the setback is 100 feet from both water and trail and the canyon is tight. Start walking early enough to be choosy, and be willing to go further than planned to camp legally.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">02</p><p class="daydate">Tue<br>Aug 18</p></div>
+  <div>
+    <h3>The Shafthouse, the domes, the sinks</h3>
+    <p>The day this trip exists for, walked with a light pack. The Shafthouse sits 3.8 miles from the trailhead — the surviving bunkhouses and shaft works of the Antero and Lost Park Reservoir Company's attempt, in the 1890s, to dam a creek that kept vanishing into the granite. The scheme failed; the buildings are still standing.</p>
+    <p>Above it, Refrigerator Gulch and the sinks where Lost Creek disappears under the rock and re-emerges, with red granite domes over the whole thing. Wander as far as the weather and the legs allow, then back to camp.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">03</p><p class="daydate">Wed<br>Aug 19</p></div>
+  <div>
+    <h3>Out and home the same day</h3>
+    <div class="log">
+      <div><span>07:00</span><p>Break camp, down the valley</p></div>
+      <div><span>~10:00</span><p>Trailhead, boots off</p></div>
+      <div><span>12:30</span><p>Denver airport, drop the car</p></div>
+      <div><span>21:00</span><p>Depart Denver — Southwest nonstop</p></div>
+      <div><span>23:50</span><p>Land Austin</p></div>
+    </div>
+    <p>Downhill and easy. The 9:00 PM flight leaves eight hours of slack after reaching the car, which is more than any single thing that can go wrong on eleven miles of gravel road. An earlier flight exists but this one costs the same and removes the hurry.</p>
+  </div>
+</div>
+
+<h2>The route, junction by junction</h2>
+
+<p>The first decision is at the trailhead itself, where two trails leave together. After that the valley does the navigating for you — which is a large part of why this works alone.</p>
+
+<div id="map"></div>
+<div class="mapbtns">
+  <button type="button" id="btn-hike">Fit the hike</button>
+  <button type="button" id="btn-drive">Fit the drive</button>
+</div>
+<p class="caveat" id="mapstatus">Loading the map…</p>
+
+<div class="mapwrap">
+  <div class="mappanel">
+    <svg viewBox="0 0 340 440" role="img" aria-label="Plan-view diagram, drawn to scale: Goose Creek trailhead to Wigwam Park, connected by straight corridor lines, not the trail alignment">
+      <title>Route waypoints</title>
+      <g stroke="#2E5339" stroke-width="1.4" fill="none">
+        <line x1="40" y1="86" x2="40" y2="60"/>
+      </g>
+      <polygon points="40,54 36,64 44,64" fill="#2E5339"/>
+      <text x="40" y="100" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#2E5339">N</text>
+
+      <polyline points="198,358 150,223 94,68" fill="none" stroke="#B5651D"
+        stroke-width="2" stroke-dasharray="6 5" stroke-linejoin="round"/>
+
+      <circle cx="198" cy="358" r="6" fill="#2E5339" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="150" cy="223" r="5" fill="#F6F7F3" stroke="#B5651D" stroke-width="2"/>
+      <circle cx="94" cy="68" r="7" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+
+      <g font-family="system-ui, sans-serif" fill="#23281F">
+        <text x="210" y="355" font-size="12.5" font-weight="600">Goose Creek trailhead</text>
+        <text x="210" y="369" font-size="11" fill="#5A6152">mile 0 · 7,709 ft</text>
+
+        <text x="161" y="220" font-size="12.5" font-weight="600">Camp</text>
+        <text x="161" y="234" font-size="11" fill="#5A6152">mile ~4.5 · ~8,600 ft · approx.</text>
+
+        <text x="107" y="65" font-size="12.5" font-weight="600">Wigwam Park</text>
+        <text x="107" y="79" font-size="11" fill="#5A6152">mile 9.7 · 9,548 ft</text>
+      </g>
+
+      <g stroke="#5A6152" stroke-width="1.2">
+        <line x1="30" y1="405" x2="116" y2="405"/>
+        <line x1="30" y1="400" x2="30" y2="410"/>
+        <line x1="73" y1="402" x2="73" y2="408"/>
+        <line x1="116" y1="400" x2="116" y2="410"/>
+      </g>
+      <text x="73" y="424" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+        font-size="10.5" letter-spacing="0.8" fill="#5A6152">2 MILES</text>
+    </svg>
+  </div>
+
+  <div class="mapkey">
+    <h3>Waypoints</h3>
+    <table class="wp">
+      <tr><td>Denver airport (DEN)</td><td class="n">39.8561, −104.6737</td></tr>
+      <tr><td>Goose Creek trailhead</td><td class="n">39.1712, −105.3602</td></tr>
+      <tr><td>Wigwam Park</td><td class="n">39.2686, −105.4055</td></tr>
+      <tr><td>Hankins Pass (not our route)</td><td class="n">39.1642, −105.4356</td></tr>
+    </table>
+    <p style="margin-top:16px;font-size:15px">US-285 southwest from Denver about 20 miles to Pine Junction, south on County Road 126 about 22 miles, then Forest Road 211 (the Matukat Road) west about 11 miles to the campground and trailhead. Roughly two hours. The last 11 miles are unpaved; the Forest Service posts no high-clearance warning, so an ordinary car does it when dry. <a href="https://www.google.com/maps/dir/?api=1&amp;origin=39.8561,-104.6737&amp;destination=39.1712,-105.3602">Airport to trailhead on Google Maps.</a></p>
+    <p class="caveat">The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. The dashed line is straight-line spacing between surveyed waypoints, <strong>not the trail.</strong> Camp is a hollow marker because it is interpolated by mileage, not surveyed. The Wigwam Park coordinate is an OpenStreetMap node on Wigwam Creek, not a surveyed park centre — close enough to place the far end of the trail, not a navigation target. Carry the paper sheet.</p>
+  </div>
+</div>
+
+<ol class="route">
+  <li>
+    <em>Mile 0 · 7,709 ft</em>
+    <strong>Goose Creek trailhead</strong>
+    End of eleven gravel miles on FR-211, next to Goose Creek Campground. Parking and horse facilities, and a permit board. <strong>The self-issue wilderness permit here is mandatory, not courtesy</strong> — Lost Creek is one of the few Colorado wildernesses that requires one. It is free. Elevation is the USGS 10-metre DEM value at the Forest Service coordinate; the agency lists the adjacent campground at 7,723 ft, which agrees.
+  </li>
+  <li>
+    <em>The first decision</em>
+    <strong>Goose Creek #612, not Hankins Pass #630</strong>
+    Two trails leave this trailhead. Take <strong>Goose Creek Trail #612, north up the creek.</strong> Hankins Pass Trail #630 climbs southwest toward a 10,010-foot pass — a fine trail and entirely the wrong direction for this trip.
+  </li>
+  <li>
+    <em>Miles 0–4.5</em>
+    <strong>Up the valley, looking for a legal site</strong>
+    The trail winds north with the creek through Pikes Peak granite. Water throughout. The Forest Service's own warning is worth repeating: <strong>the lower valley is tight and good legal campsites are scarce</strong>, because the wilderness order requires 100 feet of separation from lakes, streams, and trails alike. Walk until you find one rather than settling for an illegal spot near the water.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Rock_Formations_Near_Summit_of_Bison_Peak_in_Colorado.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rock_Formations_Near_Summit_of_Bison_Peak_in_Colorado.jpg?width=900" alt="Granite formations in the Lost Creek Wilderness, near the summit of Bison Peak" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Granite formations in the Lost Creek Wilderness, near the summit of Bison Peak · Jsdratm, CC0, via <a href="https://commons.wikimedia.org/wiki/File:Rock_Formations_Near_Summit_of_Bison_Peak_in_Colorado.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Mile 3.8 · the side trail</em>
+    <strong>The Shafthouse</strong>
+    A signed spur leads to the standing bunkhouses and the remains of the shaft house — the 1890s works of the Antero and Lost Park Reservoir Company, who tried to dam Lost Creek and discovered that a creek which flows through granite rather than over it cannot be impounded. The most-walked destination in this half of the wilderness, and a reasonable turnaround in itself: about 10.6 miles round trip from the trailhead if you add the creek below the buildings.
+  </li>
+  <li>
+    <em>Above the Shafthouse</em>
+    <strong>Refrigerator Gulch and the sinks</strong>
+    Where Lost Creek does the thing it is named for — vanishing into the rock and surfacing again downstream, with domes and hoodoos above. This is the day-two wander, done with a light pack from camp. Distances beyond the Shafthouse are not well sourced; treat the map and the weather as the limit, not a mileage target.
+  </li>
+  <li>
+    <em>Mile 9.7 · 9,548 ft</em>
+    <strong>Wigwam Park, if you go the distance</strong>
+    Goose Creek #612 ends here at the junction with Wigwam Trail #609 — 9.7 miles from the trailhead, with 2,377 feet of cumulative gain and a 10,120-foot high point along the way. Reaching it and returning makes for a long second day; it is the stretch goal, not the plan.
+  </li>
+  <li>
+    <em>Back to 7,709 ft</em>
+    <strong>The return</strong>
+    Straight back down the valley to the trailhead — losing what you climbed, on a trail you have already read once. Sign out if there's a register. The gravel road is the last obstacle, and it is easier in daylight going out than it was coming in.
+  </li>
+</ol>
+<p style="font-size:14.5px;color:var(--ink-2);margin-top:20px">Photographs are from Wikimedia Commons, which hosts only freely licensed or public-domain media. Each caption links to its file page — worth a look at the license there before reusing any of them anywhere public.</p>
+
+<h2>What it costs</h2>
+
+<table>
+  <thead><tr><th>Item</th><th class="n">Per person</th></tr></thead>
+  <tbody>
+    <tr data-status="confirmed"><td>Flight, Austin–Denver round trip<small>Southwest nonstop, Mon Aug 17 / Wed Aug 19, checked 2026-07-28, rated typical. Frontier flies the same route nonstop for $128 — see the note in the booking section before assuming that's cheaper.</small></td><td class="n">$257</td></tr>
+    <tr data-status="estimated"><td>Checked pack, both ways<small>Southwest charges $45/bag each way on basic fares since April 2026.</small></td><td class="n">$90</td></tr>
+    <tr data-status="estimated"><td>Rental car, three days<small>Denver is the cheapest rental market of the three: a compact SUV quoted $67 total across Expedia, Kayak and Booking for these dates. Budgeting $90 for fees and a normal car class.</small></td><td class="n">$90</td></tr>
+    <tr data-status="estimated"><td>Gas<small>~230 miles round trip from the airport.</small></td><td class="n">$20</td></tr>
+    <tr data-status="estimated"><td>Trail food, three days</td><td class="n">$40</td></tr>
+    <tr data-status="estimated"><td>Road meals</td><td class="n">$30</td></tr>
+    <tr data-status="estimated"><td>Fuel canister and odds and ends<small>Bought near Denver — canisters can't fly.</small></td><td class="n">$15</td></tr>
+    <tr data-status="estimated"><td>Bear hang kit<small>Black bears; no canister requirement found in the wilderness order. Hang or Ursack.</small></td><td class="n">$20</td></tr>
+    <tr data-status="confirmed"><td>Motel<small>None — morning flight in, night flight out.</small></td><td class="n">$0</td></tr>
+    <tr data-status="confirmed"><td>Wilderness permit<small>Free, but mandatory. Fill it out at the trailhead board.</small></td><td class="n">$0</td></tr>
+    <tr class="total"><td>Total<small style="font-weight:400">Traveling solo — nothing splits.</small></td><td class="n">~$562</td></tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <h3>A tight canyon, a hard rule, and nobody to send</h3>
+  <p style="margin-top:6px">This is the gentlest of the three options and still not casual alone. Its specific problems are a camping rule that is easy to break, a creek canyon that concentrates weather and water, and the ordinary solo arithmetic of having no second person.</p>
+  <ul>
+    <li><strong>100 feet from water and trail, both.</strong> Lost Creek's wilderness order (in force through 2027) sets the setback at 100 feet from lakes, streams and trails for camping, fires, and tethering. Sites meeting it are scarce in the lower canyon — plan to walk past the obvious spots.</li>
+    <li><strong>Satellite messenger on your body</strong>, check-in schedule someone is watching, and the route, camp, plate and walk-out deadline left at home. No signal in the canyon.</li>
+    <li><strong>Stoves only, and check the order.</strong> Stage 2 restrictions covered this district when checked and allow only liquid or gas devices in a three-foot cleared area. The order as written expired August 1 — assume restrictions and verify.</li>
+    <li><strong>Storms funnel here.</strong> Being below treeline helps with lightning but not with flash runoff in a tight granite canyon. Don't camp in the streambed, however flat and inviting.</li>
+    <li><strong>The road is the weak link.</strong> Eleven gravel miles in an ordinary rental, no signal, no partner vehicle. Drive it in daylight both ways and don't try it after heavy rain.</li>
+  </ul>
+  <p style="margin-bottom:0">Bring the permit discipline and the campsite discipline and this is about as forgiving as western backpacking gets alone.</p>
+</div>
+
+<h2>Weather</h2>
+
+<p>Mid-August in the Colorado Front Range high country means clear mornings and afternoon thunderstorms most days, driven by monsoon moisture pushing north. Being below treeline is this route's main defence. These are station normals, not a forecast.</p>
+
+<table class="wx">
+  <thead><tr><th>Typical for these dates</th><th class="n"></th></tr></thead>
+  <tbody>
+    <tr><td>Day high, Grant (8,963 ft)</td><td class="n">~73°F</td></tr>
+    <tr><td>Overnight low, Grant</td><td class="n">~42°F</td></tr>
+    <tr><td>Derived at camp (~8,600 ft)</td><td class="n">~74° / low 40s</td></tr>
+    <tr><td>Afternoon thunderstorms</td><td class="n">most days</td></tr>
+  </tbody>
+</table>
+<p class="caveat">Grant, Colorado co-op station normals (8,963 ft by DEM, WRCC, 1963–2013 record) — the nearest mountain station, on US-285 north of the wilderness. Camp is slightly lower than the station, so figures are close to unadjusted; nights on the higher ground run colder. Checked 2026-07-28.</p>
+
+<div id="wx-live">
+  <h3>This week's forecast at the trailhead</h3>
+  <table>
+    <tbody id="wx-rows"></tbody>
+  </table>
+  <p class="caveat">Fetched live from the National Weather Service for the trailhead coordinate. Higher on the route runs colder and more exposed.</p>
+</div>
+
+<p style="font-size:15px">A real forecast only exists inside about a week, so the box above fills in when this page is opened with signal and hides itself when it can't. Before leaving, check the <a href="https://forecast.weather.gov/MapClick.php?lat=39.1712&amp;lon=-105.3602">NWS point forecast for the trailhead</a> — same feed, same coordinate.</p>
+
+<h2>Before we go</h2>
+
+<div class="cols">
+  <div>
+    <h3>Fires</h3>
+    <p>Stage 2 restrictions were in effect across the South Park and South Platte districts from June 30, 2026, allowing only liquid- or gas-fuelled devices in a cleared three-foot area — no campfires or charcoal. The order as signed ran through August 1, so its status for these dates is genuinely unknown; it may well be re-issued. Plan stove-only and call.</p>
+    <h3>Permit</h3>
+    <p>Lost Creek requires a mandatory free self-issue wilderness permit, which is unusual for Colorado. Fill it in at the trailhead board — this is the detail most people miss.</p>
+    <h3>Water</h3>
+    <p>Goose Creek runs alongside the trail for most of the route. Reliable, and worth filtering.</p>
+  </div>
+  <div>
+    <h3>Altitude</h3>
+    <p>The mildest of the three trips: trailhead 7,709 feet and camps around 8,600. Coming from Austin you will still notice it, but this is the option that doesn't punish a same-day arrival.</p>
+    <h3>The road in</h3>
+    <p>Eleven miles of unpaved FR-211 (Matukat Road) after 42 miles of pavement. The Forest Service posts no high-clearance requirement, which is why this trip works with the cheapest car on the lot — but it's washboard, and wet weather changes the calculation.</p>
+    <h3>Other rules</h3>
+    <p>Group limit 15 people (25 combined with pack animals), dogs on a leash, no bicycles or game carts, pack out all refuse, nothing left unattended more than 72 hours. All from the wilderness order in force through December 31, 2027.</p>
+  </div>
+</div>
+
+<h2>To book, in this order</h2>
+
+<ol class="route">
+  <li>
+    <em>Do this first, with care</em>
+    <strong>Flight — $257 Southwest, or the $128 Frontier gamble</strong>
+    Frontier flies AUS–DEN nonstop for $128 round trip against Southwest's $257. Frontier charges for carry-on and checked bags separately and I could not verify its current fees, so the real Frontier total is unknown — a checked pack can erase the difference. Price the bags before choosing; the table above assumes Southwest.
+  </li>
+  <li>
+    <em>Same day</em>
+    <strong>The cheapest car at Denver</strong>
+    Denver quoted a compact SUV at $67 total for three days across three booking sites — the cheapest car in this whole research effort. Take it; the road wants nothing more.
+  </li>
+  <li>
+    <em>Nothing to reserve</em>
+    <strong>No campsite, no motel</strong>
+    Dispersed camping, permit self-issued at the board. Goose Creek Campground next door is first-come only at $27 if plans change.
+  </li>
+  <li>
+    <em>The week before</em>
+    <strong>Call the South Park ranger district — (719) 836-2031</strong>
+    Two questions that actually matter: whether Stage 2 fire restrictions have been re-issued for August, and the current state of FR-211 for a passenger car.
+  </li>
+</ol>
+
+<footer>
+  Trailhead: 39.1712, −105.3602 · Goose Creek trailhead, FR-211, Pike National Forest<br>
+  South Park Ranger District, 320 Highway 285, Fairplay, CO · (719) 836-2031<br>
+  Recommended map: National Geographic Trails Illustrated #105, Tarryall Mountains / Kenosha Pass<br>
+  Researched 2026-07-28<br>
+  <br>
+  Open items:<br>
+  01 — Distances beyond the Shafthouse spur (3.8 mi) are not well sourced — Refrigerator Gulch and the sinks are described in trip reports without consistent mileage. Day two is deliberately written as a wander, not a mileage plan.<br>
+  02 — Hiking Project gives Goose Creek #612 a 8,076-foot low point, which conflicts with the trailhead at 7,709 (DEM) / 7,723 (Forest Service) — the logged segment probably starts above the trailhead. Camp elevation (~8,600 ft) is interpolated, not sourced, and is marked as such on the profile.<br>
+  03 — The Wigwam Park coordinate is an OpenStreetMap node on Wigwam Creek rather than a surveyed feature centre. Good enough to anchor the far end of the diagram; not a navigation target.<br>
+  04 — Stage 2 fire restrictions as signed expired August 1, 2026, before these dates. Whether they are re-issued for mid-August is unknowable today — verify by phone.<br>
+  05 — Frontier's 2026 baggage fees could not be verified, so its $128 fare cannot be turned into a real total. The cost table uses Southwest.<br>
+  06 — Commons has no freely licensed photograph of the Shafthouse, Refrigerator Gulch, or Goose Creek itself; the one photo here shows granite formations elsewhere in the same wilderness.
+</footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('map');
+  var status = document.getElementById('mapstatus');
+  var btns = document.querySelector('.mapbtns');
+
+  function degrade(msg) {
+    el.style.display = 'none';
+    btns.style.display = 'none';
+    status.innerHTML = msg;
+  }
+
+  if (typeof L === 'undefined') {
+    degrade('Live map unavailable — the Leaflet library did not load. Use the diagram below, which needs no network.');
+    return;
+  }
+
+  var WAYPOINTS = [{"ll":[39.8561,-104.6737],"name":"Denver airport (DEN)","popup":"Land 8:10 AM. About 2 hours to the trailhead, last 11 miles gravel.","hike":false},{"ll":[39.1712,-105.3602],"name":"Goose Creek trailhead","popup":"Mile 0 · 7,709 ft\u003cbr>\u003cb>Mandatory free self-issue wilderness permit at the board.\u003c/b> Goose Creek #612 and Hankins Pass #630 both start here — take #612, north up the creek.","hike":true},{"ll":[39.2686,-105.4055],"name":"Wigwam Park","popup":"Mile 9.7 · 9,548 ft\u003cbr>North end of Goose Creek #612, at the junction with Wigwam Trail #609. The far turnaround if legs and weather cooperate.","hike":true},{"ll":[39.1642,-105.4356],"name":"Hankins Pass (not our route)","popup":"10,010 ft · Hankins Pass Trail #630 leaves the same trailhead and climbs southwest. The wrong turn to avoid on day one.","hike":false}];
+  var DEFAULT_TILES = "opentopomap";
+
+  if (!WAYPOINTS.length) {
+    degrade('No mapped waypoints for this trip — use the diagram below.');
+    return;
+  }
+
+  var osmAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17, subdomains: 'abc',
+    attribution: osmAttr + ', SRTM &middot; Style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+  });
+  var street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19, attribution: osmAttr
+  });
+
+  var map = L.map('map', { layers: [DEFAULT_TILES === 'street' ? street : topo], scrollWheelZoom: false });
+  L.control.layers({ 'Topographic': topo, 'Street': street }).addTo(map);
+  L.control.scale({ imperial: true, metric: false }).addTo(map);
+
+  WAYPOINTS.forEach(function (w) {
+    L.marker(w.ll).addTo(map).bindPopup('<b>' + w.name + '</b>' + (w.popup ? '<br>' + w.popup : ''));
+  });
+
+  var hikePts = [];
+  var drivePts = [];
+  WAYPOINTS.forEach(function (w) {
+    drivePts.push(w.ll);
+    if (w.hike) hikePts.push(w.ll);
+  });
+  var hike = L.latLngBounds(hikePts.length ? hikePts : drivePts);
+  var drive = L.latLngBounds(drivePts);
+
+  function fitHike() { map.fitBounds(hike, { padding: [36, 36] }); }
+  fitHike();
+  document.getElementById('btn-hike').addEventListener('click', fitHike);
+  document.getElementById('btn-drive').addEventListener('click', function () {
+    map.fitBounds(drive, { padding: [36, 36] });
+  });
+
+  var gotTiles = false;
+  topo.on('tileload', function () { gotTiles = true; });
+  street.on('tileload', function () { gotTiles = true; });
+
+  setTimeout(function () {
+    if (!gotTiles) {
+      degrade('Map tiles were blocked — some viewers do not allow external map servers. <strong>Download this file and open it in a browser</strong> and the map will work. The diagram below needs no network.');
+    } else {
+      status.innerHTML = 'Contours and trail lines are OpenStreetMap data, drawn by volunteers &mdash; <strong>a guide, not a survey.</strong> Zoom in to see the trail network, and check it against the recommended paper sheet before relying on it. Scroll-zoom is off &mdash; use the +/&minus; buttons.';
+    }
+  }, 7000);
+})();
+</script>
+<script>
+(function () {
+  var box = document.getElementById('wx-live');
+  if (!box || !window.fetch) return;
+  var PT = [39.1712,-105.3602];
+  var dead = false;
+  var timer = setTimeout(function () { dead = true; }, 8000);
+
+  fetch('https://api.weather.gov/points/' + PT[0] + ',' + PT[1])
+    .then(function (r) { return r.json(); })
+    .then(function (j) { return fetch(j.properties.forecast); })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      if (dead) return;
+      clearTimeout(timer);
+      var rows = document.getElementById('wx-rows');
+      j.properties.periods.slice(0, 8).forEach(function (p) {
+        var tr = document.createElement('tr');
+        var name = document.createElement('strong');
+        name.textContent = p.name;
+        var detail = document.createElement('small');
+        var pop = p.probabilityOfPrecipitation && p.probabilityOfPrecipitation.value;
+        detail.textContent = p.shortForecast + (pop ? ' · ' + pop + '% precip' : '');
+        var td1 = document.createElement('td');
+        td1.appendChild(name);
+        td1.appendChild(detail);
+        var td2 = document.createElement('td');
+        td2.className = 'n';
+        td2.textContent = p.temperature + '°' + p.temperatureUnit;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        rows.appendChild(tr);
+      });
+      box.style.display = 'block';
+    })
+    .catch(function () { /* no network or no coverage — the box stays hidden */ });
+})();
+</script>
+</body>
+</html>
