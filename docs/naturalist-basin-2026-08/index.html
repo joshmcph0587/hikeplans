@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Backpacking trip brief: Naturalist Basin, High Uintas Wilderness, Utah, Solo, no motel, August 17 to 19, 2026.">
+<title>Naturalist Basin — Aug 17–19, 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+  #map{height:460px;width:100%;border:1px solid var(--rule);background:var(--paper-2);margin:22px 0 0}
+  .leaflet-container{font-family:system-ui,-apple-system,sans-serif;font-size:13px}
+  .mapbtns{display:flex;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+  .mapbtns button{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;background:transparent;color:#2E5339;border:1px solid #2E5339;
+    padding:7px 13px;cursor:pointer}
+  .mapbtns button:hover{background:#2E5339;color:#F6F7F3}
+</style>
+<style>
+  :root{
+    --paper:#EDF0E8;
+    --paper-2:#F6F7F3;
+    --contour:#7A5B38;
+    --forest:#2E5339;
+    --water:#1D6F8E;
+    --route:#B5651D;
+    --rule:#C9CEC0;
+    --ink:#23281F;
+    --ink-2:#5A6152;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:400 17px/1.65 var(--sans);
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:0 24px 96px}
+
+  header{padding:56px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--contour);margin:0 0 18px
+  }
+  h1{
+    font:700 clamp(42px,9vw,76px)/0.95 var(--serif);
+    margin:0;letter-spacing:-.02em;color:var(--forest)
+  }
+  .sub{font-size:19px;color:var(--ink-2);margin:14px 0 0;max-width:52ch}
+
+  .hero{margin:34px 0 0;border:1px solid var(--rule);background:var(--paper-2);padding:20px 8px 8px}
+  .hero svg{display:block;width:100%;height:auto}
+  .hero .vizsource{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    color:var(--ink-2);margin:8px 8px 4px}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1px 0 0
+  }
+  .fact{background:var(--paper-2);padding:14px 16px}
+  .fact dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 4px}
+  .fact dd{margin:0;font:600 21px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+
+  h2{
+    font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--contour);margin:72px 0 0;padding-bottom:10px;border-bottom:2px solid var(--forest)
+  }
+  h3{font:600 27px/1.2 var(--serif);margin:34px 0 2px;color:var(--forest)}
+  p{margin:14px 0}
+  a{color:var(--water);text-underline-offset:2px}
+
+  .day{display:grid;grid-template-columns:64px 1fr;gap:0 22px;margin:40px 0 0;
+    padding-top:26px;border-top:1px solid var(--rule)}
+  .day:first-of-type{border-top:0}
+  .daymark{font:700 34px/1 var(--mono);color:var(--route);margin:0}
+  .daydate{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0}
+  .day h3{margin-top:0}
+
+  .log{margin:16px 0 0;border-top:1px solid var(--rule)}
+  .log div{display:grid;grid-template-columns:82px 1fr;gap:16px;
+    padding:9px 0;border-bottom:1px solid var(--rule);font-size:16px}
+  .log span{font-family:var(--mono);font-size:13px;color:var(--contour);padding-top:2px;
+    font-variant-numeric:tabular-nums}
+  .log p{margin:0}
+
+  ol.route{list-style:none;counter-reset:leg;padding:0;margin:22px 0 0}
+  ol.route li{counter-increment:leg;position:relative;padding:0 0 22px 62px;
+    border-left:2px solid var(--rule);margin-left:14px}
+  ol.route li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.route li::before{
+    content:counter(leg,decimal-leading-zero);position:absolute;left:-15px;top:0;
+    width:28px;height:28px;border-radius:50%;background:var(--forest);color:var(--paper-2);
+    font:600 11px/28px var(--mono);text-align:center
+  }
+  ol.route strong{display:block;font:600 17px/1.4 var(--sans)}
+  ol.route em{font-style:normal;font-family:var(--mono);font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--contour);display:block;margin:0 0 3px}
+
+  table{width:100%;border-collapse:collapse;margin:22px 0 0;font-size:16px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.total td{border-bottom:0;border-top:2px solid var(--forest);font-weight:600;
+    color:var(--forest);padding-top:13px}
+  td small{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.4}
+
+  .alert{border:2px solid var(--route);background:#FBF3E9;padding:22px 26px;margin:24px 0 0}
+  .alert h3{margin-top:0;color:#8A4A12}
+  .alert ul{margin:12px 0 0;padding-left:20px}
+  .alert li{margin:8px 0}
+
+  .mapwrap{display:grid;grid-template-columns:340px 1fr;gap:0 34px;margin:24px 0 0;align-items:start}
+  .mappanel{border:1px solid var(--rule);background:var(--paper-2);padding:12px}
+  .mappanel svg{display:block;width:100%;height:auto}
+  .mapkey h3{margin-top:0;font-size:20px}
+  table.wp{margin:10px 0 0;font-size:14px}
+  table.wp td{padding:7px 0;border-bottom:1px solid var(--rule)}
+  table.wp td.n{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2)}
+  ol.route figure{margin:16px 0 0}
+  ol.route img{display:block;width:100%;max-width:430px;height:auto;border:1px solid var(--rule)}
+  ol.route figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-2);margin:6px 0 0;max-width:430px;line-height:1.5}
+  ol.route figcaption a{color:var(--ink-2)}
+  .caveat{font-size:14.5px;color:var(--ink-2);border-left:3px solid var(--route);
+    border-radius:0;padding-left:14px;margin-top:20px}
+  @media (max-width:660px){.mapwrap{grid-template-columns:1fr}}
+
+  #wx-live{display:none;margin-top:28px}
+  #wx-live h3{font-size:20px}
+  table.wx td small{font-weight:400}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+  .cols h3{font-size:20px}
+  .cols p{font-size:16px;margin:8px 0 0}
+
+  footer{margin:80px 0 0;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+
+  @media (max-width:560px){
+    .sheet{padding:0 18px 64px}
+    .day{grid-template-columns:1fr;gap:0}
+    .daymark{font-size:26px}
+    .log div{grid-template-columns:72px 1fr;gap:12px}
+    ol.route li{padding-left:44px}
+  }
+  @media print{body{background:#fff}.hero,.day,.alert,figure,#wx-live{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">High Uintas Wilderness · Utah · Solo, no motel</p>
+  <h1>Naturalist<br>Basin</h1>
+  <p class="sub">A hanging basin of lakes at 10,600 feet under Mount Agassiz, reached by the flattest five miles in the Rockies. Fly in at dawn, fly out on the third evening, no motel either end. Josh — August 17 to 19, 2026.</p>
+</header>
+
+<div class="hero">
+<svg viewBox="0 0 780 300" role="img" aria-label="Elevation profile: 10,364 feet at mile 0 to 10,626 feet at mile 5.3">
+  <title>Elevation profile</title>
+  <line x1="96" y1="248" x2="740" y2="248" stroke="#C9CEC0"/>
+  <line x1="96" y1="164" x2="740" y2="164" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <line x1="96" y1="80" x2="740" y2="80" stroke="#C9CEC0" stroke-dasharray="2 4"/>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="#5A6152">
+    <text x="86" y="252" text-anchor="end">10,000</text>
+    <text x="86" y="168" text-anchor="end">11,000</text>
+    <text x="86" y="84" text-anchor="end">12,000</text>
+    <text x="96" y="270" text-anchor="middle">0</text>
+    <text x="311" y="270" text-anchor="middle">2</text>
+    <text x="525" y="270" text-anchor="middle">4</text>
+    <text x="740" y="270" text-anchor="middle">6</text>
+    <text x="418" y="291" text-anchor="middle" letter-spacing="1.4" fill="#7A5B38">MILES FROM TRAILHEAD</text>
+  </g>
+  <path d="M96 217 L665 195 L665 248 L96 248 Z" fill="#2E5339" opacity="0.1"/>
+  <path d="M96 217 L665 195" fill="none" stroke="#B5651D" stroke-width="2.5" stroke-linejoin="round"/>
+  <g fill="#B5651D" stroke="#F6F7F3" stroke-width="2">
+    <circle cx="96" cy="217" r="4.5"/>
+    <circle cx="665" cy="195" r="6"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#23281F">
+    <text x="96" y="204" font-size="12" fill="#5A6152">Highline trailhead · 10,364 ft</text>
+    <text x="665" y="175" text-anchor="end" font-weight="600">Camp · Jordan Lake · 10,626 ft</text>
+  </g>
+</svg>
+<p class="vizsource">Two sourced points only — USGS 10-metre DEM values at the surveyed trailhead and Jordan Lake coordinates. No source gives the profile in between, so the line is drawn straight. The flatness is real, not a drawing shortcut: the Highline traverses a plateau.</p>
+</div>
+
+<dl class="facts">
+  <div class="fact"><dt>Distance</dt><dd>~11 mi</dd></div>
+  <div class="fact"><dt>Gain, in</dt><dd>~700′</dd></div>
+  <div class="fact"><dt>Nights out</dt><dd>2</dd></div>
+  <div class="fact"><dt>Permit</dt><dd>Free</dd></div>
+  <div class="fact"><dt>All in</dt><dd>~$660</dd></div>
+</dl>
+
+<h2>Why here</h2>
+
+<p>Naturalist Basin is the rare high-alpine destination that asks almost nothing of your legs. The Highline Trail leaves a trailhead already at 10,364 feet and traverses a plateau — about five miles and seven hundred feet of gain to a shelf holding Jordan, Blue, Morat, LeConte and Shaler Lakes, with Mount Agassiz standing over them. For a solo trip that arrives from sea level the same morning, a near-flat approach at altitude is the whole argument.</p>
+
+<p>The logistics are unusually clean. A 6:05 AM nonstop lands in Salt Lake at 7:55, the drive is two paved hours, and you are walking before eleven. On the third day you walk out, drive back, and fly home at 7:30 that evening — no motel at either end, which is what keeps a solo trip with an unsplit rental car under seven hundred dollars. The catch is the fare: Salt Lake is the most expensive of the three airports at $307.</p>
+
+<h2>The itinerary</h2>
+
+<div class="day">
+  <div><p class="daymark">01</p><p class="daydate">Mon<br>Aug 17</p></div>
+  <div>
+    <h3>Dawn flight, afternoon in the basin</h3>
+    <div class="log">
+      <div><span>06:05</span><p>Depart Austin — Southwest nonstop</p></div>
+      <div><span>07:55</span><p>Land Salt Lake City, collect the car</p></div>
+      <div><span>08:45</span><p>I-80 east, then US-40 and UT-32 to Kamas. Groceries and a canister here — last town</p></div>
+      <div><span>10:15</span><p>Mirror Lake Highway (UT-150) east 34 miles. Pay the $10 three-day pass at a fee tube</p></div>
+      <div><span>11:00</span><p>Highline trailhead, 10,364 ft. Self-register, boots on</p></div>
+      <div><span>~14:30</span><p><strong>Camp</strong> in Naturalist Basin near Jordan Lake, 10,626 ft — 200 ft back from the water</p></div>
+    </div>
+    <p>5.3 miles with barely 700 feet of gain, which is why arriving the same morning from Austin is reasonable here and would not be anywhere else. Filterable water most of the way. Camp is set for both nights — this is a basecamp trip, not a march.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">02</p><p class="daydate">Tue<br>Aug 18</p></div>
+  <div>
+    <h3>The whole basin, slowly</h3>
+    <p>A day to wander the shelf with no pack: Jordan, Blue, Morat, LeConte and Shaler Lakes sit within a couple of miles of each other, and the loop around them adds roughly five miles at a walking pace. The basin's high ground reaches about 11,000 feet.</p>
+    <p>Mount Agassiz, 12,428 feet by the ridge above the basin, is the obvious objective and the obvious hazard — wholly exposed. Before noon under a clean sky, or not at all. Otherwise: fish, read, and be back at camp when the weather arrives.</p>
+  </div>
+</div>
+
+<div class="day">
+  <div><p class="daymark">03</p><p class="daydate">Wed<br>Aug 19</p></div>
+  <div>
+    <h3>Out and home the same day</h3>
+    <div class="log">
+      <div><span>07:00</span><p>Break camp, back down the Highline</p></div>
+      <div><span>~10:00</span><p>Trailhead. Boots off, drive west</p></div>
+      <div><span>12:30</span><p>Kamas, then I-80 to the airport. Drop the car</p></div>
+      <div><span>19:30</span><p>Depart Salt Lake City — Southwest nonstop</p></div>
+      <div><span>21:15</span><p>Land Austin</p></div>
+    </div>
+    <p>5.3 easy miles out, mostly flat, and there is a full seven hours of slack between reaching the car and the flight. That slack is deliberate: it absorbs a slow morning, a flat tire, or a long stop for a real breakfast in Kamas.</p>
+  </div>
+</div>
+
+<h2>The route, junction by junction</h2>
+
+<p>One junction decides this trip, and it comes at about four and a half miles. Miss it and you are walking toward Rocky Sea Pass instead of the basin.</p>
+
+<div id="map"></div>
+<div class="mapbtns">
+  <button type="button" id="btn-hike">Fit the hike</button>
+  <button type="button" id="btn-drive">Fit the drive</button>
+</div>
+<p class="caveat" id="mapstatus">Loading the map…</p>
+
+<div class="mapwrap">
+  <div class="mappanel">
+    <svg viewBox="0 0 340 440" role="img" aria-label="Plan-view diagram, drawn to scale: Highline trailhead to Jordan Lake · camp, connected by straight corridor lines, not the trail alignment">
+      <title>Route waypoints</title>
+      <g stroke="#2E5339" stroke-width="1.4" fill="none">
+        <line x1="40" y1="86" x2="40" y2="60"/>
+      </g>
+      <polygon points="40,54 36,64 44,64" fill="#2E5339"/>
+      <text x="40" y="100" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#2E5339">N</text>
+
+      <polyline points="-590,68 79,314 198,358" fill="none" stroke="#B5651D"
+        stroke-width="2" stroke-dasharray="6 5" stroke-linejoin="round"/>
+
+      <circle cx="-590" cy="68" r="6" fill="#2E5339" stroke="#F6F7F3" stroke-width="2"/>
+      <circle cx="79" cy="314" r="5" fill="#F6F7F3" stroke="#B5651D" stroke-width="2"/>
+      <circle cx="198" cy="358" r="7" fill="#1D6F8E" stroke="#F6F7F3" stroke-width="2"/>
+
+      <g font-family="system-ui, sans-serif" fill="#23281F">
+        <text x="-578" y="65" font-size="12.5" font-weight="600">Highline trailhead</text>
+        <text x="-578" y="79" font-size="11" fill="#5A6152">mile 0 · 10,364 ft</text>
+
+        <text x="90" y="311" font-size="12.5" font-weight="600">Basin junction</text>
+        <text x="90" y="325" font-size="11" fill="#5A6152">mile ~4.5 · approx.</text>
+
+        <text x="211" y="355" font-size="12.5" font-weight="600">Jordan Lake · camp</text>
+        <text x="211" y="369" font-size="11" fill="#5A6152">mile 5.3 · 10,626 ft</text>
+      </g>
+
+      <g stroke="#5A6152" stroke-width="1.2">
+        <line x1="30" y1="405" x2="258" y2="405"/>
+        <line x1="30" y1="400" x2="30" y2="410"/>
+        <line x1="144" y1="402" x2="144" y2="408"/>
+        <line x1="258" y1="400" x2="258" y2="410"/>
+      </g>
+      <text x="144" y="424" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+        font-size="10.5" letter-spacing="0.8" fill="#5A6152">1 MILE</text>
+    </svg>
+  </div>
+
+  <div class="mapkey">
+    <h3>Waypoints</h3>
+    <table class="wp">
+      <tr><td>Salt Lake City airport (SLC)</td><td class="n">40.7899, −111.9791</td></tr>
+      <tr><td>Highline trailhead (Hayden Pass)</td><td class="n">40.7229, −110.8636</td></tr>
+      <tr><td>Jordan Lake — camp</td><td class="n">40.7045, −110.7976</td></tr>
+    </table>
+    <p style="margin-top:16px;font-size:15px">I-80 east out of Salt Lake, US-40 and UT-32 to Kamas, then Mirror Lake Highway (UT-150) east about 34 miles to the trailhead. Paved the whole way; the highway is seasonal, typically open Memorial Day to late October. <a href="https://www.google.com/maps/dir/?api=1&amp;origin=40.7899,-111.9791&amp;destination=40.7229,-110.8636">Airport to trailhead on Google Maps.</a></p>
+    <p class="caveat">The diagram is the <strong>offline and print fallback</strong> — no network, survives a dead phone. The dashed line is straight-line spacing between surveyed waypoints, <strong>not the trail</strong>, and the basin junction is a hollow marker because it is interpolated by mileage, not surveyed. Straight-line to trail distance runs about 1.44 here — the Highline contours rather than beelines. Carry the paper sheet.</p>
+  </div>
+</div>
+
+<ol class="route">
+  <li>
+    <em>Mile 0 · 10,364 ft</em>
+    <strong>Highline trailhead, Hayden Pass</strong>
+    Mile 34 on the Mirror Lake Highway, at the top of the pass. A <strong>$10 three-day recreation pass is required the moment you park</strong> — self-service fee tubes along the highway take cash and checks, or buy it at the Kamas office on the way through. Free self-registration for the wilderness. Elevation is the USGS 10-metre DEM value at the trailhead parking coordinate.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:Mount_Agassiz_Utah.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Agassiz_Utah.jpg?width=900" alt="Mount Agassiz, the peak standing over Naturalist Basin" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Mount Agassiz, the peak standing over Naturalist Basin · Andrey Zharkikh, CC BY 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Mount_Agassiz_Utah.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Mile 0.75</em>
+    <strong>Past the Mirror Lake junction</strong>
+    An early junction with the trail down to Mirror Lake. Stay on <strong>Highline Trail #105, heading east.</strong> From here the trail crosses open plateau — meadow, scattered spruce, and long views. It is genuinely close to flat.
+  </li>
+  <li>
+    <em>Miles 1–4.5</em>
+    <strong>The plateau</strong>
+    Filterable water most of the way, which is unusual for a traverse this high and worth not over-carrying for. Scudder Lake sits off the trail early on. The whole stretch is exposed to weather with no shelter to speak of — an argument for a morning start that the flight schedule already forces.
+    <figure>
+      <a href="https://commons.wikimedia.org/wiki/File:High_Uintas%2C_Utah_-_2015.07.11_12.34.20_DSCN2672_-_Flickr_-_andrey_zharkikh.jpg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/High_Uintas%2C_Utah_-_2015.07.11_12.34.20_DSCN2672_-_Flickr_-_andrey_zharkikh.jpg?width=900" alt="Krummholz giving way to timber on the Uinta plateau near Mount Agassiz" loading="lazy"
+        onerror="var f=this.closest('figure'); if(f) f.style.display='none';"></a>
+      <figcaption>Krummholz giving way to timber on the Uinta plateau near Mount Agassiz · Andrey Zharkikh, CC BY 2.0, via <a href="https://commons.wikimedia.org/wiki/File:High_Uintas%2C_Utah_-_2015.07.11_12.34.20_DSCN2672_-_Flickr_-_andrey_zharkikh.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
+  </li>
+  <li>
+    <em>Mile ~4.5 · the one junction</em>
+    <strong>Left into Naturalist Basin</strong>
+    The signed fork: <strong>left for Naturalist Basin, right for Rocky Sea Pass</strong> and the rest of the ninety-six-mile Highline. This is the only navigational decision on the trip. Missing it means a long, scenic walk in the wrong direction.
+  </li>
+  <li>
+    <em>Mile 5.3 · 10,626 ft</em>
+    <strong>Jordan Lake — camp</strong>
+    The basin is a shelf holding Jordan, Blue, Morat, LeConte and Shaler Lakes within a short walk of each other. <strong>Campfires are prohibited throughout Naturalist Basin</strong> — the Forest Service names all five lakes in the order, and a gas stove is mandatory, not preferred. Camp at least 200 feet from any lake; one guide puts the fire ban at a quarter mile from water, so keep the stove well back and read the trailhead board.
+  </li>
+  <li>
+    <em>From camp · 12,428 ft</em>
+    <strong>Mount Agassiz, if the morning is clean</strong>
+    The peak above the basin, by the ridge. Exposed from the moment you leave the trees, in a range where afternoon storms are the rule in August. Alone, this is a before-noon objective with a hard turnaround — the basin lakes are the trip, and the summit is a bonus you can decline.
+  </li>
+  <li>
+    <em>Miles 5.3–11 · back to 10,364 ft</em>
+    <strong>The return</strong>
+    Reverse it: <strong>right</strong> onto the Highline at the junction, then the plateau west, past the Mirror Lake junction, and down to the pass. Nearly flat, about three hours, with the whole afternoon in hand for the drive and the evening flight.
+  </li>
+</ol>
+<p style="font-size:14.5px;color:var(--ink-2);margin-top:20px">Photographs are from Wikimedia Commons, which hosts only freely licensed or public-domain media. Each caption links to its file page — worth a look at the license there before reusing any of them anywhere public.</p>
+
+<h2>What it costs</h2>
+
+<table>
+  <thead><tr><th>Item</th><th class="n">Per person</th></tr></thead>
+  <tbody>
+    <tr data-status="confirmed"><td>Flight, Austin–Salt Lake City round trip<small>Southwest nonstop, Mon Aug 17 out (6:05 AM) / Wed Aug 19 back (7:30 PM). Google Flights, checked 2026-07-28, rated typical. Delta nonstops were $347.</small></td><td class="n">$307</td></tr>
+    <tr data-status="estimated"><td>Checked pack, both ways<small>Southwest charges $45/bag each way on basic fares since April 2026.</small></td><td class="n">$90</td></tr>
+    <tr data-status="estimated"><td>Rental car, three days<small>Cheapest agency quote at SLC for these dates (live Kayak check). Turo listings ran $109–114. Nothing here needs clearance.</small></td><td class="n">$122</td></tr>
+    <tr data-status="estimated"><td>Gas<small>~230 miles round trip from the airport.</small></td><td class="n">$25</td></tr>
+    <tr data-status="confirmed"><td>Mirror Lake Highway pass<small>$10 for three days; required to park at the trailhead. $60 buys the annual if you'd use it again.</small></td><td class="n">$10</td></tr>
+    <tr data-status="estimated"><td>Trail food, three days</td><td class="n">$40</td></tr>
+    <tr data-status="estimated"><td>Road meals<small>Breakfast in Kamas on the way in, and a real lunch on the way out.</small></td><td class="n">$30</td></tr>
+    <tr data-status="estimated"><td>Fuel canister and odds and ends<small>Bought in Kamas — canisters can't fly.</small></td><td class="n">$15</td></tr>
+    <tr data-status="estimated"><td>Bear hang kit<small>Black bears in the Uintas; no canister requirement found. Hang or Ursack.</small></td><td class="n">$20</td></tr>
+    <tr data-status="confirmed"><td>Motel<small>None. The dawn flight in and evening flight out remove both nights — this is what makes the trip cheap solo.</small></td><td class="n">$0</td></tr>
+    <tr data-status="confirmed"><td>Wilderness permit<small>Free self-registration at the trailhead.</small></td><td class="n">$0</td></tr>
+    <tr class="total"><td>Total<small style="font-weight:400">Traveling solo — nothing splits.</small></td><td class="n">~$659</td></tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <h3>Nowhere to hide on a plateau</h3>
+  <p style="margin-top:6px">This route's danger is not its difficulty — it barely has any. It is that ten of the eleven miles are above 10,300 feet on open ground, in a range where August thunderstorms build most afternoons. Solo, there is nobody to make the call for you.</p>
+  <ul>
+    <li><strong>Cross the plateau in the morning.</strong> There is no timber to speak of and no shelter between the trailhead and the basin. Same on the way out.</li>
+    <li><strong>Mount Agassiz before noon or not at all.</strong> Fully exposed ridge, hard turnaround, no audience to impress.</li>
+    <li><strong>Gas stove only — this is a rule, not advice.</strong> Campfires are prohibited throughout Naturalist Basin by forest order, and Uinta Mountains fire danger read Very High when checked.</li>
+    <li><strong>Satellite messenger on your body</strong>, with a check-in someone is watching, plus the route, camp, plate, and walk-out deadline left at home. There is no signal in the basin.</li>
+    <li><strong>Sea level to 10,600 feet in six hours.</strong> The flat approach makes this survivable, but it is still a lot of altitude fast. Drink ahead of thirst; a headache is information.</li>
+  </ul>
+  <p style="margin-bottom:0">Late August has one gift here: the mosquitoes that make the Uintas miserable in July are generally finished. Don't waste the good window by being high at three in the afternoon.</p>
+</div>
+
+<h2>Weather</h2>
+
+<p>Late August in the Uintas is the settled end of summer, but afternoon thunderstorms still build over the plateau most days and the nights are cold — at 10,600 feet, frost is an ordinary August event. Mosquitoes are usually done by this point in the month. These are station normals, not a forecast.</p>
+
+<table class="wx">
+  <thead><tr><th>Typical for these dates</th><th class="n"></th></tr></thead>
+  <tbody>
+    <tr><td>Day high, Kamas (6,484 ft)</td><td class="n">~84°F</td></tr>
+    <tr><td>Overnight low, Kamas</td><td class="n">~47°F</td></tr>
+    <tr><td>Derived in the basin (10,626 ft)</td><td class="n">~69° / low-to-mid 30s</td></tr>
+    <tr><td>Fire danger, Uinta Mtns</td><td class="n">Very high</td></tr>
+  </tbody>
+</table>
+<p class="caveat">Kamas 3 NW co-op station normals (6,484 ft by DEM, WRCC, 1950–2012 record); basin figures lapse-rate derived, hence the ~. Fire danger from the Uinta-Wasatch-Cache alerts page. Checked 2026-07-28.</p>
+
+<div id="wx-live">
+  <h3>This week's forecast at the trailhead</h3>
+  <table>
+    <tbody id="wx-rows"></tbody>
+  </table>
+  <p class="caveat">Fetched live from the National Weather Service for the trailhead coordinate. Higher on the route runs colder and more exposed.</p>
+</div>
+
+<p style="font-size:15px">A real forecast only exists inside about a week, so the box above fills in when this page is opened with signal and hides itself when it can't. Before leaving, check the <a href="https://forecast.weather.gov/MapClick.php?lat=40.7229&amp;lon=-110.8636">NWS point forecast for the trailhead</a> — same feed, same coordinate.</p>
+
+<h2>Before we go</h2>
+
+<div class="cols">
+  <div>
+    <h3>Fires</h3>
+    <p>Campfires are prohibited throughout Naturalist Basin year-round by forest order — Blue, Morat, LeConte, Shaler and Jordan Lakes are all named. Bring a gas stove. Forest-wide Stage 1 restrictions applied only to the Salt Lake district when checked, not the Kamas side.</p>
+    <h3>A fire nearby</h3>
+    <p>The lightning-caused Buck Basin Fire has been burning on the Heber-Kamas district near Currant Creek Reservoir since mid-July, a few hundred acres and well southeast of this route. Only Red Creek Mountain Road and Low Pass Road were closed. It could still put smoke in the air — check before you go.</p>
+    <h3>Water</h3>
+    <p>Unusually good: filterable water most of the way along the Highline, and five lakes at the destination. Filter everything.</p>
+  </div>
+  <div>
+    <h3>Altitude</h3>
+    <p>Sea level to 10,364 feet at the trailhead, camp at 10,626, all in one day. The near-flat approach is what makes this defensible — take it slowly anyway.</p>
+    <h3>The road in</h3>
+    <p>Paved to the trailhead. UT-150 is seasonal — typically open Memorial Day to late October, so late August is safely inside the window. A $10 three-day pass is required to park.</p>
+    <h3>Signal</h3>
+    <p>None in the basin, patchy on the plateau. Leave the itinerary at home and carry the messenger.</p>
+  </div>
+</div>
+
+<h2>To book, in this order</h2>
+
+<ol class="route">
+  <li>
+    <em>Do this first</em>
+    <strong>Flight — $307, Aug 17 out, Aug 19 back</strong>
+    The 6:05 AM out and 7:30 PM back are the two flights that make this a no-motel trip; losing either adds a night's lodging. Times read live July 28 — recheck at booking.
+  </li>
+  <li>
+    <em>Same day</em>
+    <strong>The cheapest car at Salt Lake</strong>
+    About $122 for three days from an agency; Turo listings were slightly cheaper if you're comfortable with that. Nothing on this drive needs clearance.
+  </li>
+  <li>
+    <em>Nothing to reserve</em>
+    <strong>No permit, no campsite, no motel</strong>
+    Self-register at the trailhead and camp where you like, 200 feet off the lakes. Buy the $10 highway pass at a fee tube on the way in or at the Kamas office.
+  </li>
+  <li>
+    <em>The week before</em>
+    <strong>Call the Heber-Kamas ranger district — (435) 783-4338</strong>
+    Ask about the Buck Basin Fire and smoke, current fire restrictions, and whether the Highline has any blowdown. Confirm the pass price at the same time.
+  </li>
+</ol>
+
+<footer>
+  Trailhead: 40.7229, −110.8636 · Highline (Hayden Pass) trailhead, mile 34 UT-150<br>
+  Heber-Kamas Ranger District, Uinta-Wasatch-Cache National Forest · (435) 783-4338<br>
+  Recommended map: National Geographic Trails Illustrated #711, High Uintas Wilderness<br>
+  Researched 2026-07-28<br>
+  <br>
+  Open items:<br>
+  01 — The basin junction at about mile 4.5 has no coordinate from a geocoding-quality source — it is interpolated by trail mile on the diagram and drawn as a hollow marker. The signed fork is unambiguous on the ground.<br>
+  02 — Two different framings of the fire ban exist: the Forest Service order prohibits campfires throughout Naturalist Basin and names the five lakes; one route guide states no fires within a quarter mile of any lake. Either way it is stove-only — read the trailhead board.<br>
+  03 — Mount Agassiz's elevation (12,428 ft) and the basin high point (~11,000 ft) come from route guides rather than a survey source; the trailhead and Jordan Lake elevations are USGS DEM values at surveyed coordinates.<br>
+  04 — Interior basin distances (the five-lake loop, roughly 5 miles) are from a single route guide and not cross-checked.<br>
+  05 — Drive time Salt Lake to the trailhead is estimated at about two hours from the route's length, not taken from a source. Ranger district phone came via a search result citing the Forest Service listing, not the office page itself.
+</footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('map');
+  var status = document.getElementById('mapstatus');
+  var btns = document.querySelector('.mapbtns');
+
+  function degrade(msg) {
+    el.style.display = 'none';
+    btns.style.display = 'none';
+    status.innerHTML = msg;
+  }
+
+  if (typeof L === 'undefined') {
+    degrade('Live map unavailable — the Leaflet library did not load. Use the diagram below, which needs no network.');
+    return;
+  }
+
+  var WAYPOINTS = [{"ll":[40.7899,-111.9791],"name":"Salt Lake City airport (SLC)","popup":"Land 7:55 AM. About 2 hours to the trailhead, all paved.","hike":false},{"ll":[40.7229,-110.8636],"name":"Highline trailhead (Hayden Pass)","popup":"Mile 0 · 10,364 ft\u003cbr>Mile 34 on UT-150. \u003cb>$10 three-day recreation pass required to park.\u003c/b> Highline Trail #105 heads east.","hike":true},{"ll":[40.7045,-110.7976],"name":"Jordan Lake — camp","popup":"Mile 5.3 · 10,626 ft\u003cbr>\u003cb>Campfires prohibited anywhere in Naturalist Basin.\u003c/b> Camp at least 200 ft from the lake. Gas stove only.","hike":true}];
+  var DEFAULT_TILES = "opentopomap";
+
+  if (!WAYPOINTS.length) {
+    degrade('No mapped waypoints for this trip — use the diagram below.');
+    return;
+  }
+
+  var osmAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17, subdomains: 'abc',
+    attribution: osmAttr + ', SRTM &middot; Style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+  });
+  var street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19, attribution: osmAttr
+  });
+
+  var map = L.map('map', { layers: [DEFAULT_TILES === 'street' ? street : topo], scrollWheelZoom: false });
+  L.control.layers({ 'Topographic': topo, 'Street': street }).addTo(map);
+  L.control.scale({ imperial: true, metric: false }).addTo(map);
+
+  WAYPOINTS.forEach(function (w) {
+    L.marker(w.ll).addTo(map).bindPopup('<b>' + w.name + '</b>' + (w.popup ? '<br>' + w.popup : ''));
+  });
+
+  var hikePts = [];
+  var drivePts = [];
+  WAYPOINTS.forEach(function (w) {
+    drivePts.push(w.ll);
+    if (w.hike) hikePts.push(w.ll);
+  });
+  var hike = L.latLngBounds(hikePts.length ? hikePts : drivePts);
+  var drive = L.latLngBounds(drivePts);
+
+  function fitHike() { map.fitBounds(hike, { padding: [36, 36] }); }
+  fitHike();
+  document.getElementById('btn-hike').addEventListener('click', fitHike);
+  document.getElementById('btn-drive').addEventListener('click', function () {
+    map.fitBounds(drive, { padding: [36, 36] });
+  });
+
+  var gotTiles = false;
+  topo.on('tileload', function () { gotTiles = true; });
+  street.on('tileload', function () { gotTiles = true; });
+
+  setTimeout(function () {
+    if (!gotTiles) {
+      degrade('Map tiles were blocked — some viewers do not allow external map servers. <strong>Download this file and open it in a browser</strong> and the map will work. The diagram below needs no network.');
+    } else {
+      status.innerHTML = 'Contours and trail lines are OpenStreetMap data, drawn by volunteers &mdash; <strong>a guide, not a survey.</strong> Zoom in to see the trail network, and check it against the recommended paper sheet before relying on it. Scroll-zoom is off &mdash; use the +/&minus; buttons.';
+    }
+  }, 7000);
+})();
+</script>
+<script>
+(function () {
+  var box = document.getElementById('wx-live');
+  if (!box || !window.fetch) return;
+  var PT = [40.7229,-110.8636];
+  var dead = false;
+  var timer = setTimeout(function () { dead = true; }, 8000);
+
+  fetch('https://api.weather.gov/points/' + PT[0] + ',' + PT[1])
+    .then(function (r) { return r.json(); })
+    .then(function (j) { return fetch(j.properties.forecast); })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      if (dead) return;
+      clearTimeout(timer);
+      var rows = document.getElementById('wx-rows');
+      j.properties.periods.slice(0, 8).forEach(function (p) {
+        var tr = document.createElement('tr');
+        var name = document.createElement('strong');
+        name.textContent = p.name;
+        var detail = document.createElement('small');
+        var pop = p.probabilityOfPrecipitation && p.probabilityOfPrecipitation.value;
+        detail.textContent = p.shortForecast + (pop ? ' · ' + pop + '% precip' : '');
+        var td1 = document.createElement('td');
+        td1.appendChild(name);
+        td1.appendChild(detail);
+        var td2 = document.createElement('td');
+        td2.className = 'n';
+        td2.textContent = p.temperature + '°' + p.temperatureUnit;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        rows.appendChild(tr);
+      });
+      box.style.display = 'block';
+    })
+    .catch(function () { /* no network or no coverage — the box stays hidden */ });
+})();
+</script>
+</body>
+</html>
