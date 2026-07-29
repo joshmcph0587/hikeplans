@@ -101,7 +101,7 @@
       { "item": "Trail food, three days", "pp": 40, "status": "estimated" },
       { "item": "Road meals", "pp": 30, "status": "estimated" },
       { "item": "Fuel canister and odds and ends", "pp": 15, "status": "estimated", "note": "Bought near Denver — canisters can't fly." },
-      { "item": "Bear hang kit", "pp": 20, "status": "estimated", "note": "Black bears; no canister requirement found in the wilderness order. Hang or Ursack." },
+      { "item": "Bear hang kit", "pp": 20, "status": "estimated", "note": "Rope and a dry bag. A hard-sided canister is not required, but a hang to the posted spec is — 10 ft up and 4 ft out, by forest order." },
       { "item": "Motel", "pp": 0, "status": "confirmed", "note": "None — morning flight in, night flight out." },
       { "item": "Wilderness permit", "pp": 0, "status": "confirmed", "note": "Free, but mandatory. Fill it out at the trailhead board." }
     ]
@@ -114,7 +114,9 @@
       "<strong>100 feet from water and trail, both.</strong> Lost Creek's wilderness order (in force through 2027) sets the setback at 100 feet from lakes, streams and trails for camping, fires, and tethering. Sites meeting it are scarce in the lower canyon — plan to walk past the obvious spots.",
       "<strong>Satellite messenger on your body</strong>, check-in schedule someone is watching, and the route, camp, plate and walk-out deadline left at home. No signal in the canyon.",
       "<strong>Stoves only, and check the order.</strong> Stage 2 restrictions covered this district when checked and allow only liquid or gas devices in a three-foot cleared area. The order as written expired August 1 — assume restrictions and verify.",
+      "<strong>Hang to the posted spec: 10 feet up, 4 feet out.</strong> A forest-wide food storage order (in force to 2028) makes this mandatory, not good practice, and it explicitly covers cookware, toothpaste and sunscreen — not just food. And 2026 is a bad bear year: drought and a record-low snowpack failed the berry and acorn crop, statewide bear reports passed 1,100 by mid-June, and Colorado's first bear attack of the year came in June in Jefferson County, on the drive in. Stand your ground in an encounter, make yourself large, and never run.",
       "<strong>Storms funnel here.</strong> Being below treeline helps with lightning but not with flash runoff in a tight granite canyon. Don't camp in the streambed, however flat and inviting.",
+      "<strong>Standing dead near the trailhead.</strong> The first stretch crosses the 2002 Hayman burn, where snags fall in wind — and a December 2025 windstorm left the district warning of many weakened trees. Don't camp under a dead one, and think twice about lingering there in a blow.",
       "<strong>The road is the weak link.</strong> Eleven gravel miles in an ordinary rental, no signal, no partner vehicle. Drive it in daylight both ways and don't try it after heavy rain."
     ],
     "outro": "Bring the permit discipline and the campsite discipline and this is about as forgiving as western backpacking gets alone."
@@ -132,9 +134,9 @@
   },
 
   "before": [
-    { "h": "Fires", "p": "Stage 2 restrictions were in effect across the South Park and South Platte districts from June 30, 2026, allowing only liquid- or gas-fuelled devices in a cleared three-foot area — no campfires or charcoal. The order as signed ran through August 1, so its status for these dates is genuinely unknown; it may well be re-issued. Plan stove-only and call." },
+    { "h": "Fires", "p": "Plan a stove-only trip and don't plan a campfire at all. Stage 2 restrictions took effect June 30, 2026 across this district — gas or liquid-fuel stoves only, in a three-foot cleared area, no wood or charcoal. The forest order as signed expires August 1 and no successor had been published as of July 29, but Park County's own Stage II ban has no end date, fire danger reads Very High, and Colorado is in its worst drought on record after the lowest snowpack ever recorded. Re-check the forest alerts page within 48 hours of leaving." },
     { "h": "Permit", "p": "Lost Creek requires a mandatory free self-issue wilderness permit, which is unusual for Colorado. Fill it in at the trailhead board — this is the detail most people miss." },
-    { "h": "Water", "p": "Goose Creek runs alongside the trail for most of the route. Reliable, and worth filtering." },
+    { "h": "Water", "p": "Goose Creek runs alongside the trail for most of the route — the wet part of this wilderness. But Colorado rivers were at roughly half of normal flow in late July, so carry more capacity than a normal August and don't count on side trickles. Filter everything; the Forest Service warns all sources here may carry giardia. Goose Creek Campground at the trailhead has a potable hand pump, open through Labor Day weekend — top off there." },
     { "h": "Altitude", "p": "The mildest of the three trips: trailhead 7,709 feet and camps around 8,600. Coming from Austin you will still notice it, but this is the option that doesn't punish a same-day arrival." },
     { "h": "The road in", "p": "Eleven miles of unpaved FR-211 (Matukat Road) after 42 miles of pavement. The Forest Service posts no high-clearance requirement, which is why this trip works with the cheapest car on the lot — but it's washboard, and wet weather changes the calculation." },
     { "h": "Other rules", "p": "Group limit 15 people (25 combined with pack animals), dogs on a leash, no bicycles or game carts, pack out all refuse, nothing left unattended more than 72 hours. All from the wilderness order in force through December 31, 2027." }
@@ -144,19 +146,21 @@
     { "meta": "Do this first", "title": "Flight — $247 Southwest, out 6:55 AM Aug 17, back 7:55 PM Aug 19", "body": "Southwest, and not the budget carrier on the same route. Frontier flies this nonstop for $118, but it charges separately for carry-on and checked bags at rates published only as date-dependent ranges — and a pack with a stove and poles has to be checked. The real Frontier total can't be pinned down, and by the time it is, the gap has largely closed. Southwest's $45 a bag is a knowable number. Times were read live and repeat daily, but schedules get reshuffled — recheck when booking." },
     { "meta": "Same day", "title": "The cheapest car at Denver", "body": "Denver quoted a compact SUV at $67 total for three days across three booking sites — the cheapest car in this whole research effort. Take it; the road wants nothing more." },
     { "meta": "Nothing to reserve", "title": "No campsite, no motel", "body": "Dispersed camping, permit self-issued at the board. Goose Creek Campground next door is first-come only at $27 if plans change." },
-    { "meta": "The week before", "title": "Call the South Park ranger district — (719) 836-2031", "body": "Two questions that actually matter: whether Stage 2 fire restrictions have been re-issued for August, and the current state of FR-211 for a passenger car." }
+    { "meta": "The week before", "title": "Call the South Platte ranger district — (303) 275-5610", "body": "This trailhead is South Platte, not South Park — the wilderness spans both. Two questions that actually matter: whether fire restrictions have been re-issued for August, and the current state of FR-211 for a passenger car. Worth also asking about blowdown; a December 2025 windstorm alert for this district warned of many downed and weakened trees, and it has not been rescinded." }
   ],
 
   "footer": {
     "lines": [
       "Trailhead: 39.1712, −105.3602 · Goose Creek trailhead, FR-211, Pike National Forest",
-      "South Park Ranger District, 320 Highway 285, Fairplay, CO · (719) 836-2031",
+      "South Platte Ranger District (this trailhead) · (303) 275-5610",
+      "South Park Ranger District, Fairplay — the Lost Park side · (719) 836-2031",
       "Recommended map: National Geographic Trails Illustrated #105, Tarryall Mountains / Kenosha Pass"
     ],
     "open_questions": [
       "Distances beyond the Shafthouse spur (3.8 mi) are not well sourced — Refrigerator Gulch and the sinks are described in trip reports without consistent mileage. Day two is deliberately written as a wander, not a mileage plan.",
       "Hiking Project gives Goose Creek #612 a 8,076-foot low point, which conflicts with the trailhead at 7,709 (DEM) / 7,723 (Forest Service) — the logged segment probably starts above the trailhead. Camp elevation (~8,600 ft) is interpolated, not sourced, and is marked as such on the profile.",
       "The Wigwam Park coordinate is an OpenStreetMap node on Wigwam Creek rather than a surveyed feature centre. Good enough to anchor the far end of the diagram; not a navigation target.",
+      "Corrected after first publication: this brief originally gave the South Park ranger district as the contact. Goose Creek trailhead is South Platte district — (303) 275-5610 — and the earlier number reaches the office for the Lost Park side of the wilderness. It also said no food-storage requirement existed; a forest-wide order in force to 2028 does require a 10-ft-up, 4-ft-out hang, and covers cookware and toiletries.",
       "Fire restrictions are the one genuinely unresolved item. Stage 1 ran from March 27 to August 1, 2026; Stage 2 was signed June 29 and escalated it, and the forest's own alert page gave the Stage 2 order an August 1 end date as well. Whether anything is in force on August 17 is unknowable today — assume stove-only and call the district.",
       "This brief prices Southwest deliberately. Frontier flies the same nonstop for $118, but its carry-on and checked-bag fees are published only as date-dependent ranges, so no honest total can be built from that fare — and a pack has to be checked.",
       "Commons has no freely licensed photograph of the Shafthouse, Refrigerator Gulch, or Goose Creek itself; the one photo here shows granite formations elsewhere in the same wilderness."
