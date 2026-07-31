@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's In The Pack — Eagles Nest Wilderness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --quad:#EDEFE8;
+  --quad-deep:#E3E7DD;
+  --alpine:#FBFCFA;
+  --ink:#1C2620;
+  --ink-soft:#4A5852;
+  --ink-faint:#7C8A83;
+  --contour:#8B5E3C;
+  --contour-pale:#C9A98C;
+  --water:#2E6E8E;
+  --veg:#6F8B5C;
+  --rule:#CBD2C6;
+
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --data:'IBM Plex Mono',ui-monospace,monospace;
+
+  --pg:clamp(1.1rem,4vw,2.75rem);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--quad);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pg)}
+
+/* ---------- cartographic primitives ---------- */
+.eyebrow{
+  font-family:var(--data);
+  font-size:.68rem;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  color:var(--contour);
+  font-weight:600;
+}
+.elev{ /* USGS contour labels are set in italic — so are all figures here */
+  font-family:var(--data);
+  font-style:italic;
+  font-variant-numeric:tabular-nums;
+}
+.rule{height:1px;background:var(--rule);border:0}
+
+/* ---------- hero ---------- */
+header.hero{
+  position:relative;
+  overflow:hidden;
+  padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(2rem,5vw,3.5rem);
+  border-bottom:1px solid var(--rule);
+}
+header.hero .topo{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  opacity:.42;
+}
+header.hero .wrap{position:relative}
+.hero-eyebrow{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;align-items:baseline;margin-bottom:1.4rem}
+.hero-eyebrow span:not(:last-child)::after{content:'';display:inline-block}
+h1{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(3rem,12vw,7.5rem);
+  line-height:.86;
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+  max-width:14ch;
+}
+h1 em{
+  font-style:normal;
+  display:block;
+  color:var(--contour);
+}
+.hero-lede{
+  margin-top:1.6rem;
+  max-width:52ch;
+  font-size:clamp(1rem,2.1vw,1.15rem);
+  color:var(--ink-soft);
+}
+.hero-stats{
+  margin-top:clamp(2rem,5vw,3rem);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+}
+.hero-stats div{background:var(--quad);padding:1rem 1.1rem}
+.hero-stats dt{
+  font-family:var(--data);
+  font-size:.63rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin-bottom:.45rem;
+}
+.hero-stats dd{
+  font-family:var(--data);
+  font-style:italic;
+  font-size:clamp(1.35rem,3.4vw,1.85rem);
+  font-weight:600;
+  color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.hero-stats dd small{font-size:.55em;font-style:normal;font-weight:400;color:var(--ink-faint);margin-left:.15em}
+
+/* ---------- section scaffolding ---------- */
+section{padding:clamp(2.75rem,7vw,5rem) 0}
+.sec-head{margin-bottom:clamp(1.5rem,4vw,2.5rem);max-width:62ch}
+h2{
+  font-family:var(--display);
+  font-weight:800;
+  font-size:clamp(1.6rem,4.4vw,2.5rem);
+  line-height:1.02;
+  letter-spacing:-.022em;
+  margin-top:.5rem;
+}
+.sec-head p{margin-top:.85rem;color:var(--ink-soft)}
+
+/* ---------- signature: the ridgeline ---------- */
+#ridge{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.ridge-frame{
+  background:var(--alpine);
+  border:1px solid var(--rule);
+  padding:clamp(1rem,3vw,1.75rem) clamp(.5rem,2vw,1.5rem) .75rem;
+}
+.ridge-frame svg{display:block;width:100%;height:auto;overflow:visible}
+.ridge-cap{
+  display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;
+  margin-top:1rem;padding-top:.9rem;
+  border-top:1px dashed var(--contour-pale);
+  font-family:var(--data);font-size:.72rem;color:var(--ink-faint);
+}
+
+/* ---------- tabs ---------- */
+.tabs{
+  display:flex;flex-wrap:wrap;gap:0;
+  border:1px solid var(--ink);
+  margin-bottom:clamp(1.5rem,4vw,2.25rem);
+}
+.tabs button{
+  flex:1 1 auto;
+  min-width:130px;
+  appearance:none;
+  background:transparent;
+  border:0;
+  border-right:1px solid var(--ink);
+  padding:.85rem .9rem;
+  font-family:var(--data);
+  font-size:.7rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--ink);
+  cursor:pointer;
+  transition:background .16s,color .16s;
+  text-align:left;
+  line-height:1.35;
+}
+.tabs button:last-child{border-right:0}
+.tabs button span{
+  display:block;font-family:var(--data);font-style:italic;
+  letter-spacing:0;text-transform:none;font-weight:400;
+  font-size:.78rem;color:var(--ink-faint);margin-top:.25rem;
+}
+.tabs button:hover{background:#E3E7DD}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--alpine)}
+.tabs button[aria-selected="true"] span{color:var(--contour-pale)}
+.tabs button:focus-visible{outline:3px solid var(--water);outline-offset:-3px}
+
+.panel-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+  gap:clamp(1rem,3vw,2.5rem);
+  align-items:start;
+  margin-bottom:clamp(1.75rem,4vw,2.5rem);
+  padding-bottom:clamp(1.5rem,3vw,2rem);
+  border-bottom:2px solid var(--ink);
+}
+@media(max-width:720px){.panel-intro{grid-template-columns:1fr}}
+.panel-intro h3{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(1.3rem,3.4vw,1.9rem);letter-spacing:-.02em;line-height:1.05;
+}
+.panel-intro p{margin-top:.7rem;color:var(--ink-soft);font-size:.95rem}
+.tallies{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.tallies div{background:var(--quad);padding:.8rem .9rem}
+.tallies dt{font-family:var(--data);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.tallies dd{font-family:var(--data);font-style:italic;font-weight:600;font-size:1.3rem;margin-top:.3rem;font-variant-numeric:tabular-nums}
+
+/* ---------- gear tables ---------- */
+.cat{margin-bottom:clamp(1.75rem,4vw,2.75rem)}
+.cat-head{
+  display:flex;align-items:baseline;gap:.8rem;
+  padding-bottom:.5rem;margin-bottom:.15rem;
+  border-bottom:2px solid var(--ink);
+}
+.cat-head .idx{
+  font-family:var(--data);font-size:.7rem;font-weight:600;
+  color:var(--contour);letter-spacing:.1em;
+}
+.cat-head h4{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(1rem,2.6vw,1.2rem);
+  text-transform:uppercase;letter-spacing:.02em;
+  flex:1 1 auto;
+}
+.cat-head .sub{font-family:var(--data);font-style:italic;font-size:.85rem;font-weight:600;white-space:nowrap}
+.cat-note{
+  font-size:.85rem;color:var(--ink-soft);
+  padding:.6rem 0 .1rem;font-style:italic;
+}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+thead th{
+  font-family:var(--data);font-size:.6rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-faint);font-weight:600;
+  text-align:right;padding:.55rem .5rem;border-bottom:1px solid var(--rule);
+}
+thead th:first-child{text-align:left}
+tbody td{padding:.5rem .5rem;border-bottom:1px solid var(--rule);text-align:right;vertical-align:top}
+tbody td:first-child{text-align:left;width:auto}
+tbody tr:hover{background:#E6EAE1}
+td.num{font-family:var(--data);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.cum{font-family:var(--data);font-style:italic;color:var(--ink-faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.money{font-family:var(--data);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--contour);font-weight:600}
+.item-note{display:block;font-size:.78rem;color:var(--ink-faint);margin-top:.15rem;font-style:italic}
+@media(max-width:620px){
+  .hide-sm{display:none}
+  table{font-size:.85rem}
+  tbody td,thead th{padding:.45rem .3rem}
+}
+
+/* ---------- primer ---------- */
+.primer{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.primer article{background:var(--alpine);padding:clamp(1.1rem,2.6vw,1.6rem)}
+.primer h4{
+  font-family:var(--display);font-weight:800;font-size:1rem;
+  text-transform:uppercase;letter-spacing:.02em;margin-bottom:.55rem;
+}
+.primer h4::before{
+  content:'';display:block;width:26px;height:3px;
+  background:var(--contour);margin-bottom:.7rem;
+}
+.primer p{font-size:.89rem;color:var(--ink-soft)}
+.primer p + p{margin-top:.6rem}
+.primer strong{color:var(--ink);font-weight:600}
+
+/* ---------- footer ---------- */
+footer{padding:clamp(2rem,5vw,3rem) 0;border-top:1px solid var(--rule)}
+footer p{font-family:var(--data);font-size:.72rem;color:var(--ink-faint);max-width:70ch;line-height:1.75}
+footer p + p{margin-top:.8rem}
+
+:focus-visible{outline:3px solid var(--water);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+@media print{
+  body{background:#fff}
+  .tabs,#ridge{display:none}
+  .panel{display:block!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="topo" viewBox="0 0 1200 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#C9A98C" stroke-width="1">
+      <path d="M-40 400 C 160 348, 300 392, 470 342 S 760 268, 940 300 S 1150 262, 1260 224"/>
+      <path d="M-40 368 C 170 314, 306 356, 480 306 S 764 232, 944 262 S 1152 224, 1260 188"/>
+      <path d="M-40 336 C 180 280, 312 320, 490 270 S 768 196, 948 224 S 1154 186, 1260 152"/>
+      <path d="M-40 304 C 190 246, 318 284, 500 234 S 772 160, 952 186 S 1156 148, 1260 116"/>
+      <path d="M-40 272 C 200 212, 324 248, 510 198 S 776 124, 956 148 S 1158 110, 1260 80"/>
+      <path d="M-40 240 C 210 178, 330 212, 520 162 S 780 88, 960 110 S 1160 72, 1260 44"/>
+      <path d="M-40 208 C 220 144, 336 176, 530 126 S 784 52, 964 72 S 1162 34, 1260 8"/>
+    </g>
+    <g fill="none" stroke="#2E6E8E" stroke-width="1.1" opacity=".5">
+      <path d="M300 460 C 340 400, 300 356, 372 318 S 430 262, 470 236"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="hero-eyebrow">
+      <span class="eyebrow">Eagles Nest Wilderness</span>
+      <span class="eyebrow" style="color:var(--ink-faint)">Gore Range, Colorado</span>
+      <span class="eyebrow" style="color:var(--ink-faint)">3 Nights · Late August</span>
+    </div>
+    <h1>What's in<em>the pack</em></h1>
+    <p class="hero-lede">A working gear list at 14&nbsp;lb base weight, item by item — plus three starter kits at three budgets, so you can see what the same trip costs whether you're outfitting from scratch or buying once and keeping it.</p>
+    <dl class="hero-stats">
+      <div><dt>Base weight</dt><dd>14.31<small>lb</small></dd></div>
+      <div><dt>Loaded, day one</dt><dd>20.3<small>lb</small></dd></div>
+      <div><dt>With worn clothing</dt><dd>23.3<small>lb</small></dd></div>
+      <div><dt>Line items</dt><dd>75</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section id="ridge">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Cross-section</span>
+      <h2>Where the weight actually lives</h2>
+      <p>Every category drawn as a peak — wider and taller means heavier. The ridgeline is the pack. Note how three features dominate the skyline and everything else is foothills.</p>
+    </div>
+    <div class="ridge-frame reveal">
+      <svg id="ridgeSvg" viewBox="0 0 1000 330" role="img" aria-labelledby="ridgeTitle">
+        <title id="ridgeTitle">Pack weight by category, drawn as a ridgeline profile</title>
+      </svg>
+      <div class="ridge-cap">
+        <span>◤ Peak width &amp; height ∝ category weight</span>
+        <span>— — Contour interval = 1 lb</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Four kits, one trip</span>
+      <h2>Pick a starting point</h2>
+      <p>The first tab is a real, used, dialed-in list. The other three are build paths for a first kit. Same trip, same conditions, same nights out — three very different receipts.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Gear kits">
+      <button role="tab" id="tab-josh" aria-controls="panel-josh" aria-selected="true" data-kit="josh">Field-tested<span>14.3 lb base</span></button>
+      <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false" data-kit="a">Season one<span>~$1,225</span></button>
+      <button role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false" data-kit="b">Sweet spot<span>~$2,250</span></button>
+      <button role="tab" id="tab-c" aria-controls="panel-c" aria-selected="false" data-kit="c">Buy once<span>~$4,225</span></button>
+    </div>
+
+    <div id="panels"></div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Before you buy anything</span>
+      <h2>Six things worth knowing first</h2>
+      <p>Most first-kit money gets wasted on the wrong things. This is the short version of what actually matters.</p>
+    </div>
+    <div class="primer">
+      <article>
+        <h4>Base weight is the number people mean</h4>
+        <p>Base weight is everything in your pack <strong>minus food, water, and fuel</strong> — the stuff that doesn't shrink as you hike. It's the only figure that lets two kits be compared honestly.</p>
+        <p>Under 20 lb is comfortable. Under 15 is light. Under 10 takes real money or real discipline.</p>
+      </article>
+      <article>
+        <h4>A "20-degree bag" is not comfortable at 20°</h4>
+        <p>Most bags are labeled with their <strong>lower limit</strong> — the point a warm sleeper survives, not sleeps. The <strong>comfort rating</strong> is usually 8–10° warmer.</p>
+        <p>If you want to actually sleep well at 30°F, shop 20°F-rated. Read the ISO comfort number, not the name on the stuff sack.</p>
+      </article>
+      <article>
+        <h4>Your pad matters as much as your bag</h4>
+        <p>Cold comes up from the ground, and down crushes flat underneath you where it can't insulate. A warm bag on a summer pad still sleeps cold.</p>
+        <p>For alpine nights near freezing you want <strong>R-value 4.5 or better</strong>. Below about R 2.5 is a summer-only pad, whatever the bag says.</p>
+      </article>
+      <article>
+        <h4>The Big Three own the budget</h4>
+        <p>Shelter, pack, and sleep system are roughly <strong>60% of your weight and 70% of your cost</strong>. Everything else is rounding.</p>
+        <p>Spend here, in this order: sleep system first (it's the safety item and fit matters most), then shelter, then pack — buy the pack last, once you know what volume you actually need.</p>
+      </article>
+      <article>
+        <h4>Don't buy it all at once</h4>
+        <p>Rent the tent. Borrow the pack. Buy the sleep system. Go out for one night close to home and find out what you actually hate before you commit.</p>
+        <p>Wait for the sales — <strong>20% off one full-price item runs a few times a year</strong> and it's worth timing your most expensive purchase around it.</p>
+      </article>
+      <article>
+        <h4>Food: about 1.5 to 2 lb per day</h4>
+        <p>Aim for <strong>120+ calories per ounce</strong> so you're carrying energy, not packaging. Roughly 2,500–3,500 kcal a day on big-elevation days.</p>
+        <p>Weigh and bag every day separately at home. It's the only way to know what you're carrying, and it stops you from hauling four days of food on a three-day trip.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <p>Weights for the field-tested kit are as recorded on a kitchen scale. Weights and prices for the three starter kits are ballpark figures as of mid-2026, gathered to make the tiers comparable — treat them as planning estimates, not quotes, and check current pricing before buying. Substitutions are expected; the point is the shape of each kit, not the specific SKUs.</p>
+    <p>Eagles Nest Wilderness requires a free self-issue registration form for overnight trips, available at wilderness trailheads. Group limit 15. No campfires above 11,000 ft, within ¼ mile of a lake, or within 100 ft of a stream or trail — plan on stove-only. Camp 100 ft from water and trails. Dogs on a leash under six feet.</p>
+  </div>
+</footer>
+
+<script>
+const OZ_LB = 16;
+const fmtOz = n => n.toFixed(2);
+const fmtLb = n => n.toFixed(2);
+const money = n => '$' + n.toLocaleString('en-US');
+
+/* ============ FIELD-TESTED KIT — transcribed from the sheet ============ */
+const josh = {
+  label:'Field-tested kit',
+  blurb:'The list this page was built from: a Copper Spur, a KS Ultralight pack, and a UGQ Bandit 20, carried for three nights in the Gore Range. Nothing aspirational — this is what actually goes in the bag. The cumulative column tracks the running total the way the original spreadsheet does.',
+  cats:[
+    {t:'Clothes carried', note:'Everything not worn on day one. This is the block that separates a 14 lb base weight from an 11 lb one.', items:[
+      {n:'L/S shirt — hiking', d:'Smartwool Merino 150g, red, M', oz:6.40},
+      {n:'Underwear — sleeping', d:'ExOfficio', oz:1.90},
+      {n:'Underwear — hiking', d:'ExOfficio', oz:1.90},
+      {n:'Socks — sleeping', d:'DeFeet Wool L / Darn Tough ¼ M', oz:1.70},
+      {n:'Socks — hiking', d:'DeFeet Wool L / Darn Tough ¼ M', oz:1.70},
+      {n:'Baselayer bottom', d:'Merino 150g tights', oz:5.60},
+      {n:'Midlayer fleece top', d:'Senchi Designs Alpha 90 hoodie, half zip, L', oz:4.90},
+      {n:'Rain jacket', d:'Outdoor Research Helium', oz:6.30},
+      {n:'Down jacket', d:'Mountain Hardwear Ghost Shadow', oz:11.70},
+      {n:'Pants', d:'Patagonia Terrebonne joggers, M', oz:6.00}
+    ]},
+    {t:'Food bag', note:'Three days portioned and bagged individually. Ursack means no hanging and no canister.', items:[
+      {n:'Ursack Major', d:'11 L', oz:7.60},
+      {n:'Day 1 food', oz:8.06},
+      {n:'Day 2 food', oz:19.66},
+      {n:'Day 3 food', oz:13.96},
+      {n:'Opsak bag', oz:1.40},
+      {n:'Food coozy', d:'Hyperlite REpack', oz:1.40},
+      {n:'Trash bags', d:'2 × 1-gallon Ziploc', oz:0.78}
+    ]},
+    {t:'Kitchen', note:'Canister stove, titanium pot, separate cup for coffee. The 110g canister is the heaviest thing here.', items:[
+      {n:'Stuff sack', d:'Toaks', oz:0.60},
+      {n:'Coffee dripper', d:'GSI Java Drip + 4 filters', oz:0.70},
+      {n:'Camp towel', d:'REI, small', oz:0.71},
+      {n:'Fuel', d:'MSR 110g canister, full', oz:7.00},
+      {n:'Long spoon', d:'Toaks', oz:0.30},
+      {n:'Lighter', d:'BIC Mini', oz:0.30},
+      {n:'Pot', d:'Toaks 900 ml D115 titanium', oz:4.40},
+      {n:'Cup', d:'Toaks 550 ml titanium', oz:1.90},
+      {n:'Stove', d:'MSR PocketRocket 2', oz:2.60}
+    ]},
+    {t:'First aid & repair', items:[
+      {n:'Waterproof bag', d:'Loksak', oz:1.00},
+      {n:'First aid and repair kit', oz:2.36}
+    ]},
+    {t:'Hygiene', items:[
+      {n:'Stuff sack', d:'Dyneema, 1 L', oz:0.60},
+      {n:'Toothbrush & paste', d:'Aurelle TOOB Brush', oz:1.50},
+      {n:'Deodorant', d:'Degree travel', oz:1.20},
+      {n:'Hand sanitizer', d:'Purell, 1 oz', oz:0.50},
+      {n:'Face lotion', d:'1 oz', oz:0.50},
+      {n:'Insect repellent', d:'Picaridin', oz:0.50},
+      {n:'Sunscreen', d:'SPF 70', oz:0.50},
+      {n:'Chapstick', oz:0.30}
+    ]},
+    {t:'Cat hole kit', items:[
+      {n:'Stuff sack', d:'LiteAF, 2 L', oz:0.60},
+      {n:'Trowel', d:'TentLab Deuce #2', oz:0.60},
+      {n:'Bidet', d:'CuloClean', oz:0.40},
+      {n:'Wet wipes', d:'Surviveware, dehydrated', oz:1.00}
+    ]},
+    {t:'Water & purification', note:'One litre carried. Reasonable in the Gore Range, where water is frequent — this is the first number to raise on a dry stretch.', items:[
+      {n:'Bottles', d:'2 × Smartwater 700 ml, sport cap', oz:2.00},
+      {n:'Filter', d:'Katadyn BeFree', oz:2.50},
+      {n:'Bladder', d:'HydraPak 3 L', oz:2.00},
+      {n:'Water carried', d:'1 litre', oz:35.27}
+    ]},
+    {t:'Shelter', note:'Copper Spur UL2 with a Tiger Wall footprint standing in for the floor. Carried solo here; splitting fly and body with a partner cuts this nearly in half.', items:[
+      {n:'Dry sack', d:'Sea to Summit Ultra-Sil, 8 L', oz:1.20},
+      {n:'Tent poles', d:'Big Agnes Copper Spur UL2', oz:12.30},
+      {n:'Stakes', d:'7 × DAC J-Stake, small', oz:2.89},
+      {n:'Footprint', d:'Big Agnes Tiger Wall UL2', oz:6.00},
+      {n:'Rainfly', d:'Big Agnes Copper Spur UL2', oz:17.20},
+      {n:'Tent body', d:'Big Agnes Copper Spur UL2', oz:16.10}
+    ]},
+    {t:'Sleep system', note:'Two quilts and a pump. The Bandit 20 is the primary; the Quillow is the layering piece.', items:[
+      {n:'Pack liner', d:'Gossamer Gear', oz:1.20},
+      {n:'Pillow case', d:'Zenbivy', oz:1.10},
+      {n:'Pillow bladder', d:'Zenbivy', oz:1.40},
+      {n:'Sleeping pad', d:'Therm-a-Rest NeoAir', oz:16.30},
+      {n:'Pad pump', d:'Flextail Zero', oz:1.20},
+      {n:'Quilt — layering', d:'UGQ Quillow', oz:12.00},
+      {n:'Quilt — primary', d:'UGQ Bandit 20°', oz:22.20}
+    ]},
+    {t:'Pack & odds and ends', items:[
+      {n:'Backpack', d:'KS Ultralight custom', oz:24.10},
+      {n:'Stuff sack', d:'Hyperlite 3 L, outer pocket', oz:0.80},
+      {n:'Carabiner', d:'for water bag', oz:0.80},
+      {n:'Head net', d:"Ben's", oz:0.71},
+      {n:'Knife', d:'Renegade Outdoor Ultra Fire', oz:0.67},
+      {n:'Battery & cord', d:'Anker 10,000 mAh + cable', oz:7.00},
+      {n:'Headphones', d:'Apple AirPods', oz:1.64},
+      {n:'Headlamp', d:'Nitecore NU25', oz:1.20},
+      {n:'Seat pad', d:'Gossamer Gear ⅛"', oz:3.30}
+    ]},
+    {t:'Worn on day one', note:'Not counted in pack weight — listed because it changes the grand total, and because new hikers routinely forget to account for it.', worn:true, items:[
+      {n:'L/S shirt — hiking', d:'Smartwool Merino 150g, gray, M', oz:6.40},
+      {n:'Shorts', d:'Vuori Agility, gray', oz:6.40},
+      {n:'Underwear', d:'ExOfficio', oz:1.90},
+      {n:'Socks', d:'DeFeet Wool L / Darn Tough ¼ M', oz:1.70},
+      {n:'Shoes', d:'Brooks Cascadia 16', oz:23.60},
+      {n:'Cap', d:'Nike Dri-FIT low profile', oz:3.00},
+      {n:'Trekking pole', d:'Black Diamond Distance Z Carbon 120 cm (one)', oz:3.35},
+      {n:'Sunglasses', d:'Shady Rays polarized + Cablz strap', oz:2.00},
+      {n:'Headband', d:'½ Buff, UV', oz:0.60}
+    ]}
+  ]
+};
+
+/* ============ STARTER KITS ============ */
+const kits = {
+  a:{
+    label:'Season one',
+    heading:'Get out this year, then find out what you hate',
+    blurb:'Heavy but honest. Nothing here will fail on you, and nothing here is precious. The premise: spend the least you can to get four safe nights out, then upgrade the two or three items that actually bothered you. Most people discover their real preferences on trip three, not in a store.',
+    cats:[
+      {t:'The Big Three', items:[
+        {n:'REI Co-op Trailmade 2 tent', d:'freestanding, includes footprint', oz:74, p:200},
+        {n:'REI Co-op Trailmade 60 pack', oz:62, p:179},
+        {n:'Kelty Cosmic Down 20 bag', d:'accurate rating, silky liner', oz:44, p:200},
+        {n:'REI Co-op Traverse insulated pad', oz:25, p:100}
+      ]},
+      {t:'Kitchen & water', items:[
+        {n:'Soto Amicus stove', oz:2.6, p:50},
+        {n:'Aluminium 750 ml pot', oz:7, p:25},
+        {n:'Plastic spork', oz:0.5, p:5},
+        {n:'LifeStraw Peak Solo filter', oz:2, p:35},
+        {n:'2 × Smartwater bottles', oz:2, p:3},
+        {n:'BIC Mini lighter', oz:0.3, p:2}
+      ]},
+      {t:'Layers', items:[
+        {n:'Columbia Watertight II rain jacket', oz:12, p:60},
+        {n:'REI Co-op 650 down jacket', oz:13, p:100},
+        {n:'100-weight fleece', d:'any brand', oz:12, p:30},
+        {n:'Baselayer top + bottom', d:'synthetic is fine', oz:11, p:60},
+        {n:'Beanie + liner gloves', oz:4, p:30},
+        {n:'2 pairs wool socks', oz:3.4, p:30}
+      ]},
+      {t:'Odds and ends', items:[
+        {n:'Black Diamond Astro headlamp', oz:3, p:25},
+        {n:'Pre-made first aid kit', oz:6, p:20},
+        {n:'Trowel', oz:1, p:5},
+        {n:'Dry bag + 50 ft cord', d:'for hanging food', oz:4, p:15},
+        {n:'Toiletries', oz:5, p:20},
+        {n:'Anker battery bank', oz:7, p:30}
+      ]}
+    ]
+  },
+  b:{
+    label:'Sweet spot',
+    heading:'Where the value actually is',
+    blurb:'This is the tier most experienced hikers would tell you to aim for. Roughly double the budget of season one buys you a five-pound weight cut, gear that lasts a decade, and a base weight that lands within an ounce or two of the field-tested kit at the top of this page. Everything past here costs a lot for a little.',
+    cats:[
+      {t:'The Big Three', items:[
+        {n:'Durston X-Mid 2 tent', d:'double wall, needs two poles', oz:28, p:260},
+        {n:'REI Co-op Flash 55 pack', oz:45, p:199},
+        {n:'REI Co-op Magma 15 bag', d:'21°F ISO comfort — a true 20° bag', oz:35.6, p:400},
+        {n:'Therm-a-Rest NeoAir XLite NXT pad', d:'R 4.5', oz:13, p:210}
+      ]},
+      {t:'Kitchen & water', items:[
+        {n:'MSR PocketRocket 2 stove', oz:2.6, p:50},
+        {n:'Toaks 750 ml titanium pot', oz:3.6, p:45},
+        {n:'Toaks long titanium spoon', oz:0.3, p:12},
+        {n:'Katadyn BeFree 1 L filter', oz:2.5, p:45},
+        {n:'2 × Smartwater bottles', oz:2, p:3},
+        {n:'BIC Mini lighter', oz:0.3, p:2}
+      ]},
+      {t:'Layers', items:[
+        {n:'Outdoor Research Helium rain jacket', oz:6.3, p:160},
+        {n:'REI Co-op 850 down hoodie', oz:11, p:180},
+        {n:'Grid fleece hoodie', oz:7, p:80},
+        {n:'Merino 150 baselayer top + bottom', oz:12, p:130},
+        {n:'Beanie + liner gloves', oz:4, p:45},
+        {n:'2 pairs Darn Tough socks', oz:3.4, p:50}
+      ]},
+      {t:'Odds and ends', items:[
+        {n:'Nitecore NU25 headlamp', oz:1.2, p:40},
+        {n:'Black Diamond Trail poles', d:'pair — the tent needs them', oz:18, p:100},
+        {n:'Inflatable pillow', oz:2.5, p:45},
+        {n:'First aid + repair kit', oz:4, p:35},
+        {n:'Ursack Major', d:'no hanging, no canister', oz:7.6, p:100},
+        {n:'Trowel + toiletries', oz:5, p:25},
+        {n:'Anker 10k battery + cord', oz:7, p:30}
+      ]}
+    ]
+  },
+  c:{
+    label:'Buy once',
+    heading:'Diminishing returns, bought deliberately',
+    blurb:'Worth being blunt: this kit costs about $2,000 more than the sweet spot and saves roughly two and a half pounds. That is a real trade for someone doing thirty nights a year, and a poor one for someone doing four. What it does buy beyond weight is longevity, warranty, and repairability — a Feathered Friends bag can be re-lofted for the cost of shipping, decades in.',
+    cats:[
+      {t:'The Big Three', items:[
+        {n:'Durston X-Mid Pro 2 tent', d:'Dyneema, needs two poles', oz:19, p:700},
+        {n:'Hyperlite Southwest 55 pack', oz:32, p:400},
+        {n:'Feathered Friends Swallow UL 20 bag', d:'950+ fill, re-loftable for life', oz:26, p:659},
+        {n:'Therm-a-Rest NeoAir XTherm NXT pad', d:'R 7.3', oz:15.5, p:250}
+      ]},
+      {t:'Kitchen & water', items:[
+        {n:'Soto WindMaster stove', oz:3, p:75},
+        {n:'Toaks 550 ml titanium pot', oz:2.6, p:40},
+        {n:'Toaks long titanium spoon', oz:0.3, p:12},
+        {n:'Katadyn BeFree + CNOC Vecto 2 L', oz:5, p:75},
+        {n:'2 × Smartwater bottles', oz:2, p:3}
+      ]},
+      {t:'Layers', items:[
+        {n:'Montbell Versalite rain jacket', oz:6.4, p:310},
+        {n:'Feathered Friends Eos down hoody', oz:9.5, p:400},
+        {n:'Senchi Alpha 90 hoodie', oz:4.9, p:130},
+        {n:'Merino 150 baselayer top + bottom', oz:12, p:150},
+        {n:'Down beanie + Alpha gloves', oz:3, p:80},
+        {n:'2 pairs Darn Tough socks', oz:3.4, p:50}
+      ]},
+      {t:'Odds and ends', items:[
+        {n:'Nitecore NU25 headlamp', oz:1.2, p:40},
+        {n:'BD Distance Z Carbon poles', d:'pair', oz:12, p:180},
+        {n:'Zenbivy pillow', oz:2.5, p:50},
+        {n:'Garmin inReach Mini 2', d:'the item you hope never matters', oz:3.5, p:400},
+        {n:'Ursack Major', oz:7.6, p:100},
+        {n:'First aid + repair + toiletries', oz:8, p:60},
+        {n:'Nitecore NB10000 battery', oz:5.3, p:60}
+      ]}
+    ]
+  }
+};
+
+/* ============ RENDER: field-tested panel ============ */
+function renderJosh(){
+  let cum = 0, packOz = 0, wornOz = 0, html = '';
+  josh.cats.forEach((c,i)=>{
+    const sub = c.items.reduce((s,it)=>s+it.oz,0);
+    if(c.worn){ wornOz += sub; } else { packOz += sub; }
+    html += `<div class="cat"><div class="cat-head">
+      <span class="idx">${String(i+1).padStart(2,'0')}</span>
+      <h4>${c.t}</h4>
+      <span class="sub">${fmtOz(sub)} oz · ${fmtLb(sub/OZ_LB)} lb</span>
+    </div>`;
+    if(c.note) html += `<p class="cat-note">${c.note}</p>`;
+    html += `<table><thead><tr><th>Item</th><th>oz</th><th class="hide-sm">lb</th><th class="hide-sm">${c.worn?'—':'Cumulative'}</th></tr></thead><tbody>`;
+    c.items.forEach(it=>{
+      if(!c.worn) cum += it.oz;
+      html += `<tr><td><strong>${it.n}</strong>${it.d?`<span class="item-note">${it.d}</span>`:''}</td>
+        <td class="num">${fmtOz(it.oz)}</td>
+        <td class="num hide-sm">${fmtLb(it.oz/OZ_LB)}</td>
+        <td class="cum hide-sm">${c.worn?'—':fmtLb(cum/OZ_LB)}</td></tr>`;
+    });
+    html += `</tbody></table></div>`;
+  });
+  const tallies = `<dl class="tallies">
+    <div><dt>Base weight</dt><dd>14.31 lb</dd></div>
+    <div><dt>Loaded day one</dt><dd>20.3 lb</dd></div>
+    <div><dt>Pack, no water</dt><dd>18.05 lb</dd></div>
+    <div><dt>With worn kit</dt><dd>23.3 lb</dd></div>
+  </dl>`;
+  return `<div class="panel-intro"><div>
+      <h3>${josh.label}</h3><p>${josh.blurb}</p>
+    </div>${tallies}</div>${html}`;
+}
+
+/* ============ RENDER: starter panels ============ */
+function renderKit(k){
+  let totalOz=0, totalP=0, bigOz=0, bigP=0, html='';
+  k.cats.forEach((c,i)=>{
+    const so = c.items.reduce((s,it)=>s+it.oz,0);
+    const sp = c.items.reduce((s,it)=>s+it.p,0);
+    totalOz+=so; totalP+=sp;
+    if(i===0){bigOz=so;bigP=sp;}
+    html += `<div class="cat"><div class="cat-head">
+      <span class="idx">${String(i+1).padStart(2,'0')}</span>
+      <h4>${c.t}</h4>
+      <span class="sub">${fmtLb(so/OZ_LB)} lb · ${money(sp)}</span>
+    </div>
+    <table><thead><tr><th>Item</th><th>oz</th><th class="hide-sm">lb</th><th>Price</th></tr></thead><tbody>`;
+    c.items.forEach(it=>{
+      html += `<tr><td><strong>${it.n}</strong>${it.d?`<span class="item-note">${it.d}</span>`:''}</td>
+        <td class="num">${fmtOz(it.oz)}</td>
+        <td class="num hide-sm">${fmtLb(it.oz/OZ_LB)}</td>
+        <td class="money">${money(it.p)}</td></tr>`;
+    });
+    html += `</tbody></table></div>`;
+  });
+  const tallies = `<dl class="tallies">
+    <div><dt>Base weight</dt><dd>${fmtLb(totalOz/OZ_LB)} lb</dd></div>
+    <div><dt>Total spend</dt><dd>${money(totalP)}</dd></div>
+    <div><dt>Big Three share</dt><dd>${Math.round(bigP/totalP*100)}%</dd></div>
+    <div><dt>Big Three weight</dt><dd>${Math.round(bigOz/totalOz*100)}%</dd></div>
+  </dl>`;
+  return `<div class="panel-intro"><div>
+      <h3>${k.heading}</h3><p>${k.blurb}</p>
+    </div>${tallies}</div>${html}`;
+}
+
+/* ============ mount panels ============ */
+const panelHost = document.getElementById('panels');
+panelHost.innerHTML =
+  `<div class="panel" id="panel-josh" role="tabpanel" aria-labelledby="tab-josh">${renderJosh()}</div>` +
+  ['a','b','c'].map(id=>`<div class="panel" id="panel-${id}" role="tabpanel" aria-labelledby="tab-${id}" hidden>${renderKit(kits[id])}</div>`).join('');
+
+document.querySelectorAll('.tabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected','false'));
+    btn.setAttribute('aria-selected','true');
+    document.querySelectorAll('.panel').forEach(p=>p.hidden=true);
+    document.getElementById('panel-'+btn.dataset.kit).hidden=false;
+  });
+});
+
+/* ============ SIGNATURE: ridgeline ============ */
+(function ridgeline(){
+  const data = [
+    {n:'Shelter',        oz:55.69},
+    {n:'Sleep',          oz:55.40},
+    {n:'Food bag',       oz:52.86},
+    {n:'Clothes',        oz:48.10},
+    {n:'Water',          oz:41.77},
+    {n:'Pack & misc',    oz:40.22},
+    {n:'Kitchen',        oz:18.51},
+    {n:'Sundries',       oz:11.56}   // hygiene + first aid + cat hole
+  ].sort((a,b)=>b.oz-a.oz);
+
+  const svg = document.getElementById('ridgeSvg');
+  const W=1000, H=360, base=248, padL=10, padR=10;
+  const total = data.reduce((s,d)=>s+d.oz,0);
+  const maxOz = data[0].oz;
+  const usable = W - padL - padR;
+  const maxH = 186;
+
+  // Arrange so the profile rises to a summit and falls away, like a real ridge,
+  // instead of reading as a sorted bar chart.
+  const rest = data.slice(1);
+  const left  = rest.filter((_,i)=>i%2===1).reverse();
+  const right = rest.filter((_,i)=>i%2===0);
+  const order = [...left, data[0], ...right];
+
+  let x = padL;
+  const peaks = order.map(d=>{
+    const w = (d.oz/total)*usable;
+    const h = (d.oz/maxOz)*maxH;
+    const p = {...d, x0:x, x1:x+w, cx:x+w/2, top:base-h, h, w};
+    x += w; return p;
+  });
+
+  let d = `M ${padL} ${base}`;
+  peaks.forEach((p,i)=>{
+    const prevV = i===0 ? base : base - Math.min(peaks[i-1].h,p.h)*0.26;
+    d += ` Q ${p.x0 + (p.cx-p.x0)*0.40} ${prevV - p.h*0.34} ${p.cx} ${p.top}`;
+    const nextV = i===peaks.length-1 ? base : base - Math.min(peaks[i+1].h,p.h)*0.26;
+    d += ` Q ${p.cx + (p.x1-p.cx)*0.60} ${nextV - p.h*0.34} ${p.x1} ${nextV}`;
+  });
+  d += ` L ${W-padR} ${base} Z`;
+
+  const NS='http://www.w3.org/2000/svg';
+  const el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+
+  const defs=el('defs');
+  const clip=el('clipPath',{id:'ridgeClip'});
+  clip.appendChild(el('path',{d}));
+  defs.appendChild(clip);
+  svg.appendChild(defs);
+
+  const g=el('g',{'clip-path':'url(#ridgeClip)'});
+  g.appendChild(el('path',{d,fill:'#EDEFE8'}));
+  for(let lb=1; lb*OZ_LB <= maxOz+OZ_LB; lb++){
+    const y = base - (lb*OZ_LB/maxOz)*maxH;
+    g.appendChild(el('line',{x1:0,y1:y,x2:W,y2:y,stroke:'#C9A98C','stroke-width':1,'stroke-dasharray':'2 5'}));
+  }
+  svg.appendChild(g);
+
+  svg.appendChild(el('path',{d,fill:'none',stroke:'#8B5E3C','stroke-width':2,'stroke-linejoin':'round'}));
+  svg.appendChild(el('line',{x1:padL,y1:base,x2:W-padR,y2:base,stroke:'#1C2620','stroke-width':1.5}));
+
+  // Staggered labels on two rows so narrow peaks can't collide.
+  const ROW=[base+21, base+41];
+  peaks.forEach((p,i)=>{
+    if(p.w > 46){
+      const v=el('text',{x:p.cx,y:p.top-11,'text-anchor':'middle',
+        style:"font-family:'IBM Plex Mono',monospace;font-style:italic;font-size:13px;font-weight:600;fill:#1C2620"});
+      v.textContent = fmtLb(p.oz/OZ_LB);
+      svg.appendChild(v);
+    }
+    const row = ROW[i%2];
+    svg.appendChild(el('line',{x1:p.cx,y1:base+3,x2:p.cx,y2:row-11,stroke:'#CBD2C6','stroke-width':1}));
+    const t=el('text',{x:p.cx,y:row,'text-anchor':'middle',
+      style:"font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;fill:#4A5852"});
+    t.textContent=p.n.toUpperCase();
+    svg.appendChild(t);
+    const s=el('text',{x:p.cx,y:row+13,'text-anchor':'middle',
+      style:"font-family:'IBM Plex Mono',monospace;font-style:italic;font-size:9.5px;fill:#7C8A83"});
+    s.textContent=Math.round(p.oz/total*100)+'%';
+    svg.appendChild(s);
+  });
+
+  const cap=el('text',{x:padL,y:H-6,
+    style:"font-family:'IBM Plex Mono',monospace;font-style:italic;font-size:11px;fill:#7C8A83"});
+  cap.textContent = `Total carried, day one — ${fmtLb(total/OZ_LB)} lb`;
+  svg.appendChild(cap);
+})();
+
+/* ============ scroll reveal ============ */
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
+}else{
+  document.querySelectorAll('.reveal').forEach(n=>n.classList.add('in'));
+}
+</script>
+</body>
+</html>

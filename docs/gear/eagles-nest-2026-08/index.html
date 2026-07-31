@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Backpacking gear list for Eagles Nest Wilderness, Colorado — three nights in late August. A field-tested kit at 15.01 lb base weight, item by item, plus three starter kits at three budgets.">
+<title>What's in the pack — Eagles Nest Wilderness</title>
+<style>
+  :root{
+    --paper:#EDF0E8;
+    --paper-2:#F6F7F3;
+    --contour:#7A5B38;
+    --forest:#2E5339;
+    --water:#1D6F8E;
+    --route:#B5651D;
+    --rule:#C9CEC0;
+    --ink:#23281F;
+    --ink-2:#5A6152;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:400 17px/1.65 var(--sans);
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:0 24px 96px}
+  .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+    clip-path:inset(50%);white-space:nowrap}
+
+  header{padding:56px 0 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--contour);margin:0 0 4px
+  }
+  .eyebrow.dim{color:var(--ink-2);margin:0 0 18px}
+  h1{
+    font:700 clamp(42px,9vw,76px)/0.95 var(--serif);
+    margin:0;letter-spacing:-.02em;color:var(--forest)
+  }
+  h1 em{font-style:normal;display:block;color:var(--route)}
+  .sub{font-size:19px;color:var(--ink-2);margin:14px 0 0;max-width:52ch}
+
+  .facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:34px 0 0
+  }
+  .fact{background:var(--paper-2);padding:14px 16px}
+  .fact dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 4px}
+  .fact dd{margin:0;font:600 21px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+  .fact dd small{font-size:.6em;font-weight:400;color:var(--ink-2);margin-left:.2em}
+  .caveat{font-size:14.5px;color:var(--ink-2);border-left:3px solid var(--route);
+    padding-left:14px;margin:20px 0 0;max-width:70ch}
+  .caveat strong{color:var(--ink);font-weight:600}
+
+  h2{
+    font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+    color:var(--contour);margin:72px 0 0;padding-bottom:10px;border-bottom:2px solid var(--forest)
+  }
+  h3{font:600 27px/1.2 var(--serif);margin:34px 0 2px;color:var(--forest)}
+  p{margin:14px 0}
+  a{color:var(--water);text-underline-offset:2px}
+  .lede{max-width:62ch}
+
+  /* ---------- the ridgeline ---------- */
+  .ridge{margin:24px 0 0;border:1px solid var(--rule);background:var(--paper-2);
+    padding:20px 8px 8px}
+  .ridge svg{display:block;width:100%;height:auto}
+  .ridgecap{display:flex;flex-wrap:wrap;gap:6px 24px;margin:12px 8px 4px;
+    padding-top:10px;border-top:1px dashed var(--rule);
+    font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--ink-2)}
+
+  /* ---------- kit picker: radios, so it works with no JavaScript ---------- */
+  .kitin{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+  .tabs{display:flex;flex-wrap:wrap;border:1px solid var(--forest);margin:22px 0 0}
+  .tabs label{
+    flex:1 1 auto;min-width:132px;
+    border-right:1px solid var(--forest);padding:12px 13px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:600;color:var(--forest);
+    cursor:pointer;line-height:1.35;background:transparent
+  }
+  .tabs label:last-child{border-right:0}
+  .tabs label span{
+    display:block;font-family:var(--mono);font-size:12px;letter-spacing:0;
+    text-transform:none;font-weight:400;color:var(--ink-2);margin-top:4px;
+    font-variant-numeric:tabular-nums
+  }
+  .tabs label:hover{background:var(--paper-2)}
+  .panel{display:none}
+
+  .panel-intro{
+    display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+    gap:0 34px;align-items:start;margin:34px 0 0;
+    padding-bottom:26px;border-bottom:2px solid var(--forest)
+  }
+  .panel-intro h3{margin-top:0}
+  .panel-intro p{font-size:16px;color:var(--ink-2)}
+  /* Outranks `.panel-intro p` on purpose — that rule would otherwise set 16px. */
+  .panel-intro p.legend{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;
+    color:var(--ink-2);margin:12px 0 0;line-height:1.6}
+  .tallies{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);
+    border:1px solid var(--rule);margin:6px 0 0}
+  .tallies div{background:var(--paper-2);padding:12px 14px}
+  .tallies dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2)}
+  .tallies dd{margin:4px 0 0;font:600 19px/1.2 var(--mono);color:var(--forest);
+    font-variant-numeric:tabular-nums}
+  .tallies dd small{font-size:.62em;font-weight:400;color:var(--ink-2);margin-left:.2em}
+  @media (max-width:660px){.panel-intro{grid-template-columns:1fr;gap:0}}
+
+  /* ---------- gear tables ---------- */
+  .cat{margin:34px 0 0}
+  .cat-head{display:flex;align-items:baseline;gap:14px;
+    padding-bottom:8px;border-bottom:2px solid var(--forest)}
+  .cat-head .idx{font:600 12px/1 var(--mono);letter-spacing:.08em;color:var(--route)}
+  .cat-head h4{flex:1 1 auto;margin:0;font:600 19px/1.2 var(--serif);color:var(--forest)}
+  .cat-head .sub{font:600 13px/1 var(--mono);color:var(--ink-2);white-space:nowrap;
+    font-variant-numeric:tabular-nums}
+  .cat-note{font-size:15px;color:var(--ink-2);margin:12px 0 0}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 0;font-size:16px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  th.n,td.n{text-align:right}
+  td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.cum{color:var(--ink-2)}
+  td.usd{color:var(--route);font-weight:600}
+  td strong{font-weight:600}
+  .detail{display:block;font-size:13.5px;color:var(--ink-2);line-height:1.45;margin-top:2px}
+  .con{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--contour);border:1px solid var(--rule);
+    padding:1px 5px;margin-left:7px;vertical-align:1px;font-weight:400}
+  @media (max-width:620px){
+    .hide-sm{display:none}
+    table{font-size:15px}
+    th,td{padding:8px 4px}
+  }
+
+  /* ---------- regulations ---------- */
+  .alert{border:2px solid var(--route);background:#FBF3E9;padding:22px 26px;margin:24px 0 0}
+  .alert h3{margin-top:0;color:#8A4A12}
+  .alert ul{margin:12px 0 0;padding-left:20px}
+  .alert li{margin:8px 0}
+
+  /* ---------- primer ---------- */
+  .primer{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:1px;background:var(--rule);border:1px solid var(--rule);margin:24px 0 0}
+  .primer article{background:var(--paper-2);padding:20px 22px}
+  .primer h4{margin:0;font:600 19px/1.25 var(--serif);color:var(--forest)}
+  .primer h4::before{content:'';display:block;width:26px;height:3px;
+    background:var(--route);margin-bottom:12px}
+  .primer p{font-size:15px;color:var(--ink-2);margin:10px 0 0}
+  .primer strong{color:var(--ink);font-weight:600}
+
+  footer{margin:80px 0 0;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+
+  :focus-visible{outline:3px solid var(--water);outline-offset:2px}
+
+  @media (max-width:560px){
+    .sheet{padding:0 18px 64px}
+    .tabs label{min-width:50%}
+  }
+  @media print{
+    body{background:#fff}
+    .ridge,.cat,.alert,.primer article,.panel-intro{break-inside:avoid}
+    .tabs,.kitin{display:none}
+    .panel{display:block!important}
+  }
+
+  #k-field-tested:checked ~ #panels #p-field-tested{display:block}
+  #k-field-tested:checked ~ .tabs label[for="k-field-tested"]{background:var(--forest);color:var(--paper-2)}
+  #k-field-tested:checked ~ .tabs label[for="k-field-tested"] span{color:var(--paper-2);opacity:.75}
+  #k-field-tested:focus-visible ~ .tabs label[for="k-field-tested"]{outline:3px solid var(--water);outline-offset:-3px}
+  #k-season-one:checked ~ #panels #p-season-one{display:block}
+  #k-season-one:checked ~ .tabs label[for="k-season-one"]{background:var(--forest);color:var(--paper-2)}
+  #k-season-one:checked ~ .tabs label[for="k-season-one"] span{color:var(--paper-2);opacity:.75}
+  #k-season-one:focus-visible ~ .tabs label[for="k-season-one"]{outline:3px solid var(--water);outline-offset:-3px}
+  #k-sweet-spot:checked ~ #panels #p-sweet-spot{display:block}
+  #k-sweet-spot:checked ~ .tabs label[for="k-sweet-spot"]{background:var(--forest);color:var(--paper-2)}
+  #k-sweet-spot:checked ~ .tabs label[for="k-sweet-spot"] span{color:var(--paper-2);opacity:.75}
+  #k-sweet-spot:focus-visible ~ .tabs label[for="k-sweet-spot"]{outline:3px solid var(--water);outline-offset:-3px}
+  #k-buy-once:checked ~ #panels #p-buy-once{display:block}
+  #k-buy-once:checked ~ .tabs label[for="k-buy-once"]{background:var(--forest);color:var(--paper-2)}
+  #k-buy-once:checked ~ .tabs label[for="k-buy-once"] span{color:var(--paper-2);opacity:.75}
+  #k-buy-once:focus-visible ~ .tabs label[for="k-buy-once"]{outline:3px solid var(--water);outline-offset:-3px}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">Eagles Nest Wilderness · Denver · Colorado</p>
+  <p class="eyebrow dim">3 nights · late August</p>
+  <h1>What's in<em>the pack</em></h1>
+  <p class="sub">A working gear list at 15 lb base weight, item by item — plus three starter kits at three budgets, so you can see what the same trip costs whether you’re outfitting from scratch or buying once and keeping it. Everything here was carried for three nights in the Gore Range.</p>
+</header>
+
+<dl class="facts">
+  <div class="fact"><dt>Base weight</dt><dd>15.01<small>lb</small></dd></div>
+  <div class="fact"><dt>Loaded, day one</dt><dd>20.26<small>lb</small></dd></div>
+  <div class="fact"><dt>With worn clothing</dt><dd>23.32<small>lb</small></dd></div>
+  <div class="fact"><dt>Line items</dt><dd>75</dd></div>
+</dl>
+
+<p class="caveat"><strong>Base weight:</strong> Pack minus food, water and fuel — the definition used in the primer below.</p>
+
+<h2>Cross-section</h2>
+
+<h3>Where the weight actually lives</h3>
+
+<p class="lede">Every category drawn as a peak — wider and taller means heavier. The ridgeline is the pack. Note how three features dominate the skyline and everything else is foothills.</p>
+
+<div class="ridge">
+  <svg viewBox="0 0 1000 360" role="img" aria-label="Ridgeline diagram of pack weight by category, heaviest to lightest: Shelter 3.48 pounds, Sleep 3.46 pounds, Food bag 3.30 pounds, Clothes 3.01 pounds, Water 2.61 pounds, Pack &amp; misc 2.51 pounds, Kitchen 1.16 pounds, Sundries 0.72 pounds. Total 20.26 pounds.">
+    <title>Pack weight by category</title>
+    <defs><clipPath id="ridgeClip"><path d="M 10 248 Q 21.19 226.98 37.98 186.18 Q 54.77 210.91 65.97 231.93 Q 91.23 184.49 129.12 108.49 Q 167.01 164.29 192.27 211.73 Q 224.23 151.7 272.18 71.45 Q 320.13 142.07 352.1 202.1 Q 385.78 138.86 436.29 62 Q 486.81 136.65 520.49 199.89 Q 553.99 136.98 604.24 62.97 Q 654.49 143.32 688 206.23 Q 717.08 151.61 760.72 87.35 Q 804.35 158.45 833.43 213.07 Q 857.76 167.4 894.24 113.67 Q 930.72 192.29 955.05 237.96 Q 962.04 224.83 972.52 209.39 Q 983.01 234.87 990 248 L 990 248 Z"/></clipPath></defs>
+    <g clip-path="url(#ridgeClip)">
+      <path d="M 10 248 Q 21.19 226.98 37.98 186.18 Q 54.77 210.91 65.97 231.93 Q 91.23 184.49 129.12 108.49 Q 167.01 164.29 192.27 211.73 Q 224.23 151.7 272.18 71.45 Q 320.13 142.07 352.1 202.1 Q 385.78 138.86 436.29 62 Q 486.81 136.65 520.49 199.89 Q 553.99 136.98 604.24 62.97 Q 654.49 143.32 688 206.23 Q 717.08 151.61 760.72 87.35 Q 804.35 158.45 833.43 213.07 Q 857.76 167.4 894.24 113.67 Q 930.72 192.29 955.05 237.96 Q 962.04 224.83 972.52 209.39 Q 983.01 234.87 990 248 L 990 248 Z" fill="#EDF0E8"/>
+    <line x1="0" y1="194.56" x2="1000" y2="194.56" stroke="#7A5B38" stroke-width="1" stroke-dasharray="2 5" opacity="0.32"/>
+    <line x1="0" y1="141.12" x2="1000" y2="141.12" stroke="#7A5B38" stroke-width="1" stroke-dasharray="2 5" opacity="0.32"/>
+    <line x1="0" y1="87.68" x2="1000" y2="87.68" stroke="#7A5B38" stroke-width="1" stroke-dasharray="2 5" opacity="0.32"/>
+    <line x1="0" y1="34.25" x2="1000" y2="34.25" stroke="#7A5B38" stroke-width="1" stroke-dasharray="2 5" opacity="0.32"/>
+    </g>
+    <path d="M 10 248 Q 21.19 226.98 37.98 186.18 Q 54.77 210.91 65.97 231.93 Q 91.23 184.49 129.12 108.49 Q 167.01 164.29 192.27 211.73 Q 224.23 151.7 272.18 71.45 Q 320.13 142.07 352.1 202.1 Q 385.78 138.86 436.29 62 Q 486.81 136.65 520.49 199.89 Q 553.99 136.98 604.24 62.97 Q 654.49 143.32 688 206.23 Q 717.08 151.61 760.72 87.35 Q 804.35 158.45 833.43 213.07 Q 857.76 167.4 894.24 113.67 Q 930.72 192.29 955.05 237.96 Q 962.04 224.83 972.52 209.39 Q 983.01 234.87 990 248 L 990 248 Z" fill="none" stroke="#B5651D" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="10" y1="248" x2="990" y2="248" stroke="#23281F" stroke-width="1.5"/>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-variant-numeric="tabular-nums">
+    <text x="37.98" y="175.18" text-anchor="middle" font-size="13" font-weight="600" fill="#23281F">1.16</text>
+    <text x="129.12" y="97.49" text-anchor="middle" font-size="13" font-weight="600" fill="#23281F">2.61</text>
+    <text x="272.18" y="60.45" text-anchor="middle" font-size="13" font-weight="600" fill="#23281F">3.30</text>
+    <text x="436.29" y="51" text-anchor="middle" font-size="13" font-weight="600" fill="#23281F">3.48</text>
+    <text x="604.24" y="51.97" text-anchor="middle" font-size="13" font-weight="600" fill="#23281F">3.46</text>
+    <text x="760.72" y="76.35" text-anchor="middle" font-size="13" font-weight="600" fill="#23281F">3.01</text>
+    <text x="894.24" y="102.67" text-anchor="middle" font-size="13" font-weight="600" fill="#23281F">2.51</text>
+    <line x1="37.98" y1="251" x2="37.98" y2="258" stroke="#C9CEC0" stroke-width="1"/>
+    <text x="37.98" y="269" text-anchor="middle" font-size="10" letter-spacing="0.8" fill="#5A6152">KITCHEN</text>
+    <text x="37.98" y="282" text-anchor="middle" font-size="9.5" fill="#5A6152">6%</text>
+    <line x1="129.12" y1="251" x2="129.12" y2="278" stroke="#C9CEC0" stroke-width="1"/>
+    <text x="129.12" y="289" text-anchor="middle" font-size="10" letter-spacing="0.8" fill="#5A6152">WATER</text>
+    <text x="129.12" y="302" text-anchor="middle" font-size="9.5" fill="#5A6152">13%</text>
+    <line x1="272.18" y1="251" x2="272.18" y2="258" stroke="#C9CEC0" stroke-width="1"/>
+    <text x="272.18" y="269" text-anchor="middle" font-size="10" letter-spacing="0.8" fill="#5A6152">FOOD BAG</text>
+    <text x="272.18" y="282" text-anchor="middle" font-size="9.5" fill="#5A6152">16%</text>
+    <line x1="436.29" y1="251" x2="436.29" y2="278" stroke="#C9CEC0" stroke-width="1"/>
+    <text x="436.29" y="289" text-anchor="middle" font-size="10" letter-spacing="0.8" fill="#5A6152">SHELTER</text>
+    <text x="436.29" y="302" text-anchor="middle" font-size="9.5" fill="#5A6152">17%</text>
+    <line x1="604.24" y1="251" x2="604.24" y2="258" stroke="#C9CEC0" stroke-width="1"/>
+    <text x="604.24" y="269" text-anchor="middle" font-size="10" letter-spacing="0.8" fill="#5A6152">SLEEP</text>
+    <text x="604.24" y="282" text-anchor="middle" font-size="9.5" fill="#5A6152">17%</text>
+    <line x1="760.72" y1="251" x2="760.72" y2="278" stroke="#C9CEC0" stroke-width="1"/>
+    <text x="760.72" y="289" text-anchor="middle" font-size="10" letter-spacing="0.8" fill="#5A6152">CLOTHES</text>
+    <text x="760.72" y="302" text-anchor="middle" font-size="9.5" fill="#5A6152">15%</text>
+    <line x1="894.24" y1="251" x2="894.24" y2="258" stroke="#C9CEC0" stroke-width="1"/>
+    <text x="894.24" y="269" text-anchor="middle" font-size="10" letter-spacing="0.8" fill="#5A6152">PACK &amp; MISC</text>
+    <text x="894.24" y="282" text-anchor="middle" font-size="9.5" fill="#5A6152">12%</text>
+    <line x1="972.52" y1="251" x2="972.52" y2="278" stroke="#C9CEC0" stroke-width="1"/>
+    <text x="972.52" y="289" text-anchor="middle" font-size="10" letter-spacing="0.8" fill="#5A6152">SUNDRIES</text>
+    <text x="972.52" y="302" text-anchor="middle" font-size="9.5" fill="#5A6152">4%</text>
+      <text x="10" y="354" font-size="11" fill="#5A6152">Total carried, day one — 20.26 lb</text>
+    </g>
+  </svg>
+  <div class="ridgecap">
+    <span>Peak width and height in proportion to category weight</span>
+    <span>Dashed contour interval = 1 lb</span>
+  </div>
+</div>
+
+<h2>Four kits, one trip</h2>
+
+<h3>Pick a starting point</h3>
+
+<p class="lede">The first tab is a real, used, dialed-in list. The other three are build paths for a first kit. Same trip, same conditions, same nights out — three very different receipts.</p>
+
+<h4 class="vh">Choose a kit</h4>
+<input class="kitin" type="radio" name="kit" autocomplete="off" id="k-field-tested" checked>
+<input class="kitin" type="radio" name="kit" autocomplete="off" id="k-season-one">
+<input class="kitin" type="radio" name="kit" autocomplete="off" id="k-sweet-spot">
+<input class="kitin" type="radio" name="kit" autocomplete="off" id="k-buy-once">
+<div class="tabs">
+  <label for="k-field-tested">Field-tested<span>15.01 lb base</span></label>
+  <label for="k-season-one">Season one<span>$1,224</span></label>
+  <label for="k-sweet-spot">Sweet spot<span>$2,246</span></label>
+  <label for="k-buy-once">Buy once<span>$4,224</span></label>
+</div>
+<div id="panels">
+<div class="panel" id="p-field-tested">
+  <div class="panel-intro">
+    <div>
+      <h3>Field-tested kit</h3>
+      <p>The list this page was built from: a Copper Spur, a KS Ultralight pack, and a UGQ Bandit 20, carried for three nights in the Gore Range. Nothing aspirational — this is what actually goes in the bag. The cumulative column tracks the running total the way the original spreadsheet does.</p>
+    <p class="legend">Rows tagged food, water or fuel are consumed on trail and do not count toward base weight.</p>
+    </div>
+  <dl class="tallies">
+    <div><dt>Base weight</dt><dd>15.01<small>lb</small></dd></div>
+    <div><dt>Loaded day one</dt><dd>20.26<small>lb</small></dd></div>
+    <div><dt>Pack, no water</dt><dd>18.05<small>lb</small></dd></div>
+    <div><dt>With worn kit</dt><dd>23.32<small>lb</small></dd></div>
+  </dl>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">01</span>
+      <h4>Clothes carried</h4>
+      <span class="sub">48.10 oz · 3.01 lb</span>
+    </div>
+    <p class="cat-note">Everything not worn on day one. At 3.01 lb it is the block that separates a 15 lb base weight from a 12 lb one.</p>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>L/S shirt — hiking</strong><span class="detail">Smartwool Merino 150g, red, M</span></td>
+        <td class="n">6.40</td>
+        <td class="n hide-sm">0.40</td>
+        <td class="n cum hide-sm">0.40</td></tr>
+      <tr><td><strong>Underwear — sleeping</strong><span class="detail">ExOfficio</span></td>
+        <td class="n">1.90</td>
+        <td class="n hide-sm">0.12</td>
+        <td class="n cum hide-sm">0.52</td></tr>
+      <tr><td><strong>Underwear — hiking</strong><span class="detail">ExOfficio</span></td>
+        <td class="n">1.90</td>
+        <td class="n hide-sm">0.12</td>
+        <td class="n cum hide-sm">0.64</td></tr>
+      <tr><td><strong>Socks — sleeping</strong><span class="detail">DeFeet Wool L / Darn Tough ¼ M</span></td>
+        <td class="n">1.70</td>
+        <td class="n hide-sm">0.11</td>
+        <td class="n cum hide-sm">0.74</td></tr>
+      <tr><td><strong>Socks — hiking</strong><span class="detail">DeFeet Wool L / Darn Tough ¼ M</span></td>
+        <td class="n">1.70</td>
+        <td class="n hide-sm">0.11</td>
+        <td class="n cum hide-sm">0.85</td></tr>
+      <tr><td><strong>Baselayer bottom</strong><span class="detail">Merino 150g tights</span></td>
+        <td class="n">5.60</td>
+        <td class="n hide-sm">0.35</td>
+        <td class="n cum hide-sm">1.20</td></tr>
+      <tr><td><strong>Midlayer fleece top</strong><span class="detail">Senchi Designs Alpha 90 hoodie, half zip, L</span></td>
+        <td class="n">4.90</td>
+        <td class="n hide-sm">0.31</td>
+        <td class="n cum hide-sm">1.51</td></tr>
+      <tr><td><strong>Rain jacket</strong><span class="detail">Outdoor Research Helium</span></td>
+        <td class="n">6.30</td>
+        <td class="n hide-sm">0.39</td>
+        <td class="n cum hide-sm">1.90</td></tr>
+      <tr><td><strong>Down jacket</strong><span class="detail">Mountain Hardwear Ghost Shadow</span></td>
+        <td class="n">11.70</td>
+        <td class="n hide-sm">0.73</td>
+        <td class="n cum hide-sm">2.63</td></tr>
+      <tr><td><strong>Pants</strong><span class="detail">Patagonia Terrebonne joggers, M</span></td>
+        <td class="n">6.00</td>
+        <td class="n hide-sm">0.38</td>
+        <td class="n cum hide-sm">3.01</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">02</span>
+      <h4>Food bag</h4>
+      <span class="sub">52.86 oz · 3.30 lb</span>
+    </div>
+    <p class="cat-note">Three days portioned and bagged individually. Ursack means no hanging and no canister. Note that 41.68 oz over three days is 13.9 oz a day — well under the 1.5 to 2 lb a day the primer below recommends. That is one person’s appetite on a short trip, not a target; weigh your own days before copying it.</p>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Ursack Major</strong><span class="detail">11 L</span></td>
+        <td class="n">7.60</td>
+        <td class="n hide-sm">0.47</td>
+        <td class="n cum hide-sm">3.48</td></tr>
+      <tr><td><strong>Day 1 food</strong><span class="con">food</span></td>
+        <td class="n">8.06</td>
+        <td class="n hide-sm">0.50</td>
+        <td class="n cum hide-sm">3.99</td></tr>
+      <tr><td><strong>Day 2 food</strong><span class="con">food</span></td>
+        <td class="n">19.66</td>
+        <td class="n hide-sm">1.23</td>
+        <td class="n cum hide-sm">5.21</td></tr>
+      <tr><td><strong>Day 3 food</strong><span class="con">food</span></td>
+        <td class="n">13.96</td>
+        <td class="n hide-sm">0.87</td>
+        <td class="n cum hide-sm">6.09</td></tr>
+      <tr><td><strong>Opsak bag</strong></td>
+        <td class="n">1.40</td>
+        <td class="n hide-sm">0.09</td>
+        <td class="n cum hide-sm">6.17</td></tr>
+      <tr><td><strong>Food coozy</strong><span class="detail">Hyperlite REpack</span></td>
+        <td class="n">1.40</td>
+        <td class="n hide-sm">0.09</td>
+        <td class="n cum hide-sm">6.26</td></tr>
+      <tr><td><strong>Trash bags</strong><span class="detail">2 × 1-gallon Ziploc</span></td>
+        <td class="n">0.78</td>
+        <td class="n hide-sm">0.05</td>
+        <td class="n cum hide-sm">6.31</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">03</span>
+      <h4>Kitchen</h4>
+      <span class="sub">18.51 oz · 1.16 lb</span>
+    </div>
+    <p class="cat-note">Canister stove, titanium pot, separate cup for coffee. The 110g canister is the heaviest thing here.</p>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Stuff sack</strong><span class="detail">Toaks</span></td>
+        <td class="n">0.60</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">6.35</td></tr>
+      <tr><td><strong>Coffee dripper</strong><span class="detail">GSI Java Drip + 4 filters</span></td>
+        <td class="n">0.70</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">6.39</td></tr>
+      <tr><td><strong>Camp towel</strong><span class="detail">REI, small</span></td>
+        <td class="n">0.71</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">6.44</td></tr>
+      <tr><td><strong>Fuel</strong><span class="con">fuel</span><span class="detail">MSR 110g canister, full</span></td>
+        <td class="n">7.00</td>
+        <td class="n hide-sm">0.44</td>
+        <td class="n cum hide-sm">6.87</td></tr>
+      <tr><td><strong>Long spoon</strong><span class="detail">Toaks</span></td>
+        <td class="n">0.30</td>
+        <td class="n hide-sm">0.02</td>
+        <td class="n cum hide-sm">6.89</td></tr>
+      <tr><td><strong>Lighter</strong><span class="detail">BIC Mini</span></td>
+        <td class="n">0.30</td>
+        <td class="n hide-sm">0.02</td>
+        <td class="n cum hide-sm">6.91</td></tr>
+      <tr><td><strong>Pot</strong><span class="detail">Toaks 900 ml D115 titanium</span></td>
+        <td class="n">4.40</td>
+        <td class="n hide-sm">0.28</td>
+        <td class="n cum hide-sm">7.19</td></tr>
+      <tr><td><strong>Cup</strong><span class="detail">Toaks 550 ml titanium</span></td>
+        <td class="n">1.90</td>
+        <td class="n hide-sm">0.12</td>
+        <td class="n cum hide-sm">7.30</td></tr>
+      <tr><td><strong>Stove</strong><span class="detail">MSR PocketRocket 2</span></td>
+        <td class="n">2.60</td>
+        <td class="n hide-sm">0.16</td>
+        <td class="n cum hide-sm">7.47</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">04</span>
+      <h4>First aid &amp; repair</h4>
+      <span class="sub">3.36 oz · 0.21 lb</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Waterproof bag</strong><span class="detail">Loksak</span></td>
+        <td class="n">1.00</td>
+        <td class="n hide-sm">0.06</td>
+        <td class="n cum hide-sm">7.53</td></tr>
+      <tr><td><strong>First aid and repair kit</strong></td>
+        <td class="n">2.36</td>
+        <td class="n hide-sm">0.15</td>
+        <td class="n cum hide-sm">7.68</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">05</span>
+      <h4>Hygiene</h4>
+      <span class="sub">5.60 oz · 0.35 lb</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Stuff sack</strong><span class="detail">Dyneema, 1 L</span></td>
+        <td class="n">0.60</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">7.71</td></tr>
+      <tr><td><strong>Toothbrush &amp; paste</strong><span class="detail">Aurelle TOOB Brush</span></td>
+        <td class="n">1.50</td>
+        <td class="n hide-sm">0.09</td>
+        <td class="n cum hide-sm">7.81</td></tr>
+      <tr><td><strong>Deodorant</strong><span class="detail">Degree travel</span></td>
+        <td class="n">1.20</td>
+        <td class="n hide-sm">0.07</td>
+        <td class="n cum hide-sm">7.88</td></tr>
+      <tr><td><strong>Hand sanitizer</strong><span class="detail">Purell, 1 oz</span></td>
+        <td class="n">0.50</td>
+        <td class="n hide-sm">0.03</td>
+        <td class="n cum hide-sm">7.91</td></tr>
+      <tr><td><strong>Face lotion</strong><span class="detail">1 oz</span></td>
+        <td class="n">0.50</td>
+        <td class="n hide-sm">0.03</td>
+        <td class="n cum hide-sm">7.95</td></tr>
+      <tr><td><strong>Insect repellent</strong><span class="detail">Picaridin</span></td>
+        <td class="n">0.50</td>
+        <td class="n hide-sm">0.03</td>
+        <td class="n cum hide-sm">7.98</td></tr>
+      <tr><td><strong>Sunscreen</strong><span class="detail">SPF 70</span></td>
+        <td class="n">0.50</td>
+        <td class="n hide-sm">0.03</td>
+        <td class="n cum hide-sm">8.01</td></tr>
+      <tr><td><strong>Chapstick</strong></td>
+        <td class="n">0.30</td>
+        <td class="n hide-sm">0.02</td>
+        <td class="n cum hide-sm">8.03</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">06</span>
+      <h4>Cat hole kit</h4>
+      <span class="sub">2.60 oz · 0.16 lb</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Stuff sack</strong><span class="detail">LiteAF, 2 L</span></td>
+        <td class="n">0.60</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">8.06</td></tr>
+      <tr><td><strong>Trowel</strong><span class="detail">TentLab Deuce #2</span></td>
+        <td class="n">0.60</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">8.10</td></tr>
+      <tr><td><strong>Bidet</strong><span class="detail">CuloClean</span></td>
+        <td class="n">0.40</td>
+        <td class="n hide-sm">0.03</td>
+        <td class="n cum hide-sm">8.13</td></tr>
+      <tr><td><strong>Wet wipes</strong><span class="detail">Surviveware, dehydrated</span></td>
+        <td class="n">1.00</td>
+        <td class="n hide-sm">0.06</td>
+        <td class="n cum hide-sm">8.19</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">07</span>
+      <h4>Water &amp; purification</h4>
+      <span class="sub">41.77 oz · 2.61 lb</span>
+    </div>
+    <p class="cat-note">One litre carried. Reasonable in the Gore Range, where water is frequent — this is the first number to raise on a dry stretch.</p>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Bottles</strong><span class="detail">2 × Smartwater 700 ml, sport cap</span></td>
+        <td class="n">2.00</td>
+        <td class="n hide-sm">0.13</td>
+        <td class="n cum hide-sm">8.31</td></tr>
+      <tr><td><strong>Filter</strong><span class="detail">Katadyn BeFree</span></td>
+        <td class="n">2.50</td>
+        <td class="n hide-sm">0.16</td>
+        <td class="n cum hide-sm">8.47</td></tr>
+      <tr><td><strong>Bladder</strong><span class="detail">HydraPak 3 L</span></td>
+        <td class="n">2.00</td>
+        <td class="n hide-sm">0.13</td>
+        <td class="n cum hide-sm">8.60</td></tr>
+      <tr><td><strong>Water carried</strong><span class="con">water</span><span class="detail">1 litre</span></td>
+        <td class="n">35.27</td>
+        <td class="n hide-sm">2.20</td>
+        <td class="n cum hide-sm">10.80</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">08</span>
+      <h4>Shelter</h4>
+      <span class="sub">55.69 oz · 3.48 lb</span>
+    </div>
+    <p class="cat-note">Copper Spur UL2 with a Tiger Wall footprint standing in for the floor. Carried solo here; splitting fly and body with a partner cuts this nearly in half.</p>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Dry sack</strong><span class="detail">Sea to Summit Ultra-Sil, 8 L</span></td>
+        <td class="n">1.20</td>
+        <td class="n hide-sm">0.07</td>
+        <td class="n cum hide-sm">10.88</td></tr>
+      <tr><td><strong>Tent poles</strong><span class="detail">Big Agnes Copper Spur UL2</span></td>
+        <td class="n">12.30</td>
+        <td class="n hide-sm">0.77</td>
+        <td class="n cum hide-sm">11.64</td></tr>
+      <tr><td><strong>Stakes</strong><span class="detail">7 × DAC J-Stake, small</span></td>
+        <td class="n">2.89</td>
+        <td class="n hide-sm">0.18</td>
+        <td class="n cum hide-sm">11.82</td></tr>
+      <tr><td><strong>Footprint</strong><span class="detail">Big Agnes Tiger Wall UL2</span></td>
+        <td class="n">6.00</td>
+        <td class="n hide-sm">0.38</td>
+        <td class="n cum hide-sm">12.20</td></tr>
+      <tr><td><strong>Rainfly</strong><span class="detail">Big Agnes Copper Spur UL2</span></td>
+        <td class="n">17.20</td>
+        <td class="n hide-sm">1.07</td>
+        <td class="n cum hide-sm">13.27</td></tr>
+      <tr><td><strong>Tent body</strong><span class="detail">Big Agnes Copper Spur UL2</span></td>
+        <td class="n">16.10</td>
+        <td class="n hide-sm">1.01</td>
+        <td class="n cum hide-sm">14.28</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">09</span>
+      <h4>Sleep system</h4>
+      <span class="sub">55.40 oz · 3.46 lb</span>
+    </div>
+    <p class="cat-note">Two quilts and a pump. The Bandit 20 is the primary; the Quillow is the layering piece.</p>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Pack liner</strong><span class="detail">Gossamer Gear</span></td>
+        <td class="n">1.20</td>
+        <td class="n hide-sm">0.07</td>
+        <td class="n cum hide-sm">14.36</td></tr>
+      <tr><td><strong>Pillow case</strong><span class="detail">Zenbivy</span></td>
+        <td class="n">1.10</td>
+        <td class="n hide-sm">0.07</td>
+        <td class="n cum hide-sm">14.42</td></tr>
+      <tr><td><strong>Pillow bladder</strong><span class="detail">Zenbivy</span></td>
+        <td class="n">1.40</td>
+        <td class="n hide-sm">0.09</td>
+        <td class="n cum hide-sm">14.51</td></tr>
+      <tr><td><strong>Sleeping pad</strong><span class="detail">Therm-a-Rest NeoAir</span></td>
+        <td class="n">16.30</td>
+        <td class="n hide-sm">1.02</td>
+        <td class="n cum hide-sm">15.53</td></tr>
+      <tr><td><strong>Pad pump</strong><span class="detail">Flextail Zero</span></td>
+        <td class="n">1.20</td>
+        <td class="n hide-sm">0.07</td>
+        <td class="n cum hide-sm">15.61</td></tr>
+      <tr><td><strong>Quilt — layering</strong><span class="detail">UGQ Quillow</span></td>
+        <td class="n">12.00</td>
+        <td class="n hide-sm">0.75</td>
+        <td class="n cum hide-sm">16.36</td></tr>
+      <tr><td><strong>Quilt — primary</strong><span class="detail">UGQ Bandit 20°</span></td>
+        <td class="n">22.20</td>
+        <td class="n hide-sm">1.39</td>
+        <td class="n cum hide-sm">17.74</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">10</span>
+      <h4>Pack &amp; odds and ends</h4>
+      <span class="sub">40.22 oz · 2.51 lb</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">Cumulative</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Backpack</strong><span class="detail">KS Ultralight custom</span></td>
+        <td class="n">24.10</td>
+        <td class="n hide-sm">1.51</td>
+        <td class="n cum hide-sm">19.25</td></tr>
+      <tr><td><strong>Stuff sack</strong><span class="detail">Hyperlite 3 L, outer pocket</span></td>
+        <td class="n">0.80</td>
+        <td class="n hide-sm">0.05</td>
+        <td class="n cum hide-sm">19.30</td></tr>
+      <tr><td><strong>Carabiner</strong><span class="detail">for water bag</span></td>
+        <td class="n">0.80</td>
+        <td class="n hide-sm">0.05</td>
+        <td class="n cum hide-sm">19.35</td></tr>
+      <tr><td><strong>Head net</strong><span class="detail">Ben's</span></td>
+        <td class="n">0.71</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">19.39</td></tr>
+      <tr><td><strong>Knife</strong><span class="detail">Renegade Outdoor Ultra Fire</span></td>
+        <td class="n">0.67</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">19.44</td></tr>
+      <tr><td><strong>Battery &amp; cord</strong><span class="detail">Anker 10,000 mAh + cable</span></td>
+        <td class="n">7.00</td>
+        <td class="n hide-sm">0.44</td>
+        <td class="n cum hide-sm">19.87</td></tr>
+      <tr><td><strong>Headphones</strong><span class="detail">Apple AirPods</span></td>
+        <td class="n">1.64</td>
+        <td class="n hide-sm">0.10</td>
+        <td class="n cum hide-sm">19.98</td></tr>
+      <tr><td><strong>Headlamp</strong><span class="detail">Nitecore NU25</span></td>
+        <td class="n">1.20</td>
+        <td class="n hide-sm">0.07</td>
+        <td class="n cum hide-sm">20.05</td></tr>
+      <tr><td><strong>Seat pad</strong><span class="detail">Gossamer Gear ⅛"</span></td>
+        <td class="n">3.30</td>
+        <td class="n hide-sm">0.21</td>
+        <td class="n cum hide-sm">20.26</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">11</span>
+      <h4>Worn on day one</h4>
+      <span class="sub">48.95 oz · 3.06 lb</span>
+    </div>
+    <p class="cat-note">Not counted in pack weight — listed because it changes the grand total, and because new hikers routinely forget to account for it.</p>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n hide-sm">—</th></tr></thead>
+      <tbody>
+      <tr><td><strong>L/S shirt — hiking</strong><span class="detail">Smartwool Merino 150g, gray, M</span></td>
+        <td class="n">6.40</td>
+        <td class="n hide-sm">0.40</td>
+        <td class="n cum hide-sm">—</td></tr>
+      <tr><td><strong>Shorts</strong><span class="detail">Vuori Agility, gray</span></td>
+        <td class="n">6.40</td>
+        <td class="n hide-sm">0.40</td>
+        <td class="n cum hide-sm">—</td></tr>
+      <tr><td><strong>Underwear</strong><span class="detail">ExOfficio</span></td>
+        <td class="n">1.90</td>
+        <td class="n hide-sm">0.12</td>
+        <td class="n cum hide-sm">—</td></tr>
+      <tr><td><strong>Socks</strong><span class="detail">DeFeet Wool L / Darn Tough ¼ M</span></td>
+        <td class="n">1.70</td>
+        <td class="n hide-sm">0.11</td>
+        <td class="n cum hide-sm">—</td></tr>
+      <tr><td><strong>Shoes</strong><span class="detail">Brooks Cascadia 16</span></td>
+        <td class="n">23.60</td>
+        <td class="n hide-sm">1.48</td>
+        <td class="n cum hide-sm">—</td></tr>
+      <tr><td><strong>Cap</strong><span class="detail">Nike Dri-FIT low profile</span></td>
+        <td class="n">3.00</td>
+        <td class="n hide-sm">0.19</td>
+        <td class="n cum hide-sm">—</td></tr>
+      <tr><td><strong>Trekking pole</strong><span class="detail">Black Diamond Distance Z Carbon 120 cm (one)</span></td>
+        <td class="n">3.35</td>
+        <td class="n hide-sm">0.21</td>
+        <td class="n cum hide-sm">—</td></tr>
+      <tr><td><strong>Sunglasses</strong><span class="detail">Shady Rays polarized + Cablz strap</span></td>
+        <td class="n">2.00</td>
+        <td class="n hide-sm">0.13</td>
+        <td class="n cum hide-sm">—</td></tr>
+      <tr><td><strong>Headband</strong><span class="detail">½ Buff, UV</span></td>
+        <td class="n">0.60</td>
+        <td class="n hide-sm">0.04</td>
+        <td class="n cum hide-sm">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel" id="p-season-one">
+  <div class="panel-intro">
+    <div>
+      <h3>Get out this year, then find out what you hate</h3>
+      <p>Heavy but honest. Nothing here will fail on you, and nothing here is precious. The premise: spend the least you can to get three safe nights out, then upgrade the two or three items that actually bothered you. Most people discover their real preferences on trip three, not in a store.</p>
+    </div>
+  <dl class="tallies">
+    <div><dt>Base weight</dt><dd>18.80<small>lb</small></dd></div>
+    <div><dt>Total spend</dt><dd>$1,224</dd></div>
+    <div><dt>Big Three share</dt><dd>55%</dd></div>
+    <div><dt>Big Three weight</dt><dd>68%</dd></div>
+  </dl>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">01</span>
+      <h4>The Big Three</h4>
+      <span class="sub">12.81 lb · $679</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>REI Co-op Trailmade 2 tent</strong><span class="detail">freestanding, includes footprint</span></td>
+        <td class="n">74.00</td>
+        <td class="n hide-sm">4.63</td>
+        <td class="n usd">$200</td></tr>
+      <tr><td><strong>REI Co-op Trailmade 60 pack</strong></td>
+        <td class="n">62.00</td>
+        <td class="n hide-sm">3.88</td>
+        <td class="n usd">$179</td></tr>
+      <tr><td><strong>Kelty Cosmic Down 20 bag</strong><span class="detail">accurate rating, silky liner</span></td>
+        <td class="n">44.00</td>
+        <td class="n hide-sm">2.75</td>
+        <td class="n usd">$200</td></tr>
+      <tr><td><strong>REI Co-op Traverse insulated pad</strong></td>
+        <td class="n">25.00</td>
+        <td class="n hide-sm">1.56</td>
+        <td class="n usd">$100</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">02</span>
+      <h4>Kitchen &amp; water</h4>
+      <span class="sub">0.90 lb · $120</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Soto Amicus stove</strong></td>
+        <td class="n">2.60</td>
+        <td class="n hide-sm">0.16</td>
+        <td class="n usd">$50</td></tr>
+      <tr><td><strong>Aluminium 750 ml pot</strong></td>
+        <td class="n">7.00</td>
+        <td class="n hide-sm">0.44</td>
+        <td class="n usd">$25</td></tr>
+      <tr><td><strong>Plastic spork</strong></td>
+        <td class="n">0.50</td>
+        <td class="n hide-sm">0.03</td>
+        <td class="n usd">$5</td></tr>
+      <tr><td><strong>LifeStraw Peak Solo filter</strong></td>
+        <td class="n">2.00</td>
+        <td class="n hide-sm">0.13</td>
+        <td class="n usd">$35</td></tr>
+      <tr><td><strong>2 × Smartwater bottles</strong></td>
+        <td class="n">2.00</td>
+        <td class="n hide-sm">0.13</td>
+        <td class="n usd">$3</td></tr>
+      <tr><td><strong>BIC Mini lighter</strong></td>
+        <td class="n">0.30</td>
+        <td class="n hide-sm">0.02</td>
+        <td class="n usd">$2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">03</span>
+      <h4>Layers</h4>
+      <span class="sub">3.46 lb · $310</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Columbia Watertight II rain jacket</strong></td>
+        <td class="n">12.00</td>
+        <td class="n hide-sm">0.75</td>
+        <td class="n usd">$60</td></tr>
+      <tr><td><strong>REI Co-op 650 down jacket</strong></td>
+        <td class="n">13.00</td>
+        <td class="n hide-sm">0.81</td>
+        <td class="n usd">$100</td></tr>
+      <tr><td><strong>100-weight fleece</strong><span class="detail">any brand</span></td>
+        <td class="n">12.00</td>
+        <td class="n hide-sm">0.75</td>
+        <td class="n usd">$30</td></tr>
+      <tr><td><strong>Baselayer top + bottom</strong><span class="detail">synthetic is fine</span></td>
+        <td class="n">11.00</td>
+        <td class="n hide-sm">0.69</td>
+        <td class="n usd">$60</td></tr>
+      <tr><td><strong>Beanie + liner gloves</strong></td>
+        <td class="n">4.00</td>
+        <td class="n hide-sm">0.25</td>
+        <td class="n usd">$30</td></tr>
+      <tr><td><strong>2 pairs wool socks</strong></td>
+        <td class="n">3.40</td>
+        <td class="n hide-sm">0.21</td>
+        <td class="n usd">$30</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">04</span>
+      <h4>Odds and ends</h4>
+      <span class="sub">1.63 lb · $115</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Black Diamond Astro headlamp</strong></td>
+        <td class="n">3.00</td>
+        <td class="n hide-sm">0.19</td>
+        <td class="n usd">$25</td></tr>
+      <tr><td><strong>Pre-made first aid kit</strong></td>
+        <td class="n">6.00</td>
+        <td class="n hide-sm">0.38</td>
+        <td class="n usd">$20</td></tr>
+      <tr><td><strong>Trowel</strong></td>
+        <td class="n">1.00</td>
+        <td class="n hide-sm">0.06</td>
+        <td class="n usd">$5</td></tr>
+      <tr><td><strong>Dry bag + 50 ft cord</strong><span class="detail">for hanging food</span></td>
+        <td class="n">4.00</td>
+        <td class="n hide-sm">0.25</td>
+        <td class="n usd">$15</td></tr>
+      <tr><td><strong>Toiletries</strong></td>
+        <td class="n">5.00</td>
+        <td class="n hide-sm">0.31</td>
+        <td class="n usd">$20</td></tr>
+      <tr><td><strong>Anker battery bank</strong></td>
+        <td class="n">7.00</td>
+        <td class="n hide-sm">0.44</td>
+        <td class="n usd">$30</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel" id="p-sweet-spot">
+  <div class="panel-intro">
+    <div>
+      <h3>Where the value actually is</h3>
+      <p>This is the tier most experienced hikers would tell you to aim for. Roughly double the budget of season one buys you a five-pound weight cut, gear that lasts a decade, and a base weight about a pound under the field-tested kit at the top of this page. Everything past here costs a lot for a little.</p>
+    </div>
+  <dl class="tallies">
+    <div><dt>Base weight</dt><dd>13.87<small>lb</small></dd></div>
+    <div><dt>Total spend</dt><dd>$2,246</dd></div>
+    <div><dt>Big Three share</dt><dd>48%</dd></div>
+    <div><dt>Big Three weight</dt><dd>55%</dd></div>
+  </dl>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">01</span>
+      <h4>The Big Three</h4>
+      <span class="sub">7.60 lb · $1,069</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Durston X-Mid 2 tent</strong><span class="detail">double wall, needs two poles</span></td>
+        <td class="n">28.00</td>
+        <td class="n hide-sm">1.75</td>
+        <td class="n usd">$260</td></tr>
+      <tr><td><strong>REI Co-op Flash 55 pack</strong></td>
+        <td class="n">45.00</td>
+        <td class="n hide-sm">2.81</td>
+        <td class="n usd">$199</td></tr>
+      <tr><td><strong>REI Co-op Magma 15 bag</strong><span class="detail">21°F ISO comfort — a true 20° bag</span></td>
+        <td class="n">35.60</td>
+        <td class="n hide-sm">2.23</td>
+        <td class="n usd">$400</td></tr>
+      <tr><td><strong>Therm-a-Rest NeoAir XLite NXT pad</strong><span class="detail">R 4.5</span></td>
+        <td class="n">13.00</td>
+        <td class="n hide-sm">0.81</td>
+        <td class="n usd">$210</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">02</span>
+      <h4>Kitchen &amp; water</h4>
+      <span class="sub">0.71 lb · $157</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>MSR PocketRocket 2 stove</strong></td>
+        <td class="n">2.60</td>
+        <td class="n hide-sm">0.16</td>
+        <td class="n usd">$50</td></tr>
+      <tr><td><strong>Toaks 750 ml titanium pot</strong></td>
+        <td class="n">3.60</td>
+        <td class="n hide-sm">0.23</td>
+        <td class="n usd">$45</td></tr>
+      <tr><td><strong>Toaks long titanium spoon</strong></td>
+        <td class="n">0.30</td>
+        <td class="n hide-sm">0.02</td>
+        <td class="n usd">$12</td></tr>
+      <tr><td><strong>Katadyn BeFree 1 L filter</strong></td>
+        <td class="n">2.50</td>
+        <td class="n hide-sm">0.16</td>
+        <td class="n usd">$45</td></tr>
+      <tr><td><strong>2 × Smartwater bottles</strong></td>
+        <td class="n">2.00</td>
+        <td class="n hide-sm">0.13</td>
+        <td class="n usd">$3</td></tr>
+      <tr><td><strong>BIC Mini lighter</strong></td>
+        <td class="n">0.30</td>
+        <td class="n hide-sm">0.02</td>
+        <td class="n usd">$2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">03</span>
+      <h4>Layers</h4>
+      <span class="sub">2.73 lb · $645</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Outdoor Research Helium rain jacket</strong></td>
+        <td class="n">6.30</td>
+        <td class="n hide-sm">0.39</td>
+        <td class="n usd">$160</td></tr>
+      <tr><td><strong>REI Co-op 850 down hoodie</strong></td>
+        <td class="n">11.00</td>
+        <td class="n hide-sm">0.69</td>
+        <td class="n usd">$180</td></tr>
+      <tr><td><strong>Grid fleece hoodie</strong></td>
+        <td class="n">7.00</td>
+        <td class="n hide-sm">0.44</td>
+        <td class="n usd">$80</td></tr>
+      <tr><td><strong>Merino 150 baselayer top + bottom</strong></td>
+        <td class="n">12.00</td>
+        <td class="n hide-sm">0.75</td>
+        <td class="n usd">$130</td></tr>
+      <tr><td><strong>Beanie + liner gloves</strong></td>
+        <td class="n">4.00</td>
+        <td class="n hide-sm">0.25</td>
+        <td class="n usd">$45</td></tr>
+      <tr><td><strong>2 pairs Darn Tough socks</strong></td>
+        <td class="n">3.40</td>
+        <td class="n hide-sm">0.21</td>
+        <td class="n usd">$50</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">04</span>
+      <h4>Odds and ends</h4>
+      <span class="sub">2.83 lb · $375</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Nitecore NU25 headlamp</strong></td>
+        <td class="n">1.20</td>
+        <td class="n hide-sm">0.07</td>
+        <td class="n usd">$40</td></tr>
+      <tr><td><strong>Black Diamond Trail poles</strong><span class="detail">pair — the tent needs them</span></td>
+        <td class="n">18.00</td>
+        <td class="n hide-sm">1.13</td>
+        <td class="n usd">$100</td></tr>
+      <tr><td><strong>Inflatable pillow</strong></td>
+        <td class="n">2.50</td>
+        <td class="n hide-sm">0.16</td>
+        <td class="n usd">$45</td></tr>
+      <tr><td><strong>First aid + repair kit</strong></td>
+        <td class="n">4.00</td>
+        <td class="n hide-sm">0.25</td>
+        <td class="n usd">$35</td></tr>
+      <tr><td><strong>Ursack Major</strong><span class="detail">no hanging, no canister</span></td>
+        <td class="n">7.60</td>
+        <td class="n hide-sm">0.47</td>
+        <td class="n usd">$100</td></tr>
+      <tr><td><strong>Trowel + toiletries</strong></td>
+        <td class="n">5.00</td>
+        <td class="n hide-sm">0.31</td>
+        <td class="n usd">$25</td></tr>
+      <tr><td><strong>Anker 10k battery + cord</strong></td>
+        <td class="n">7.00</td>
+        <td class="n hide-sm">0.44</td>
+        <td class="n usd">$30</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel" id="p-buy-once">
+  <div class="panel-intro">
+    <div>
+      <h3>Diminishing returns, bought deliberately</h3>
+      <p>Worth being blunt: this kit costs about $2,000 more than the sweet spot and saves about two and a third pounds. That is a real trade for someone doing thirty nights a year, and a poor one for someone doing four. What it does buy beyond weight is longevity, warranty, and repairability — a Feathered Friends bag can be re-lofted for the cost of shipping, decades in.</p>
+    </div>
+  <dl class="tallies">
+    <div><dt>Base weight</dt><dd>11.54<small>lb</small></dd></div>
+    <div><dt>Total spend</dt><dd>$4,224</dd></div>
+    <div><dt>Big Three share</dt><dd>48%</dd></div>
+    <div><dt>Big Three weight</dt><dd>50%</dd></div>
+  </dl>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">01</span>
+      <h4>The Big Three</h4>
+      <span class="sub">5.78 lb · $2,009</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Durston X-Mid Pro 2 tent</strong><span class="detail">Dyneema, needs two poles</span></td>
+        <td class="n">19.00</td>
+        <td class="n hide-sm">1.19</td>
+        <td class="n usd">$700</td></tr>
+      <tr><td><strong>Hyperlite Southwest 55 pack</strong></td>
+        <td class="n">32.00</td>
+        <td class="n hide-sm">2.00</td>
+        <td class="n usd">$400</td></tr>
+      <tr><td><strong>Feathered Friends Swallow UL 20 bag</strong><span class="detail">950+ fill, re-loftable for life</span></td>
+        <td class="n">26.00</td>
+        <td class="n hide-sm">1.63</td>
+        <td class="n usd">$659</td></tr>
+      <tr><td><strong>Therm-a-Rest NeoAir XTherm NXT pad</strong><span class="detail">R 7.3</span></td>
+        <td class="n">15.50</td>
+        <td class="n hide-sm">0.97</td>
+        <td class="n usd">$250</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">02</span>
+      <h4>Kitchen &amp; water</h4>
+      <span class="sub">0.81 lb · $205</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Soto WindMaster stove</strong></td>
+        <td class="n">3.00</td>
+        <td class="n hide-sm">0.19</td>
+        <td class="n usd">$75</td></tr>
+      <tr><td><strong>Toaks 550 ml titanium pot</strong></td>
+        <td class="n">2.60</td>
+        <td class="n hide-sm">0.16</td>
+        <td class="n usd">$40</td></tr>
+      <tr><td><strong>Toaks long titanium spoon</strong></td>
+        <td class="n">0.30</td>
+        <td class="n hide-sm">0.02</td>
+        <td class="n usd">$12</td></tr>
+      <tr><td><strong>Katadyn BeFree + CNOC Vecto 2 L</strong></td>
+        <td class="n">5.00</td>
+        <td class="n hide-sm">0.31</td>
+        <td class="n usd">$75</td></tr>
+      <tr><td><strong>2 × Smartwater bottles</strong></td>
+        <td class="n">2.00</td>
+        <td class="n hide-sm">0.13</td>
+        <td class="n usd">$3</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">03</span>
+      <h4>Layers</h4>
+      <span class="sub">2.45 lb · $1,120</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Montbell Versalite rain jacket</strong></td>
+        <td class="n">6.40</td>
+        <td class="n hide-sm">0.40</td>
+        <td class="n usd">$310</td></tr>
+      <tr><td><strong>Feathered Friends Eos down hoody</strong></td>
+        <td class="n">9.50</td>
+        <td class="n hide-sm">0.59</td>
+        <td class="n usd">$400</td></tr>
+      <tr><td><strong>Senchi Alpha 90 hoodie</strong></td>
+        <td class="n">4.90</td>
+        <td class="n hide-sm">0.31</td>
+        <td class="n usd">$130</td></tr>
+      <tr><td><strong>Merino 150 baselayer top + bottom</strong></td>
+        <td class="n">12.00</td>
+        <td class="n hide-sm">0.75</td>
+        <td class="n usd">$150</td></tr>
+      <tr><td><strong>Down beanie + Alpha gloves</strong></td>
+        <td class="n">3.00</td>
+        <td class="n hide-sm">0.19</td>
+        <td class="n usd">$80</td></tr>
+      <tr><td><strong>2 pairs Darn Tough socks</strong></td>
+        <td class="n">3.40</td>
+        <td class="n hide-sm">0.21</td>
+        <td class="n usd">$50</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cat">
+    <div class="cat-head">
+      <span class="idx">04</span>
+      <h4>Odds and ends</h4>
+      <span class="sub">2.51 lb · $890</span>
+    </div>
+    <table>
+      <thead><tr><th>Item</th><th class="n">oz</th><th class="n hide-sm">lb</th><th class="n">Price</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Nitecore NU25 headlamp</strong></td>
+        <td class="n">1.20</td>
+        <td class="n hide-sm">0.07</td>
+        <td class="n usd">$40</td></tr>
+      <tr><td><strong>BD Distance Z Carbon poles</strong><span class="detail">pair</span></td>
+        <td class="n">12.00</td>
+        <td class="n hide-sm">0.75</td>
+        <td class="n usd">$180</td></tr>
+      <tr><td><strong>Zenbivy pillow</strong></td>
+        <td class="n">2.50</td>
+        <td class="n hide-sm">0.16</td>
+        <td class="n usd">$50</td></tr>
+      <tr><td><strong>Garmin inReach Mini 2</strong><span class="detail">the item you hope never matters</span></td>
+        <td class="n">3.50</td>
+        <td class="n hide-sm">0.22</td>
+        <td class="n usd">$400</td></tr>
+      <tr><td><strong>Ursack Major</strong></td>
+        <td class="n">7.60</td>
+        <td class="n hide-sm">0.47</td>
+        <td class="n usd">$100</td></tr>
+      <tr><td><strong>First aid + repair + toiletries</strong></td>
+        <td class="n">8.00</td>
+        <td class="n hide-sm">0.50</td>
+        <td class="n usd">$60</td></tr>
+      <tr><td><strong>Nitecore NB10000 battery</strong></td>
+        <td class="n">5.30</td>
+        <td class="n hide-sm">0.33</td>
+        <td class="n usd">$60</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<div class="alert">
+  <h3>What the wilderness requires</h3>
+  <p style="margin-top:6px">Two of these change what you pack. The campfire rule is why there is a stove and a fuel canister on every list here and no fire kit on any of them.</p>
+  <ul>
+    <li><strong>Permit:</strong> free self-issue registration form for overnight trips, available at wilderness trailheads. Nothing to reserve, nothing to pay.</li>
+    <li><strong>Group limit 15.</strong> Not a constraint for a party of three.</li>
+    <li><strong>No campfires</strong> above 11,000 ft, within ¼ mile of a lake, or within 100 ft of a stream or trail. Every camp on this route is lakeside, so treat it as stove-only and carry the fuel.</li>
+    <li><strong>Camp 100 ft from water and trails.</strong> Worth knowing before you commit to a pad footprint — the flat ground right at the shoreline is off limits.</li>
+    <li><strong>Dogs on a leash under six feet.</strong></li>
+  </ul>
+  <p style="margin-bottom:0">Separately from the permanent rules above: Stage 2 fire restrictions were in force forest-wide as of <strong>July 29, 2026</strong>, with Very High danger on the Dillon district. That is a current status, not a signed order covering late August — re-check before you go. The campfire prohibition near lakes is permanent and applies either way.</p>
+</div>
+
+<h2>Before you buy anything</h2>
+
+<h3>Six things worth knowing first</h3>
+
+<p class="lede">Most first-kit money gets wasted on the wrong things. This is the short version of what actually matters.</p>
+
+<div class="primer">
+  <article>
+    <h4>Base weight is the number people mean</h4>
+    <p>Base weight is everything in your pack <strong>minus food, water, and fuel</strong> — the stuff that doesn’t shrink as you hike. It’s the only figure that lets two kits be compared honestly.</p>
+    <p>Under 20 lb is comfortable. Under 15 is light. Under 10 takes real money or real discipline.</p>
+  </article>
+  <article>
+    <h4>A 20-degree bag is not comfortable at 20°</h4>
+    <p>Most bags are labeled with their <strong>lower limit</strong> — the point a warm sleeper survives, not sleeps. The <strong>comfort rating</strong> is usually 8–10° warmer.</p>
+    <p>If you want to actually sleep well at 30°F, shop 20°F-rated. Read the ISO comfort number, not the name on the stuff sack.</p>
+  </article>
+  <article>
+    <h4>Your pad matters as much as your bag</h4>
+    <p>Cold comes up from the ground, and down crushes flat underneath you where it can’t insulate. A warm bag on a summer pad still sleeps cold.</p>
+    <p>For alpine nights near freezing you want <strong>R-value 4.5 or better</strong>. Below about R 2.5 is a summer-only pad, whatever the bag says.</p>
+  </article>
+  <article>
+    <h4>The big three own the budget</h4>
+    <p>Shelter, pack, and sleep system are <strong>half to two-thirds of your pack weight and about half your budget</strong> — check the Big Three figures on each tab above. Everything else is rounding.</p>
+    <p>Spend here, in this order: sleep system first (it’s the safety item and fit matters most), then shelter, then pack — buy the pack last, once you know what volume you actually need.</p>
+    <p><strong>Get the pack fitted before you buy it.</strong> Packs are sized by torso length, not by height, and a 60 L that doesn’t fit your back carries worse than a 45 L that does. REI will measure your torso and load a pack with sandbags to walk around in, free and with no purchase. Do that before ordering anything — it’s the one item here you shouldn’t buy sight-unseen.</p>
+  </article>
+  <article>
+    <h4>Don’t buy it all at once</h4>
+    <p>Rent the tent. Borrow the pack. Buy the sleep system. Go out for one night close to home and find out what you actually hate before you commit.</p>
+    <p>Wait for the sales — <strong>20% off one full-price item runs a few times a year</strong> and it’s worth timing your most expensive purchase around it.</p>
+  </article>
+  <article>
+    <h4>Food: about 1.5 to 2 lb per day</h4>
+    <p>Aim for <strong>120+ calories per ounce</strong> so you’re carrying energy, not packaging. Roughly 2,500–3,500 kcal a day on big-elevation days.</p>
+    <p>Weigh and bag every day separately at home. It’s the only way to know what you’re carrying, and it stops you from hauling four days of food on a three-day trip.</p>
+  </article>
+</div>
+
+<footer>
+  Dillon Ranger District, White River National Forest · (970) 468-5400<br>
+  Companion trip brief: Cataract and Eaglesmere Lakes, August 24–27, 2026<br>
+  Researched 2026-07-31<br>
+  <br>
+  Open items:<br>
+  01 — The three starter-kit tiers were not priced against live retailer listings for this page. Every dollar figure in them is a mid-2026 ballpark chosen to make the tiers comparable, and several will already be stale. Price the specific items before buying anything.<br>
+  02 — The field-tested weights are kitchen-scale readings of one person’s kit, not manufacturer specs, and none of them were cross-checked against a spec sheet for this page. Treat them as accurate for this pack and indicative for yours.<br>
+  03 — The 15.01 lb base weight subtracts food, water and fuel. The source spreadsheet headlines 14.31 lb because it also subtracts the food bag’s containers — same pack, different convention. Worth checking which one any number you compare against used.
+</footer>
+
+</div>
+</body>
+</html>

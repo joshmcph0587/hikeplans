@@ -1,0 +1,1160 @@
+{
+  "eyebrow": "Eagles Nest Wilderness · Denver · Colorado",
+  "eyebrow_2": "3 nights · late August",
+  "title": [
+    "What's in",
+    "the pack"
+  ],
+  "trip": {
+    "wilderness": "Eagles Nest Wilderness",
+    "range": "Gore Range",
+    "state": "Colorado",
+    "airport_city": "Denver",
+    "nights": 3,
+    "season": "late August",
+    "camp_elevation": "10,300–11,000 ft",
+    "brief": "../../eagles-nest-2026-08/"
+  },
+  "lede": "A working gear list at 15 lb base weight, item by item — plus three starter kits at three budgets, so you can see what the same trip costs whether you’re outfitting from scratch or buying once and keeping it. Everything here was carried for three nights in the Gore Range.",
+  "stats": [
+    {
+      "label": "Base weight",
+      "metric": "base_lb",
+      "unit": "lb",
+      "note": "Pack minus food, water and fuel — the definition used in the primer below."
+    },
+    {
+      "label": "Loaded, day one",
+      "metric": "carried_lb",
+      "unit": "lb"
+    },
+    {
+      "label": "With worn clothing",
+      "metric": "carried_worn_lb",
+      "unit": "lb"
+    },
+    {
+      "label": "Line items",
+      "metric": "field_items"
+    }
+  ],
+  "sections": {
+    "ridge": {
+      "eyebrow": "Cross-section",
+      "heading": "Where the weight actually lives",
+      "intro": "Every category drawn as a peak — wider and taller means heavier. The ridgeline is the pack. Note how three features dominate the skyline and everything else is foothills.",
+      "caption": [
+        "Peak width and height in proportion to category weight",
+        "Dashed contour interval = 1 lb"
+      ]
+    },
+    "kits": {
+      "eyebrow": "Four kits, one trip",
+      "heading": "Pick a starting point",
+      "intro": "The first tab is a real, used, dialed-in list. The other three are build paths for a first kit. Same trip, same conditions, same nights out — three very different receipts."
+    },
+    "primer": {
+      "eyebrow": "Before you buy anything",
+      "heading": "Six things worth knowing first",
+      "intro": "Most first-kit money gets wasted on the wrong things. This is the short version of what actually matters."
+    }
+  },
+  "ridgeline": {
+    "total_label": "Total carried, day one",
+    "labels": {
+      "Clothes carried": "Clothes",
+      "Sleep system": "Sleep",
+      "Water & purification": "Water",
+      "Pack & odds and ends": "Pack & misc"
+    },
+    "merge": [
+      {
+        "label": "Sundries",
+        "categories": [
+          "Hygiene",
+          "First aid & repair",
+          "Cat hole kit"
+        ]
+      }
+    ]
+  },
+  "kits": [
+    {
+      "id": "field-tested",
+      "label": "Field-tested",
+      "heading": "Field-tested kit",
+      "blurb": "The list this page was built from: a Copper Spur, a KS Ultralight pack, and a UGQ Bandit 20, carried for three nights in the Gore Range. Nothing aspirational — this is what actually goes in the bag. The cumulative column tracks the running total the way the original spreadsheet does.",
+      "priced": false,
+      "tallies": [
+        {
+          "label": "Base weight",
+          "metric": "base_lb",
+          "unit": "lb"
+        },
+        {
+          "label": "Loaded day one",
+          "metric": "carried_lb",
+          "unit": "lb"
+        },
+        {
+          "label": "Pack, no water",
+          "metric": "pack_no_water_lb",
+          "unit": "lb"
+        },
+        {
+          "label": "With worn kit",
+          "metric": "carried_worn_lb",
+          "unit": "lb"
+        }
+      ],
+      "categories": [
+        {
+          "name": "Clothes carried",
+          "note": "Everything not worn on day one. At 3.01 lb it is the block that separates a 15 lb base weight from a 12 lb one.",
+          "subtotal_oz": 48.1,
+          "items": [
+            {
+              "name": "L/S shirt — hiking",
+              "detail": "Smartwool Merino 150g, red, M",
+              "oz": 6.4
+            },
+            {
+              "name": "Underwear — sleeping",
+              "detail": "ExOfficio",
+              "oz": 1.9
+            },
+            {
+              "name": "Underwear — hiking",
+              "detail": "ExOfficio",
+              "oz": 1.9
+            },
+            {
+              "name": "Socks — sleeping",
+              "detail": "DeFeet Wool L / Darn Tough ¼ M",
+              "oz": 1.7
+            },
+            {
+              "name": "Socks — hiking",
+              "detail": "DeFeet Wool L / Darn Tough ¼ M",
+              "oz": 1.7
+            },
+            {
+              "name": "Baselayer bottom",
+              "detail": "Merino 150g tights",
+              "oz": 5.6
+            },
+            {
+              "name": "Midlayer fleece top",
+              "detail": "Senchi Designs Alpha 90 hoodie, half zip, L",
+              "oz": 4.9
+            },
+            {
+              "name": "Rain jacket",
+              "detail": "Outdoor Research Helium",
+              "oz": 6.3
+            },
+            {
+              "name": "Down jacket",
+              "detail": "Mountain Hardwear Ghost Shadow",
+              "oz": 11.7
+            },
+            {
+              "name": "Pants",
+              "detail": "Patagonia Terrebonne joggers, M",
+              "oz": 6
+            }
+          ]
+        },
+        {
+          "name": "Food bag",
+          "note": "Three days portioned and bagged individually. Ursack means no hanging and no canister. Note that 41.68 oz over three days is 13.9 oz a day — well under the 1.5 to 2 lb a day the primer below recommends. That is one person’s appetite on a short trip, not a target; weigh your own days before copying it.",
+          "subtotal_oz": 52.86,
+          "items": [
+            {
+              "name": "Ursack Major",
+              "detail": "11 L",
+              "oz": 7.6,
+              "container": true
+            },
+            {
+              "name": "Day 1 food",
+              "oz": 8.06,
+              "consumable": "food"
+            },
+            {
+              "name": "Day 2 food",
+              "oz": 19.66,
+              "consumable": "food"
+            },
+            {
+              "name": "Day 3 food",
+              "oz": 13.96,
+              "consumable": "food"
+            },
+            {
+              "name": "Opsak bag",
+              "oz": 1.4,
+              "container": true
+            },
+            {
+              "name": "Food coozy",
+              "detail": "Hyperlite REpack",
+              "oz": 1.4,
+              "container": true
+            },
+            {
+              "name": "Trash bags",
+              "detail": "2 × 1-gallon Ziploc",
+              "oz": 0.78,
+              "container": true
+            }
+          ]
+        },
+        {
+          "name": "Kitchen",
+          "note": "Canister stove, titanium pot, separate cup for coffee. The 110g canister is the heaviest thing here.",
+          "subtotal_oz": 18.51,
+          "items": [
+            {
+              "name": "Stuff sack",
+              "detail": "Toaks",
+              "oz": 0.6
+            },
+            {
+              "name": "Coffee dripper",
+              "detail": "GSI Java Drip + 4 filters",
+              "oz": 0.7
+            },
+            {
+              "name": "Camp towel",
+              "detail": "REI, small",
+              "oz": 0.71
+            },
+            {
+              "name": "Fuel",
+              "detail": "MSR 110g canister, full",
+              "oz": 7,
+              "consumable": "fuel"
+            },
+            {
+              "name": "Long spoon",
+              "detail": "Toaks",
+              "oz": 0.3
+            },
+            {
+              "name": "Lighter",
+              "detail": "BIC Mini",
+              "oz": 0.3
+            },
+            {
+              "name": "Pot",
+              "detail": "Toaks 900 ml D115 titanium",
+              "oz": 4.4
+            },
+            {
+              "name": "Cup",
+              "detail": "Toaks 550 ml titanium",
+              "oz": 1.9
+            },
+            {
+              "name": "Stove",
+              "detail": "MSR PocketRocket 2",
+              "oz": 2.6
+            }
+          ]
+        },
+        {
+          "name": "First aid & repair",
+          "subtotal_oz": 3.36,
+          "items": [
+            {
+              "name": "Waterproof bag",
+              "detail": "Loksak",
+              "oz": 1
+            },
+            {
+              "name": "First aid and repair kit",
+              "oz": 2.36
+            }
+          ]
+        },
+        {
+          "name": "Hygiene",
+          "subtotal_oz": 5.6,
+          "items": [
+            {
+              "name": "Stuff sack",
+              "detail": "Dyneema, 1 L",
+              "oz": 0.6
+            },
+            {
+              "name": "Toothbrush & paste",
+              "detail": "Aurelle TOOB Brush",
+              "oz": 1.5
+            },
+            {
+              "name": "Deodorant",
+              "detail": "Degree travel",
+              "oz": 1.2
+            },
+            {
+              "name": "Hand sanitizer",
+              "detail": "Purell, 1 oz",
+              "oz": 0.5
+            },
+            {
+              "name": "Face lotion",
+              "detail": "1 oz",
+              "oz": 0.5
+            },
+            {
+              "name": "Insect repellent",
+              "detail": "Picaridin",
+              "oz": 0.5
+            },
+            {
+              "name": "Sunscreen",
+              "detail": "SPF 70",
+              "oz": 0.5
+            },
+            {
+              "name": "Chapstick",
+              "oz": 0.3
+            }
+          ]
+        },
+        {
+          "name": "Cat hole kit",
+          "subtotal_oz": 2.6,
+          "items": [
+            {
+              "name": "Stuff sack",
+              "detail": "LiteAF, 2 L",
+              "oz": 0.6
+            },
+            {
+              "name": "Trowel",
+              "detail": "TentLab Deuce #2",
+              "oz": 0.6
+            },
+            {
+              "name": "Bidet",
+              "detail": "CuloClean",
+              "oz": 0.4
+            },
+            {
+              "name": "Wet wipes",
+              "detail": "Surviveware, dehydrated",
+              "oz": 1
+            }
+          ]
+        },
+        {
+          "name": "Water & purification",
+          "note": "One litre carried. Reasonable in the Gore Range, where water is frequent — this is the first number to raise on a dry stretch.",
+          "subtotal_oz": 41.77,
+          "items": [
+            {
+              "name": "Bottles",
+              "detail": "2 × Smartwater 700 ml, sport cap",
+              "oz": 2
+            },
+            {
+              "name": "Filter",
+              "detail": "Katadyn BeFree",
+              "oz": 2.5
+            },
+            {
+              "name": "Bladder",
+              "detail": "HydraPak 3 L",
+              "oz": 2
+            },
+            {
+              "name": "Water carried",
+              "detail": "1 litre",
+              "oz": 35.27,
+              "consumable": "water"
+            }
+          ]
+        },
+        {
+          "name": "Shelter",
+          "note": "Copper Spur UL2 with a Tiger Wall footprint standing in for the floor. Carried solo here; splitting fly and body with a partner cuts this nearly in half.",
+          "subtotal_oz": 55.69,
+          "items": [
+            {
+              "name": "Dry sack",
+              "detail": "Sea to Summit Ultra-Sil, 8 L",
+              "oz": 1.2
+            },
+            {
+              "name": "Tent poles",
+              "detail": "Big Agnes Copper Spur UL2",
+              "oz": 12.3
+            },
+            {
+              "name": "Stakes",
+              "detail": "7 × DAC J-Stake, small",
+              "oz": 2.89
+            },
+            {
+              "name": "Footprint",
+              "detail": "Big Agnes Tiger Wall UL2",
+              "oz": 6
+            },
+            {
+              "name": "Rainfly",
+              "detail": "Big Agnes Copper Spur UL2",
+              "oz": 17.2
+            },
+            {
+              "name": "Tent body",
+              "detail": "Big Agnes Copper Spur UL2",
+              "oz": 16.1
+            }
+          ]
+        },
+        {
+          "name": "Sleep system",
+          "note": "Two quilts and a pump. The Bandit 20 is the primary; the Quillow is the layering piece.",
+          "subtotal_oz": 55.4,
+          "items": [
+            {
+              "name": "Pack liner",
+              "detail": "Gossamer Gear",
+              "oz": 1.2
+            },
+            {
+              "name": "Pillow case",
+              "detail": "Zenbivy",
+              "oz": 1.1
+            },
+            {
+              "name": "Pillow bladder",
+              "detail": "Zenbivy",
+              "oz": 1.4
+            },
+            {
+              "name": "Sleeping pad",
+              "detail": "Therm-a-Rest NeoAir",
+              "oz": 16.3
+            },
+            {
+              "name": "Pad pump",
+              "detail": "Flextail Zero",
+              "oz": 1.2
+            },
+            {
+              "name": "Quilt — layering",
+              "detail": "UGQ Quillow",
+              "oz": 12
+            },
+            {
+              "name": "Quilt — primary",
+              "detail": "UGQ Bandit 20°",
+              "oz": 22.2
+            }
+          ]
+        },
+        {
+          "name": "Pack & odds and ends",
+          "subtotal_oz": 40.22,
+          "items": [
+            {
+              "name": "Backpack",
+              "detail": "KS Ultralight custom",
+              "oz": 24.1
+            },
+            {
+              "name": "Stuff sack",
+              "detail": "Hyperlite 3 L, outer pocket",
+              "oz": 0.8
+            },
+            {
+              "name": "Carabiner",
+              "detail": "for water bag",
+              "oz": 0.8
+            },
+            {
+              "name": "Head net",
+              "detail": "Ben's",
+              "oz": 0.71
+            },
+            {
+              "name": "Knife",
+              "detail": "Renegade Outdoor Ultra Fire",
+              "oz": 0.67
+            },
+            {
+              "name": "Battery & cord",
+              "detail": "Anker 10,000 mAh + cable",
+              "oz": 7
+            },
+            {
+              "name": "Headphones",
+              "detail": "Apple AirPods",
+              "oz": 1.64
+            },
+            {
+              "name": "Headlamp",
+              "detail": "Nitecore NU25",
+              "oz": 1.2
+            },
+            {
+              "name": "Seat pad",
+              "detail": "Gossamer Gear ⅛\"",
+              "oz": 3.3
+            }
+          ]
+        },
+        {
+          "name": "Worn on day one",
+          "note": "Not counted in pack weight — listed because it changes the grand total, and because new hikers routinely forget to account for it.",
+          "worn": true,
+          "subtotal_oz": 48.95,
+          "items": [
+            {
+              "name": "L/S shirt — hiking",
+              "detail": "Smartwool Merino 150g, gray, M",
+              "oz": 6.4
+            },
+            {
+              "name": "Shorts",
+              "detail": "Vuori Agility, gray",
+              "oz": 6.4
+            },
+            {
+              "name": "Underwear",
+              "detail": "ExOfficio",
+              "oz": 1.9
+            },
+            {
+              "name": "Socks",
+              "detail": "DeFeet Wool L / Darn Tough ¼ M",
+              "oz": 1.7
+            },
+            {
+              "name": "Shoes",
+              "detail": "Brooks Cascadia 16",
+              "oz": 23.6
+            },
+            {
+              "name": "Cap",
+              "detail": "Nike Dri-FIT low profile",
+              "oz": 3
+            },
+            {
+              "name": "Trekking pole",
+              "detail": "Black Diamond Distance Z Carbon 120 cm (one)",
+              "oz": 3.35
+            },
+            {
+              "name": "Sunglasses",
+              "detail": "Shady Rays polarized + Cablz strap",
+              "oz": 2
+            },
+            {
+              "name": "Headband",
+              "detail": "½ Buff, UV",
+              "oz": 0.6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "season-one",
+      "label": "Season one",
+      "heading": "Get out this year, then find out what you hate",
+      "blurb": "Heavy but honest. Nothing here will fail on you, and nothing here is precious. The premise: spend the least you can to get three safe nights out, then upgrade the two or three items that actually bothered you. Most people discover their real preferences on trip three, not in a store.",
+      "priced": true,
+      "tallies": [
+        {
+          "label": "Base weight",
+          "metric": "base_lb",
+          "unit": "lb"
+        },
+        {
+          "label": "Total spend",
+          "metric": "spend_usd"
+        },
+        {
+          "label": "Big Three share",
+          "metric": "big_three_usd_pct"
+        },
+        {
+          "label": "Big Three weight",
+          "metric": "big_three_oz_pct"
+        }
+      ],
+      "categories": [
+        {
+          "name": "The Big Three",
+          "big_three": true,
+          "subtotal_oz": 205,
+          "subtotal_usd": 679,
+          "items": [
+            {
+              "name": "REI Co-op Trailmade 2 tent",
+              "detail": "freestanding, includes footprint",
+              "oz": 74,
+              "usd": 200
+            },
+            {
+              "name": "REI Co-op Trailmade 60 pack",
+              "oz": 62,
+              "usd": 179
+            },
+            {
+              "name": "Kelty Cosmic Down 20 bag",
+              "detail": "accurate rating, silky liner",
+              "oz": 44,
+              "usd": 200
+            },
+            {
+              "name": "REI Co-op Traverse insulated pad",
+              "oz": 25,
+              "usd": 100
+            }
+          ]
+        },
+        {
+          "name": "Kitchen & water",
+          "subtotal_oz": 14.4,
+          "subtotal_usd": 120,
+          "items": [
+            {
+              "name": "Soto Amicus stove",
+              "oz": 2.6,
+              "usd": 50
+            },
+            {
+              "name": "Aluminium 750 ml pot",
+              "oz": 7,
+              "usd": 25
+            },
+            {
+              "name": "Plastic spork",
+              "oz": 0.5,
+              "usd": 5
+            },
+            {
+              "name": "LifeStraw Peak Solo filter",
+              "oz": 2,
+              "usd": 35
+            },
+            {
+              "name": "2 × Smartwater bottles",
+              "oz": 2,
+              "usd": 3
+            },
+            {
+              "name": "BIC Mini lighter",
+              "oz": 0.3,
+              "usd": 2
+            }
+          ]
+        },
+        {
+          "name": "Layers",
+          "subtotal_oz": 55.4,
+          "subtotal_usd": 310,
+          "items": [
+            {
+              "name": "Columbia Watertight II rain jacket",
+              "oz": 12,
+              "usd": 60
+            },
+            {
+              "name": "REI Co-op 650 down jacket",
+              "oz": 13,
+              "usd": 100
+            },
+            {
+              "name": "100-weight fleece",
+              "detail": "any brand",
+              "oz": 12,
+              "usd": 30
+            },
+            {
+              "name": "Baselayer top + bottom",
+              "detail": "synthetic is fine",
+              "oz": 11,
+              "usd": 60
+            },
+            {
+              "name": "Beanie + liner gloves",
+              "oz": 4,
+              "usd": 30
+            },
+            {
+              "name": "2 pairs wool socks",
+              "oz": 3.4,
+              "usd": 30
+            }
+          ]
+        },
+        {
+          "name": "Odds and ends",
+          "subtotal_oz": 26,
+          "subtotal_usd": 115,
+          "items": [
+            {
+              "name": "Black Diamond Astro headlamp",
+              "oz": 3,
+              "usd": 25
+            },
+            {
+              "name": "Pre-made first aid kit",
+              "oz": 6,
+              "usd": 20
+            },
+            {
+              "name": "Trowel",
+              "oz": 1,
+              "usd": 5
+            },
+            {
+              "name": "Dry bag + 50 ft cord",
+              "detail": "for hanging food",
+              "oz": 4,
+              "usd": 15
+            },
+            {
+              "name": "Toiletries",
+              "oz": 5,
+              "usd": 20
+            },
+            {
+              "name": "Anker battery bank",
+              "oz": 7,
+              "usd": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sweet-spot",
+      "label": "Sweet spot",
+      "heading": "Where the value actually is",
+      "blurb": "This is the tier most experienced hikers would tell you to aim for. Roughly double the budget of season one buys you a five-pound weight cut, gear that lasts a decade, and a base weight about a pound under the field-tested kit at the top of this page. Everything past here costs a lot for a little.",
+      "priced": true,
+      "tallies": [
+        {
+          "label": "Base weight",
+          "metric": "base_lb",
+          "unit": "lb"
+        },
+        {
+          "label": "Total spend",
+          "metric": "spend_usd"
+        },
+        {
+          "label": "Big Three share",
+          "metric": "big_three_usd_pct"
+        },
+        {
+          "label": "Big Three weight",
+          "metric": "big_three_oz_pct"
+        }
+      ],
+      "categories": [
+        {
+          "name": "The Big Three",
+          "big_three": true,
+          "subtotal_oz": 121.6,
+          "subtotal_usd": 1069,
+          "items": [
+            {
+              "name": "Durston X-Mid 2 tent",
+              "detail": "double wall, needs two poles",
+              "oz": 28,
+              "usd": 260
+            },
+            {
+              "name": "REI Co-op Flash 55 pack",
+              "oz": 45,
+              "usd": 199
+            },
+            {
+              "name": "REI Co-op Magma 15 bag",
+              "detail": "21°F ISO comfort — a true 20° bag",
+              "oz": 35.6,
+              "usd": 400
+            },
+            {
+              "name": "Therm-a-Rest NeoAir XLite NXT pad",
+              "detail": "R 4.5",
+              "oz": 13,
+              "usd": 210
+            }
+          ]
+        },
+        {
+          "name": "Kitchen & water",
+          "subtotal_oz": 11.3,
+          "subtotal_usd": 157,
+          "items": [
+            {
+              "name": "MSR PocketRocket 2 stove",
+              "oz": 2.6,
+              "usd": 50
+            },
+            {
+              "name": "Toaks 750 ml titanium pot",
+              "oz": 3.6,
+              "usd": 45
+            },
+            {
+              "name": "Toaks long titanium spoon",
+              "oz": 0.3,
+              "usd": 12
+            },
+            {
+              "name": "Katadyn BeFree 1 L filter",
+              "oz": 2.5,
+              "usd": 45
+            },
+            {
+              "name": "2 × Smartwater bottles",
+              "oz": 2,
+              "usd": 3
+            },
+            {
+              "name": "BIC Mini lighter",
+              "oz": 0.3,
+              "usd": 2
+            }
+          ]
+        },
+        {
+          "name": "Layers",
+          "subtotal_oz": 43.7,
+          "subtotal_usd": 645,
+          "items": [
+            {
+              "name": "Outdoor Research Helium rain jacket",
+              "oz": 6.3,
+              "usd": 160
+            },
+            {
+              "name": "REI Co-op 850 down hoodie",
+              "oz": 11,
+              "usd": 180
+            },
+            {
+              "name": "Grid fleece hoodie",
+              "oz": 7,
+              "usd": 80
+            },
+            {
+              "name": "Merino 150 baselayer top + bottom",
+              "oz": 12,
+              "usd": 130
+            },
+            {
+              "name": "Beanie + liner gloves",
+              "oz": 4,
+              "usd": 45
+            },
+            {
+              "name": "2 pairs Darn Tough socks",
+              "oz": 3.4,
+              "usd": 50
+            }
+          ]
+        },
+        {
+          "name": "Odds and ends",
+          "subtotal_oz": 45.3,
+          "subtotal_usd": 375,
+          "items": [
+            {
+              "name": "Nitecore NU25 headlamp",
+              "oz": 1.2,
+              "usd": 40
+            },
+            {
+              "name": "Black Diamond Trail poles",
+              "detail": "pair — the tent needs them",
+              "oz": 18,
+              "usd": 100
+            },
+            {
+              "name": "Inflatable pillow",
+              "oz": 2.5,
+              "usd": 45
+            },
+            {
+              "name": "First aid + repair kit",
+              "oz": 4,
+              "usd": 35
+            },
+            {
+              "name": "Ursack Major",
+              "detail": "no hanging, no canister",
+              "oz": 7.6,
+              "usd": 100
+            },
+            {
+              "name": "Trowel + toiletries",
+              "oz": 5,
+              "usd": 25
+            },
+            {
+              "name": "Anker 10k battery + cord",
+              "oz": 7,
+              "usd": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buy-once",
+      "label": "Buy once",
+      "heading": "Diminishing returns, bought deliberately",
+      "blurb": "Worth being blunt: this kit costs about $2,000 more than the sweet spot and saves about two and a third pounds. That is a real trade for someone doing thirty nights a year, and a poor one for someone doing four. What it does buy beyond weight is longevity, warranty, and repairability — a Feathered Friends bag can be re-lofted for the cost of shipping, decades in.",
+      "priced": true,
+      "tallies": [
+        {
+          "label": "Base weight",
+          "metric": "base_lb",
+          "unit": "lb"
+        },
+        {
+          "label": "Total spend",
+          "metric": "spend_usd"
+        },
+        {
+          "label": "Big Three share",
+          "metric": "big_three_usd_pct"
+        },
+        {
+          "label": "Big Three weight",
+          "metric": "big_three_oz_pct"
+        }
+      ],
+      "categories": [
+        {
+          "name": "The Big Three",
+          "big_three": true,
+          "subtotal_oz": 92.5,
+          "subtotal_usd": 2009,
+          "items": [
+            {
+              "name": "Durston X-Mid Pro 2 tent",
+              "detail": "Dyneema, needs two poles",
+              "oz": 19,
+              "usd": 700
+            },
+            {
+              "name": "Hyperlite Southwest 55 pack",
+              "oz": 32,
+              "usd": 400
+            },
+            {
+              "name": "Feathered Friends Swallow UL 20 bag",
+              "detail": "950+ fill, re-loftable for life",
+              "oz": 26,
+              "usd": 659
+            },
+            {
+              "name": "Therm-a-Rest NeoAir XTherm NXT pad",
+              "detail": "R 7.3",
+              "oz": 15.5,
+              "usd": 250
+            }
+          ]
+        },
+        {
+          "name": "Kitchen & water",
+          "subtotal_oz": 12.9,
+          "subtotal_usd": 205,
+          "items": [
+            {
+              "name": "Soto WindMaster stove",
+              "oz": 3,
+              "usd": 75
+            },
+            {
+              "name": "Toaks 550 ml titanium pot",
+              "oz": 2.6,
+              "usd": 40
+            },
+            {
+              "name": "Toaks long titanium spoon",
+              "oz": 0.3,
+              "usd": 12
+            },
+            {
+              "name": "Katadyn BeFree + CNOC Vecto 2 L",
+              "oz": 5,
+              "usd": 75
+            },
+            {
+              "name": "2 × Smartwater bottles",
+              "oz": 2,
+              "usd": 3
+            }
+          ]
+        },
+        {
+          "name": "Layers",
+          "subtotal_oz": 39.2,
+          "subtotal_usd": 1120,
+          "items": [
+            {
+              "name": "Montbell Versalite rain jacket",
+              "oz": 6.4,
+              "usd": 310
+            },
+            {
+              "name": "Feathered Friends Eos down hoody",
+              "oz": 9.5,
+              "usd": 400
+            },
+            {
+              "name": "Senchi Alpha 90 hoodie",
+              "oz": 4.9,
+              "usd": 130
+            },
+            {
+              "name": "Merino 150 baselayer top + bottom",
+              "oz": 12,
+              "usd": 150
+            },
+            {
+              "name": "Down beanie + Alpha gloves",
+              "oz": 3,
+              "usd": 80
+            },
+            {
+              "name": "2 pairs Darn Tough socks",
+              "oz": 3.4,
+              "usd": 50
+            }
+          ]
+        },
+        {
+          "name": "Odds and ends",
+          "subtotal_oz": 40.1,
+          "subtotal_usd": 890,
+          "items": [
+            {
+              "name": "Nitecore NU25 headlamp",
+              "oz": 1.2,
+              "usd": 40
+            },
+            {
+              "name": "BD Distance Z Carbon poles",
+              "detail": "pair",
+              "oz": 12,
+              "usd": 180
+            },
+            {
+              "name": "Zenbivy pillow",
+              "oz": 2.5,
+              "usd": 50
+            },
+            {
+              "name": "Garmin inReach Mini 2",
+              "detail": "the item you hope never matters",
+              "oz": 3.5,
+              "usd": 400
+            },
+            {
+              "name": "Ursack Major",
+              "oz": 7.6,
+              "usd": 100
+            },
+            {
+              "name": "First aid + repair + toiletries",
+              "oz": 8,
+              "usd": 60
+            },
+            {
+              "name": "Nitecore NB10000 battery",
+              "oz": 5.3,
+              "usd": 60
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "primer": [
+    {
+      "h": "Base weight is the number people mean",
+      "p": [
+        "Base weight is everything in your pack <strong>minus food, water, and fuel</strong> — the stuff that doesn’t shrink as you hike. It’s the only figure that lets two kits be compared honestly.",
+        "Under 20 lb is comfortable. Under 15 is light. Under 10 takes real money or real discipline."
+      ]
+    },
+    {
+      "h": "A 20-degree bag is not comfortable at 20°",
+      "p": [
+        "Most bags are labeled with their <strong>lower limit</strong> — the point a warm sleeper survives, not sleeps. The <strong>comfort rating</strong> is usually 8–10° warmer.",
+        "If you want to actually sleep well at 30°F, shop 20°F-rated. Read the ISO comfort number, not the name on the stuff sack."
+      ]
+    },
+    {
+      "h": "Your pad matters as much as your bag",
+      "p": [
+        "Cold comes up from the ground, and down crushes flat underneath you where it can’t insulate. A warm bag on a summer pad still sleeps cold.",
+        "For alpine nights near freezing you want <strong>R-value 4.5 or better</strong>. Below about R 2.5 is a summer-only pad, whatever the bag says."
+      ]
+    },
+    {
+      "h": "The big three own the budget",
+      "p": [
+        "Shelter, pack, and sleep system are <strong>half to two-thirds of your pack weight and about half your budget</strong> — check the Big Three figures on each tab above. Everything else is rounding.",
+        "Spend here, in this order: sleep system first (it’s the safety item and fit matters most), then shelter, then pack — buy the pack last, once you know what volume you actually need.",
+        "<strong>Get the pack fitted before you buy it.</strong> Packs are sized by torso length, not by height, and a 60 L that doesn’t fit your back carries worse than a 45 L that does. REI will measure your torso and load a pack with sandbags to walk around in, free and with no purchase. Do that before ordering anything — it’s the one item here you shouldn’t buy sight-unseen."
+      ]
+    },
+    {
+      "h": "Don’t buy it all at once",
+      "p": [
+        "Rent the tent. Borrow the pack. Buy the sleep system. Go out for one night close to home and find out what you actually hate before you commit.",
+        "Wait for the sales — <strong>20% off one full-price item runs a few times a year</strong> and it’s worth timing your most expensive purchase around it."
+      ]
+    },
+    {
+      "h": "Food: about 1.5 to 2 lb per day",
+      "p": [
+        "Aim for <strong>120+ calories per ounce</strong> so you’re carrying energy, not packaging. Roughly 2,500–3,500 kcal a day on big-elevation days.",
+        "Weigh and bag every day separately at home. It’s the only way to know what you’re carrying, and it stops you from hauling four days of food on a three-day trip."
+      ]
+    }
+  ],
+  "regulations": {
+    "title": "What the wilderness requires",
+    "intro": "Two of these change what you pack. The campfire rule is why there is a stove and a fuel canister on every list here and no fire kit on any of them.",
+    "points": [
+      "<strong>Permit:</strong> free self-issue registration form for overnight trips, available at wilderness trailheads. Nothing to reserve, nothing to pay.",
+      "<strong>Group limit 15.</strong> Not a constraint for a party of three.",
+      "<strong>No campfires</strong> above 11,000 ft, within ¼ mile of a lake, or within 100 ft of a stream or trail. Every camp on this route is lakeside, so treat it as stove-only and carry the fuel.",
+      "<strong>Camp 100 ft from water and trails.</strong> Worth knowing before you commit to a pad footprint — the flat ground right at the shoreline is off limits.",
+      "<strong>Dogs on a leash under six feet.</strong>"
+    ],
+    "outro": "Separately from the permanent rules above: Stage 2 fire restrictions were in force forest-wide as of <strong>July 29, 2026</strong>, with Very High danger on the Dillon district. That is a current status, not a signed order covering late August — re-check before you go. The campfire prohibition near lakes is permanent and applies either way."
+  },
+  "footnotes": [
+    "Weights for the field-tested kit are as recorded on a kitchen scale. Weights and prices for the three starter kits are ballpark figures as of mid-2026, gathered to make the tiers comparable — treat them as planning estimates, not quotes, and check current pricing before buying. Substitutions are expected; the point is the shape of each kit, not the specific SKUs.",
+    "Prices were not re-checked against live retailer listings for this page. Anything marked as a starter-kit price is an estimate and will move."
+  ],
+  "researched": "2026-07-31",
+  "footer": {
+    "lines": [
+      "Dillon Ranger District, White River National Forest · (970) 468-5400",
+      "Companion trip brief: Cataract and Eaglesmere Lakes, August 24–27, 2026"
+    ],
+    "open_questions": [
+      "The three starter-kit tiers were not priced against live retailer listings for this page. Every dollar figure in them is a mid-2026 ballpark chosen to make the tiers comparable, and several will already be stale. Price the specific items before buying anything.",
+      "The field-tested weights are kitchen-scale readings of one person’s kit, not manufacturer specs, and none of them were cross-checked against a spec sheet for this page. Treat them as accurate for this pack and indicative for yours.",
+      "The 15.01 lb base weight subtracts food, water and fuel. The source spreadsheet headlines 14.31 lb because it also subtracts the food bag’s containers — same pack, different convention. Worth checking which one any number you compare against used."
+    ]
+  }
+}

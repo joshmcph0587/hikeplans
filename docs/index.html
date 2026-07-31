@@ -20,7 +20,10 @@
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--contour);margin:0 0 18px}
   h1{font:700 clamp(42px,9vw,76px)/0.95 var(--serif);margin:0;letter-spacing:-.02em;color:var(--forest)}
+  header.group{padding:56px 0 0}
+  header.group .eyebrow{margin:0}
   ul{list-style:none;padding:0;margin:48px 0 0;border-top:1px solid var(--rule)}
+  header.group + ul{margin-top:18px}
   li a{display:block;padding:22px 4px;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
   li a:hover{background:var(--paper-2)}
   li strong{display:block;font:600 24px/1.2 var(--serif);color:var(--forest)}
@@ -74,6 +77,16 @@
       <strong>Spanish Peaks</strong>
       <span class="when">August 24 to 27, 2026</span>
       <span class="where">Lee Metcalf Wilderness · Bozeman · Montana</span>
+    </a></li>
+  </ul>
+  <header class="group">
+    <p class="eyebrow">Gear lists</p>
+  </header>
+  <ul>
+    <li><a href="gear/eagles-nest-2026-08/">
+      <strong>What's in the pack</strong>
+      <span class="when">Eagles Nest Wilderness · 3 nights · late August</span>
+      <span class="where">Eagles Nest Wilderness · Denver · Colorado</span>
     </a></li>
   </ul>
 </div>

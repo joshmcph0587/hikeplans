@@ -1,26 +1,40 @@
 # hikeplans
 
-Generates single-file HTML backpacking trip briefs. Each brief is a self-contained
-page a group of friends can open on a phone, print, or read at a trailhead with no
-signal. Published via GitHub Pages.
+Generates single-file HTML backpacking pages. Each one is self-contained — a page a
+group of friends can open on a phone, print, or read at a trailhead with no signal.
+Published via GitHub Pages.
 
-Reference implementation: `docs/spanish-peaks-2026-08/index.html`. That file is the
-design target. When in doubt about layout, tone, or structure, match it.
+Two page types, both authored as JSON and rendered through a template:
+
+- **Trip brief** — one trip: route, itinerary, costs, hazards. Most of this file.
+- **Gear list** — one itemised kit plus priced starter kits. See *Gear pages* below.
+
+Reference implementation: `docs/spanish-peaks-2026-08/index.html` for briefs,
+`reference/gear-design-target.html` for gear pages. When in doubt about layout, tone,
+or structure, match them.
 
 ## Layout
 
 ```javascript
 CLAUDE.md                     this file
 build.js                      zero-dependency renderer, Node 18+
-template/brief.html           the HTML template
+template/brief.html           the trip-brief template
+template/gear.html            the gear-list template
 trips/<slug>/trip.json        one folder per trip; trip.json is the only thing the build reads
+gear/<slug>.json              one gear list per file (gear/<slug>/gear.json also works)
+reference/                    committed design targets; never served
 docs/                         build output; GitHub Pages serves from here
-docs/index.html               generated index of all trips
+docs/index.html               generated index of trips and gear lists
 docs/<slug>/index.html        generated brief
+docs/gear/<slug>/index.html   generated gear list
 ```
 
 Build: `node build.js` regenerates everything in `docs/`. No npm install, no
 dependencies, no framework. Keep it that way.
+
+Note that the build **writes** `docs/` but never cleans it. A hand-placed file there
+does not get clobbered — it survives and silently rots out of sync with the template,
+which is worse. Author JSON; never hand-place HTML in `docs/`.
 
 ## Workflow for a new brief
 
@@ -230,3 +244,54 @@ waypoint), coordinate formatting in the waypoints table, the cost totals
 NWS point-forecast link and live-fetch coordinate (from the first located
 trail waypoint). If the template needs
 something the JSON doesn't carry, propose a field — don't hardcode.
+
+## Gear pages
+
+A gear list is a **sibling to a brief, not a section inside one** — the starter-kit
+half is meant to be shared standalone. `gear/<slug>.json` renders through
+`template/gear.html` to `docs/gear/<slug>/index.html`, and shows up in a *Gear lists*
+group on the index. Canonical example: `gear/eagles-nest-2026-08.json`.
+
+**Never store a total.** Every displayed figure — base weight, spend, Big Three share,
+line-item counts, the ridgeline peaks — is derived from the items. `subtotal_oz` and
+`subtotal_usd` on a category are **checksums against the source spreadsheet**: the
+build asserts them and fails loudly on a mismatch, and never renders them. That is
+what stops the page disagreeing with itself.
+
+Figures reach the page through a `metric` name, not a literal. `stats[]` and
+`kits[].tallies[]` each carry `{label, metric, unit?}`; the suffix picks the format
+(`_lb` → two decimals, `_usd` → `$1,234`, `_pct` → `55%`). Available metrics:
+`base_lb`, `carried_lb`, `carried_worn_lb`, `pack_no_water_lb`, `worn_lb`,
+`sheet_base_lb`, `spend_usd`, `big_three_usd_pct`, `big_three_oz_pct`, `items`, plus
+`field_items` and `all_items` on the hero stats. Adding a figure means adding a metric,
+never typing a number into the JSON.
+
+Item and category flags that change arithmetic:
+
+- `consumable: "food" | "water" | "fuel"` — comes out of base weight. Tagged rows get a
+  badge in the table and a legend, because a base weight the reader can't reconstruct
+  from the visible rows is just an assertion.
+- `container: true` — food-bag containers. They stay in base weight (they come home at
+  full weight), but flagging them makes `sheet_base_lb` derivable for a source
+  spreadsheet that subtracts them.
+- `worn: true` on a category — excluded from pack weight entirely.
+- `big_three: true` on a category — drives the Big Three tallies. Don't rely on
+  position.
+
+`ridgeline` affects the diagram only; the tables below stay granular. `merge` collapses
+categories into one peak, `labels` shortens names so eight peaks fit the axis, and both
+**fail the build on a name that matches no category** — a typo there would silently
+redraw the diagram. `total_label` supplies the words; the build supplies the number.
+
+The page carries **no JavaScript and no network requests at all** — a stronger
+guarantee than a brief, which still loads Leaflet. The kit switcher is four radio
+inputs and CSS sibling selectors (`autocomplete="off"`, or browsers reopen the page on
+whichever starter kit was viewed last). Print shows all four kits and hides the tabs.
+Keep it that way: if a gear page ever needs a script, the content it renders belongs in
+`build.js` instead.
+
+Every numeric claim in gear prose gets checked against the items before it ships.
+Several inherited from the design target did not survive that check — a "60% of weight,
+70% of cost" Big Three claim the kits contradict, a "within an ounce or two" comparison
+that was 18 oz, a food-per-day figure the field-tested kit misses by half. Grep the
+data, fix the prose, and say so.
