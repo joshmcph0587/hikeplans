@@ -31,7 +31,15 @@
   .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
     clip-path:inset(50%);white-space:nowrap}
 
+  .topnav{display:flex;gap:22px;padding:3px 0 8px;border-bottom:1px solid var(--rule)}
+  .topnav a{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-2);text-decoration:none;
+    padding:13px 2px 5px;border-bottom:2px solid transparent}
+  .topnav a:hover{color:var(--forest)}
+  .topnav a[aria-current]{color:var(--forest);border-bottom-color:var(--forest)}
+
   header{padding:56px 0 0}
+  .topnav + header{padding-top:34px}
   .eyebrow{
     font-family:var(--mono);font-size:12px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--contour);margin:0 0 4px
@@ -171,7 +179,7 @@
   @media print{
     body{background:#fff}
     .ridge,.cat,.alert,.primer article,.panel-intro{break-inside:avoid}
-    .tabs,.kitin{display:none}
+    .tabs,.kitin,.topnav{display:none}
     .panel{display:block!important}
   }
 
@@ -196,6 +204,11 @@
 <body>
 
 <div class="sheet">
+
+<nav class="topnav" aria-label="Sections">
+  <a href="../../#plans">Plans</a>
+  <a href="../../#gear" aria-current="page">Gear</a>
+</nav>
 
 <header>
   <p class="eyebrow">Eagles Nest Wilderness · Denver · Colorado</p>

@@ -24,6 +24,17 @@
   header.group .eyebrow{margin:0}
   ul{list-style:none;padding:0;margin:48px 0 0;border-top:1px solid var(--rule)}
   header.group + ul{margin-top:18px}
+  .topnav{display:flex;gap:22px;padding:3px 0 8px;border-bottom:1px solid var(--rule)}
+  .topnav a{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-2);text-decoration:none;
+    padding:13px 2px 5px;border-bottom:2px solid transparent}
+  .topnav a:hover{color:var(--forest)}
+  .topnav a[aria-current]{color:var(--forest);border-bottom-color:var(--forest)}
+  .topnav + header{padding-top:34px}
+  /* #plans is already at the top of the page — a margin larger than its offset
+     means the jump doesn't scroll at all, so the nav stays visible. */
+  #plans{scroll-margin-top:96px}
+  #gear{scroll-margin-top:24px}
   li a{display:block;padding:22px 4px;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
   li a:hover{background:var(--paper-2)}
   li strong{display:block;font:600 24px/1.2 var(--serif);color:var(--forest)}
@@ -33,7 +44,11 @@
 </head>
 <body>
 <div class="sheet">
-  <header>
+  <nav class="topnav" aria-label="Sections">
+  <a href="#plans">Plans</a>
+  <a href="#gear">Gear</a>
+  </nav>
+  <header id="plans">
     <p class="eyebrow">Trip briefs</p>
     <h1>Hike<br>plans</h1>
   </header>
@@ -79,7 +94,7 @@
       <span class="where">Lee Metcalf Wilderness · Bozeman · Montana</span>
     </a></li>
   </ul>
-  <header class="group">
+  <header class="group" id="gear">
     <p class="eyebrow">Gear lists</p>
   </header>
   <ul>

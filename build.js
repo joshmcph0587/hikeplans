@@ -399,6 +399,21 @@ function beforeColsHtml(items) {
     .join('\n');
 }
 
+// Site nav. Both links land on the index, which carries a group per page type —
+// `prefix` is the hop back up to docs/ and depends on how deep the page sits.
+// The Gear link is omitted entirely when there are no gear pages, rather than
+// pointing at an anchor that isn't there.
+function navHtml(active, prefix, hasGear) {
+  const items = [{ key: 'plans', label: 'Plans' }];
+  if (hasGear) items.push({ key: 'gear', label: 'Gear' });
+  return items
+    .map((i) => {
+      const current = i.key === active ? ' aria-current="page"' : '';
+      return `  <a href="${escAttr(prefix + '#' + i.key)}"${current}>${esc(i.label)}</a>`;
+    })
+    .join('\n');
+}
+
 function footerHtml(f, researched) {
   const lines = (f.lines || []).slice();
   if (researched) lines.push(`Researched ${researched}`);
@@ -771,6 +786,7 @@ function renderGear(template, gear, ctx) {
   const values = {
     meta_description: escAttr(gearMetaDescription(gear, heroMetrics)),
     title_tag: esc(gearTitleTag(gear)),
+    nav: navHtml('gear', '../../', true),
     eyebrow: esc(gear.eyebrow),
     eyebrow_2: esc(gear.eyebrow_2 || ''),
     // First line in forest, every line after it in the accent colour.
@@ -820,7 +836,7 @@ function renderGear(template, gear, ctx) {
 // Assembly
 // ---------------------------------------------------------------------------
 
-function render(template, trip, ctx) {
+function render(template, trip, ctx, hasGear) {
   for (const key of ['place', 'eyebrow', 'title', 'dates', 'thesis', 'facts', 'profile', 'why', 'days', 'map', 'route', 'costs', 'hazard', 'weather', 'before', 'booking', 'footer']) {
     need(trip, key, ctx);
   }
@@ -846,6 +862,7 @@ function render(template, trip, ctx) {
   const values = {
     meta_description: escAttr(metaDescription(trip)),
     title_tag: esc(titleTag(trip)),
+    nav: navHtml('plans', '../', hasGear),
     eyebrow: esc(trip.eyebrow),
     title_h1: trip.title.map(esc).join('<br>'),
     thesis: trip.thesis,
@@ -901,7 +918,7 @@ function indexHtml(trips, gearPages) {
   // starter-kit half is meant to be shared on its own.
   const gearGroup = gearPages.length
     ? `
-  <header class="group">
+  <header class="group" id="gear">
     <p class="eyebrow">Gear lists</p>
   </header>
   <ul>
@@ -944,6 +961,17 @@ ${gearPages
   header.group .eyebrow{margin:0}
   ul{list-style:none;padding:0;margin:48px 0 0;border-top:1px solid var(--rule)}
   header.group + ul{margin-top:18px}
+  .topnav{display:flex;gap:22px;padding:3px 0 8px;border-bottom:1px solid var(--rule)}
+  .topnav a{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-2);text-decoration:none;
+    padding:13px 2px 5px;border-bottom:2px solid transparent}
+  .topnav a:hover{color:var(--forest)}
+  .topnav a[aria-current]{color:var(--forest);border-bottom-color:var(--forest)}
+  .topnav + header{padding-top:34px}
+  /* #plans is already at the top of the page — a margin larger than its offset
+     means the jump doesn't scroll at all, so the nav stays visible. */
+  #plans{scroll-margin-top:96px}
+  #gear{scroll-margin-top:24px}
   li a{display:block;padding:22px 4px;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
   li a:hover{background:var(--paper-2)}
   li strong{display:block;font:600 24px/1.2 var(--serif);color:var(--forest)}
@@ -953,7 +981,10 @@ ${gearPages
 </head>
 <body>
 <div class="sheet">
-  <header>
+  <nav class="topnav" aria-label="Sections">
+${navHtml(null, '', gearPages.length > 0)}
+  </nav>
+  <header id="plans">
     <p class="eyebrow">Trip briefs</p>
     <h1>Hike<br>plans</h1>
   </header>
@@ -1007,10 +1038,16 @@ function main() {
   const found = discover(TRIPS_DIR, 'trips', 'trip.json');
   if (!found.length) fail('no trips found — expected trips/<slug>/trip.json');
 
+  // Gear lists are a sibling page type, not a section of a brief. Discovered
+  // before anything renders, because the nav on every page needs to know
+  // whether a Gear link has somewhere to point.
+  const gearFound = discover(GEAR_DIR, 'gear', 'gear.json');
+  const hasGear = gearFound.length > 0;
+
   const trips = [];
   for (const { slug, file, ctx } of found) {
     const trip = readJson(file, ctx);
-    const html = render(template, trip, ctx);
+    const html = render(template, trip, ctx, hasGear);
     const outDir = path.join(DOCS_DIR, slug);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html);
@@ -1018,10 +1055,8 @@ function main() {
     trips.push({ slug, trip });
   }
 
-  // Gear lists are a sibling page type, not a section of a brief.
-  const gearFound = discover(GEAR_DIR, 'gear', 'gear.json');
   const gearPages = [];
-  if (gearFound.length) {
+  if (hasGear) {
     let gearTemplate;
     try {
       gearTemplate = fs.readFileSync(GEAR_TEMPLATE_PATH, 'utf8');
